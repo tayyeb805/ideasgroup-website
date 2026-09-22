@@ -1,0 +1,3498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDEAS Group Builders & Developers | Mall, Apartments & Offices — Crown of B-17, Islamabad</title>
+  <meta name="description"
+    content="Established in 1995, IDEAS Group Builders & Developers presents IDEAS One & IDEAS Tower in Sector B-17, Islamabad. Mall, commercial shops, food court, corporate offices, and luxury apartments.">
+  <meta name="keywords"
+    content="Ideas Group, Ideas Group Builders and Developers, Ideas One, Ideas Tower, B-17 Islamabad, Commercial Shops, Apartments B-17, High Rise Construction Islamabad">
+  <meta property="og:title" content="IDEAS Group Builders & Developers — Crown of B-17, Islamabad">
+  <meta property="og:description"
+    content="Mall | Apartments | Offices — Crown of B-17, Islamabad. CDA approved project with direct G.T Road access.">
+  <meta property="og:url" content="https://www.ideasgroup.pk">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="images/brand/favicon.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET (IDEAS GROUP LUXURY NAVY & CHAMPAGNE GOLD)
+       ========================================================================== */
+    :root {
+      --navy-darkest: #040919;
+      --navy-dark: #07122b;
+      --navy-deep: #0b1a3d;
+      --navy-card: #0f2452;
+      --navy-surface: #142e66;
+      --navy-border: rgba(212, 168, 83, 0.22);
+
+      --gold-primary: #d4a853;
+      --gold-light: #f4d38c;
+      --gold-dark: #aa8131;
+      --gold-glow: rgba(212, 168, 83, 0.35);
+      --gold-gradient: linear-gradient(135deg, #d4a853 0%, #f7dfa5 50%, #c49640 100%);
+
+      --text-white: #ffffff;
+      --text-slate: #94a3b8;
+      --text-muted: #64748b;
+      --text-dark: #0f172a;
+
+      --bg-light: #f8fafc;
+      --bg-sky-light: #f0f5fb;
+      --border-light: rgba(11, 26, 61, 0.08);
+
+      --font-heading: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+
+      --container-width: 1240px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--navy-darkest);
+      color: var(--text-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & SECTION HEADINGS
+       ========================================================================== */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .kicker {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 54px auto;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .section-header p {
+      color: var(--text-slate);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .section-header.light-bg h2 {
+      color: var(--navy-darkest);
+    }
+
+    .section-header.light-bg p {
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: var(--navy-darkest);
+      box-shadow: 0 6px 20px var(--gold-glow);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212, 168, 83, 0.55);
+      filter: brightness(1.06);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION (MINIMAL LUXURY: INSPIRATION FROM J7 / HIGH-RISE)
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(180deg, rgba(4, 9, 25, 0.75) 0%, rgba(4, 9, 25, 0.15) 70%, transparent 100%);
+      transition: var(--transition-smooth);
+      padding: 0;
+    }
+
+    .site-header.scrolled {
+      background: rgba(4, 9, 25, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      height: 88px;
+      transition: var(--transition-smooth);
+      width: 100%;
+    }
+
+    .site-header.scrolled .nav-wrap {
+      height: 72px;
+    }
+
+    .nav-left-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-left-links li {
+      white-space: nowrap;
+      display: inline-flex;
+    }
+
+    .nav-left-links a {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      position: relative;
+      padding: 8px 16px;
+      border-radius: 22px;
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      display: inline-block;
+    }
+
+    .nav-left-links a:hover {
+      color: #ffffff !important;
+      background: rgba(212, 168, 83, 0.18) !important;
+      border-color: rgba(212, 168, 83, 0.55) !important;
+      box-shadow: 0 4px 18px rgba(212, 168, 83, 0.3) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .nav-left-links a.active {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.28) 0%, rgba(212, 168, 83, 0.15) 100%) !important;
+      border-color: var(--gold-primary) !important;
+      box-shadow: 0 4px 20px rgba(212, 168, 83, 0.35) !important;
+    }
+
+    .nav-left-links a::after {
+      display: none !important;
+    }
+
+    .nav-center-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 6px 14px;
+      border-radius: 24px;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+
+    .nav-center-brand:hover {
+      background: rgba(212, 168, 83, 0.08);
+      border-color: rgba(212, 168, 83, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .nav-center-brand img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+    }
+
+    .nav-brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-brand-title .brand-pipe {
+      color: var(--gold-primary);
+      font-weight: 300;
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+
+    .nav-right-action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-get-in-touch {
+      padding: 9px 22px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-get-in-touch:hover {
+      background: var(--gold-primary);
+      border-color: var(--gold-primary);
+      color: var(--navy-darkest);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 168, 83, 0.4);
+    }
+
+    .burger-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.35);
+      color: #ffffff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .burger-btn:hover {
+      background: rgba(212, 168, 83, 0.2);
+      border-color: var(--gold-primary);
+    }
+
+    .burger-btn span,
+    .burger-btn span::before,
+    .burger-btn span::after {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #ffffff;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .burger-btn span::before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: 0;
+    }
+
+    .burger-btn span::after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+
+    .burger-btn.active {
+      background: rgba(212, 168, 83, 0.22);
+      border-color: var(--gold-primary);
+    }
+
+    .burger-btn.active span {
+      background: transparent;
+    }
+
+    .burger-btn.active span::before {
+      top: 0;
+      transform: rotate(45deg);
+      background: var(--gold-light);
+    }
+
+    .burger-btn.active span::after {
+      top: 0;
+      transform: rotate(-45deg);
+      background: var(--gold-light);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 360px;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(4, 9, 25, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid var(--navy-border);
+      z-index: 2000;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.9);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(212, 168, 83, 0.22);
+    }
+
+    .drawer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .drawer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.12em;
+      line-height: 1.1;
+    }
+
+    .drawer-brand-sub {
+      font-size: 0.66rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .drawer-close {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: var(--gold-light);
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      line-height: 1;
+      transition: var(--transition-smooth);
+    }
+
+    .drawer-close:hover {
+      background: var(--gold-primary);
+      color: var(--navy-darkest);
+      transform: rotate(90deg);
+    }
+
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      list-style: none;
+      margin: 8px 0;
+    }
+
+    .drawer-links li {
+      width: 100%;
+    }
+
+    .drawer-links a {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.88);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-links a::after {
+      content: '→';
+      font-size: 0.92rem;
+      color: var(--gold-primary);
+      opacity: 0.5;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a:active,
+    .drawer-links a.active {
+      background: rgba(212, 168, 83, 0.14);
+      border-color: rgba(212, 168, 83, 0.35);
+      color: #ffffff;
+      padding-left: 18px;
+    }
+
+    .drawer-links a:hover::after,
+    .drawer-links a.active::after {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .drawer-actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 110px;
+      padding-bottom: 70px;
+      background: radial-gradient(circle at 50% 20%, #0d2250 0%, #040919 75%);
+      overflow: hidden;
+    }
+
+    .hero-media-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      filter: brightness(0.95) contrast(1.05);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 9, 25, 0.50);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      padding: 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 22px;
+      background: rgba(212, 168, 83, 0.12);
+      border: 1px solid rgba(212, 168, 83, 0.45);
+      border-radius: 40px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: #ffffff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-title span {
+      display: block;
+      font-size: 0.46em;
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 10px;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.98rem, 1.25vw, 1.16rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.7;
+      margin-bottom: 34px;
+      max-width: 760px;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .hero-trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-trust-item span.icon {
+      color: var(--gold-primary);
+    }
+
+    /* Minimal Scroll Cue */
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-cue .mouse-wheel {
+      width: 20px;
+      height: 32px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .hero-scroll-cue .mouse-wheel::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 5px;
+      background: var(--gold-primary);
+      border-radius: 2px;
+      animation: wheelRoll 2s infinite;
+    }
+
+    @keyframes wheelRoll {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+      }
+
+      40% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 0;
+        transform: translate(-50%, 12px);
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       SECTION: ABOUT US & METRICS COUNTERS
+       ========================================================================== */
+    .section-about {
+      padding: 100px 0;
+      background: #ffffff;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(4, 9, 25, 0.16);
+      background: var(--navy-dark);
+    }
+
+    .about-visual-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .about-visual-card:hover .about-visual-img {
+      transform: scale(1.04);
+    }
+
+    .about-visual-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(4, 9, 25, 0.9);
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-visual-badge strong {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      line-height: 1;
+    }
+
+    .about-visual-badge span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      color: var(--navy-darkest);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .about-content p.lead-text {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      font-size: 0.98rem;
+      color: #64748b;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(11, 26, 61, 0.12);
+    }
+
+    .metric-item {
+      text-align: left;
+    }
+
+    .metric-number {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy-darkest);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-dark);
+    }
+
+    /* ==========================================================================
+       SECTION: OUR PROJECTS (IDEAS ONE & IDEAS TOWER)
+       ========================================================================== */
+    .section-projects {
+      padding: 110px 0;
+      background: radial-gradient(circle at 50% 10%, #0d2250 0%, #040919 80%);
+      color: #ffffff;
+      position: relative;
+    }
+
+    .project-card-featured {
+      background: rgba(11, 26, 61, 0.7);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 60px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      transition: var(--transition-smooth);
+    }
+
+    .project-card-featured:hover {
+      border-color: rgba(212, 168, 83, 0.6);
+      transform: translateY(-4px);
+    }
+
+    .project-featured-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+    }
+
+    .project-featured-media {
+      position: relative;
+      overflow: hidden;
+      background: #020612;
+      min-height: 480px;
+    }
+
+    .project-featured-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+
+    .project-card-featured:hover .project-featured-img {
+      transform: scale(1.05);
+    }
+
+    .project-badge-tag {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: rgba(4, 9, 25, 0.88);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .project-featured-info {
+      padding: 46px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-featured-info .project-type-pill {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+    }
+
+    .project-featured-info h3 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .project-featured-info p {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+
+    .project-specs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .spec-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+    }
+
+    .spec-box b {
+      display: block;
+      font-size: 0.74rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .spec-box span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Floor Plan Selector for IDEAS Tower */
+    .floor-tabs-wrap {
+      margin: 28px 0;
+    }
+
+    .floor-tab-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .floor-tab-btn {
+      padding: 9px 18px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .floor-tab-btn.active,
+    .floor-tab-btn:hover {
+      background: var(--gold-primary);
+      border-color: var(--gold-primary);
+      color: var(--navy-darkest);
+    }
+
+    .apt-sizes-chips-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+
+    .apt-size-chip {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 168, 83, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .apt-size-chip:hover {
+      background: rgba(212, 168, 83, 0.08);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .apt-size-chip .apt-type {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .apt-size-chip .apt-area {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+
+    @media (max-width: 640px) {
+      .apt-sizes-chips-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+    }
+
+    .floor-plan-preview-box {
+      position: relative;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      max-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: zoom-in;
+      transition: all 0.3s ease;
+    }
+
+    .floor-plan-preview-box.light-bg {
+      background: #ffffff;
+      border-color: rgba(212, 168, 83, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .floor-plan-preview-box.light-bg .floor-plan-img {
+      background: #ffffff;
+    }
+
+    .floor-plan-img {
+      width: 100%;
+      max-height: 440px;
+      object-fit: contain;
+      background: #020612;
+      transition: opacity 0.2s ease;
+      display: block;
+    }
+
+    .floor-plan-preview-box:hover {
+      border-color: var(--gold-primary);
+    }
+
+    .zoom-indicator {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(4, 9, 25, 0.85);
+      border: 1px solid rgba(212, 168, 83, 0.4);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ==========================================================================
+       SECTION: WHY IDEAS ONE & 20+ AMENITIES
+       ========================================================================== */
+    .section-why-one {
+      padding: 100px 0;
+      background: #ffffff;
+      color: var(--text-dark);
+    }
+
+    .why-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+
+    .pillar-card {
+      background: var(--bg-sky-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      transition: var(--transition-smooth);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(11, 26, 61, 0.08);
+      border-color: var(--gold-primary);
+    }
+
+    .pillar-icon {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.35rem;
+      color: var(--navy-darkest);
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .amenities-showcase {
+      background: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      color: #ffffff;
+      border: 1px solid var(--navy-border);
+    }
+
+    .amenities-showcase-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+    }
+
+    .amenities-showcase-header h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .amenities-showcase-header p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .amenity-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: var(--transition-smooth);
+    }
+
+    .amenity-chip:hover {
+      background: rgba(212, 168, 83, 0.15);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .amenity-chip .chip-icon {
+      font-size: 1.4rem;
+    }
+
+    .amenity-chip span {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+
+    /* ==========================================================================
+       SECTION: WHY B-17 & STRATEGIC CONNECTIVITY
+       ========================================================================== */
+    .section-why-b17 {
+      padding: 100px 0;
+      background: radial-gradient(circle at 50% 10%, #081738 0%, #040919 90%);
+      color: #ffffff;
+    }
+
+    .b17-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .b17-stat-card {
+      background: rgba(11, 26, 61, 0.6);
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .b17-stat-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+    }
+
+    .b17-stat-card .b17-val {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .b17-stat-card .b17-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .b17-stat-card p {
+      font-size: 0.84rem;
+      color: var(--text-slate);
+      line-height: 1.6;
+    }
+
+    .connectivity-strip {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .connectivity-strip h4 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 28px;
+      color: var(--gold-light);
+    }
+
+    .connectivity-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .connect-card {
+      background: rgba(11, 26, 61, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 20px 16px;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .connect-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+
+    .connect-card .connect-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .connect-card b {
+      display: block;
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .connect-card span {
+      font-size: 0.82rem;
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SECTION: CONSTRUCTION PROGRESS
+       ========================================================================== */
+    .section-progress {
+      padding: 100px 0;
+      background: #ffffff;
+      color: var(--text-dark);
+    }
+
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 54px;
+    }
+
+    .milestone-card {
+      background: var(--bg-sky-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .milestone-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+    }
+
+    .milestone-step {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .milestone-card h4 {
+      font-size: 1.15rem;
+      color: var(--navy-darkest);
+      margin-bottom: 10px;
+    }
+
+    .milestone-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.65;
+    }
+
+    .site-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .site-photo-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      background: var(--navy-darkest);
+    }
+
+    .site-photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .site-photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .site-photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(4, 9, 25, 0.95) 100%);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       SECTION: FAQS (ACCORDION)
+       ========================================================================== */
+    .section-faqs {
+      padding: 100px 0;
+      background: radial-gradient(circle at 50% 10%, #091a3e 0%, #040919 85%);
+      color: #ffffff;
+    }
+
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(11, 26, 61, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .faq-item.active {
+      border-color: var(--gold-primary);
+      background: rgba(15, 36, 82, 0.8);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 28px;
+      background: none;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .faq-question span.toggle-icon {
+      font-size: 1.3rem;
+      color: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question span.toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 28px;
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+      padding-bottom: 24px;
+    }
+
+    /* ==========================================================================
+       SECTION: CONTACT US & INQUIRY FORM
+       ========================================================================== */
+    .section-contact {
+      padding: 100px 0;
+      background: #ffffff;
+      color: var(--text-dark);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-info-panel {
+      background: var(--navy-darkest);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 20px 45px rgba(4, 9, 25, 0.2);
+    }
+
+    .contact-info-panel h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .contact-info-panel p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .contact-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-detail-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(212, 168, 83, 0.15);
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      color: var(--gold-light);
+    }
+
+    .contact-detail-text b {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-primary);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-text a,
+    .contact-detail-text span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .contact-form-panel {
+      background: var(--bg-sky-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+    }
+
+    .contact-form-panel h3 {
+      font-size: 1.7rem;
+      color: var(--navy-darkest);
+      margin-bottom: 10px;
+    }
+
+    .contact-form-panel p {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--navy-darkest);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--navy-darkest);
+      transition: var(--transition-smooth);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.2);
+    }
+
+    .form-success-msg {
+      display: none;
+      background: #ecfdf5;
+      border: 1px solid #10b981;
+      color: #065f46;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #020612;
+      border-top: 1px solid rgba(212, 168, 83, 0.18);
+      color: #cbd5e1;
+      padding: 80px 0 35px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--gold-light);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: #64748b;
+    }
+
+    .footer-bottom a {
+      color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       SOCIAL MEDIA LINKS & BADGES
+       ========================================================================== */
+    .project-socials-box {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .project-socials-title {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social-badges-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .social-badge svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .social-badge:hover {
+      background: rgba(212, 168, 83, 0.18);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
+    }
+
+    .social-badge.badge-fb:hover {
+      border-color: #1877f2;
+      background: rgba(24, 119, 242, 0.2);
+      color: #ffffff;
+    }
+
+    .social-badge.badge-ig:hover {
+      border-color: #e1306c;
+      background: linear-gradient(135deg, rgba(225, 48, 108, 0.25) 0%, rgba(131, 58, 180, 0.25) 100%);
+      color: #ffffff;
+    }
+
+    .social-badge.badge-tt:hover {
+      border-color: #00f2fe;
+      background: rgba(0, 242, 254, 0.16);
+      color: #ffffff;
+    }
+
+    .social-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      font-size: 0.76rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .social-chip svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .social-chip:hover {
+      background: rgba(212, 168, 83, 0.18);
+      border-color: var(--gold-primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       FLOATING WHATSAPP BUTTON (0340 1111734)
+       ========================================================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      filter: drop-shadow(0 10px 25px rgba(37, 211, 102, 0.45));
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.08);
+      filter: drop-shadow(0 14px 30px rgba(37, 211, 102, 0.65));
+    }
+
+    .whatsapp-icon-circle {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      animation: waPulse 2.2s infinite;
+    }
+
+    @keyframes waPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1140px) {
+      .nav-wrap {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .nav-left-links {
+        display: none;
+      }
+
+      .burger-btn {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .project-featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-pillars-grid,
+      .b17-stats-grid,
+      .milestone-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .connectivity-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile Header & Nav Bar */
+      .nav-wrap {
+        height: 64px;
+        gap: 12px;
+      }
+
+      .site-header.scrolled .nav-wrap {
+        height: 60px;
+      }
+
+      .nav-center-brand {
+        padding: 4px 8px;
+        gap: 8px;
+      }
+
+      .nav-center-brand img {
+        height: 34px;
+      }
+
+      .nav-brand-title {
+        font-size: 1.15rem;
+        letter-spacing: 0.12em;
+      }
+
+      /* Hero Section Mobile Optimization */
+      .hero-section {
+        min-height: auto;
+        padding-top: 86px;
+        padding-bottom: 45px;
+      }
+
+      .hero-badge {
+        font-size: 0.68rem;
+        padding: 6px 14px;
+        margin-bottom: 16px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.85rem, 6.8vw, 2.9rem);
+        letter-spacing: 0.05em;
+        margin-bottom: 14px;
+      }
+
+      .hero-title span {
+        font-size: 0.44em;
+        letter-spacing: 0.22em;
+      }
+
+      .hero-desc {
+        font-size: 0.94rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 0.84rem;
+      }
+
+      .hero-trust-bar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100%;
+        padding-top: 18px;
+      }
+
+      .hero-trust-item {
+        font-size: 0.72rem;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-scroll-cue {
+        display: none;
+      }
+
+      /* Section Spacings & Typography */
+      .section-about,
+      .section-projects,
+      .section-why-one,
+      .section-b17,
+      .section-gallery,
+      .section-construction,
+      .section-faqs,
+      .section-contact {
+        padding: 55px 0;
+      }
+
+      .section-header {
+        margin-bottom: 36px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.65rem, 5vw, 2.2rem);
+      }
+
+      .section-header p {
+        font-size: 0.95rem;
+      }
+
+      /* About & Metrics */
+      .about-visual-img {
+        height: 300px;
+      }
+
+      .about-visual-badge {
+        padding: 12px 16px;
+        bottom: 14px;
+        left: 14px;
+      }
+
+      .about-visual-badge strong {
+        font-size: 1.8rem;
+      }
+
+      .about-content h2 {
+        font-size: 1.7rem;
+      }
+
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 24px;
+        padding-top: 20px;
+      }
+
+      .metric-number {
+        font-size: 1.75rem;
+      }
+
+      .metric-label {
+        font-size: 0.72rem;
+      }
+
+      /* Projects */
+      .project-featured-media {
+        min-height: 260px;
+        max-height: 340px;
+      }
+
+      .project-featured-info {
+        padding: 24px 18px;
+      }
+
+      .project-featured-info h3 {
+        font-size: 1.75rem;
+      }
+
+      .project-specs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .floor-tab-buttons {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .floor-tab-btn {
+        flex-shrink: 0;
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
+
+      /* Grids to 1 column */
+      .why-pillars-grid,
+      .b17-stats-grid,
+      .milestone-grid,
+      .site-gallery-grid,
+      .amenities-grid,
+      .connectivity-grid,
+      .contact-grid,
+      .form-grid-2,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar-card {
+        padding: 26px 20px;
+      }
+
+      .amenities-showcase {
+        padding: 30px 18px;
+      }
+
+      .amenities-showcase-header h3 {
+        font-size: 1.5rem;
+      }
+
+      /* Contact Section */
+      .contact-info-panel,
+      .contact-form-panel {
+        padding: 26px 18px;
+      }
+
+      .contact-form-panel h3 {
+        font-size: 1.45rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
+        min-height: 46px;
+      }
+
+      /* Footer */
+      .site-footer {
+        padding: 50px 0 25px 0;
+      }
+
+      .footer-grid {
+        gap: 28px;
+        margin-bottom: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      /* WhatsApp Floating Button */
+      .whatsapp-float {
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .whatsapp-icon-circle {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      /* Clean 2-Element Header on Mobile: Brand (Left) + Hamburger (Right) */
+      .btn-get-in-touch {
+        display: none !important;
+      }
+
+      .nav-wrap {
+        height: 60px;
+      }
+
+      .site-header.scrolled .nav-wrap {
+        height: 58px;
+      }
+
+      .nav-center-brand {
+        padding: 2px 4px;
+        gap: 7px;
+      }
+
+      .nav-center-brand img {
+        height: 30px;
+      }
+
+      .nav-brand-title {
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+      }
+
+      .nav-brand-title .brand-pipe {
+        font-size: 0.92rem;
+      }
+
+      .burger-btn {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.65rem, 7vw, 2.2rem);
+      }
+
+      .hero-trust-bar {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .project-specs-list {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-box {
+        padding: 10px 14px;
+      }
+
+      .metrics-row {
+        gap: 12px;
+      }
+
+      .metric-number {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       TOP HEADER & NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container" style="max-width: 1400px;">
+      <div class="nav-wrap">
+
+        <!-- Left: Luxury Links -->
+        <ul class="nav-left-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#projects">Developments</a></li>
+          <li><a href="#why-ideas-group">Why IDEAS</a></li>
+          <li><a href="#construction">Construction</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+
+        <!-- Center: Minimal Brand Title -->
+        <a href="#home" class="nav-center-brand" aria-label="IDEAS Group Builders & Developers">
+          <img src="images/brand/logo.png" alt="IDEAS Group Logo">
+          <div class="nav-brand-title">
+            <span>IDEAS</span>
+            <span class="brand-pipe">|</span>
+            <span>GROUP</span>
+          </div>
+        </a>
+
+        <!-- Right: Get in Touch Button -->
+        <div class="nav-right-action">
+          <a href="#contact" class="btn-get-in-touch">Get in Touch</a>
+          <button class="burger-btn" id="burgerBtn" aria-label="Toggle navigation menu">
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="images/brand/logo.png" alt="IDEAS Group" style="height: 38px;">
+        <div class="drawer-brand-text">
+          <span class="drawer-brand-name">IDEAS GROUP</span>
+          <span class="drawer-brand-sub">Builders & Developers</span>
+        </div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#home" class="drawer-nav-item active">Home</a></li>
+      <li><a href="about.html" class="drawer-nav-item">About Us</a></li>
+      <li><a href="#projects" class="drawer-nav-item">Developments</a></li>
+      <li><a href="#why-ideas-group" class="drawer-nav-item">Why IDEAS Group</a></li>
+      <li><a href="#why-b17" class="drawer-nav-item">Why B-17</a></li>
+      <li><a href="#construction" class="drawer-nav-item">Construction Progress</a></li>
+      <li><a href="#faqs" class="drawer-nav-item">FAQs</a></li>
+      <li><a href="#contact" class="drawer-nav-item">Contact Us</a></li>
+    </ul>
+    <div class="drawer-actions">
+      <a href="tel:03305511117" class="btn btn-gold" style="width: 100%;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call 0330-5511117
+      </a>
+      <a href="https://wa.me/923401111734?text=Hello%20IDEAS%20Group%2C%20I%20am%20interested%20in%20your%20projects." target="_blank" rel="noopener noreferrer" class="btn btn-outline drawer-nav-item" style="width: 100%; border-color: rgba(37,211,102,0.6); color: #25d366;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        WhatsApp Inquiry
+      </a>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       HERO SECTION (MINIMAL CINEMATIC OVERLAY AT 50%)
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-media-backdrop">
+      <video class="hero-video" autoplay muted loop playsinline poster="images/one/ideas_one_render.jpg">
+        <source src="final_video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>✦</span> Established 1995 · Builders & Developers <span>✦</span>
+      </div>
+
+      <h1 class="hero-title">
+        IDEAS GROUP
+        <span>Builders & Developers</span>
+      </h1>
+
+      <p class="hero-desc">
+        Shaping Islamabad's skyline with landmark high-rise developments since 1995. Committed to delivering quality
+        developments that offer lasting value, engineering excellence, and premier residential & commercial landmarks.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-gold">
+          <span>Explore Developments</span>
+          <span>→</span>
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+
+      <div class="hero-trust-bar">
+        <div class="hero-trust-item">
+          <span class="icon">✓</span>
+          <span>30+ Years of Excellence</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="icon">✓</span>
+          <span>High-Rise Construction Leaders</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="icon">✓</span>
+          <span>CDA Approved Landmarks</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="icon">✓</span>
+          <span>8,000+ Resident Families</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue">
+      <div class="mouse-wheel"></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ABOUT US SECTION (QUALITY DEVELOPMENTS THAT OFFER LASTING VALUE)
+       ======================================================================== -->
+  <section class="section-about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-visual-card">
+          <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Landmark High-Rise Development"
+            class="about-visual-img">
+          <div class="about-visual-badge">
+            <strong>1995</strong>
+            <span>Established Legacy</span>
+            <span style="color:var(--gold-primary); font-size:0.75rem; text-transform:uppercase;">IDEAS Group Builders &
+              Developers</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="kicker">About IDEAS Group</span>
+          <h2>Quality developments that offer lasting value.</h2>
+          <p class="lead-text">
+            Established in 1995, IDEAS Group Builders & Developers is committed to delivering quality developments that
+            offer lasting value. Following the success of IDEAS Towers—now 90% complete with the ground floor being
+            handed over—the company proudly presents IDEAS One, a landmark mixed-use development in B-17, Islamabad.
+          </p>
+          <p>
+            As a premier construction and real estate development group, we design and execute high-rise icons
+            engineered
+            with absolute structural integrity, contemporary architecture, and strategic location connectivity.
+          </p>
+
+          <!-- Authentic Metrics from ideasgroup.pk -->
+          <div class="metrics-row">
+            <div class="metric-item">
+              <div class="metric-number">1995</div>
+              <div class="metric-label">Established</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-number">236+</div>
+              <div class="metric-label">Commercial Shops</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-number">130+</div>
+              <div class="metric-label">Food Court</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-number">20+</div>
+              <div class="metric-label">Amenities</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="about.html" class="btn btn-gold">
+              <span>Explore History & Team</span>
+              <span>→</span>
+            </a>
+            <a href="#contact" class="btn btn-outline">Inquire With Us</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OUR PROJECTS SECTION (IDEAS ONE & IDEAS TOWER)
+       ======================================================================== -->
+  <section class="section-projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="kicker">Our Projects</span>
+        <h2>Mall, apartments, and offices in one address.</h2>
+        <p>
+          Discover IDEAS Group's landmark developments at the Crown of Sector B-17, Islamabad. Engineering excellence
+          and sustainable architecture crafted for high capital appreciation.
+        </p>
+      </div>
+
+      <!-- FEATURED PROJECT 1: IDEAS ONE -->
+      <article class="project-card-featured" id="ideas-one">
+        <div class="project-featured-grid">
+          <div class="project-featured-media">
+            <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Mixed-Use Development"
+              class="project-featured-img">
+            <span class="project-badge-tag">CDA Approved · Mixed-Use</span>
+          </div>
+
+          <div class="project-featured-info">
+            <span class="project-type-pill">Mixed-Use · Gate 2, Sector B-17, Islamabad</span>
+            <h3>IDEAS ONE</h3>
+            <p>
+              A landmark mixed-use development at Crown of B-17 — mall, apartments, and offices with direct access to
+              Main G.T Road. Bringing 236+ commercial shops, a 130+ food court, corporate offices, and residences from
+              studio (450 sq.ft) to 3-bedroom (2,000 sq.ft) into one prestigious address.
+            </p>
+
+            <div class="project-specs-list">
+              <div class="spec-box">
+                <b>Location</b>
+                <span>Gate 2, B-17 Main G.T Road</span>
+              </div>
+              <div class="spec-box">
+                <b>Commercial Units</b>
+                <span>236+ Shops (153 to 343 sq.ft)</span>
+              </div>
+              <div class="spec-box">
+                <b>Food Court</b>
+                <span>130+ Culinary Outlets</span>
+              </div>
+              <div class="spec-box">
+                <b>Residences</b>
+                <span>Studio to 3-Bed (450 – 2,000 sq.ft)</span>
+              </div>
+              <div class="spec-box">
+                <b>Modern Amenities</b>
+                <span>20+ Luxury Facilities</span>
+              </div>
+              <div class="spec-box">
+                <b>Status</b>
+                <span>80% Basement Complete</span>
+              </div>
+            </div>
+
+            <!-- Apartment Size Highlights (IDEAS ONE) -->
+            <div class="apt-sizes-chips-row">
+              <div class="apt-size-chip">
+                <span class="apt-type">Studio</span>
+                <span class="apt-area">450 Sq.ft</span>
+              </div>
+              <div class="apt-size-chip">
+                <span class="apt-type">1-Bed</span>
+                <span class="apt-area">720 Sq.ft</span>
+              </div>
+              <div class="apt-size-chip">
+                <span class="apt-type">2-Bed</span>
+                <span class="apt-area">1,400 &amp; 1,450 Sq.ft</span>
+              </div>
+              <div class="apt-size-chip">
+                <span class="apt-type">3-Bed</span>
+                <span class="apt-area">2,000 Sq.ft</span>
+              </div>
+            </div>
+
+            <!-- Floor Plan Selector for IDEAS ONE -->
+            <div class="floor-tabs-wrap">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                <p style="font-size:0.8rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; margin:0; letter-spacing:0.08em;">
+                  Explore Apartment Layouts &amp; Sizes:
+                </p>
+                <span id="ideasOneSizeBadge" style="font-size:0.75rem; font-weight:700; color:var(--gold-light); background:rgba(212,168,83,0.14); border:1px solid rgba(212,168,83,0.35); border-radius:14px; padding:3px 12px;">
+                  Gross Area: 450 &amp; 720 Sq.ft
+                </span>
+              </div>
+              <div class="floor-tab-buttons">
+                <button class="floor-tab-btn active" onclick="switchFloorPlan('images/one/ideas_one_studio_1bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 450 &amp; 720 Sq.ft')">
+                  Studio &amp; 1-Bed (450 / 720 SFT)
+                </button>
+                <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_2bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 1,400 &amp; 1,450 Sq.ft')">
+                  2-Bed (1,400 / 1,450 SFT)
+                </button>
+                <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_3bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 2,000 Sq.ft')">
+                  3-Bed Executive (2,000 SFT)
+                </button>
+              </div>
+
+              <a id="floorPlanDisplayOneZoom" href="images/one/ideas_one_studio_1bed.png" target="_blank" rel="noopener noreferrer" class="floor-plan-preview-box light-bg" title="Click to view full layout diagram">
+                <img id="floorPlanDisplayOne" src="images/one/ideas_one_studio_1bed.png" alt="IDEAS ONE Studio &amp; 1-Bed Apartment Layouts" class="floor-plan-img">
+                <span class="zoom-indicator">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  Click to Expand High-Res
+                </span>
+              </a>
+            </div>
+
+            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+              <a href="#contact" class="btn btn-gold">Inquire About IDEAS One</a>
+              <a href="#construction" class="btn btn-outline">View Construction Status</a>
+            </div>
+
+            <!-- IDEAS ONE Official Social Channels -->
+            <div class="project-socials-box">
+              <span class="project-socials-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Connect With IDEAS ONE:
+              </span>
+              <div class="social-badges-wrap">
+                <a href="https://www.facebook.com/crownofb17/" target="_blank" rel="noopener noreferrer" class="social-badge badge-fb" title="IDEAS ONE Facebook">
+                  <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/crownofb17/" target="_blank" rel="noopener noreferrer" class="social-badge badge-ig" title="IDEAS ONE Instagram">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@crownofb17" target="_blank" rel="noopener noreferrer" class="social-badge badge-tt" title="IDEAS ONE TikTok">
+                  <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                  <span>TikTok</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FEATURED PROJECT 2: IDEAS TOWER -->
+      <article class="project-card-featured" id="ideas-tower">
+        <div class="project-featured-grid">
+          <div class="project-featured-media">
+            <img src="images/tower/ideas_tower_night.jpg" alt="IDEAS Tower Elevation at Night"
+              class="project-featured-img">
+            <span class="project-badge-tag">Residential High-Rise · 90% Complete</span>
+          </div>
+
+          <div class="project-featured-info">
+            <span class="project-type-pill">Tower · CDA Sector B-17, Islamabad</span>
+            <h3>IDEAS Tower</h3>
+            <p>
+              Following the success of IDEAS Towers — now 90% complete, with the ground floor being handed over. The
+              residential high-rise sits gracefully in CDA Sector B-17 at Plot 04, Block B, Gate 01, featuring
+              residences
+              ranging from compact one-beds to XL luxury family layouts.
+            </p>
+
+            <div class="project-specs-list">
+              <div class="spec-box">
+                <b>Location</b>
+                <span>Plot 04, Block B, Gate 01, B-17</span>
+              </div>
+              <div class="spec-box">
+                <b>Development Type</b>
+                <span>Luxury Residential High-Rise</span>
+              </div>
+              <div class="spec-box">
+                <b>Current Milestone</b>
+                <span>90% Complete · Ground Floor Handover</span>
+              </div>
+              <div class="spec-box">
+                <b>Floor Types</b>
+                <span>Type A, A1, B, B1, C, XL</span>
+              </div>
+            </div>
+
+            <!-- Floor Plan Selector -->
+            <div class="floor-tabs-wrap">
+              <p
+                style="font-size:0.8rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; margin-bottom:8px;">
+                Explore Floor Layouts:
+              </p>
+              <div class="floor-tab-buttons">
+                <button class="floor-tab-btn active" onclick="switchFloorPlan('images/tower/typea.jpg', this)">Type
+                  A</button>
+                <button class="floor-tab-btn" onclick="switchFloorPlan('images/tower/typeb.jpg', this)">Type B</button>
+                <button class="floor-tab-btn" onclick="switchFloorPlan('images/tower/typec.jpg', this)">Type C</button>
+                <button class="floor-tab-btn" onclick="switchFloorPlan('images/tower/typexl.jpg', this)">Type
+                  XL</button>
+                <button class="floor-tab-btn"
+                  onclick="switchFloorPlan('images/tower/ideas_tower_elevation.jpg', this)">Elevation</button>
+              </div>
+
+              <a id="floorPlanDisplayZoom" href="images/tower/typea.jpg" target="_blank" rel="noopener noreferrer" class="floor-plan-preview-box" title="Click to view full layout diagram">
+                <img id="floorPlanDisplay" src="images/tower/typea.jpg" alt="IDEAS Tower Floor Plan"
+                  class="floor-plan-img">
+                <span class="zoom-indicator">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  Click to Expand
+                </span>
+              </a>
+            </div>
+
+            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+              <a href="#contact" class="btn btn-gold">Inquire About IDEAS Tower</a>
+            </div>
+
+            <!-- IDEAS Tower Official Social Channels -->
+            <div class="project-socials-box">
+              <span class="project-socials-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Connect With IDEAS Tower:
+              </span>
+              <div class="social-badges-wrap">
+                <a href="https://www.instagram.com/ideastowerislamabad/reels/" target="_blank" rel="noopener noreferrer" class="social-badge badge-ig" title="IDEAS Tower Instagram Reels">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span>Instagram Reels</span>
+                </a>
+                <a href="https://www.tiktok.com/@ideastowerb17" target="_blank" rel="noopener noreferrer" class="social-badge badge-tt" title="IDEAS Tower TikTok">
+                  <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                  <span>TikTok</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WHY IDEAS GROUP (PIONEERING HIGH-RISE CONSTRUCTION & 20+ AMENITIES)
+       ======================================================================== -->
+  <section class="section-why-one" id="why-ideas-group">
+    <div class="container">
+      <div class="section-header light-bg">
+        <span class="kicker">Why IDEAS Group</span>
+        <h2>Pioneering High-Rise Construction & Architectural Landmarks</h2>
+        <p>
+          Over 30 years of engineering integrity, CDA-approved master developments, and exceptional investment
+          appreciation.
+        </p>
+      </div>
+
+      <!-- 3 Core Pillars from ideasgroup.pk -->
+      <div class="why-pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🏛️</div>
+          <h3>High-Rise Engineering Excellence</h3>
+          <p>
+            Specialists in modern high-rise RCC structures, intelligent building systems, and sustainable architectural
+            design that delivers enduring structural integrity.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">⚖️</div>
+          <h3>Fiduciary Trust & CDA Approvals</h3>
+          <p>
+            Established in 1995 with a proven delivery track record. Flagship towers 90% complete with ground floor
+            handover
+            underway, 100% CDA approved with verified titles.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">💎</div>
+          <h3>Strategic Locations & 21% YoY Growth</h3>
+          <p>
+            Master developments strategically situated on Main G.T Road at Gate 2, B-17 Islamabad, capturing high rental
+            demand
+            and up to 21% annual property growth.
+          </p>
+        </div>
+      </div>
+
+      <!-- 20+ Amenities Grid from ideasgroup.pk -->
+      <div class="amenities-showcase">
+        <div class="amenities-showcase-header">
+          <h3>20+ Modern Amenities Delivered Across IDEAS Group Developments</h3>
+          <p>Setting new benchmarks for corporate efficiency, retail footfall, and world-class residential luxury.</p>
+        </div>
+
+        <div class="amenities-grid">
+          <div class="amenity-chip">
+            <span class="chip-icon">🛡️</span>
+            <span>24/7 Security with CCTV</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🏢</span>
+            <span>Smart Building Management</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🛗</span>
+            <span>High-Speed Elevators</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🚗</span>
+            <span>Dedicated & Guest Parking</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🍽️</span>
+            <span>Rooftop 360° Restaurant</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🏊</span>
+            <span>Indoor Swimming Pool</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">💆</span>
+            <span>Health Club & Spa</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🌊</span>
+            <span>Scenic Dual Lake Views</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">⚡</span>
+            <span>Uninterrupted Power Backup</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🛍️</span>
+            <span>Modern Escalators & Mall</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🍔</span>
+            <span>130+ Food Court Outlets</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🛠️</span>
+            <span>24/7 On-Site Maintenance</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🎮</span>
+            <span>Indoor Games & Recreation</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🧸</span>
+            <span>Kids Play Area & Day Care</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🏪</span>
+            <span>Departmental Store</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🧯</span>
+            <span>Fire Fighting & Waste Systems</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🪪</span>
+            <span>Smart Card Access Control</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🔌</span>
+            <span>EV Charging Stations</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🤝</span>
+            <span>Executive Community Center</span>
+          </div>
+          <div class="amenity-chip">
+            <span class="chip-icon">🌐</span>
+            <span>High-Speed Fiber Connectivity</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: WHY B-17 & STRATEGIC CONNECTIVITY
+       ======================================================================== -->
+  <section class="section-why-b17" id="why-b17">
+    <div class="container">
+      <div class="section-header">
+        <span class="kicker">Why B-17 Islamabad</span>
+        <h2>Growing community with increasing demand.</h2>
+        <p>
+          Sector B-17 is one of Islamabad's fastest-growing sectors, connecting major motorways, business corridors, and
+          residential communities.
+        </p>
+      </div>
+
+      <!-- 4 Highlight Cards from ideasgroup.pk -->
+      <div class="b17-stats-grid">
+        <div class="b17-stat-card">
+          <div class="b17-val">21%</div>
+          <div class="b17-label">Annual Growth</div>
+          <p>Up to 21% annual property appreciation potential in Multi Gardens B-17 (Source: Zameen Property Index).</p>
+        </div>
+
+        <div class="b17-stat-card">
+          <div class="b17-val">8,000+</div>
+          <div class="b17-label">Families Residing</div>
+          <p>A flourishing community with steadily growing demand for high-end retail, leisure, and quality housing.</p>
+        </div>
+
+        <div class="b17-stat-card">
+          <div class="b17-val">Crown</div>
+          <div class="b17-label">Strategically Connected</div>
+          <p>Direct front access to Main G.T Road at Gate 2, just 1 minute drive from Margalla Avenue.</p>
+        </div>
+
+        <div class="b17-stat-card">
+          <div class="b17-val">ROI</div>
+          <div class="b17-label">Commercial Hub</div>
+          <p>Emerging commercial destination with strong rental yields and solid long-term value preservation.</p>
+        </div>
+      </div>
+
+      <!-- Connectivity Matrix -->
+      <div class="connectivity-strip">
+        <h4>Prime Strategic Connectivity from Gate 2, Sector B-17</h4>
+        <div class="connectivity-grid">
+          <div class="connect-card">
+            <div class="connect-icon">🛣️</div>
+            <b>Margalla Avenue</b>
+            <span>1 Min Drive</span>
+          </div>
+          <div class="connect-card">
+            <div class="connect-icon">🚗</div>
+            <b>Motorway M-1</b>
+            <span>5 Min Drive</span>
+          </div>
+          <div class="connect-card">
+            <div class="connect-icon">🌐</div>
+            <b>CPEC Route</b>
+            <span>5 Min Drive</span>
+          </div>
+          <div class="connect-card">
+            <div class="connect-icon">✈️</div>
+            <b>Islamabad Airport</b>
+            <span>15 Mins Drive</span>
+          </div>
+          <div class="connect-card">
+            <div class="connect-icon">🏔️</div>
+            <b>Hazara Motorway</b>
+            <span>15 Min Drive</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: CONSTRUCTION PROGRESS
+       ======================================================================== -->
+  <section class="section-progress" id="construction">
+    <div class="container">
+      <div class="section-header light-bg">
+        <span class="kicker">Construction Progress</span>
+        <h2>Work is currently in progress at IDEAS One.</h2>
+        <p>
+          Transparency is our core principle. View on-site progress, structural execution milestones, and commercial
+          brand
+          onboarding.
+        </p>
+      </div>
+
+      <!-- 4 Milestone Steps from ideasgroup.pk -->
+      <div class="milestone-grid">
+        <div class="milestone-card">
+          <div class="milestone-step">01</div>
+          <h4>Under Construction</h4>
+          <p>Heavy machinery and active engineering teams on site executing structural milestones at IDEAS One.</p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-step">02</div>
+          <h4>80% Basement Complete</h4>
+          <p>80% of basement substructure and underground retaining foundation work has been completed.</p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-step">03</div>
+          <h4>Brands On Board</h4>
+          <p>Selected prime commercial spaces have been handed over to leading national and international retail brands.
+          </p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-step">04</div>
+          <h4>Mall Opening</h4>
+          <p>Mall operations have partially started and are progressing steadily toward complete commercial opening.</p>
+        </div>
+      </div>
+
+      <!-- Real On-Site Construction Photos from ideasgroup.pk -->
+      <div class="site-gallery-grid">
+        <div class="site-photo-card">
+          <img src="images/one/site1.jpg" alt="IDEAS One On-Site Construction Progress">
+          <div class="site-photo-caption">IDEAS One — Foundation & Structural Progress</div>
+        </div>
+        <div class="site-photo-card">
+          <img src="images/one/site2.jpg" alt="IDEAS One Heavy Engineering on Site">
+          <div class="site-photo-caption">IDEAS One — Basement Execution Milestone</div>
+        </div>
+        <div class="site-photo-card">
+          <img src="images/one/site3.jpg" alt="IDEAS One Engineering Work at Gate 2 B-17">
+          <div class="site-photo-caption">IDEAS One — Gate 2, Sector B-17 Active Site</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: FAQS ACCORDION (CLONED FROM IDEASGROUP.PK/FAQS)
+       ======================================================================== -->
+  <section class="section-faqs" id="faqs">
+    <div class="container">
+      <div class="section-header">
+        <span class="kicker">Frequently Asked Questions</span>
+        <h2>Why IDEAS One & IDEAS Group?</h2>
+        <p>
+          Clear answers regarding location, apartment layouts, commercial spaces, modern amenities, and construction
+          status.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- Q1 -->
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Why choose IDEAS One for investment and residence?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            IDEAS One offers direct access to G.T Road at B-17 Gate 2, Islamabad — a premium commercial and residential
+            spot. It is a CDA approved project with 20+ modern amenities, situated in a sector recording 21%
+            year-on-year
+            growth (Source: Zameen Property Index 26).
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Where is IDEAS One located and what is its connectivity?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Located directly at Gate 2, Sector B-17, Islamabad, on Main G.T Road. It is strategically connected:
+            Margalla
+            Avenue (1 min), Motorway M-1 (5 min), CPEC Route (5 min), Islamabad Airport (15 mins), and Hazara Motorway
+            (15 min drive).
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What residential apartment sizes and configurations are offered?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Residences cater to diverse family requirements: Studio Apartments (450 sq.ft), 1 Bedroom Apartments (720
+            sq.ft), 2 Bedroom Apartments (1,275 sq.ft & 1,450 sq.ft), and spacious 3 Bedroom Luxury Suites (2,000
+            sq.ft).
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What commercial shops and food court options are available?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Retail shops, corporate offices, food & beverage outlets, and a departmental store in a high-footfall
+            location.
+            Commercial units range from 153 sq.ft to 343 sq.ft. The project brings 236+ commercial shops and a 130+ unit
+            food
+            court into one address.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What amenities and facilities are integrated into IDEAS One?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            World-class amenities include 24/7 security with CCTV, smart building management (BMS), high-speed
+            elevators,
+            dedicated and guest parking, rooftop 360° restaurant, indoor swimming pool, spa & sauna, fitness center,
+            scenic 2 lake views, 100% backup power, modern escalators, food court, 24/7 on-site maintenance, kids play
+            area,
+            day care, departmental store, automated fire fighting, smart RFID card access, and EV charging stations.
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Why is Sector B-17 Islamabad considered a prime growth sector?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Over 8,000+ families are already residing in this rapidly expanding community. The area has demonstrated up
+            to
+            21% annual property growth (Source: Multi Gardens B-17 Islamabad, Zameen Property Index), outstanding
+            highway
+            connectivity, an emerging commercial ecosystem, and high potential for long-term ROI.
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What is the current construction status and track record of IDEAS Group?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Construction work is currently in progress at IDEAS One. 80% of basement work has been completed. Selected
+            commercial spaces have been handed over to leading brands, and mall operations have partially started. IDEAS
+            Group Builders & Developers was established in 1995; our landmark residential project IDEAS Towers is now
+            90%
+            complete, with the ground floor being handed over.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: CONTACT US & INQUIRY FORM
+       ======================================================================== -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Official Contact Details -->
+        <div class="contact-info-panel">
+          <h3>Visit IDEAS One, B-17</h3>
+          <p>
+            Visit our site office or connect directly with our advisory team to secure prime retail, office, or
+            residential
+            inventory.
+          </p>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📍</div>
+              <div class="contact-detail-text">
+                <b>Head Office / Project Site</b>
+                <span>Gate 2, Sector B-17, Islamabad, Pakistan</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">📞</div>
+              <div class="contact-detail-text">
+                <b>Phone / Direct Line</b>
+                <span><a href="tel:03305511117">0330-5511117</a></span>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">✉️</div>
+              <div class="contact-detail-text">
+                <b>Official Email</b>
+                <span><a href="mailto:info@ideasgroup.pk">info@ideasgroup.pk</a></span>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">🌐</div>
+              <div class="contact-detail-text">
+                <b>Official Web Portal</b>
+                <span><a href="https://www.ideasgroup.pk" target="_blank"
+                    style="color:var(--gold-light); text-decoration:underline;">www.ideasgroup.pk</a></span>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">🕐</div>
+              <div class="contact-detail-text">
+                <b>Working Hours</b>
+                <span>Monday – Saturday: 09:00 AM – 07:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(212,168,83,0.2);">
+            <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:0;">
+              IDEAS Group Builders & Developers — Committed to delivering quality developments that offer lasting value.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="contact-form-panel">
+          <h3>Inquire or Schedule a Site Visit</h3>
+          <p>Please enter your details below and our project representative will assist you promptly.</p>
+
+          <form id="projectInquiryForm" onsubmit="handleInquirySubmit(event)">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="clientName">Full Name *</label>
+                <input type="text" id="clientName" placeholder="Your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientPhone">Phone / Mobile *</label>
+                <input type="tel" id="clientPhone" placeholder="0330 5511117 / 0340 1111734" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="clientEmail">Email Address *</label>
+                <input type="email" id="clientEmail" placeholder="yourname@domain.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="projectInterest">Project of Interest *</label>
+                <select id="projectInterest" required>
+                  <option value="IDEAS ONE">IDEAS ONE (Mixed-Use Landmark)</option>
+                  <option value="IDEAS Tower">IDEAS Tower (Residential High-Rise)</option>
+                  <option value="Both Projects">Both Projects / General Consultation</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="unitType">Unit Category *</label>
+              <select id="unitType" required>
+                <option value="Commercial Shop">Commercial Retail Shop (153 - 343 sq.ft)</option>
+                <option value="Food Court">Food Court Outlet</option>
+                <option value="Corporate Office">Corporate Office Space</option>
+                <option value="Studio Apartment">Studio Apartment (450 sq.ft)</option>
+                <option value="1 Bed Apartment">1 Bedroom Apartment (720 sq.ft)</option>
+                <option value="2 Bed Apartment">2 Bedroom Apartment (1,275 - 1,450 sq.ft)</option>
+                <option value="3 Bed Apartment">3 Bedroom Luxury Apartment (2,000 sq.ft)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="clientMessage">Message / Specific Requirements</label>
+              <textarea id="clientMessage" rows="4"
+                placeholder="Mention preferred floor, budget, or question..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; border-radius: 8px;">
+              <span>Submit & Send via WhatsApp</span>
+              <span>💬</span>
+            </button>
+
+            <div class="form-success-msg" id="formSuccessMsg"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER (CLONED FROM IDEASGROUP.PK)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <div class="brand-link" style="margin-bottom: 8px;">
+            <img src="images/brand/logo.png" alt="IDEAS Group Logo" style="height: 48px;">
+            <div class="brand-text-block">
+              <span class="brand-name" style="font-size:1.15rem;">IDEAS GROUP</span>
+              <span class="brand-sub">Builders & Developers</span>
+            </div>
+          </div>
+          <p>
+            Established in 1995, IDEAS Group Builders & Developers is committed to delivering quality developments that
+            offer lasting value. Developers of IDEAS One and IDEAS Tower in Sector B-17, Islamabad.
+          </p>
+          <div style="margin-top: 18px;">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:10px;">
+              Follow IDEAS Group:
+            </span>
+            <div class="social-badges-wrap">
+              <a href="https://www.facebook.com/profile.php?id=61591907822976" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Facebook">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/ideasgroup.bnd/" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.tiktok.com/@ideas.group" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Essential Pages -->
+        <div class="footer-col">
+          <h5>Essential Pages</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About Us (History & Team)</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#why-ideas-group">Why IDEAS Group</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Projects -->
+        <div class="footer-col">
+          <h5>Landmark Projects</h5>
+          <ul>
+            <li><a href="#ideas-one">IDEAS ONE (Mixed-Use)</a></li>
+            <li><a href="#ideas-tower">IDEAS Tower (Residential)</a></li>
+            <li><a href="#construction">Construction Progress</a></li>
+            <li><a href="#why-b17">Why B-17 Sector</a></li>
+            <li><a href="https://www.ideasgroup.pk" target="_blank">Official Website</a></li>
+          </ul>
+        </div>
+
+        <!-- Catch Us Here -->
+        <div class="footer-col">
+          <h5>Catch Us Here</h5>
+          <ul style="gap: 10px;">
+            <li style="color:#94a3b8; font-size:0.88rem;">📍 Gate 2, Sector B-17, Islamabad</li>
+            <li><a href="mailto:info@ideasgroup.pk">✉️ info@ideasgroup.pk</a></li>
+            <li><a href="tel:03305511117">📞 0330-5511117</a></li>
+            <li><a href="https://wa.me/923401111734" target="_blank" style="color:#25d366; font-weight:600;">💬
+                WhatsApp: 0340 1111734</a></li>
+            <li><a href="https://www.ideasgroup.pk" target="_blank" style="color:var(--gold-primary);">🌐
+                www.ideasgroup.pk</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>2026 © IDEAS Group Builders & Developers. All rights reserved.</div>
+        <div>
+          Official Portal: <a href="https://www.ideasgroup.pk" target="_blank">www.ideasgroup.pk</a> · Crown of B-17,
+          Islamabad
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       FLOATING WHATSAPP BUTTON (FOR MOBILE NUMBER 03401111734)
+       ======================================================================== -->
+  <a href="https://wa.me/923401111734?text=Hello%20Ideas%20Group%2C%20I%20visited%20www.ideasgroup.pk%20and%20am%20interested%20in%20your%20projects."
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with IDEAS Group on WhatsApp (0340 1111734)">
+    <div class="whatsapp-icon-circle">
+      <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor">
+        <path
+          d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.4A11.6 11.6 0 1 1 16 27.5zm6.4-8.6c-.3-.2-2-.1-2.3-1.1-.3-.1-.6-.2-.8.2s-1 1.2-1.2 1.4-.4.2-.7.1a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.3 0-.5.1-.7s.3-.4.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6 2.4 3.6 5.8 5.1c.8.3 1.4.6 1.9.7 1 .3 1.8.3 2.5.2.8-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.6-.5z" />
+      </svg>
+    </div>
+  </a>
+
+  <!-- ========================================================================
+       INTERACTIVE JAVASCRIPT
+       ======================================================================== -->
+  <script>
+    // Header scroll background
+    const siteHeader = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Drawer navigation
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerClose = document.getElementById('drawerClose');
+    const drawerNavItems = document.querySelectorAll('.drawer-nav-item');
+
+    function toggleDrawer() {
+      const isOpen = mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    }
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerBackdrop.classList.add('open');
+      if (burgerBtn) burgerBtn.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerBackdrop.classList.remove('open');
+      if (burgerBtn) burgerBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (burgerBtn) burgerBtn.addEventListener('click', toggleDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    drawerNavItems.forEach(item => {
+      item.addEventListener('click', closeDrawer);
+    });
+
+    // Floor Plan Selector for IDEAS ONE & IDEAS Tower
+    function switchFloorPlan(imageSrc, btnElement, targetId = 'floorPlanDisplay', sizeText = '') {
+      const displayImg = document.getElementById(targetId);
+      if (displayImg) {
+        displayImg.style.opacity = '0.35';
+        setTimeout(() => {
+          displayImg.src = imageSrc;
+          displayImg.style.opacity = '1';
+        }, 150);
+      }
+      if (btnElement) {
+        const parentContainer = btnElement.closest('.floor-tab-buttons');
+        if (parentContainer) {
+          parentContainer.querySelectorAll('.floor-tab-btn').forEach(btn => btn.classList.remove('active'));
+        }
+        btnElement.classList.add('active');
+      }
+      if (sizeText) {
+        const badge = document.getElementById('ideasOneSizeBadge');
+        if (badge) badge.innerHTML = sizeText;
+      }
+      const zoomLink = document.getElementById(targetId + 'Zoom');
+      if (zoomLink) {
+        zoomLink.href = imageSrc;
+      }
+    }
+
+    // FAQs Accordion
+    function toggleFaq(btn) {
+      const parentItem = btn.parentElement;
+      const isActive = parentItem.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      if (!isActive) {
+        parentItem.classList.add('active');
+      }
+    }
+
+    // Inquiry Form Handling — Formats and Sends to WhatsApp in Proper Structure
+    function handleInquirySubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const project = document.getElementById('projectInterest').value;
+      const unit = document.getElementById('unitType').value;
+      const message = document.getElementById('clientMessage').value.trim();
+
+      // Format clean, professional WhatsApp message
+      const whatsappText =
+`🏢 *NEW PROJECT INQUIRY — IDEAS GROUP*
+━━━━━━━━━━━━━━━━━━━━━━━━
+👤 *Client Name:* ${name}
+📞 *Phone / Mobile:* ${phone}
+✉️ *Email Address:* ${email}
+🏗️ *Project of Interest:* ${project}
+📐 *Unit Category:* ${unit}
+💬 *Message / Requirements:*
+${message ? message : 'General Consultation / Site Visit Request'}
+━━━━━━━━━━━━━━━━━━━━━━━━
+🌐 *Source:* Ideas Group Website (Sector B-17, Islamabad)`;
+
+      const whatsappNumber = '923401111734';
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+
+      const successMsg = document.getElementById('formSuccessMsg');
+      if (successMsg) {
+        successMsg.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div>✓ Thank you, <strong>${name}</strong>! Your inquiry has been formatted. Opening WhatsApp to connect directly with our sales desk...</div>
+            <div style="margin-top: 4px;">
+              <a href="${whatsappUrl}" target="_blank" class="btn btn-gold" style="padding: 8px 18px; font-size: 0.8rem; border-radius: 6px; text-transform: none; display: inline-flex;">
+                <span>Click here if WhatsApp didn't open automatically</span> <span>💬</span>
+              </a>
+            </div>
+          </div>
+        `;
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+
+      // Reset form
+      event.target.reset();
+
+      // Open WhatsApp chat in new window
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+
+</body>
+
+</html>
