@@ -931,6 +931,9 @@
       margin-bottom: 60px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
       transition: var(--transition-smooth);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .project-card-featured:hover {
@@ -940,7 +943,10 @@
 
     .project-featured-grid {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .project-featured-media {
@@ -948,6 +954,8 @@
       overflow: hidden;
       background: #020612;
       min-height: 480px;
+      width: 100%;
+      max-width: 100%;
     }
 
     .project-featured-img {
@@ -982,6 +990,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .project-featured-info .project-type-pill {
@@ -1008,9 +1021,12 @@
 
     .project-specs-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .spec-box {
@@ -1018,6 +1034,9 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-sm);
       padding: 12px 16px;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .spec-box b {
@@ -1027,24 +1046,38 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .spec-box span {
       font-size: 0.95rem;
       font-weight: 600;
       color: #ffffff;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
-    /* Floor Plan Selector for IDEAS Tower */
+    /* Floor Plan Selector for IDEAS ONE & IDEAS Tower */
     .floor-tabs-wrap {
-      margin: 28px 0;
+      margin: 24px 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .floor-tab-buttons {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .floor-tab-btn {
@@ -1058,6 +1091,7 @@
       cursor: pointer;
       transition: all 0.25s ease;
       white-space: nowrap;
+      text-align: center;
     }
 
     .floor-tab-btn.active,
@@ -1069,9 +1103,12 @@
 
     .apt-sizes-chips-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
       margin: 14px 0 18px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .apt-size-chip {
@@ -1085,6 +1122,8 @@
       text-align: center;
       gap: 2px;
       transition: all 0.25s ease;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .apt-size-chip:hover {
@@ -1099,17 +1138,28 @@
       color: var(--gold-primary);
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
     .apt-size-chip .apt-area {
       font-size: 0.84rem;
       font-weight: 600;
       color: #f1f5f9;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
+    .project-action-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
     @media (max-width: 640px) {
       .apt-sizes-chips-row {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
       }
     }
@@ -1934,7 +1984,9 @@
       }
 
       .project-featured-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 100%;
       }
 
       .why-pillars-grid,
@@ -2100,14 +2152,33 @@
         font-size: 0.72rem;
       }
 
-      /* Projects */
+      /* Projects Mobile Optimization */
+      .project-card-featured {
+        margin-bottom: 40px;
+        border-radius: var(--radius-md);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .project-featured-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 100%;
+      }
+
       .project-featured-media {
-        min-height: 260px;
-        max-height: 340px;
+        min-height: 240px;
+        max-height: 320px;
+        width: 100%;
       }
 
       .project-featured-info {
         padding: 24px 18px;
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .project-featured-info h3 {
@@ -2115,22 +2186,49 @@
       }
 
       .project-specs-list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .floor-tabs-wrap {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
       }
 
       .floor-tab-buttons {
+        display: flex;
         overflow-x: auto;
         flex-wrap: nowrap;
+        gap: 8px;
         padding-bottom: 8px;
         -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        scrollbar-width: thin;
       }
 
       .floor-tab-btn {
         flex-shrink: 0;
         padding: 8px 14px;
         font-size: 0.78rem;
+        white-space: nowrap;
+      }
+
+      .project-action-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .project-action-btns .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
       }
 
       /* Grids to 1 column */
@@ -2255,12 +2353,60 @@
         gap: 8px;
       }
 
+      .project-featured-info {
+        padding: 20px 14px;
+      }
+
+      .project-featured-info h3 {
+        font-size: 1.5rem;
+      }
+
       .project-specs-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 18px;
       }
 
       .spec-box {
-        padding: 10px 14px;
+        padding: 9px 10px;
+      }
+
+      .spec-box b {
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+      }
+
+      .spec-box span {
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .apt-sizes-chips-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+        margin: 10px 0 16px;
+      }
+
+      .apt-size-chip {
+        padding: 7px 5px;
+      }
+
+      .apt-size-chip .apt-type {
+        font-size: 0.66rem;
+      }
+
+      .apt-size-chip .apt-area {
+        font-size: 0.78rem;
+        line-height: 1.25;
+      }
+
+      .floor-plan-preview-box {
+        max-height: 280px;
+      }
+
+      .social-badge {
+        padding: 6px 12px;
+        font-size: 0.72rem;
       }
 
       .metrics-row {
@@ -2568,13 +2714,13 @@
               </div>
               <div class="floor-tab-buttons">
                 <button class="floor-tab-btn active" onclick="switchFloorPlan('images/one/ideas_one_studio_1bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 450 &amp; 720 Sq.ft')">
-                  Studio &amp; 1-Bed (450 / 720 SFT)
+                  Studio &amp; 1-Bed
                 </button>
                 <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_2bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 1,400 &amp; 1,450 Sq.ft')">
-                  2-Bed (1,400 / 1,450 SFT)
+                  2-Bed Luxury
                 </button>
                 <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_3bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 2,000 Sq.ft')">
-                  3-Bed Executive (2,000 SFT)
+                  3-Bed Executive
                 </button>
               </div>
 
@@ -2587,7 +2733,7 @@
               </a>
             </div>
 
-            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+            <div class="project-action-btns">
               <a href="#contact" class="btn btn-gold">Inquire About IDEAS One</a>
               <a href="#construction" class="btn btn-outline">View Construction Status</a>
             </div>
@@ -2682,7 +2828,7 @@
               </a>
             </div>
 
-            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+            <div class="project-action-btns">
               <a href="#contact" class="btn btn-gold">Inquire About IDEAS Tower</a>
             </div>
 
