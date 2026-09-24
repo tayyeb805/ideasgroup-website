@@ -1896,10 +1896,146 @@
         height: 280px;
       }
     }
+
+    /* ==========================================================================
+       ENGAGING LUXURY ANIMATIONS, GLOWS & DYNAMIC STYLINGS
+       ========================================================================== */
+
+    /* Scroll Progress Bar at Top */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--gold-gradient);
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.8), 0 0 20px rgba(244, 211, 140, 0.5);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+      pointer-events: none;
+    }
+
+    /* Keyframe Animations */
+    @keyframes goldPulseGlow {
+      0%, 100% {
+        box-shadow: 0 6px 20px rgba(212, 168, 83, 0.35), 0 0 0 0 rgba(212, 168, 83, 0.4);
+      }
+      50% {
+        box-shadow: 0 10px 32px rgba(212, 168, 83, 0.65), 0 0 0 8px rgba(212, 168, 83, 0);
+      }
+    }
+
+    @keyframes goldTextShimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    @keyframes lightStreak {
+      0% {
+        left: -120%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
+
+    /* Enhanced Primary Gold Buttons with Breathing Glow & Shimmer */
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+      animation: goldPulseGlow 3.5s infinite ease-in-out;
+    }
+
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -120%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+      );
+      transform: rotate(25deg);
+      transition: none;
+      pointer-events: none;
+    }
+
+    .btn-gold:hover::after {
+      animation: lightStreak 1s ease-out;
+    }
+
+    /* Interactive Spotlight on Cards */
+    .ceo-spotlight-card,
+    .team-member-card,
+    .timeline-node,
+    .value-card,
+    .stat-pill {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ceo-spotlight-card:hover,
+    .team-member-card:hover,
+    .value-card:hover {
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 168, 83, 0.25);
+      border-color: rgba(212, 168, 83, 0.6);
+      transform: translateY(-5px);
+    }
+
+    /* SCROLL REVEAL ANIMATIONS */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-item.reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-item.is-revealed {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* Staggered Delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
   </style>
 </head>
 
 <body>
+
+  <!-- Dynamic Luxury Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
   <!-- ========================================================================
        TOP HEADER & NAVIGATION
@@ -2735,6 +2871,38 @@
         } else {
           card.style.display = 'none';
         }
+      });
+    }
+
+    // Top Scroll Progress Bar
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0 && scrollProgressBar) {
+        const progress = (scrollY / docHeight) * 100;
+        scrollProgressBar.style.width = progress + '%';
+      }
+    }, { passive: true });
+
+    // Scroll Reveal Intersection Observer
+    const revealItems = document.querySelectorAll('.reveal-item, .ceo-spotlight-card, .team-member-card, .timeline-node, .value-card');
+    if ('IntersectionObserver' in window && revealItems.length > 0) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealItems.forEach(item => {
+        item.classList.add('reveal-item');
+        revealObserver.observe(item);
       });
     }
   </script>

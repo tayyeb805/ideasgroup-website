@@ -2417,10 +2417,460 @@
         font-size: 1.5rem;
       }
     }
+
+    /* ==========================================================================
+       ENGAGING LUXURY ANIMATIONS, GLOWS & DYNAMIC STYLINGS
+       ========================================================================== */
+
+    /* Scroll Progress Bar at Top */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--gold-gradient);
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.8), 0 0 20px rgba(244, 211, 140, 0.5);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+      pointer-events: none;
+    }
+
+    /* Hero Canvas Particles */
+    .hero-particles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Keyframe Animations */
+    @keyframes goldPulseGlow {
+      0%, 100% {
+        box-shadow: 0 6px 20px rgba(212, 168, 83, 0.35), 0 0 0 0 rgba(212, 168, 83, 0.4);
+      }
+      50% {
+        box-shadow: 0 10px 32px rgba(212, 168, 83, 0.65), 0 0 0 8px rgba(212, 168, 83, 0);
+      }
+    }
+
+    @keyframes goldTextShimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+      70% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes subtleCardBorder {
+      0%, 100% {
+        border-color: rgba(212, 168, 83, 0.25);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      }
+      50% {
+        border-color: rgba(212, 168, 83, 0.55);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(212, 168, 83, 0.15);
+      }
+    }
+
+    @keyframes lightStreak {
+      0% {
+        left: -120%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
+
+    /* Enhanced Primary Gold Buttons with Breathing Glow & Shimmer */
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+      animation: goldPulseGlow 3.5s infinite ease-in-out;
+    }
+
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -120%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+      );
+      transform: rotate(25deg);
+      transition: none;
+      pointer-events: none;
+    }
+
+    .btn-gold:hover::after {
+      animation: lightStreak 1s ease-out;
+    }
+
+    /* Enhanced Outline Button */
+    .btn-outline {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-outline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.2), transparent);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .btn-outline:hover::after {
+      left: 100%;
+    }
+
+    /* Hero Badge Floating Animation */
+    .hero-badge {
+      animation: floatSlow 4s ease-in-out infinite;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 168, 83, 0.25);
+    }
+
+    /* Hero Title Subtitle Gradient Shimmer */
+    .hero-title span {
+      background-size: 200% 200%;
+      animation: goldTextShimmer 6s ease infinite;
+    }
+
+    /* Live Status Beacon Dot (Radar) */
+    .live-beacon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 8px;
+      height: 8px;
+      position: relative;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .live-beacon-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .live-beacon-dot.gold {
+      background: var(--gold-light);
+      box-shadow: 0 0 10px var(--gold-primary);
+    }
+
+    .live-beacon-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid #22c55e;
+      animation: pulseRing 1.8s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    }
+
+    .live-beacon-ring.gold {
+      border-color: var(--gold-primary);
+    }
+
+    /* Featured Project Cards Glow & Interactive Ambient Spotlight */
+    .project-card-featured {
+      position: relative;
+      animation: subtleCardBorder 6s infinite ease-in-out;
+    }
+
+    .project-card-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        700px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(212, 168, 83, 0.09),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .project-card-featured:hover::before {
+      opacity: 1;
+    }
+
+    /* Top Glowing Edge Accent on Project Cards */
+    .project-card-featured::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      box-shadow: 0 0 15px var(--gold-primary);
+      opacity: 0.7;
+      transition: opacity 0.3s ease, left 0.4s ease, right 0.4s ease;
+    }
+
+    .project-card-featured:hover::after {
+      opacity: 1;
+      left: 0;
+      right: 0;
+      box-shadow: 0 0 25px var(--gold-primary);
+    }
+
+    /* Visual Badge in About Section */
+    .about-visual-badge {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 168, 83, 0.25);
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+
+    /* Number Counters Glow on Active */
+    .metric-number, .b17-val {
+      text-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .metric-item:hover .metric-number,
+    .b17-stat-card:hover .b17-val {
+      transform: scale(1.06);
+      text-shadow: 0 0 30px rgba(212, 168, 83, 0.6);
+    }
+
+    /* Interactive Pillars, Stats & Milestones Cards Hover Spotlight */
+    .pillar-card,
+    .b17-stat-card,
+    .milestone-card,
+    .connect-card,
+    .amenity-chip {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pillar-card::before,
+    .b17-stat-card::before,
+    .milestone-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold-gradient);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.35s ease;
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .pillar-card:hover::before,
+    .b17-stat-card:hover::before,
+    .milestone-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .pillar-card:hover,
+    .b17-stat-card:hover {
+      box-shadow: 0 18px 40px rgba(4, 9, 25, 0.12), 0 0 25px rgba(212, 168, 83, 0.22);
+    }
+
+    .pillar-card:hover .pillar-icon,
+    .connect-card:hover .connect-icon {
+      transform: translateY(-4px) scale(1.15);
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .amenity-chip:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 168, 83, 0.25);
+    }
+
+    .amenity-chip:hover .chip-icon {
+      transform: scale(1.2) rotate(6deg);
+      transition: transform 0.3s ease;
+    }
+
+    /* Site Photo Cards Glow & Overlay */
+    .site-photo-card {
+      transition: all 0.4s ease;
+    }
+
+    .site-photo-card:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 25px rgba(212, 168, 83, 0.3);
+      transform: translateY(-5px);
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 105px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(4, 9, 25, 0.9);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 168, 83, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: var(--gold-primary);
+      color: var(--navy-darkest);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(212, 168, 83, 0.6);
+    }
+
+    .back-to-top-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .back-to-top-btn:hover svg {
+      transform: translateY(-2px);
+    }
+
+    /* SCROLL REVEAL ANIMATIONS */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-item.reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-item.reveal-scale {
+      transform: scale(0.92);
+    }
+
+    .reveal-item.is-revealed {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+
+    /* Staggered Delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* Interactive Floor Plan Transition */
+    .floor-plan-img {
+      transition: opacity 0.3s ease, transform 0.35s ease;
+    }
+
+    .floor-tab-btn.active {
+      box-shadow: 0 4px 18px rgba(212, 168, 83, 0.45);
+    }
+
+    /* FAQ Active Left Glow Accent */
+    .faq-item {
+      position: relative;
+    }
+
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: var(--gold-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 0 10px var(--gold-primary);
+    }
+
+    .faq-item.active::before {
+      opacity: 1;
+    }
+
+    /* Contact Details Icon Glow on Hover */
+    .contact-detail-row:hover .contact-detail-icon {
+      background: var(--gold-primary);
+      color: var(--navy-darkest);
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.6);
+      transform: scale(1.08);
+      transition: all 0.3s ease;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- Dynamic Luxury Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
   <!-- ========================================================================
        TOP HEADER & NAVIGATION
@@ -2502,8 +2952,9 @@
   <section class="hero-section" id="home">
     <div class="hero-media-backdrop">
       <video class="hero-video" autoplay muted loop playsinline poster="images/one/ideas_one_render.jpg">
-        <source src="final_video.mp4" type="video/mp4">
+        <source src="final_video.mp4?v=2" type="video/mp4">
       </video>
+      <canvas id="heroParticles" class="hero-particles-canvas"></canvas>
       <div class="hero-overlay"></div>
     </div>
 
@@ -2565,18 +3016,18 @@
     <div class="container">
       <div class="about-grid">
 
-        <div class="about-visual-card">
+        <div class="about-visual-card reveal-item reveal-left">
           <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Landmark High-Rise Development"
             class="about-visual-img">
           <div class="about-visual-badge">
-            <strong>1995</strong>
+            <strong data-target="1995" data-suffix="">1995</strong>
             <span>Established Legacy</span>
             <span style="color:var(--gold-primary); font-size:0.75rem; text-transform:uppercase;">IDEAS Group Builders &
               Developers</span>
           </div>
         </div>
 
-        <div class="about-content">
+        <div class="about-content reveal-item reveal-right">
           <span class="kicker">About IDEAS Group</span>
           <h2>Quality developments that offer lasting value.</h2>
           <p class="lead-text">
@@ -2591,21 +3042,21 @@
           </p>
 
           <!-- Authentic Metrics from ideasgroup.pk -->
-          <div class="metrics-row">
+          <div class="metrics-row reveal-item delay-1">
             <div class="metric-item">
-              <div class="metric-number">1995</div>
+              <div class="metric-number" data-target="1995" data-suffix="">1995</div>
               <div class="metric-label">Established</div>
             </div>
             <div class="metric-item">
-              <div class="metric-number">236+</div>
+              <div class="metric-number" data-target="236" data-suffix="+">236+</div>
               <div class="metric-label">Commercial Shops</div>
             </div>
             <div class="metric-item">
-              <div class="metric-number">130+</div>
+              <div class="metric-number" data-target="130" data-suffix="+">130+</div>
               <div class="metric-label">Food Court</div>
             </div>
             <div class="metric-item">
-              <div class="metric-number">20+</div>
+              <div class="metric-number" data-target="20" data-suffix="+">20+</div>
               <div class="metric-label">Amenities</div>
             </div>
           </div>
@@ -2628,7 +3079,7 @@
        ======================================================================== -->
   <section class="section-projects" id="projects">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-item">
         <span class="kicker">Our Projects</span>
         <h2>Mall, apartments, and offices in one address.</h2>
         <p>
@@ -2638,12 +3089,12 @@
       </div>
 
       <!-- FEATURED PROJECT 1: IDEAS ONE -->
-      <article class="project-card-featured" id="ideas-one">
+      <article class="project-card-featured reveal-item" id="ideas-one">
         <div class="project-featured-grid">
           <div class="project-featured-media">
             <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Mixed-Use Development"
               class="project-featured-img">
-            <span class="project-badge-tag">CDA Approved · Mixed-Use</span>
+            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring"></span><span class="live-beacon-dot"></span></span>CDA Approved · Mixed-Use</span>
           </div>
 
           <div class="project-featured-info">
@@ -2764,12 +3215,12 @@
       </article>
 
       <!-- FEATURED PROJECT 2: IDEAS TOWER -->
-      <article class="project-card-featured" id="ideas-tower">
+      <article class="project-card-featured reveal-item" id="ideas-tower">
         <div class="project-featured-grid">
           <div class="project-featured-media">
             <img src="images/tower/ideas_tower_night.jpg" alt="IDEAS Tower Elevation at Night"
               class="project-featured-img">
-            <span class="project-badge-tag">Residential High-Rise · 90% Complete</span>
+            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring gold"></span><span class="live-beacon-dot gold"></span></span>Residential High-Rise · 90% Complete</span>
           </div>
 
           <div class="project-featured-info">
@@ -2861,7 +3312,7 @@
        ======================================================================== -->
   <section class="section-why-one" id="why-ideas-group">
     <div class="container">
-      <div class="section-header light-bg">
+      <div class="section-header light-bg reveal-item">
         <span class="kicker">Why IDEAS Group</span>
         <h2>Pioneering High-Rise Construction & Architectural Landmarks</h2>
         <p>
@@ -2872,7 +3323,7 @@
 
       <!-- 3 Core Pillars from ideasgroup.pk -->
       <div class="why-pillars-grid">
-        <div class="pillar-card">
+        <div class="pillar-card reveal-item delay-1">
           <div class="pillar-icon">🏛️</div>
           <h3>High-Rise Engineering Excellence</h3>
           <p>
@@ -2881,7 +3332,7 @@
           </p>
         </div>
 
-        <div class="pillar-card">
+        <div class="pillar-card reveal-item delay-2">
           <div class="pillar-icon">⚖️</div>
           <h3>Fiduciary Trust & CDA Approvals</h3>
           <p>
@@ -2891,7 +3342,7 @@
           </p>
         </div>
 
-        <div class="pillar-card">
+        <div class="pillar-card reveal-item delay-3">
           <div class="pillar-icon">💎</div>
           <h3>Strategic Locations & 21% YoY Growth</h3>
           <p>
@@ -2903,90 +3354,90 @@
       </div>
 
       <!-- 20+ Amenities Grid from ideasgroup.pk -->
-      <div class="amenities-showcase">
+      <div class="amenities-showcase reveal-item">
         <div class="amenities-showcase-header">
           <h3>20+ Modern Amenities Delivered Across IDEAS Group Developments</h3>
           <p>Setting new benchmarks for corporate efficiency, retail footfall, and world-class residential luxury.</p>
         </div>
 
         <div class="amenities-grid">
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">🛡️</span>
             <span>24/7 Security with CCTV</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">🏢</span>
             <span>Smart Building Management</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">🛗</span>
             <span>High-Speed Elevators</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">🚗</span>
             <span>Dedicated & Guest Parking</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">🍽️</span>
             <span>Rooftop 360° Restaurant</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">🏊</span>
             <span>Indoor Swimming Pool</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">💆</span>
             <span>Health Club & Spa</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">🌊</span>
             <span>Scenic Dual Lake Views</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">⚡</span>
             <span>Uninterrupted Power Backup</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">🛍️</span>
             <span>Modern Escalators & Mall</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">🍔</span>
             <span>130+ Food Court Outlets</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">🛠️</span>
             <span>24/7 On-Site Maintenance</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">🎮</span>
             <span>Indoor Games & Recreation</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">🧸</span>
             <span>Kids Play Area & Day Care</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">🏪</span>
             <span>Departmental Store</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">🧯</span>
             <span>Fire Fighting & Waste Systems</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">🪪</span>
             <span>Smart Card Access Control</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">🔌</span>
             <span>EV Charging Stations</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">🤝</span>
             <span>Executive Community Center</span>
           </div>
-          <div class="amenity-chip">
+          <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">🌐</span>
             <span>High-Speed Fiber Connectivity</span>
           </div>
@@ -3001,7 +3452,7 @@
        ======================================================================== -->
   <section class="section-why-b17" id="why-b17">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-item">
         <span class="kicker">Why B-17 Islamabad</span>
         <h2>Growing community with increasing demand.</h2>
         <p>
@@ -3012,25 +3463,25 @@
 
       <!-- 4 Highlight Cards from ideasgroup.pk -->
       <div class="b17-stats-grid">
-        <div class="b17-stat-card">
-          <div class="b17-val">21%</div>
+        <div class="b17-stat-card reveal-item delay-1">
+          <div class="b17-val" data-target="21" data-suffix="%">21%</div>
           <div class="b17-label">Annual Growth</div>
           <p>Up to 21% annual property appreciation potential in Multi Gardens B-17 (Source: Zameen Property Index).</p>
         </div>
 
-        <div class="b17-stat-card">
-          <div class="b17-val">8,000+</div>
+        <div class="b17-stat-card reveal-item delay-2">
+          <div class="b17-val" data-target="8000" data-suffix="+">8,000+</div>
           <div class="b17-label">Families Residing</div>
           <p>A flourishing community with steadily growing demand for high-end retail, leisure, and quality housing.</p>
         </div>
 
-        <div class="b17-stat-card">
+        <div class="b17-stat-card reveal-item delay-3">
           <div class="b17-val">Crown</div>
           <div class="b17-label">Strategically Connected</div>
           <p>Direct front access to Main G.T Road at Gate 2, just 1 minute drive from Margalla Avenue.</p>
         </div>
 
-        <div class="b17-stat-card">
+        <div class="b17-stat-card reveal-item delay-4">
           <div class="b17-val">ROI</div>
           <div class="b17-label">Commercial Hub</div>
           <p>Emerging commercial destination with strong rental yields and solid long-term value preservation.</p>
@@ -3038,30 +3489,30 @@
       </div>
 
       <!-- Connectivity Matrix -->
-      <div class="connectivity-strip">
+      <div class="connectivity-strip reveal-item">
         <h4>Prime Strategic Connectivity from Gate 2, Sector B-17</h4>
         <div class="connectivity-grid">
-          <div class="connect-card">
+          <div class="connect-card reveal-item delay-1">
             <div class="connect-icon">🛣️</div>
             <b>Margalla Avenue</b>
             <span>1 Min Drive</span>
           </div>
-          <div class="connect-card">
+          <div class="connect-card reveal-item delay-2">
             <div class="connect-icon">🚗</div>
             <b>Motorway M-1</b>
             <span>5 Min Drive</span>
           </div>
-          <div class="connect-card">
+          <div class="connect-card reveal-item delay-3">
             <div class="connect-icon">🌐</div>
             <b>CPEC Route</b>
             <span>5 Min Drive</span>
           </div>
-          <div class="connect-card">
+          <div class="connect-card reveal-item delay-4">
             <div class="connect-icon">✈️</div>
             <b>Islamabad Airport</b>
             <span>15 Mins Drive</span>
           </div>
-          <div class="connect-card">
+          <div class="connect-card reveal-item delay-5">
             <div class="connect-icon">🏔️</div>
             <b>Hazara Motorway</b>
             <span>15 Min Drive</span>
@@ -3077,7 +3528,7 @@
        ======================================================================== -->
   <section class="section-progress" id="construction">
     <div class="container">
-      <div class="section-header light-bg">
+      <div class="section-header light-bg reveal-item">
         <span class="kicker">Construction Progress</span>
         <h2>Work is currently in progress at IDEAS One.</h2>
         <p>
@@ -3089,26 +3540,26 @@
 
       <!-- 4 Milestone Steps from ideasgroup.pk -->
       <div class="milestone-grid">
-        <div class="milestone-card">
+        <div class="milestone-card reveal-item delay-1">
           <div class="milestone-step">01</div>
           <h4>Under Construction</h4>
           <p>Heavy machinery and active engineering teams on site executing structural milestones at IDEAS One.</p>
         </div>
 
-        <div class="milestone-card">
+        <div class="milestone-card reveal-item delay-2">
           <div class="milestone-step">02</div>
           <h4>80% Basement Complete</h4>
           <p>80% of basement substructure and underground retaining foundation work has been completed.</p>
         </div>
 
-        <div class="milestone-card">
+        <div class="milestone-card reveal-item delay-3">
           <div class="milestone-step">03</div>
           <h4>Brands On Board</h4>
           <p>Selected prime commercial spaces have been handed over to leading national and international retail brands.
           </p>
         </div>
 
-        <div class="milestone-card">
+        <div class="milestone-card reveal-item delay-4">
           <div class="milestone-step">04</div>
           <h4>Mall Opening</h4>
           <p>Mall operations have partially started and are progressing steadily toward complete commercial opening.</p>
@@ -3117,15 +3568,15 @@
 
       <!-- Real On-Site Construction Photos from ideasgroup.pk -->
       <div class="site-gallery-grid">
-        <div class="site-photo-card">
+        <div class="site-photo-card reveal-item delay-1">
           <img src="images/one/site1.jpg" alt="IDEAS One On-Site Construction Progress">
           <div class="site-photo-caption">IDEAS One — Foundation & Structural Progress</div>
         </div>
-        <div class="site-photo-card">
+        <div class="site-photo-card reveal-item delay-2">
           <img src="images/one/site2.jpg" alt="IDEAS One Heavy Engineering on Site">
           <div class="site-photo-caption">IDEAS One — Basement Execution Milestone</div>
         </div>
-        <div class="site-photo-card">
+        <div class="site-photo-card reveal-item delay-3">
           <img src="images/one/site3.jpg" alt="IDEAS One Engineering Work at Gate 2 B-17">
           <div class="site-photo-caption">IDEAS One — Gate 2, Sector B-17 Active Site</div>
         </div>
@@ -3139,7 +3590,7 @@
        ======================================================================== -->
   <section class="section-faqs" id="faqs">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-item">
         <span class="kicker">Frequently Asked Questions</span>
         <h2>Why IDEAS One & IDEAS Group?</h2>
         <p>
@@ -3150,7 +3601,7 @@
 
       <div class="faq-container">
         <!-- Q1 -->
-        <div class="faq-item active">
+        <div class="faq-item active reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>Why choose IDEAS One for investment and residence?</span>
             <span class="toggle-icon">+</span>
@@ -3164,7 +3615,7 @@
         </div>
 
         <!-- Q2 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>Where is IDEAS One located and what is its connectivity?</span>
             <span class="toggle-icon">+</span>
@@ -3178,7 +3629,7 @@
         </div>
 
         <!-- Q3 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>What residential apartment sizes and configurations are offered?</span>
             <span class="toggle-icon">+</span>
@@ -3191,7 +3642,7 @@
         </div>
 
         <!-- Q4 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>What commercial shops and food court options are available?</span>
             <span class="toggle-icon">+</span>
@@ -3206,7 +3657,7 @@
         </div>
 
         <!-- Q5 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>What amenities and facilities are integrated into IDEAS One?</span>
             <span class="toggle-icon">+</span>
@@ -3222,7 +3673,7 @@
         </div>
 
         <!-- Q6 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>Why is Sector B-17 Islamabad considered a prime growth sector?</span>
             <span class="toggle-icon">+</span>
@@ -3237,7 +3688,7 @@
         </div>
 
         <!-- Q7 -->
-        <div class="faq-item">
+        <div class="faq-item reveal-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>What is the current construction status and track record of IDEAS Group?</span>
             <span class="toggle-icon">+</span>
@@ -3263,7 +3714,7 @@
       <div class="contact-grid">
 
         <!-- Left: Official Contact Details -->
-        <div class="contact-info-panel">
+        <div class="contact-info-panel reveal-item reveal-left">
           <h3>Visit IDEAS One, B-17</h3>
           <p>
             Visit our site office or connect directly with our advisory team to secure prime retail, office, or
@@ -3322,7 +3773,7 @@
         </div>
 
         <!-- Right: Inquiry Form -->
-        <div class="contact-form-panel">
+        <div class="contact-form-panel reveal-item reveal-right">
           <h3>Inquire or Schedule a Site Visit</h3>
           <p>Please enter your details below and our project representative will assist you promptly.</p>
 
@@ -3493,6 +3944,11 @@
     </div>
   </a>
 
+  <!-- Floating Back to Top Button with Dynamic Progress -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
   <!-- ========================================================================
        INTERACTIVE JAVASCRIPT
        ======================================================================== -->
@@ -3636,6 +4092,204 @@ ${message ? message : 'General Consultation / Site Visit Request'}
 
       // Open WhatsApp chat in new window
       window.open(whatsappUrl, '_blank');
+    }
+
+    // ==========================================================================
+    // LUXURY ENGAGING SCRIPTS: PARTICLES, CURSOR GLOW, COUNTERS & SCROLL REVEAL
+    // ==========================================================================
+
+    // 1. Top Scroll Progress Bar & Back to Top Button
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0 && scrollProgressBar) {
+        const progress = (scrollY / docHeight) * 100;
+        scrollProgressBar.style.width = progress + '%';
+      }
+
+      if (backToTopBtn) {
+        if (scrollY > 350) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }
+    }, { passive: true });
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 2. Interactive Mouse Spotlight on Cards
+    const interactiveCards = document.querySelectorAll(
+      '.project-card-featured, .pillar-card, .b17-stat-card, .milestone-card, .amenity-chip'
+    );
+    interactiveCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }, { passive: true });
+    });
+
+    // 4. Hero Golden Particle Embers Canvas
+    const canvas = document.getElementById('heroParticles');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const particleCount = window.innerWidth < 768 ? 24 : 45;
+
+      function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      class Particle {
+        constructor(width, height) {
+          this.reset(width, height, true);
+        }
+        reset(width, height, isFirst = false) {
+          this.x = Math.random() * width;
+          this.y = isFirst ? Math.random() * height : height + 10;
+          this.radius = Math.random() * 1.8 + 0.8;
+          this.speedY = Math.random() * 0.45 + 0.2;
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.alpha = Math.random() * 0.6 + 0.25;
+          this.maxAlpha = this.alpha;
+          this.alphaStep = Math.random() * 0.01 + 0.005;
+          this.isGold = Math.random() > 0.3;
+        }
+        update(width, height) {
+          this.y -= this.speedY;
+          this.x += this.speedX;
+          this.alpha += this.alphaStep;
+          if (this.alpha > this.maxAlpha || this.alpha < 0.15) {
+            this.alphaStep = -this.alphaStep;
+          }
+          if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+            this.reset(width, height);
+          }
+        }
+        draw(ctx) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          if (this.isGold) {
+            ctx.fillStyle = `rgba(212, 168, 83, ${Math.max(0, this.alpha)})`;
+          } else {
+            ctx.fillStyle = `rgba(247, 223, 165, ${Math.max(0, this.alpha)})`;
+          }
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = 'rgba(212, 168, 83, 0.6)';
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        resizeCanvas();
+        const rect = canvas.getBoundingClientRect();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle(rect.width, rect.height));
+        }
+      }
+
+      function animateParticles() {
+        const rect = canvas.getBoundingClientRect();
+        ctx.clearRect(0, 0, rect.width, rect.height);
+        particles.forEach(p => {
+          p.update(rect.width, rect.height);
+          p.draw(ctx);
+        });
+        requestAnimationFrame(animateParticles);
+      }
+
+      initParticles();
+      requestAnimationFrame(animateParticles);
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+    }
+
+    // 5. Scroll Reveal Intersection Observer
+    const revealItems = document.querySelectorAll('.reveal-item');
+    if ('IntersectionObserver' in window && revealItems.length > 0) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      // Fallback
+      revealItems.forEach(item => item.classList.add('is-revealed'));
+    }
+
+    // 6. Smooth Animated Counter Function
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-target]');
+      counters.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 1800; // ms
+        const startTime = performance.now();
+        const isFloat = target % 1 !== 0;
+
+        function updateCount(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out quart
+          const easeProgress = 1 - Math.pow(1 - progress, 4);
+          const currentVal = isFloat
+            ? (easeProgress * target).toFixed(1)
+            : Math.floor(easeProgress * target);
+
+          if (target >= 1000) {
+            counter.innerText = currentVal.toLocaleString() + suffix;
+          } else {
+            counter.innerText = currentVal + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = (target >= 1000 ? target.toLocaleString() : target) + suffix;
+          }
+        }
+        requestAnimationFrame(updateCount);
+      });
+    }
+
+    // Observe Counters Container to trigger animation once
+    const counterSections = document.querySelectorAll('.metrics-row, .b17-stats-grid');
+    if ('IntersectionObserver' in window && counterSections.length > 0) {
+      let countersTriggered = false;
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      counterSections.forEach(section => counterObserver.observe(section));
+    } else {
+      animateCounters();
     }
   </script>
 
