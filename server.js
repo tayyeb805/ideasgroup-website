@@ -27,6 +27,19 @@ app.get('/about.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
 
+// Route for IDEAS ONE Mall page
+app.get('/ideas-one', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ideas-one.html'));
+});
+
+app.get('/ideas-one.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ideas-one.html'));
+});
+
+app.get('/mall', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ideas-one.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`IdeasGroup server is running on http://localhost:${PORT}`);

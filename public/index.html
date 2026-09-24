@@ -1172,6 +1172,108 @@
       width: 100%;
       box-sizing: border-box;
     }
+
+    /* Operating Brands Spotlight in IDEAS ONE Card */
+    .operating-brands-spotlight {
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: rgba(12, 32, 103, 0.45);
+      border: 1px solid rgba(223, 162, 59, 0.28);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .obs-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .obs-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .obs-view-all {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .obs-view-all:hover {
+      color: #ffffff;
+    }
+
+    .obs-badges-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .obs-badges-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .obs-badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .obs-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(223, 162, 59, 0.2);
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .obs-badge:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .obs-badge img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 3px;
+      margin-bottom: 6px;
+    }
+
+    .obs-badge span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .btn-mall-showcase {
+      border: 1px solid rgba(250, 214, 120, 0.7);
+      box-shadow: 0 6px 22px rgba(223, 162, 59, 0.45);
+    }
+
     @media (max-width: 640px) {
       .apt-sizes-chips-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2899,6 +3001,7 @@
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="#projects">Developments</a></li>
+          <li><a href="ideas-one.html">IDEAS ONE Mall</a></li>
           <li><a href="#why-ideas-group">Why IDEAS</a></li>
           <li><a href="#construction">Construction</a></li>
           <li><a href="#faqs">FAQs</a></li>
@@ -2943,6 +3046,7 @@
       <li><a href="#home" class="drawer-nav-item active">Home</a></li>
       <li><a href="about.html" class="drawer-nav-item">About Us</a></li>
       <li><a href="#projects" class="drawer-nav-item">Developments</a></li>
+      <li><a href="ideas-one.html" class="drawer-nav-item">IDEAS ONE Mall &amp; Brands</a></li>
       <li><a href="#why-ideas-group" class="drawer-nav-item">Why IDEAS Group</a></li>
       <li><a href="#why-b17" class="drawer-nav-item">Why B-17</a></li>
       <li><a href="#construction" class="drawer-nav-item">Construction Progress</a></li>
@@ -3199,8 +3303,45 @@
               </a>
             </div>
 
+            <!-- Onboard & Operating Brands Spotlight Strip -->
+            <div class="operating-brands-spotlight">
+              <div class="obs-header">
+                <span class="obs-title">
+                  <span class="live-beacon"><span class="live-beacon-ring"></span><span class="live-beacon-dot"></span></span>
+                  Brands Already Operating In Mall:
+                </span>
+                <a href="ideas-one.html#brands" class="obs-view-all">View Mall Brands Showcase &rarr;</a>
+              </div>
+              <div class="obs-badges-grid">
+                <a href="ideas-one.html#brands" class="obs-badge" title="Bag N Bags - Luxury Handbags & Accessories">
+                  <img src="images/brands/bag-n-bags.jpg" alt="Bag N Bags">
+                  <span>Bag N Bags</span>
+                </a>
+                <a href="ideas-one.html#brands" class="obs-badge" title="Bavari - Luxury Perfumes & Impressions">
+                  <img src="images/brands/bavari.jpg" alt="Bavari">
+                  <span>Bavari</span>
+                </a>
+                <a href="ideas-one.html#brands" class="obs-badge" title="Sajni - Multi-Designer Women's Pret">
+                  <img src="images/brands/sajni.jpg" alt="Sajni">
+                  <span>Sajni</span>
+                </a>
+                <a href="ideas-one.html#brands" class="obs-badge" title="Retread Wear - Rewear With Confidence">
+                  <img src="images/brands/retread-wear.jpg" alt="Retread Wear">
+                  <span>Retread Wear</span>
+                </a>
+                <a href="ideas-one.html#brands" class="obs-badge" title="300 Store - Fast Fashion Retail">
+                  <img src="images/brands/300-store.jpg" alt="300 Store">
+                  <span>300 Store</span>
+                </a>
+              </div>
+            </div>
+
             <div class="project-action-btns">
-              <a href="#contact" class="btn btn-gold">Inquire About IDEAS One</a>
+              <a href="ideas-one.html" class="btn btn-gold btn-mall-showcase">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                Explore IDEAS ONE Mall &amp; Operating Brands &rarr;
+              </a>
+              <a href="#contact" class="btn btn-outline">Inquire About IDEAS One</a>
               <a href="#construction" class="btn btn-outline">View Construction Status</a>
             </div>
 
