@@ -222,11 +222,18 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     }
 
+    .site-header .container,
+    .header-container {
+      max-width: 1560px !important;
+      width: 100%;
+      padding: 0 clamp(16px, 2.5vw, 36px);
+    }
+
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: clamp(12px, 1.5vw, 24px);
       height: 88px;
       transition: var(--transition-smooth);
       width: 100%;
@@ -2103,7 +2110,7 @@
        TOP HEADER & NAVIGATION
        ======================================================================== -->
   <header class="site-header" id="siteHeader">
-    <div class="container" style="max-width: 1400px;">
+    <div class="container header-container">
       <div class="nav-wrap">
 
         <!-- Left: Navigation Links -->

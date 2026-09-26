@@ -257,12 +257,22 @@
       border-bottom-color: rgba(223, 162, 59, 0.35);
     }
 
+    .site-header .container,
+    .header-container {
+      max-width: 1560px !important;
+      width: 100%;
+      padding: 0 clamp(16px, 2.5vw, 36px);
+    }
+
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: clamp(12px, 1.5vw, 24px);
       height: 82px;
       transition: height 0.35s ease;
+      width: 100%;
+      flex-wrap: nowrap;
     }
 
     .site-header.scrolled .nav-wrap {
@@ -272,7 +282,7 @@
     .nav-left-links {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 3px;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -288,13 +298,13 @@
 
     .nav-left-links li a {
       font-family: var(--font-brand);
-      font-size: 0.72rem;
+      font-size: 0.69rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.88);
       position: relative;
-      padding: 7px 12px;
+      padding: 6px 9px;
       border-radius: 20px;
       white-space: nowrap;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -322,55 +332,72 @@
     }
 
     .nav-center-brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
+      gap: 10px;
       padding: 6px 14px;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(223, 162, 59, 0.22);
-      background: rgba(12, 32, 103, 0.35);
+      border: 1px solid rgba(223, 162, 59, 0.35);
+      background: rgba(7, 21, 69, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(223, 162, 59, 0.08);
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
       transition: var(--transition-smooth);
+      text-decoration: none;
+      box-sizing: border-box;
     }
 
     .nav-center-brand:hover {
       border-color: var(--gold-primary);
-      background: rgba(12, 32, 103, 0.6);
+      background: rgba(12, 32, 103, 0.85);
+      box-shadow: 0 6px 22px rgba(223, 162, 59, 0.3);
       transform: translateY(-1px);
     }
 
     .nav-center-brand img {
-      height: 42px;
+      height: 38px;
       width: auto;
       object-fit: contain;
+      flex-shrink: 0;
+      display: block;
     }
 
     .nav-brand-title {
       font-family: var(--font-brand);
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       color: #ffffff;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap !important;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
     .nav-brand-title .brand-pipe {
       color: var(--gold-primary);
       font-weight: 300;
+      font-size: 1.05rem;
+      opacity: 0.8;
     }
 
     .nav-right-action {
       display: flex;
       align-items: center;
       gap: 12px;
-      flex-shrink: 0;
-      white-space: nowrap;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
     }
 
     .btn-get-in-touch {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       padding: 8px 18px;
       border-radius: 20px;
       font-family: var(--font-heading);
@@ -383,6 +410,7 @@
       box-shadow: 0 4px 14px rgba(223, 162, 59, 0.28);
       white-space: nowrap !important;
       flex-shrink: 0 !important;
+      transition: var(--transition-smooth);
     }
 
     .btn-get-in-touch:hover {
@@ -1483,32 +1511,45 @@
 
     /* Compact nav on medium-large screens (1281px - 1440px) */
     @media (min-width: 1281px) and (max-width: 1440px) {
-      .nav-left-links {
-        gap: 3px;
-      }
-      .nav-left-links li a {
-        padding: 6px 9px;
-        font-size: 0.68rem;
-        letter-spacing: 0.06em;
-      }
-      .nav-center-brand {
-        padding: 4px 8px;
+      .nav-wrap {
         gap: 8px;
       }
+      .nav-left-links {
+        gap: 2px;
+      }
+      .nav-left-links li a {
+        padding: 5px 7px;
+        font-size: 0.64rem;
+        letter-spacing: 0.03em;
+      }
+      .nav-center-brand {
+        padding: 5px 10px;
+        gap: 8px;
+      }
+      .nav-center-brand img {
+        height: 34px;
+      }
       .nav-brand-title {
-        font-size: 1.15rem;
-        letter-spacing: 0.12em;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
       }
       .btn-get-in-touch {
-        padding: 8px 14px;
-        font-size: 0.78rem;
+        padding: 7px 14px;
+        font-size: 0.74rem;
       }
     }
 
     /* Mobile drawer breakpoint: 1280px and down */
     @media (max-width: 1280px) {
+      .nav-wrap {
+        display: flex;
+        justify-content: space-between;
+      }
       .nav-left-links { display: none !important; }
       .burger-btn { display: flex !important; }
+      .nav-center-brand {
+        padding: 5px 12px;
+      }
       .brands-grid { grid-template-columns: repeat(2, 1fr); }
       .overview-grid { grid-template-columns: 1fr; }
       .overview-media-frame img { height: 380px; }
@@ -1521,11 +1562,14 @@
         display: none !important;
       }
       .nav-brand-title {
-        font-size: 1.1rem;
-        letter-spacing: 0.12em;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+      }
+      .nav-center-brand {
+        padding: 4px 10px;
       }
       .nav-center-brand img {
-        height: 36px;
+        height: 32px;
       }
     }
 
@@ -1547,6 +1591,20 @@
       .mall-hero-actions { flex-direction: column; width: 100%; }
       .mall-hero-actions .btn { width: 100%; }
     }
+
+    @media (max-width: 480px) {
+      .nav-brand-title {
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+      }
+      .nav-center-brand {
+        padding: 4px 8px;
+        gap: 6px;
+      }
+      .nav-center-brand img {
+        height: 28px;
+      }
+    }
   </style>
 </head>
 
@@ -1559,7 +1617,7 @@
        TOP HEADER & NAVIGATION
        ======================================================================== -->
   <header class="site-header" id="siteHeader">
-    <div class="container" style="max-width: 1400px;">
+    <div class="container header-container">
       <div class="nav-wrap">
 
         <!-- Left: Navigation Links -->
