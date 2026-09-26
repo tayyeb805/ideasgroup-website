@@ -363,22 +363,26 @@
     .nav-right-action {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .btn-get-in-touch {
       display: inline-flex;
       align-items: center;
-      padding: 9px 20px;
-      border-radius: var(--radius-sm);
+      padding: 8px 18px;
+      border-radius: 20px;
       font-family: var(--font-heading);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--navy-darkest);
       background: var(--gold-gradient);
       border: 1px solid rgba(250, 214, 120, 0.6);
       letter-spacing: 0.04em;
       box-shadow: 0 4px 14px rgba(223, 162, 59, 0.28);
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
 
     .btn-get-in-touch:hover {
@@ -1503,12 +1507,26 @@
 
     /* Mobile drawer breakpoint: 1280px and down */
     @media (max-width: 1280px) {
-      .nav-left-links { display: none; }
-      .burger-btn { display: flex; }
+      .nav-left-links { display: none !important; }
+      .burger-btn { display: flex !important; }
       .brands-grid { grid-template-columns: repeat(2, 1fr); }
       .overview-grid { grid-template-columns: 1fr; }
       .overview-media-frame img { height: 380px; }
       .leasing-banner { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 992px) {
+      /* Clean 2-Element Header on Tablets and Mobile: Brand on Left + Hamburger on Right */
+      .btn-get-in-touch {
+        display: none !important;
+      }
+      .nav-brand-title {
+        font-size: 1.1rem;
+        letter-spacing: 0.12em;
+      }
+      .nav-center-brand img {
+        height: 36px;
+      }
     }
 
     @media (max-width: 860px) {

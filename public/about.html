@@ -362,7 +362,8 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      white-space: nowrap;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
 
     .btn-get-in-touch:hover {
@@ -1689,6 +1690,20 @@
       }
       .history-visual-frame img {
         height: 380px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      /* Clean 2-Element Header on Tablets and Mobile: Brand on Left + Hamburger on Right */
+      .btn-get-in-touch {
+        display: none !important;
+      }
+      .nav-brand-title {
+        font-size: 1.1rem;
+        letter-spacing: 0.12em;
+      }
+      .nav-center-brand img {
+        height: 36px;
       }
     }
 
