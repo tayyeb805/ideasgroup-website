@@ -226,10 +226,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       height: 88px;
       transition: var(--transition-smooth);
       width: 100%;
+      flex-wrap: nowrap;
     }
 
     .site-header.scrolled .nav-wrap {
@@ -239,29 +240,30 @@
     .nav-left-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
       list-style: none;
       margin: 0;
       padding: 0;
-      flex-shrink: 0;
+      flex-shrink: 1;
       white-space: nowrap;
     }
 
     .nav-left-links li {
       white-space: nowrap;
       display: inline-flex;
+      flex-shrink: 0;
     }
 
     .nav-left-links a {
       font-family: var(--font-brand);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.88);
       position: relative;
-      padding: 8px 16px;
-      border-radius: 22px;
+      padding: 7px 12px;
+      border-radius: 20px;
       white-space: nowrap;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid transparent;
@@ -784,7 +786,9 @@
       width: 100%;
       height: 480px;
       object-fit: cover;
+      object-position: center 46%;
       transition: transform 0.6s ease;
+      transform-origin: center 46%;
     }
 
     .history-visual-frame:hover img {
@@ -1648,10 +1652,32 @@
       color: var(--navy-darkest);
     }
 
-    /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
-       ========================================================================== */
-    @media (max-width: 1140px) {
+    /* Compact nav on medium-large screens (1281px - 1440px) */
+    @media (min-width: 1281px) and (max-width: 1440px) {
+      .nav-left-links {
+        gap: 3px;
+      }
+      .nav-left-links a {
+        padding: 6px 9px;
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+      }
+      .nav-center-brand {
+        padding: 4px 8px;
+        gap: 8px;
+      }
+      .nav-brand-title {
+        font-size: 1.15rem;
+        letter-spacing: 0.12em;
+      }
+      .btn-get-in-touch {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* Mobile drawer breakpoint: 1280px and down */
+    @media (max-width: 1280px) {
       .nav-left-links {
         display: none;
       }
@@ -2071,6 +2097,7 @@
           <li><a href="about.html" class="active">About Us</a></li>
           <li><a href="index.html#projects">Developments</a></li>
           <li><a href="ideas-one.html">IDEAS ONE Mall</a></li>
+          <li><a href="index.html#payment-plans">Payment Plans</a></li>
           <li><a href="index.html#why-ideas-group">Why IDEAS</a></li>
           <li><a href="index.html#construction">Construction</a></li>
           <li><a href="index.html#faqs">FAQs</a></li>
@@ -2116,6 +2143,7 @@
       <li><a href="about.html" class="drawer-nav-item active">About Us</a></li>
       <li><a href="index.html#projects" class="drawer-nav-item">Developments</a></li>
       <li><a href="ideas-one.html" class="drawer-nav-item">IDEAS ONE Mall &amp; Brands</a></li>
+      <li><a href="index.html#payment-plans" class="drawer-nav-item">Payment Plans</a></li>
       <li><a href="index.html#why-ideas-group" class="drawer-nav-item">Why IDEAS Group</a></li>
       <li><a href="index.html#why-b17" class="drawer-nav-item">Why B-17 Sector</a></li>
       <li><a href="index.html#construction" class="drawer-nav-item">Construction Progress</a></li>
@@ -2206,7 +2234,7 @@
         </div>
 
         <div class="history-visual-frame">
-          <img src="images/one/ideas_one_render.jpg" alt="IDEAS Group Landmark Development">
+          <img src="images/one/ideas_one_featured.jpg" alt="IDEAS Group Landmark Development — IDEAS ONE">
           <div class="history-overlay-badge">
             <div>
               <div class="badge-tag">IDEAS ONE</div>

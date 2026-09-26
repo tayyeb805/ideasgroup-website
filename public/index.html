@@ -240,10 +240,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       height: 88px;
       transition: var(--transition-smooth);
       width: 100%;
+      flex-wrap: nowrap;
     }
 
     .site-header.scrolled .nav-wrap {
@@ -253,29 +254,30 @@
     .nav-left-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
       list-style: none;
       margin: 0;
       padding: 0;
-      flex-shrink: 0;
+      flex-shrink: 1;
       white-space: nowrap;
     }
 
     .nav-left-links li {
       white-space: nowrap;
       display: inline-flex;
+      flex-shrink: 0;
     }
 
     .nav-left-links a {
       font-family: var(--font-brand);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.88);
       position: relative;
-      padding: 8px 16px;
-      border-radius: 22px;
+      padding: 7px 12px;
+      border-radius: 20px;
       white-space: nowrap;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid transparent;
@@ -984,6 +986,14 @@
       transform: scale(1.05);
     }
 
+    #ideas-one .project-featured-img {
+      object-position: center 46%;
+    }
+
+    #ideas-one:hover .project-featured-img {
+      transform-origin: center 46%;
+    }
+
     .project-badge-tag {
       position: absolute;
       top: 24px;
@@ -1166,10 +1176,18 @@
 
     .project-action-btns {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       margin-top: 20px;
       width: 100%;
+      box-sizing: border-box;
+    }
+
+    .project-action-btns .btn {
+      white-space: normal;
+      text-align: center;
+      line-height: 1.35;
+      padding: 12px 20px;
       box-sizing: border-box;
     }
 
@@ -1335,6 +1353,522 @@
       gap: 5px;
       pointer-events: none;
       backdrop-filter: blur(4px);
+    }
+
+    /* ==========================================================================
+       SECTION: PAYMENT PLANS (IDEAS ONE & IDEAS TOWER)
+       ========================================================================== */
+    .section-payment-plans {
+      padding: 110px 0;
+      background: radial-gradient(circle at 50% 15%, #0b2260 0%, #050e30 85%);
+      color: #ffffff;
+      position: relative;
+      border-top: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .plan-project-switcher {
+      display: inline-flex;
+      background: rgba(7, 21, 69, 0.85);
+      border: 1px solid var(--navy-border);
+      border-radius: 40px;
+      padding: 6px;
+      gap: 8px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .plan-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .plan-switch-btn:hover {
+      color: var(--gold-light);
+      background: rgba(223, 162, 59, 0.12);
+    }
+
+    .plan-switch-btn.active {
+      background: var(--gold-gradient);
+      color: var(--navy-darkest);
+      box-shadow: 0 4px 15px var(--gold-glow);
+    }
+
+    .payment-plan-card {
+      background: rgba(12, 32, 103, 0.65);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+      scroll-margin-top: 110px;
+    }
+
+    .payment-plan-card:target {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 35px rgba(223, 162, 59, 0.45);
+      animation: planHighlightPulse 2s ease;
+    }
+
+    @keyframes planHighlightPulse {
+      0% { box-shadow: 0 0 0 0 rgba(223, 162, 59, 0.7); }
+      70% { box-shadow: 0 0 35px 12px rgba(223, 162, 59, 0.3); }
+      100% { box-shadow: 0 0 25px rgba(223, 162, 59, 0.2); }
+    }
+
+    .plan-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid rgba(223, 162, 59, 0.2);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .plan-card-header h3 {
+      font-size: 1.85rem;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+    }
+
+    .plan-rate-pill {
+      background: rgba(223, 162, 59, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 15px rgba(223, 162, 59, 0.2);
+    }
+
+    .plan-grid-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .plan-flyer-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .plan-flyer-frame {
+      position: relative;
+      background: #03081c;
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: zoom-in;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .plan-flyer-frame:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(223, 162, 59, 0.25);
+    }
+
+    .plan-flyer-img {
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .plan-flyer-frame:hover .plan-flyer-img {
+      transform: scale(1.02);
+    }
+
+    .plan-flyer-expand-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5, 14, 48, 0.88);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .plan-flyer-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      margin-top: 14px;
+      box-sizing: border-box;
+    }
+
+    .plan-flyer-actions .btn {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      border-radius: 10px !important;
+      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
+      text-align: center;
+      justify-content: center;
+      min-height: 44px;
+      box-sizing: border-box;
+      gap: 6px;
+    }
+
+    .plan-flyer-actions .plan-btn-whatsapp {
+      grid-column: 1 / -1;
+      border: 1px solid rgba(37, 211, 102, 0.55);
+      color: #25d366;
+      background: rgba(37, 211, 102, 0.09);
+      backdrop-filter: blur(6px);
+      text-decoration: none;
+    }
+
+    .plan-flyer-actions .plan-btn-whatsapp:hover {
+      background: rgba(37, 211, 102, 0.22);
+      border-color: #25d366;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .plan-data-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .plan-milestones-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .plan-milestone-pill {
+      background: rgba(7, 21, 69, 0.7);
+      border: 1px solid rgba(223, 162, 59, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .plan-milestone-pill b {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      font-family: 'Cinzel', serif;
+      margin-bottom: 2px;
+    }
+
+    .plan-milestone-pill span {
+      font-size: 0.72rem;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .plan-table-container {
+      background: rgba(7, 21, 69, 0.85);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .plan-table th {
+      background: rgba(5, 14, 48, 0.95);
+      color: var(--gold-primary);
+      padding: 12px 14px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(223, 162, 59, 0.3);
+    }
+
+    .plan-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+    }
+
+    .plan-table tr:hover td {
+      background: rgba(223, 162, 59, 0.08);
+      color: #ffffff;
+    }
+
+    .plan-table td.plan-price-col {
+      color: var(--gold-light);
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .plan-tabs-segmented {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .plan-seg-btn {
+      background: rgba(7, 21, 69, 0.7);
+      border: 1px solid rgba(223, 162, 59, 0.3);
+      color: #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .plan-seg-btn:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-primary);
+    }
+
+    .plan-seg-btn.active {
+      background: var(--gold-gradient);
+      color: var(--navy-darkest);
+      border-color: transparent;
+      box-shadow: 0 4px 12px var(--gold-glow);
+    }
+
+    .plan-perks-box {
+      background: rgba(5, 14, 48, 0.6);
+      border-left: 3px solid var(--gold-primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* Fullscreen Modal Lightbox */
+    .payment-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 18, 0.92);
+      backdrop-filter: blur(14px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .payment-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .payment-modal-dialog {
+      background: #071545;
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      max-width: 900px;
+      width: 100%;
+      max-height: 94vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 35px var(--gold-glow);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .payment-modal-backdrop.active .payment-modal-dialog {
+      transform: scale(1);
+    }
+
+    .payment-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: #050e30;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .payment-modal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .payment-modal-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .payment-modal-close:hover {
+      color: #ffffff;
+      transform: scale(1.15);
+    }
+
+    .payment-modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #020612;
+    }
+
+    .payment-modal-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .payment-modal-footer {
+      padding: 14px 24px;
+      background: #050e30;
+      border-top: 1px solid var(--navy-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Jump Button in Project Cards */
+    .btn-plan-jump {
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 16px var(--gold-glow);
+    }
+
+    @media (max-width: 992px) {
+      .plan-grid-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+      .payment-plan-card {
+        padding: 26px 18px;
+      }
+      .plan-card-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+      .plan-rate-pill {
+        align-self: flex-start;
+      }
+      .plan-milestones-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .plan-flyer-actions {
+        grid-template-columns: 1fr;
+      }
+      .plan-flyer-actions .plan-btn-whatsapp {
+        grid-column: 1;
+      }
+      .plan-project-switcher {
+        width: 100%;
+        border-radius: 16px;
+        flex-direction: column;
+      }
+      .plan-switch-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .payment-modal-dialog {
+        max-height: 96vh;
+        margin: 8px;
+      }
+      .payment-modal-header {
+        padding: 12px 14px;
+      }
+      .payment-modal-title {
+        font-size: 0.9rem;
+      }
+      .payment-modal-body {
+        padding: 8px;
+      }
+      .payment-modal-footer {
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .payment-modal-footer > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+      .payment-modal-footer .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 8px !important;
+      }
     }
 
     /* ==========================================================================
@@ -2078,10 +2612,32 @@
       }
     }
 
-    /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
-       ========================================================================== */
-    @media (max-width: 1140px) {
+    /* Compact nav on medium-large screens (1281px - 1440px) */
+    @media (min-width: 1281px) and (max-width: 1440px) {
+      .nav-left-links {
+        gap: 3px;
+      }
+      .nav-left-links a {
+        padding: 6px 9px;
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+      }
+      .nav-center-brand {
+        padding: 4px 8px;
+        gap: 8px;
+      }
+      .nav-brand-title {
+        font-size: 1.15rem;
+        letter-spacing: 0.12em;
+      }
+      .btn-get-in-touch {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* Mobile drawer breakpoint: 1280px and down */
+    @media (max-width: 1280px) {
       .nav-wrap {
         display: flex;
         justify-content: space-between;
@@ -2288,6 +2844,11 @@
         min-height: 240px;
         max-height: 320px;
         width: 100%;
+      }
+
+      #ideas-one .project-featured-media {
+        min-height: 380px;
+        max-height: 480px;
       }
 
       .project-featured-info {
@@ -2930,9 +3491,12 @@
       transform: scale(0.92);
     }
 
-    .reveal-item.is-revealed {
-      opacity: 1;
-      transform: translate(0, 0) scale(1);
+    .reveal-item.is-revealed,
+    :target,
+    :target .reveal-item,
+    .reveal-item:target {
+      opacity: 1 !important;
+      transform: translate(0, 0) scale(1) !important;
     }
 
     /* Staggered Delays */
@@ -3001,6 +3565,7 @@
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="#projects">Developments</a></li>
+          <li><a href="#payment-plans">Payment Plans</a></li>
           <li><a href="ideas-one.html">IDEAS ONE Mall</a></li>
           <li><a href="#why-ideas-group">Why IDEAS</a></li>
           <li><a href="#construction">Construction</a></li>
@@ -3046,6 +3611,7 @@
       <li><a href="#home" class="drawer-nav-item active">Home</a></li>
       <li><a href="about.html" class="drawer-nav-item">About Us</a></li>
       <li><a href="#projects" class="drawer-nav-item">Developments</a></li>
+      <li><a href="#payment-plans" class="drawer-nav-item">Payment Plans</a></li>
       <li><a href="ideas-one.html" class="drawer-nav-item">IDEAS ONE Mall &amp; Brands</a></li>
       <li><a href="#why-ideas-group" class="drawer-nav-item">Why IDEAS Group</a></li>
       <li><a href="#why-b17" class="drawer-nav-item">Why B-17</a></li>
@@ -3136,7 +3702,7 @@
       <div class="about-grid">
 
         <div class="about-visual-card reveal-item reveal-left">
-          <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Landmark High-Rise Development"
+          <img src="images/brand/ideas_group_builders.jpg" alt="IDEAS Group Builders & Developers — Master High-Rise Construction & Engineering"
             class="about-visual-img">
           <div class="about-visual-badge">
             <strong data-target="1995" data-suffix="">1995</strong>
@@ -3211,7 +3777,7 @@
       <article class="project-card-featured reveal-item" id="ideas-one">
         <div class="project-featured-grid">
           <div class="project-featured-media">
-            <img src="images/one/ideas_one_render.jpg" alt="IDEAS One Mixed-Use Development"
+            <img src="images/one/ideas_one_featured.jpg" alt="IDEAS One Landmark Mixed-Use Development — Crown of B-17"
               class="project-featured-img">
             <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring"></span><span class="live-beacon-dot"></span></span>CDA Approved · Mixed-Use</span>
           </div>
@@ -3337,7 +3903,11 @@
             </div>
 
             <div class="project-action-btns">
-              <a href="ideas-one.html" class="btn btn-gold btn-mall-showcase">
+              <a href="#payment-plan-ideas-one" class="btn btn-gold btn-plan-jump">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                View Payment Plan
+              </a>
+              <a href="ideas-one.html" class="btn btn-outline btn-mall-showcase">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                 Explore IDEAS ONE Mall &amp; Operating Brands &rarr;
               </a>
@@ -3436,7 +4006,11 @@
             </div>
 
             <div class="project-action-btns">
-              <a href="#contact" class="btn btn-gold">Inquire About IDEAS Tower</a>
+              <a href="#payment-plan-ideas-tower" class="btn btn-gold btn-plan-jump">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                View Payment Plan
+              </a>
+              <a href="#contact" class="btn btn-outline">Inquire About IDEAS Tower</a>
             </div>
 
             <!-- IDEAS Tower Official Social Channels -->
@@ -3455,6 +4029,480 @@
                   <span>TikTok</span>
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: OFFICIAL PAYMENT PLANS (IDEAS ONE & IDEAS TOWER)
+       ======================================================================== -->
+  <section class="section-payment-plans" id="payment-plans">
+    <div class="container">
+      <div class="section-header reveal-item" style="text-align: center; margin-bottom: 50px;">
+        <span class="kicker">Official Investment Schedules</span>
+        <h2>Transparent &amp; Flexible Payment Plans</h2>
+        <p style="max-width: 740px; margin: 0 auto; color: var(--gold-light);">
+          Explore official CDA-approved payment plans for IDEAS ONE and IDEAS Tower in Sector B-17, Islamabad. 
+          Verified per-sq.ft. pricing with manageable quarterly and monthly installment schedules.
+        </p>
+
+        <!-- Quick Project Switcher Pills -->
+        <div class="plan-project-switcher">
+          <a href="#payment-plan-ideas-one" class="plan-switch-btn active" id="btnSwitchPlanOne" onclick="activatePlanTab('one', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            IDEAS ONE Mall &amp; Apartments
+          </a>
+          <a href="#payment-plan-ideas-tower" class="plan-switch-btn" id="btnSwitchPlanTower" onclick="activatePlanTab('tower', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+            IDEAS Tower (Tower A &amp; B)
+          </a>
+        </div>
+      </div>
+
+      <!-- 1. IDEAS ONE PAYMENT PLAN CARD -->
+      <article class="payment-plan-card reveal-item" id="payment-plan-ideas-one">
+        <div class="plan-card-header">
+          <div>
+            <span class="kicker" style="margin-bottom: 4px;">Flagship Development</span>
+            <h3>IDEAS ONE — Payment Plan</h3>
+            <p style="margin: 0; color: #cbd5e1; font-size: 0.9rem;">
+              Sector B-17, Gate 2, Main G.T Road, Islamabad · CDA Approved
+            </p>
+          </div>
+          <div class="plan-rate-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M16 10H8"></path></svg>
+            Apartments @ 16,500/- Per Sq.Ft.
+          </div>
+        </div>
+
+        <div class="plan-grid-layout">
+          <!-- Visual Flyer Box -->
+          <div class="plan-flyer-box">
+            <div class="plan-flyer-frame" onclick="openPaymentPlanModal('images/one/ideas_one_payment_plan.png', 'IDEAS ONE Official Payment Plan (Apartments &amp; Commercial Spaces)')" title="Click to view full-resolution flyer">
+              <img src="images/one/ideas_one_payment_plan.png" alt="IDEAS ONE Official Payment Plan Flyer" class="plan-flyer-img" id="ideasOneFlyerImg">
+              <span class="plan-flyer-expand-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Click to Expand High-Res
+              </span>
+            </div>
+
+            <div class="plan-flyer-actions">
+              <button type="button" class="btn btn-gold plan-btn-expand" onclick="openPaymentPlanModal('images/one/ideas_one_payment_plan.png', 'IDEAS ONE Official Payment Plan')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right: 6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Expand Flyer
+              </button>
+              <a href="images/one/ideas_one_payment_plan.png" download="ideas_one_payment_plan.png" class="btn btn-outline plan-btn-download">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Flyer
+              </a>
+              <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20the%20IDEAS%20ONE%20payment%20plan." target="_blank" rel="noopener noreferrer" class="btn plan-btn-whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+                Book on WhatsApp Inquiry
+              </a>
+            </div>
+          </div>
+
+          <!-- Structured Data Panel -->
+          <div class="plan-data-panel">
+            <!-- Key Milestones Strip -->
+            <div class="plan-milestones-row">
+              <div class="plan-milestone-pill">
+                <b>20%</b>
+                <span>Down Payment</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b>60</b>
+                <span>Monthly Inst.</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b>10</b>
+                <span>Half-Yearly</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b>10%</b>
+                <span>On Possession</span>
+              </div>
+            </div>
+
+            <!-- Tab Switcher between Apartments & Commercial -->
+            <div>
+              <div class="plan-tabs-segmented">
+                <button type="button" class="plan-seg-btn active" id="btnIdeasOneApts" onclick="switchIdeasOnePaymentTab('apts', this)">
+                  Finished Apartments Schedule
+                </button>
+                <button type="button" class="plan-seg-btn" id="btnIdeasOneComm" onclick="switchIdeasOnePaymentTab('comm', this)">
+                  Commercial Spaces Rate Per Sq.Ft.
+                </button>
+              </div>
+
+              <!-- Apartments Table -->
+              <div class="plan-table-container" id="ideasOneAptsTableWrap">
+                <table class="plan-table">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Size (Sqft)</th>
+                      <th>Total Amount</th>
+                      <th>Down Payment (20%)</th>
+                      <th>60 Monthly</th>
+                      <th>10 Half-Yearly</th>
+                      <th>On Possession (10%)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Studio</b></td>
+                      <td>450</td>
+                      <td class="plan-price-col">Rs. 7,425,000</td>
+                      <td>Rs. 1,485,000</td>
+                      <td>Rs. 50,000</td>
+                      <td>Rs. 219,750</td>
+                      <td>Rs. 742,500</td>
+                    </tr>
+                    <tr>
+                      <td><b>1 Bed</b></td>
+                      <td>720</td>
+                      <td class="plan-price-col">Rs. 11,880,000</td>
+                      <td>Rs. 2,376,000</td>
+                      <td>Rs. 100,000</td>
+                      <td>Rs. 231,600</td>
+                      <td>Rs. 1,188,000</td>
+                    </tr>
+                    <tr>
+                      <td><b>2 Bed</b></td>
+                      <td>1275</td>
+                      <td class="plan-price-col">Rs. 21,037,500</td>
+                      <td>Rs. 4,207,500</td>
+                      <td>Rs. 150,000</td>
+                      <td>Rs. 572,625</td>
+                      <td>Rs. 2,103,750</td>
+                    </tr>
+                    <tr>
+                      <td><b>2 Bed</b></td>
+                      <td>1400</td>
+                      <td class="plan-price-col">Rs. 23,100,000</td>
+                      <td>Rs. 4,620,000</td>
+                      <td>Rs. 150,000</td>
+                      <td>Rs. 717,000</td>
+                      <td>Rs. 2,310,000</td>
+                    </tr>
+                    <tr>
+                      <td><b>2 Bed</b></td>
+                      <td>1450</td>
+                      <td class="plan-price-col">Rs. 23,925,000</td>
+                      <td>Rs. 4,785,000</td>
+                      <td>Rs. 150,000</td>
+                      <td>Rs. 774,750</td>
+                      <td>Rs. 2,392,500</td>
+                    </tr>
+                    <tr>
+                      <td><b>3 Bed</b></td>
+                      <td>1780</td>
+                      <td class="plan-price-col">Rs. 29,370,000</td>
+                      <td>Rs. 5,847,000</td>
+                      <td>Rs. 200,000</td>
+                      <td>Rs. 855,900</td>
+                      <td>Rs. 2,937,000</td>
+                    </tr>
+                    <tr>
+                      <td><b>3 Bed</b></td>
+                      <td>2000</td>
+                      <td class="plan-price-col">Rs. 33,000,000</td>
+                      <td>Rs. 6,600,000</td>
+                      <td>Rs. 200,000</td>
+                      <td>Rs. 1,110,000</td>
+                      <td>Rs. 3,300,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Commercial Spaces Table (hidden by default) -->
+              <div class="plan-table-container" id="ideasOneCommTableWrap" style="display: none;">
+                <table class="plan-table">
+                  <thead>
+                    <tr>
+                      <th>Floor / Space Category</th>
+                      <th>Rate Per Sq.Ft.</th>
+                      <th>Category Highlights</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Ground Floor Level-I</b></td>
+                      <td class="plan-price-col">Rs. 60,000 / sq.ft</td>
+                      <td>Prime high-footfall mall entrance &amp; retail shops</td>
+                    </tr>
+                    <tr>
+                      <td><b>Ground Floor Level-II</b></td>
+                      <td class="plan-price-col">Rs. 70,000 / sq.ft</td>
+                      <td>Flagship anchor retail &amp; premium brand frontages</td>
+                    </tr>
+                    <tr>
+                      <td><b>First Floor</b></td>
+                      <td class="plan-price-col">Rs. 55,000 / sq.ft</td>
+                      <td>Fashion retail, lifestyle apparel &amp; department stores</td>
+                    </tr>
+                    <tr>
+                      <td><b>Second Floor</b></td>
+                      <td class="plan-price-col">Rs. 50,000 / sq.ft</td>
+                      <td>Consumer electronics, specialty boutiques &amp; services</td>
+                    </tr>
+                    <tr>
+                      <td><b>3rd Floor Food Court</b></td>
+                      <td class="plan-price-col">Rs. 60,000 / sq.ft</td>
+                      <td>130+ culinary outlets, fast food &amp; fine dining</td>
+                    </tr>
+                    <tr>
+                      <td><b>4th &amp; 5th Floor Offices</b></td>
+                      <td class="plan-price-col">Rs. 25,000 / sq.ft</td>
+                      <td>Corporate offices &amp; modern executive executive suites</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Perks Box -->
+            <div class="plan-perks-box">
+              <strong style="color:var(--gold-light);">Prime Multi Gardens B-17 Advantage:</strong>
+              Direct access to Main G.T Road at Gate 2. All residential apartments and commercial spaces include dedicated parking access, high-speed escalators, panoramic elevators, 24/7 security surveillance, and full backup power.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. IDEAS TOWER PAYMENT PLAN CARD -->
+      <article class="payment-plan-card reveal-item" id="payment-plan-ideas-tower">
+        <div class="plan-card-header">
+          <div>
+            <span class="kicker" style="margin-bottom: 4px;">Residential High-Rise</span>
+            <h3>IDEAS Tower — Finished Apartments</h3>
+            <p style="margin: 0; color: #cbd5e1; font-size: 0.9rem;">
+              Plot No. 04, MR-1A, Block B, Gate No. 01, Multi Gardens B-17, Islamabad · 90% Completed
+            </p>
+          </div>
+
+          <!-- Tower Switcher -->
+          <div class="plan-tabs-segmented" style="margin-bottom: 0;">
+            <button type="button" class="plan-seg-btn active" id="btnTowerA" onclick="switchTowerPaymentPlan('a', this)">
+              Tower-A (@ 20,000/- per sq.ft)
+            </button>
+            <button type="button" class="plan-seg-btn" id="btnTowerB" onclick="switchTowerPaymentPlan('b', this)">
+              Tower-B (@ 16,000/- per sq.ft)
+            </button>
+          </div>
+        </div>
+
+        <div class="plan-grid-layout">
+          <!-- Visual Flyer Box -->
+          <div class="plan-flyer-box">
+            <div class="plan-flyer-frame" id="ideasTowerFlyerFrame" onclick="openActiveTowerPlanModal()" title="Click to view full-resolution flyer">
+              <img src="images/tower/ideas_tower_payment_plan_a.jpg" alt="IDEAS Tower Payment Plan Flyer" class="plan-flyer-img" id="ideasTowerFlyerImg">
+              <span class="plan-flyer-expand-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Click to Expand High-Res
+              </span>
+            </div>
+
+            <div class="plan-flyer-actions">
+              <button type="button" class="btn btn-gold plan-btn-expand" onclick="openActiveTowerPlanModal()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right: 6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Expand Flyer
+              </button>
+              <a href="images/tower/ideas_tower_payment_plan_a.jpg" download="ideas_tower_payment_plan_tower_a.jpg" id="ideasTowerDownloadBtn" class="btn btn-outline plan-btn-download">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Flyer
+              </a>
+              <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20the%20IDEAS%20Tower%20payment%20plan." target="_blank" rel="noopener noreferrer" class="btn plan-btn-whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+                Book on WhatsApp Inquiry
+              </a>
+            </div>
+          </div>
+
+          <!-- Structured Data Panel -->
+          <div class="plan-data-panel">
+            <!-- Key Milestones Strip (Tower A / B Dynamic) -->
+            <div class="plan-milestones-row">
+              <div class="plan-milestone-pill">
+                <b id="towerStatRate">@ 20,000</b>
+                <span>Per Sq.Ft.</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b>25% + 25%</b>
+                <span>Booking + Confirm</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b id="towerStatInstallments">18 Mo (35%)</b>
+                <span>Monthly Inst.</span>
+              </div>
+              <div class="plan-milestone-pill">
+                <b>5%</b>
+                <span>On Possession</span>
+              </div>
+            </div>
+
+            <!-- Tower A Table Wrap -->
+            <div class="plan-table-container" id="towerATableWrap">
+              <table class="plan-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Size (Sqft)</th>
+                    <th>Total Price</th>
+                    <th>Booking 25%</th>
+                    <th>Confirmation 25%</th>
+                    <th>5 Quarterly Balloon (10%)</th>
+                    <th>18 Monthly (35%)</th>
+                    <th>Possession 5%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>1 Bed</b></td>
+                    <td>C</td>
+                    <td>750</td>
+                    <td class="plan-price-col">Rs. 15,000,000</td>
+                    <td>Rs. 3,750,000</td>
+                    <td>Rs. 3,750,000</td>
+                    <td>Rs. 300,000 (each)</td>
+                    <td>Rs. 291,667</td>
+                    <td>Rs. 750,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,250</td>
+                    <td class="plan-price-col">Rs. 25,000,000</td>
+                    <td>Rs. 6,250,000</td>
+                    <td>Rs. 6,250,000</td>
+                    <td>Rs. 500,000 (each)</td>
+                    <td>Rs. 486,111</td>
+                    <td>Rs. 1,250,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>2 Bed Luxury</b></td>
+                    <td>B-1</td>
+                    <td>1,600</td>
+                    <td class="plan-price-col">Rs. 32,000,000</td>
+                    <td>Rs. 8,000,000</td>
+                    <td>Rs. 8,000,000</td>
+                    <td>Rs. 640,000 (each)</td>
+                    <td>Rs. 622,222</td>
+                    <td>Rs. 1,600,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>3 Bed</b></td>
+                    <td>A</td>
+                    <td>1,850</td>
+                    <td class="plan-price-col">Rs. 37,000,000</td>
+                    <td>Rs. 9,250,000</td>
+                    <td>Rs. 9,250,000</td>
+                    <td>Rs. 740,000 (each)</td>
+                    <td>Rs. 719,444</td>
+                    <td>Rs. 1,850,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>3 Bed</b></td>
+                    <td>A-1</td>
+                    <td>1,950</td>
+                    <td class="plan-price-col">Rs. 39,000,000</td>
+                    <td>Rs. 9,750,000</td>
+                    <td>Rs. 9,750,000</td>
+                    <td>Rs. 780,000 (each)</td>
+                    <td>Rs. 758,333</td>
+                    <td>Rs. 1,950,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>4 Bed</b></td>
+                    <td>XL</td>
+                    <td>2,250</td>
+                    <td class="plan-price-col">Rs. 45,000,000</td>
+                    <td>Rs. 11,250,000</td>
+                    <td>Rs. 11,250,000</td>
+                    <td>Rs. 900,000 (each)</td>
+                    <td>Rs. 875,000</td>
+                    <td>Rs. 2,250,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tower B Table Wrap (hidden by default) -->
+            <div class="plan-table-container" id="towerBTableWrap" style="display: none;">
+              <table class="plan-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Size (Sqft)</th>
+                    <th>Total Price</th>
+                    <th>Booking 25%</th>
+                    <th>Confirmation 25%</th>
+                    <th>5 Quarterly Balloon (10%)</th>
+                    <th>30 Monthly (35%)</th>
+                    <th>Possession 5%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>1 Bed</b></td>
+                    <td>C</td>
+                    <td>750</td>
+                    <td class="plan-price-col">Rs. 12,000,000</td>
+                    <td>Rs. 3,000,000</td>
+                    <td>Rs. 3,000,000</td>
+                    <td>Rs. 240,000 (each)</td>
+                    <td>Rs. 140,000</td>
+                    <td>Rs. 600,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,250</td>
+                    <td class="plan-price-col">Rs. 20,000,000</td>
+                    <td>Rs. 5,000,000</td>
+                    <td>Rs. 5,000,000</td>
+                    <td>Rs. 400,000 (each)</td>
+                    <td>Rs. 233,333</td>
+                    <td>Rs. 1,000,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,325</td>
+                    <td class="plan-price-col">Rs. 21,200,000</td>
+                    <td>Rs. 5,300,000</td>
+                    <td>Rs. 5,300,000</td>
+                    <td>Rs. 424,000 (each)</td>
+                    <td>Rs. 247,333</td>
+                    <td>Rs. 1,060,000</td>
+                  </tr>
+                  <tr>
+                    <td><b>2 Bed Luxury</b></td>
+                    <td>B-1</td>
+                    <td>1,600</td>
+                    <td class="plan-price-col">Rs. 25,600,000</td>
+                    <td>Rs. 6,400,000</td>
+                    <td>Rs. 6,400,000</td>
+                    <td>Rs. 512,000 (each)</td>
+                    <td>Rs. 298,667</td>
+                    <td>Rs. 1,280,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Perks Box -->
+            <div class="plan-perks-box">
+              <strong style="color:var(--gold-light);">Payment Terms &amp; Exclusive Discounts:</strong>
+              Avail a <strong>10% special discount</strong> on lump-sum full payment. Confirmation amount submitted within 45 days of booking. Floor premium adjustments: Ground Floor (-10%), Ground Floor with Lawn (-15%), 1st Floor (-5%), 13th &amp; 14th Floors (+10%), Corner Units (-10%).
             </div>
           </div>
         </div>
@@ -4390,6 +5438,21 @@ ${message ? message : 'General Consultation / Site Visit Request'}
       });
 
       revealItems.forEach(item => revealObserver.observe(item));
+
+      // Reveal elements immediately if already inside viewport or if user navigated to a hash
+      const revealInView = () => {
+        revealItems.forEach(item => {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight + 120) {
+            item.classList.add('is-revealed');
+          }
+        });
+      };
+      revealInView();
+      setTimeout(revealInView, 250);
+      setTimeout(() => {
+        revealItems.forEach(item => item.classList.add('is-revealed'));
+      }, 1200);
     } else {
       // Fallback
       revealItems.forEach(item => item.classList.add('is-revealed'));
@@ -4447,7 +5510,155 @@ ${message ? message : 'General Consultation / Site Visit Request'}
     } else {
       animateCounters();
     }
+
+    // 7. Payment Plan Interactive Functions
+    let currentActiveTower = 'a';
+
+    function switchTowerPaymentPlan(tower, btn) {
+      currentActiveTower = tower;
+      const img = document.getElementById('ideasTowerFlyerImg');
+      const downloadBtn = document.getElementById('ideasTowerDownloadBtn');
+      const tableA = document.getElementById('towerATableWrap');
+      const tableB = document.getElementById('towerBTableWrap');
+      const statRate = document.getElementById('towerStatRate');
+      const statInst = document.getElementById('towerStatInstallments');
+      const btnA = document.getElementById('btnTowerA');
+      const btnB = document.getElementById('btnTowerB');
+
+      if (tower === 'a') {
+        if (img) img.src = 'images/tower/ideas_tower_payment_plan_a.jpg';
+        if (downloadBtn) {
+          downloadBtn.href = 'images/tower/ideas_tower_payment_plan_a.jpg';
+          downloadBtn.download = 'ideas_tower_payment_plan_tower_a.jpg';
+        }
+        if (tableA) tableA.style.display = 'block';
+        if (tableB) tableB.style.display = 'none';
+        if (statRate) statRate.innerText = '@ 20,000';
+        if (statInst) statInst.innerText = '18 Mo (35%)';
+        if (btnA) btnA.classList.add('active');
+        if (btnB) btnB.classList.remove('active');
+      } else {
+        if (img) img.src = 'images/tower/ideas_tower_payment_plan_b.jpg';
+        if (downloadBtn) {
+          downloadBtn.href = 'images/tower/ideas_tower_payment_plan_b.jpg';
+          downloadBtn.download = 'ideas_tower_payment_plan_tower_b.jpg';
+        }
+        if (tableA) tableA.style.display = 'none';
+        if (tableB) tableB.style.display = 'block';
+        if (statRate) statRate.innerText = '@ 16,000';
+        if (statInst) statInst.innerText = '30 Mo (35%)';
+        if (btnA) btnA.classList.remove('active');
+        if (btnB) btnB.classList.add('active');
+      }
+    }
+
+    function openActiveTowerPlanModal() {
+      if (currentActiveTower === 'b') {
+        openPaymentPlanModal('images/tower/ideas_tower_payment_plan_b.jpg', 'IDEAS Tower (Tower-B) Finished Apartments @16,000/- Per Sq.Ft.');
+      } else {
+        openPaymentPlanModal('images/tower/ideas_tower_payment_plan_a.jpg', 'IDEAS Tower (Tower-A) Finished Apartments @20,000/- Per Sq.Ft.');
+      }
+    }
+
+    function switchIdeasOnePaymentTab(tab, btn) {
+      const aptsTable = document.getElementById('ideasOneAptsTableWrap');
+      const commTable = document.getElementById('ideasOneCommTableWrap');
+      const btnApts = document.getElementById('btnIdeasOneApts');
+      const btnComm = document.getElementById('btnIdeasOneComm');
+
+      if (tab === 'comm') {
+        if (aptsTable) aptsTable.style.display = 'none';
+        if (commTable) commTable.style.display = 'block';
+        if (btnComm) btnComm.classList.add('active');
+        if (btnApts) btnApts.classList.remove('active');
+      } else {
+        if (aptsTable) aptsTable.style.display = 'block';
+        if (commTable) commTable.style.display = 'none';
+        if (btnApts) btnApts.classList.add('active');
+        if (btnComm) btnComm.classList.remove('active');
+      }
+    }
+
+    function activatePlanTab(type, btn) {
+      const btnOne = document.getElementById('btnSwitchPlanOne');
+      const btnTower = document.getElementById('btnSwitchPlanTower');
+      if (type === 'one') {
+        if (btnOne) btnOne.classList.add('active');
+        if (btnTower) btnTower.classList.remove('active');
+      } else {
+        if (btnTower) btnTower.classList.add('active');
+        if (btnOne) btnOne.classList.remove('active');
+      }
+    }
+
+    // Modal Lightbox Controller
+    function openPaymentPlanModal(imageSrc, titleText = 'Official Payment Plan') {
+      const modal = document.getElementById('paymentPlanModal');
+      const modalImg = document.getElementById('modalPaymentImg');
+      const modalTitle = document.getElementById('modalPaymentTitle');
+      const modalDownload = document.getElementById('modalPaymentDownload');
+      const modalWhatsApp = document.getElementById('modalPaymentWhatsApp');
+
+      if (modal && modalImg) {
+        modalImg.src = imageSrc;
+        if (modalTitle) modalTitle.innerText = titleText;
+        if (modalDownload) {
+          modalDownload.href = imageSrc;
+          const filename = imageSrc.substring(imageSrc.lastIndexOf('/') + 1);
+          modalDownload.download = filename;
+        }
+        if (modalWhatsApp) {
+          modalWhatsApp.href = `https://wa.me/923305511117?text=${encodeURIComponent('Hello IDEAS Group, I am interested in: ' + titleText)}`;
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePaymentPlanModal() {
+      const modal = document.getElementById('paymentPlanModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePaymentPlanModal();
+      }
+    });
   </script>
+
+  <!-- Payment Plan Fullscreen Lightbox Modal -->
+  <div class="payment-modal-backdrop" id="paymentPlanModal" onclick="if(event.target === this) closePaymentPlanModal();" role="dialog" aria-modal="true" aria-label="Payment Plan Fullscreen View">
+    <div class="payment-modal-dialog">
+      <div class="payment-modal-header">
+        <div class="payment-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          <span id="modalPaymentTitle">Official Payment Plan</span>
+        </div>
+        <button type="button" class="payment-modal-close" onclick="closePaymentPlanModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="payment-modal-body">
+        <img id="modalPaymentImg" src="" alt="Payment Plan Full View" class="payment-modal-img">
+      </div>
+      <div class="payment-modal-footer">
+        <span style="font-size:0.8rem; color:#94a3b8;">
+          * Rates, milestones &amp; terms as approved by IDEAS Group Builders &amp; Developers.
+        </span>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a id="modalPaymentDownload" href="#" download class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right: 5px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download High-Res
+          </a>
+          <a id="modalPaymentWhatsApp" href="https://wa.me/923305511117" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding: 8px 18px; font-size: 0.85rem;">
+            Book on WhatsApp &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
