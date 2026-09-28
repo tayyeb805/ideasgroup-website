@@ -582,22 +582,41 @@
       font-size: 0.92rem;
       color: var(--gold-primary);
       opacity: 0.5;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
     }
 
     .drawer-links a:hover,
-    .drawer-links a:active,
-    .drawer-links a.active {
-      background: rgba(223, 162, 59, 0.14);
+    .drawer-links a:focus-visible {
+      background: rgba(223, 162, 59, 0.12);
       border-color: rgba(223, 162, 59, 0.35);
       color: #ffffff;
       padding-left: 18px;
     }
 
     .drawer-links a:hover::after,
-    .drawer-links a.active::after {
+    .drawer-links a:focus-visible::after {
       opacity: 1;
       transform: translateX(4px);
+    }
+
+    .drawer-links a:active {
+      background: rgba(223, 162, 59, 0.24);
+      border-color: var(--gold-light);
+      transform: scale(0.98);
+    }
+
+    .drawer-links a.active {
+      background: linear-gradient(90deg, rgba(223, 162, 59, 0.22) 0%, rgba(223, 162, 59, 0.08) 100%) !important;
+      border-color: var(--gold-primary) !important;
+      color: #ffffff !important;
+      padding-left: 18px !important;
+      box-shadow: 0 4px 18px rgba(223, 162, 59, 0.22) !important;
+    }
+
+    .drawer-links a.active::after {
+      opacity: 1 !important;
+      transform: translateX(4px) !important;
+      color: var(--gold-light) !important;
     }
 
     .drawer-actions {
@@ -2909,8 +2928,19 @@
     if (burgerBtn) burgerBtn.addEventListener('click', toggleDrawer);
     if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-    drawerNavItems.forEach(item => {
-      item.addEventListener('click', closeDrawer);
+    const aboutDrawerLinks = document.querySelectorAll('.drawer-links a');
+    aboutDrawerLinks.forEach(item => {
+      item.addEventListener('click', () => {
+        aboutDrawerLinks.forEach(l => l.classList.remove('active'));
+        item.classList.add('active');
+        setTimeout(() => {
+          closeDrawer();
+        }, 120);
+      });
+    });
+
+    document.querySelectorAll('.drawer-actions a').forEach(actionBtn => {
+      actionBtn.addEventListener('click', closeDrawer);
     });
 
     // Team Filter Functionality

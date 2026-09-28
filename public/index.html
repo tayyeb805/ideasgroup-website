@@ -80,6 +80,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
       font-size: 16px;
     }
 
@@ -387,7 +388,8 @@
       flex-shrink: 0 !important;
     }
 
-    .btn-get-in-touch:hover {
+    .btn-get-in-touch:hover,
+    .btn-get-in-touch.active {
       background: var(--gold-primary);
       border-color: var(--gold-primary);
       color: var(--navy-darkest);
@@ -589,6 +591,9 @@
       border-radius: 8px;
       border: 1px solid transparent;
       transition: all 0.25s ease;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
     .drawer-links a::after {
@@ -596,22 +601,41 @@
       font-size: 0.92rem;
       color: var(--gold-primary);
       opacity: 0.5;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
     }
 
     .drawer-links a:hover,
-    .drawer-links a:active,
-    .drawer-links a.active {
-      background: rgba(223, 162, 59, 0.14);
+    .drawer-links a:focus-visible {
+      background: rgba(223, 162, 59, 0.12);
       border-color: rgba(223, 162, 59, 0.35);
       color: #ffffff;
       padding-left: 18px;
     }
 
     .drawer-links a:hover::after,
-    .drawer-links a.active::after {
+    .drawer-links a:focus-visible::after {
       opacity: 1;
       transform: translateX(4px);
+    }
+
+    .drawer-links a:active {
+      background: rgba(223, 162, 59, 0.24);
+      border-color: var(--gold-light);
+      transform: scale(0.98);
+    }
+
+    .drawer-links a.active {
+      background: linear-gradient(90deg, rgba(223, 162, 59, 0.22) 0%, rgba(223, 162, 59, 0.08) 100%) !important;
+      border-color: var(--gold-primary) !important;
+      color: #ffffff !important;
+      padding-left: 18px !important;
+      box-shadow: 0 4px 18px rgba(223, 162, 59, 0.22) !important;
+    }
+
+    .drawer-links a.active::after {
+      opacity: 1 !important;
+      transform: translateX(4px) !important;
+      color: var(--gold-light) !important;
     }
 
     .drawer-actions {
@@ -5188,12 +5212,13 @@
       }
     });
 
-    // Mobile Drawer navigation
+    // ==========================================================================
+    // MOBILE DRAWER & NAVIGATION ACTIVE STATE SYSTEM WITH SCROLL SPY
+    // ==========================================================================
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const drawerBackdrop = document.getElementById('drawerBackdrop');
     const drawerClose = document.getElementById('drawerClose');
-    const drawerNavItems = document.querySelectorAll('.drawer-nav-item');
 
     function toggleDrawer() {
       const isOpen = mobileDrawer.classList.contains('open');
@@ -5205,6 +5230,7 @@
     }
 
     function openDrawer() {
+      updateActiveNavOnScroll();
       mobileDrawer.classList.add('open');
       drawerBackdrop.classList.add('open');
       if (burgerBtn) burgerBtn.classList.add('active');
@@ -5221,8 +5247,214 @@
     if (burgerBtn) burgerBtn.addEventListener('click', toggleDrawer);
     if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-    drawerNavItems.forEach(item => {
-      item.addEventListener('click', closeDrawer);
+
+    // Active Navigation Highlight Controller
+    function setActiveNav(activeKey) {
+      if (!activeKey) return;
+      const cleanKey = activeKey.startsWith('#') ? activeKey.substring(1) : activeKey;
+
+      const drawerLinks = document.querySelectorAll('.drawer-links a');
+      const desktopLinks = document.querySelectorAll('.nav-left-links a');
+      const getInTouchBtn = document.querySelector('.btn-get-in-touch');
+
+      const isMatch = (href) => {
+        if (!href) return false;
+        if (cleanKey === 'home' && (href === '#home' || href === 'index.html#home')) return true;
+        if (cleanKey === 'about' && (href === 'about.html' || href === '#about')) return true;
+        if (href === '#' + cleanKey || href === cleanKey) return true;
+        return false;
+      };
+
+      drawerLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (isMatch(href)) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      desktopLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (isMatch(href)) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      if (getInTouchBtn) {
+        if (cleanKey === 'contact') {
+          getInTouchBtn.classList.add('active');
+        } else {
+          getInTouchBtn.classList.remove('active');
+        }
+      }
+    }
+
+    let isClickScrolling = false;
+    let clickScrollTimer = null;
+
+    function smoothScrollToTarget(targetEl) {
+      const headerOffset = 82;
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      isClickScrolling = true;
+      clearTimeout(clickScrollTimer);
+      clickScrollTimer = setTimeout(() => {
+        isClickScrolling = false;
+      }, 900);
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    // Interactive Click Handler for Mobile Drawer Links
+    const drawerLinks = document.querySelectorAll('.drawer-links a');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        if (href.startsWith('#')) {
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            e.preventDefault();
+            setActiveNav(href);
+
+            setTimeout(() => {
+              closeDrawer();
+              smoothScrollToTarget(targetSection);
+              if (history.pushState) {
+                history.pushState(null, null, href);
+              } else {
+                location.hash = href;
+              }
+            }, 120);
+          } else {
+            closeDrawer();
+          }
+        } else {
+          // Page transition link (about.html, ideas-one.html)
+          drawerLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          setTimeout(() => {
+            closeDrawer();
+          }, 100);
+        }
+      });
+    });
+
+    // Interactive Click Handler for Desktop Header Links
+    const desktopAnchorLinks = document.querySelectorAll('.nav-left-links a, .btn-get-in-touch');
+    desktopAnchorLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            e.preventDefault();
+            setActiveNav(href);
+            smoothScrollToTarget(targetSection);
+            if (history.pushState) {
+              history.pushState(null, null, href);
+            } else {
+              location.hash = href;
+            }
+          }
+        }
+      });
+    });
+
+    // Close drawer when clicking action buttons (Call, WhatsApp)
+    document.querySelectorAll('.drawer-actions a').forEach(actionBtn => {
+      actionBtn.addEventListener('click', closeDrawer);
+    });
+
+    // Dynamic Scroll Spy Engine
+    function updateActiveNavOnScroll() {
+      if (isClickScrolling) return;
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (scrollY + windowHeight >= docHeight - 80) {
+        setActiveNav('contact');
+        return;
+      }
+
+      if (scrollY < 180) {
+        setActiveNav('home');
+        return;
+      }
+
+      const sections = [
+        'contact',
+        'faqs',
+        'construction',
+        'why-b17',
+        'why-ideas-group',
+        'payment-plans',
+        'projects',
+        'about',
+        'home'
+      ];
+
+      const triggerLine = scrollY + 160;
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (triggerLine >= top) {
+            setActiveNav(id);
+            return;
+          }
+        }
+      }
+    }
+
+    let scrollNavTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!scrollNavTicking) {
+        window.requestAnimationFrame(() => {
+          updateActiveNavOnScroll();
+          scrollNavTicking = false;
+        });
+        scrollNavTicking = true;
+      }
+    }, { passive: true });
+
+    function initActiveNavFromHash() {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        const id = hash.substring(1);
+        const el = document.getElementById(id);
+        if (el) {
+          setActiveNav(id);
+          return;
+        }
+      }
+      updateActiveNavOnScroll();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initActiveNavFromHash);
+    } else {
+      initActiveNavFromHash();
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        setActiveNav(hash.substring(1));
+      } else {
+        setActiveNav('home');
+      }
     });
 
     // Floor Plan Selector for IDEAS ONE & IDEAS Tower

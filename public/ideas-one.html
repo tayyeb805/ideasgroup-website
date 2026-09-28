@@ -76,6 +76,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
       font-size: 16px;
     }
 
@@ -522,24 +523,67 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 7px;
       margin-bottom: auto;
     }
 
     .drawer-links a {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      color: var(--text-slate);
-      font-weight: 500;
-      display: block;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-family: var(--font-brand);
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.88);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
-    .drawer-links a.active,
-    .drawer-links a:hover {
-      color: var(--gold-light);
-      padding-left: 6px;
+    .drawer-links a::after {
+      content: '→';
+      font-size: 0.92rem;
+      color: var(--gold-primary);
+      opacity: 0.5;
+      transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a:focus-visible {
+      background: rgba(223, 162, 59, 0.12);
+      border-color: rgba(223, 162, 59, 0.35);
+      color: #ffffff;
+      padding-left: 18px;
+    }
+
+    .drawer-links a:hover::after,
+    .drawer-links a:focus-visible::after {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .drawer-links a:active {
+      background: rgba(223, 162, 59, 0.24);
+      border-color: var(--gold-light);
+      transform: scale(0.98);
+    }
+
+    .drawer-links a.active {
+      background: linear-gradient(90deg, rgba(223, 162, 59, 0.22) 0%, rgba(223, 162, 59, 0.08) 100%) !important;
+      border-color: var(--gold-primary) !important;
+      color: #ffffff !important;
+      padding-left: 18px !important;
+      box-shadow: 0 4px 18px rgba(223, 162, 59, 0.22) !important;
+    }
+
+    .drawer-links a.active::after {
+      opacity: 1 !important;
+      transform: translateX(4px) !important;
+      color: var(--gold-light) !important;
     }
 
     .drawer-actions {
@@ -2387,14 +2431,14 @@
       });
     }
 
-    // Mobile Drawer Navigation
+    // Mobile Drawer Navigation & Active State Highlighting System
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const drawerBackdrop = document.getElementById('drawerBackdrop');
     const drawerClose = document.getElementById('drawerClose');
-    const drawerNavItems = document.querySelectorAll('.drawer-nav-item');
 
     function openDrawer() {
+      updateMallActiveNavOnScroll();
       mobileDrawer.classList.add('open');
       drawerBackdrop.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -2409,7 +2453,188 @@
     if (burgerBtn) burgerBtn.addEventListener('click', openDrawer);
     if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-    drawerNavItems.forEach(item => item.addEventListener('click', closeDrawer));
+
+    function setMallActiveNav(activeKey) {
+      if (!activeKey) return;
+      const cleanKey = activeKey.startsWith('#') ? activeKey.substring(1) : activeKey;
+
+      const drawerLinks = document.querySelectorAll('.drawer-links a');
+      const desktopLinks = document.querySelectorAll('.nav-left-links a');
+
+      const isMatch = (href) => {
+        if (!href) return false;
+        if ((cleanKey === 'mall' || cleanKey === 'ideas-one') && (href === 'ideas-one.html' || href === 'ideas-one')) return true;
+        if (href === '#' + cleanKey || href === cleanKey) return true;
+        return false;
+      };
+
+      drawerLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (isMatch(href)) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      desktopLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (isMatch(href)) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    let isMallClickScrolling = false;
+    let mallClickScrollTimer = null;
+
+    function smoothScrollToMallSection(targetEl) {
+      const headerOffset = 82;
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      isMallClickScrolling = true;
+      clearTimeout(mallClickScrollTimer);
+      mallClickScrollTimer = setTimeout(() => {
+        isMallClickScrolling = false;
+      }, 900);
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    const mallDrawerLinks = document.querySelectorAll('.drawer-links a');
+    mallDrawerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        if (href.startsWith('#')) {
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            e.preventDefault();
+            setMallActiveNav(href);
+
+            setTimeout(() => {
+              closeDrawer();
+              smoothScrollToMallSection(targetSection);
+              if (history.pushState) {
+                history.pushState(null, null, href);
+              } else {
+                location.hash = href;
+              }
+            }, 120);
+          } else {
+            closeDrawer();
+          }
+        } else {
+          mallDrawerLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          setTimeout(() => {
+            closeDrawer();
+          }, 100);
+        }
+      });
+    });
+
+    const mallDesktopLinks = document.querySelectorAll('.nav-left-links a, .btn-get-in-touch');
+    mallDesktopLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            e.preventDefault();
+            setMallActiveNav(href);
+            smoothScrollToMallSection(targetSection);
+            if (history.pushState) {
+              history.pushState(null, null, href);
+            } else {
+              location.hash = href;
+            }
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('.drawer-actions a').forEach(actionBtn => {
+      actionBtn.addEventListener('click', closeDrawer);
+    });
+
+    function updateMallActiveNavOnScroll() {
+      if (isMallClickScrolling) return;
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (scrollY + windowHeight >= docHeight - 80) {
+        setMallActiveNav('leasing');
+        return;
+      }
+
+      if (scrollY < 260) {
+        setMallActiveNav('ideas-one');
+        return;
+      }
+
+      const sections = ['leasing', 'amenities', 'zoning', 'brands'];
+      const triggerLine = scrollY + 160;
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (triggerLine >= top) {
+            setMallActiveNav(id);
+            return;
+          }
+        }
+      }
+    }
+
+    let mallScrollNavTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!mallScrollNavTicking) {
+        window.requestAnimationFrame(() => {
+          updateMallActiveNavOnScroll();
+          mallScrollNavTicking = false;
+        });
+        mallScrollNavTicking = true;
+      }
+    }, { passive: true });
+
+    function initMallActiveNavFromHash() {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        const id = hash.substring(1);
+        const el = document.getElementById(id);
+        if (el) {
+          setMallActiveNav(id);
+          return;
+        }
+      }
+      updateMallActiveNavOnScroll();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMallActiveNavFromHash);
+    } else {
+      initMallActiveNavFromHash();
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        setMallActiveNav(hash.substring(1));
+      } else {
+        setMallActiveNav('ideas-one');
+      }
+    });
 
     // Brand Category Filtering
     function filterBrands(category, btnElement) {
