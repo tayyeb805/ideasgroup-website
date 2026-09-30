@@ -1,0 +1,3579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Plans &amp; Installment Schedules | IDEAS ONE &amp; IDEAS Tower — IDEAS Group Islamabad</title>
+  <meta name="description"
+    content="Official CDA-approved payment plans and flexible installment schedules for IDEAS ONE and IDEAS Tower in Sector B-17, Islamabad. Interactive real-time calculator, verified per-sq.ft. rates, and 10% lump-sum discount.">
+  <meta name="keywords"
+    content="Ideas Group Payment Plans, Ideas One Payment Plan, Ideas Tower Payment Plan, B-17 Islamabad Installments, Commercial Shops Payment Plan, Apartments Installment Islamabad, CDA Approved Payment Plan">
+  <meta property="og:title" content="Payment Plans &amp; Calculator | IDEAS Group Builders &amp; Developers">
+  <meta property="og:description"
+    content="Explore transparent installment schedules and interactive pricing for IDEAS ONE Mall &amp; Apartments and IDEAS Tower in Sector B-17, Islamabad.">
+  <meta property="og:url" content="https://www.ideasgroup.pk/payment-plans">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.ideasgroup.pk/payment-plans">
+  <link rel="icon" type="image/png" href="images/brand/favicon.png">
+
+  <!-- Google Fonts: Outfit, Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+
+    <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET — ALTAF DEVELOPMENTS MINIMAL WHITE & IMPERIAL GOLD
+       IDEAS Group Builders & Developers — Luxury Architectural Theme
+       ========================================================================== */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #faf9f6;
+      --bg-tertiary: #f5f3ec;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f9f8f4;
+      --bg-dark: #111216;
+      --bg-dark-card: #181a20;
+
+      --text-darkest: #111216;
+      --text-main: #232630;
+      --text-muted: #5e6573;
+      --text-light: #8e96a4;
+      --text-white: #ffffff;
+
+      --gold-primary: #dfa23b;
+      --gold-light: #fad678;
+      --gold-dark: #b87f22;
+      --gold-glow: rgba(223, 162, 59, 0.32);
+      --gold-gradient: linear-gradient(135deg, #dfa23b 0%, #ffe38f 45%, #dfa23b 75%, #b87f22 100%);
+      --gold-shimmer: linear-gradient(90deg, #dfa23b 0%, #fff0b8 50%, #dfa23b 100%);
+      --gold-hairline: rgba(223, 162, 59, 0.22);
+      --gold-border: rgba(223, 162, 59, 0.32);
+
+      --emerald: #059669;
+      --emerald-glow: rgba(5, 150, 105, 0.2);
+
+      --border-hairline: rgba(223, 162, 59, 0.2);
+      --border-subtle: #eae7df;
+      --border-light: rgba(0, 0, 0, 0.06);
+
+      --font-brand: 'Outfit', sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+
+      --container-width: 1640px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+      --transition-fast: all 0.2s ease;
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Lenis Smooth Inertial Scroll System */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    html {
+      font-size: 16px;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 3.8vw, 60px);
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--gold-gradient);
+      width: 0%;
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-brand);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #0e1015;
+      border-color: var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(223, 162, 59, 0.32);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(223, 162, 59, 0.5);
+      filter: brightness(1.06);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #1a1c24;
+      border-color: rgba(223, 162, 59, 0.45);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .btn-outline:hover {
+      background: #faf9f6;
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      border-color: #25d366;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+      filter: brightness(1.06);
+    }
+
+    /* ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(223, 162, 59, 0.28);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+      transition: var(--transition-smooth);
+      height: 82px;
+      display: flex;
+      align-items: center;
+    }
+
+    .site-header.scrolled {
+      height: 70px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--container-width);
+      padding: 0 clamp(16px, 2.5vw, 42px);
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: clamp(12px, 1.8vw, 32px);
+      flex-wrap: nowrap;
+    }
+
+    .nav-left-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 1;
+      white-space: nowrap;
+    }
+
+    .nav-left-links li {
+      white-space: nowrap;
+      display: inline-flex;
+    }
+
+    .nav-left-links a {
+      font-family: var(--font-brand);
+      font-size: 0.80rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1a1c24;
+      padding: 8px 15px;
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      display: inline-block;
+    }
+
+    .nav-left-links a:hover {
+      color: var(--gold-dark) !important;
+      background: rgba(223, 162, 59, 0.08) !important;
+      border-color: rgba(223, 162, 59, 0.35) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .nav-left-links a.active {
+      color: #0e1015 !important;
+      background: rgba(223, 162, 59, 0.14) !important;
+      border-color: var(--gold-primary) !important;
+      font-weight: 700;
+    }
+
+    .nav-center-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 6px 14px;
+      border-radius: 24px;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+
+    .nav-center-brand:hover {
+      background: rgba(223, 162, 59, 0.06);
+      border-color: rgba(223, 162, 59, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .nav-center-brand img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .nav-brand-title {
+      font-family: var(--font-brand);
+      font-size: 1.32rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--text-darkest);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-brand-title .brand-pipe {
+      color: var(--gold-primary);
+      font-weight: 300;
+      font-size: 1.15rem;
+    }
+
+    .nav-right-action {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn-calc-nav,
+    .btn-get-in-touch {
+      font-family: var(--font-brand);
+      padding: 9px 24px;
+      border-radius: 40px;
+      background: var(--gold-gradient);
+      border: 1px solid var(--gold-primary);
+      color: #0e1015;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.28);
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn-calc-nav:hover,
+    .btn-get-in-touch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(223, 162, 59, 0.5);
+      filter: brightness(1.06);
+    }
+
+    .burger-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(223, 162, 59, 0.35);
+      color: var(--text-darkest);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .burger-btn:hover {
+      background: rgba(223, 162, 59, 0.12);
+      border-color: var(--gold-primary);
+    }
+
+    .burger-btn span,
+    .burger-btn span::before,
+    .burger-btn span::after {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #121316;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .burger-btn span::before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: 0;
+    }
+
+    .burger-btn span::after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 360px;
+      height: 100vh;
+      height: 100dvh;
+      background: #ffffff;
+      border-left: 1px solid rgba(223, 162, 59, 0.25);
+      z-index: 2000;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open { right: 0; }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      z-index: 1999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(223, 162, 59, 0.2);
+    }
+
+    .drawer-close {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(223, 162, 59, 0.3);
+      color: #121316;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .drawer-links a {
+      font-family: var(--font-brand);
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: #242732;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-links a:hover, .drawer-links a.active {
+      background: rgba(223, 162, 59, 0.1);
+      color: var(--gold-dark);
+    }
+
+    .drawer-sub-link {
+      padding-left: 28px !important;
+      font-size: 0.85rem !important;
+      color: #64748b !important;
+    }
+
+    /* ==========================================================================
+       PAGE HERO SECTION
+       ========================================================================== */
+    .plans-hero {
+      padding-top: 140px;
+      padding-bottom: 75px;
+      background: linear-gradient(180deg, #ffffff 0%, #faf9f6 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .breadcrumbs-wrap {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumbs {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .breadcrumbs a {
+      color: var(--text-muted);
+    }
+    .breadcrumbs a:hover {
+      color: var(--gold-dark);
+    }
+    .breadcrumbs span {
+      color: var(--gold-primary);
+    }
+
+    .kicker-wrap {
+      margin-bottom: 18px;
+    }
+
+    .kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.4);
+      color: var(--gold-dark);
+      font-family: var(--font-heading);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+    .kicker-badge svg {
+      stroke: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    .plans-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--text-darkest);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .plans-hero h1 span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .plans-hero-desc {
+      font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 34px;
+      line-height: 1.75;
+    }
+
+    .hero-trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.3);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: var(--transition-fast);
+    }
+    .trust-chip svg {
+      stroke: var(--gold-primary);
+      flex-shrink: 0;
+    }
+    .trust-chip:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(223, 162, 59, 0.18);
+    }
+
+    /* ==========================================================================
+       STICKY CONTROLS BAR / SEGMENTED TABS
+       ========================================================================== */
+    .controls-bar-wrap {
+      position: sticky;
+      top: 82px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(223, 162, 59, 0.22);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      padding: 14px 0;
+      transition: var(--transition-fast);
+    }
+
+    .controls-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .segmented-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f5f3ec;
+      padding: 6px;
+      border-radius: 40px;
+      border: 1px solid rgba(223, 162, 59, 0.25);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .segmented-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .seg-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-family: var(--font-brand);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .seg-tab-btn svg {
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+
+    .seg-tab-btn:hover {
+      color: var(--text-darkest);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .seg-tab-btn.active {
+      background: #ffffff;
+      color: #0e1015;
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.25);
+    }
+
+    .seg-tab-btn.active svg {
+      stroke: var(--gold-dark);
+    }
+
+    .quick-calc-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 22px;
+      border-radius: 30px;
+      background: var(--gold-gradient);
+      color: #0e1015;
+      font-family: var(--font-brand);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.3);
+      transition: var(--transition-smooth);
+    }
+    .quick-calc-jump:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(223, 162, 59, 0.5);
+      filter: brightness(1.06);
+    }
+    .quick-calc-jump svg {
+      stroke: currentColor;
+    }
+
+    /* ==========================================================================
+       PLAN SECTIONS & CARDS
+       ========================================================================== */
+    .plan-section {
+      padding: 95px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .plans-project-section:nth-of-type(even),
+    .plan-section:nth-of-type(even) {
+      background: #faf9f6;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title-wrap h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text-darkest);
+      margin-bottom: 12px;
+    }
+
+    .section-title-wrap p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .rate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(223, 162, 59, 0.12);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-top: 14px;
+    }
+
+    .milestones-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 35px 0 45px;
+    }
+
+    .milestone-card {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.28);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      transition: var(--transition-smooth);
+    }
+    .milestone-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-primary);
+      box-shadow: 0 8px 26px rgba(223, 162, 59, 0.18);
+    }
+
+    .plan-grid-2col {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* Filter Bar & Pills */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .sub-tabs-pill {
+      display: inline-flex;
+      gap: 6px;
+      background: #faf9f6;
+      padding: 5px;
+      border-radius: 30px;
+      border: 1px solid rgba(223, 162, 59, 0.28);
+    }
+
+    .sub-tab-btn {
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-family: var(--font-brand);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .sub-tab-btn:hover {
+      color: var(--text-darkest);
+    }
+    .sub-tab-btn.active {
+      background: #ffffff;
+      color: var(--gold-dark);
+      border-color: var(--gold-primary);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .filter-pill:hover,
+    .filter-pill.active {
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
+      background: rgba(223, 162, 59, 0.08);
+    }
+
+    /* Table Container & Tables */
+    .table-container {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.28);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      margin-bottom: 30px;
+    }
+
+    .table-scroll-hint {
+      display: none;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      background: #faf9f6;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: right;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #111216;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 16px 20px;
+      border-bottom: 2px solid var(--gold-primary);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) td {
+      background: #faf9f6;
+    }
+
+    tr:hover td {
+      background: rgba(223, 162, 59, 0.06);
+    }
+
+    .table-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--gold-gradient);
+      color: #0e1015;
+      font-family: var(--font-brand);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--gold-primary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      box-shadow: 0 2px 8px rgba(223, 162, 59, 0.25);
+    }
+    .table-action-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.45);
+      filter: brightness(1.06);
+    }
+    .table-action-btn svg {
+      stroke: currentColor;
+    }
+
+    .perks-card {
+      background: #faf9f6;
+      border: 1px solid rgba(223, 162, 59, 0.3);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      margin-bottom: 24px;
+    }
+
+    /* Flyer Preview Cards */
+    .flyer-preview-card {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.28);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .flyer-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: #faf9f6;
+    }
+
+    .flyer-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .flyer-frame:hover img {
+      transform: scale(1.025);
+    }
+
+    .expand-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(17, 18, 22, 0.88);
+      color: #ffffff;
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--gold-primary);
+    }
+
+    .flyer-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE CALCULATOR SECTION
+       ========================================================================== */
+    .calc-section,
+    .calculator-section {
+      padding: 95px 0;
+      background: linear-gradient(180deg, #faf9f6 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .calc-form-wrap {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.3);
+      border-radius: var(--radius-lg);
+      padding: clamp(26px, 3.5vw, 44px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-control,
+    select,
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 13px 18px;
+      background: #faf9f6;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-darkest);
+      transition: var(--transition-fast);
+    }
+
+    .form-control:focus,
+    select:focus,
+    input:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(223, 162, 59, 0.2);
+    }
+
+    /* Preset Unit Chips */
+    .preset-chips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .calc-chip-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 10px;
+      background: #faf9f6;
+      border: 1px solid rgba(223, 162, 59, 0.32);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      font-family: var(--font-brand);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-darkest);
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .calc-chip-btn small {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-top: 4px;
+    }
+
+    .calc-chip-btn:hover {
+      background: #ffffff;
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.2);
+    }
+
+    .calc-chip-btn.active {
+      background: #ffffff;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 4px 18px rgba(223, 162, 59, 0.3);
+    }
+
+    .range-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .range-wrap input[type="range"] {
+      flex: 1;
+      accent-color: var(--gold-primary);
+      height: 6px;
+      cursor: pointer;
+    }
+
+    .range-val {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--gold-dark);
+      min-width: 48px;
+    }
+
+    /* Calculator Output Box */
+    .calc-output-box {
+      background: #111216;
+      color: #ffffff;
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: clamp(26px, 3.5vw, 42px);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+      position: sticky;
+      top: 155px;
+    }
+
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(223, 162, 59, 0.3);
+      padding-bottom: 14px;
+    }
+
+    .output-project-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .output-total-price {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      margin: 10px 0 4px;
+    }
+
+    .output-total-crore {
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .output-breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-bottom: 24px;
+    }
+
+    .breakdown-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .breakdown-row strong {
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .lump-sum-box {
+      background: rgba(223, 162, 59, 0.12);
+      border: 1px dashed var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+    }
+
+    .lump-sum-text {
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      line-height: 1.5;
+    }
+
+    .calc-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       MATRIX COMPARISON & FAQS
+       ========================================================================== */
+    .matrix-card {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.28);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      margin: 35px 0;
+    }
+
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid rgba(223, 162, 59, 0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-item:hover {
+      border-color: var(--gold-primary);
+      box-shadow: 0 6px 20px rgba(223, 162, 59, 0.1);
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-darkest);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      border: none;
+      text-align: left;
+    }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 24px 22px 24px;
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #111216 0%, #1a1c24 100%);
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: clamp(40px, 5vw, 64px) 36px;
+      text-align: center;
+      color: #ffffff;
+      margin: 80px 0;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12), 0 0 35px rgba(223, 162, 59, 0.15);
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    /* ==========================================================================
+       LIGHTBOX FULLSCREEN MODAL
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      background: #ffffff;
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 960px;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      animation: modalZoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalZoom {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-header {
+      padding: 16px 24px;
+      background: #faf9f6;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lightbox-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-darkest);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lightbox-title svg {
+      stroke: var(--gold-primary);
+    }
+
+    .lightbox-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border-subtle);
+      font-size: 1.5rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-darkest);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .lightbox-close:hover {
+      background: var(--gold-primary);
+      color: #ffffff;
+    }
+
+    .lightbox-body {
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 68vh;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .lightbox-footer {
+      padding: 16px 24px;
+      background: #faf9f6;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       FOOTER (MATCHING INDEX.HTML REFINED LUXURY)
+       ========================================================================== */
+    .site-footer {
+      background: #0d0f16;
+      border-top: 1px solid rgba(223, 162, 59, 0.25);
+      color: #cbd5e1;
+      padding: 85px 0 35px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-brand);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.72rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: block;
+    }
+
+    .footer-col h5 {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--gold-light);
+      padding-left: 4px;
+    }
+
+    .social-badges-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(223, 162, 59, 0.35);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .social-chip svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      fill: var(--gold-primary);
+      transition: transform 0.25s ease;
+    }
+
+    .social-chip:hover {
+      background: rgba(223, 162, 59, 0.16);
+      border-color: var(--gold-light);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.25);
+    }
+
+    .social-chip:hover svg {
+      transform: scale(1.1);
+      fill: var(--gold-light);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: #64748b;
+    }
+
+    .footer-bottom a {
+      color: var(--gold-primary);
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      filter: drop-shadow(0 10px 25px rgba(37, 211, 102, 0.45));
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-icon-circle {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      animation: waPulse 2.2s infinite;
+    }
+
+    @keyframes waPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      z-index: 998;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      background: var(--gold-gradient);
+      color: #0e1015;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 1280px) {
+      .nav-left-links { display: none; }
+      .burger-btn { display: flex; }
+    }
+
+    @media (max-width: 992px) {
+      .btn-get-in-touch { display: none !important; }
+      .nav-brand-title { font-size: 1.05rem; }
+      .nav-center-brand { padding: 4px 10px; gap: 8px; }
+      .nav-center-brand img { height: 32px; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .plan-grid-2col { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .plans-hero { padding-top: 105px; padding-bottom: 45px; }
+      .plans-hero h1 { font-size: clamp(2rem, 7vw, 2.9rem); }
+      .controls-bar-wrap { top: 72px; padding: 10px 0; }
+      .controls-inner { justify-content: flex-start; gap: 10px; }
+      .segmented-tabs {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 4px;
+      }
+      .quick-calc-jump { width: 100%; justify-content: center; font-size: 0.74rem; padding: 8px 16px; }
+      .calc-section, .calculator-section { padding: 50px 0; }
+      .plan-section, .plans-project-section { padding: 55px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .milestones-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .preset-chips-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .table-scroll-hint {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+      .table-container { border-radius: var(--radius-md); }
+      th, td { padding: 12px 14px; font-size: 0.82rem; }
+      .flyers-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .container { padding: 0 16px; }
+      .hero-trust-bar { grid-template-columns: 1fr; }
+      .plans-trust-strip { flex-direction: column; width: 100%; }
+      .trust-chip { width: 100%; justify-content: center; }
+      .sub-tabs-pill, .category-filters {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex-wrap: nowrap;
+      }
+      .preset-chips-grid { grid-template-columns: 1fr; }
+      .milestones-strip { grid-template-columns: 1fr; }
+      .calc-summary-card { padding: 22px 16px; }
+      .calc-cta-group { flex-direction: column; width: 100%; }
+      .calc-cta-group .btn { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-center-brand { padding: 3px 6px; gap: 6px; }
+      .nav-center-brand img { height: 28px; }
+      .nav-brand-title { font-size: 0.92rem; letter-spacing: 0.08em; }
+      .burger-btn { width: 38px; height: 38px; min-width: 38px; }
+    }
+
+    @media (max-width: 400px) {
+      .nav-center-brand { padding: 2px 4px; gap: 4px; }
+      .nav-center-brand img { height: 24px; }
+      .nav-brand-title { font-size: 0.84rem; letter-spacing: 0.06em; }
+      .seg-tab-btn { padding: 7px 12px; font-size: 0.72rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- ========================================================================
+       TOP HEADER & NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <div class="nav-wrap">
+
+        <!-- Left: Minimal Navigation Links -->
+        <ul class="nav-left-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#projects">Developments</a></li>
+          <li><a href="payment-plans.html" class="active">Payment Plans</a></li>
+          <li><a href="ideas-one.html">IDEAS ONE Mall</a></li>
+        </ul>
+
+        <!-- Center Brand -->
+        <a href="index.html#home" class="nav-center-brand" aria-label="IDEAS Group Builders &amp; Developers">
+          <img src="images/brand/logo-mark.png" alt="IDEAS Group Logo">
+          <div class="nav-brand-title">
+            <span>IDEAS</span>
+            <span class="brand-pipe">|</span>
+            <span>GROUP</span>
+          </div>
+        </a>
+
+        <!-- Right Action -->
+        <div class="nav-right-action">
+          <a href="index.html#contact" class="btn-get-in-touch">Get in Touch</a>
+          <button class="burger-btn" id="burgerBtn" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="images/brand/logo-mark.png" alt="IDEAS Group" style="height: 38px;">
+        <div>
+          <div style="font-family:var(--font-display); font-weight:800; color:#fff; font-size:1.1rem;">IDEAS GROUP</div>
+          <div style="font-size:0.75rem; color:var(--gold-light);">Builders &amp; Developers</div>
+        </div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="index.html#projects">Developments</a></li>
+      <li><a href="ideas-one.html">IDEAS ONE Mall &amp; Brands</a></li>
+      <li><a href="payment-plans.html" class="active">Payment Plans &amp; Calculator</a></li>
+      <li><a href="#payment-one" class="drawer-sub-link">↳ IDEAS ONE Schedules</a></li>
+      <li><a href="#payment-tower" class="drawer-sub-link">↳ IDEAS Tower Schedules</a></li>
+      <li><a href="#calculator" class="drawer-sub-link">↳ Installment Calculator</a></li>
+      <li><a href="index.html#why-ideas-group">Why IDEAS Group</a></li>
+      <li><a href="index.html#contact">Contact &amp; Site Offices</a></li>
+    </ul>
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+      <a href="tel:03305511117" class="btn btn-gold" style="width:100%;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call 0330-5511117
+      </a>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20payment%20plans." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width:100%;">
+        Chat on WhatsApp
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section class="plans-hero">
+      <div class="container">
+        <div class="breadcrumbs-wrap">
+          <div class="breadcrumbs">
+            <a href="index.html#home">Home</a>
+            <span>/</span>
+            <a href="index.html#projects">Developments</a>
+            <span>/</span>
+            <span>Payment Plans</span>
+          </div>
+        </div>
+
+        <div class="kicker-wrap">
+          <div class="kicker-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Official CDA-Approved Investment Schedules
+          </div>
+        </div>
+
+        <h1>Transparent &amp; Flexible <span>Payment Plans</span></h1>
+
+        <p class="plans-hero-desc">
+          Explore official payment schedules for <strong>IDEAS ONE</strong> (Mall &amp; 135 Finished Apartments) and 
+          <strong>IDEAS Tower</strong> (High-Rise Tower A &amp; B) in Sector B-17 Multi Gardens, Islamabad. 
+          Verified per-sq.ft. pricing with manageable quarterly and monthly installment schedules.
+        </p>
+
+        <!-- Trust Badges Strip -->
+        <div class="hero-trust-strip">
+          <div class="trust-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            CDA Approved &amp; Vetted
+          </div>
+          <div class="trust-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M16 10H8"></path></svg>
+            10% Lump-Sum Cash Discount
+          </div>
+          <div class="trust-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Gate 1 &amp; Gate 2 Main G.T Road Access
+          </div>
+          <div class="trust-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            18 to 60 Months Easy Schedules
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         STICKY SEGMENTED CONTROL BAR
+         ======================================================================== -->
+    <div class="controls-bar-wrap" id="controlsBar">
+      <div class="container">
+        <div class="controls-inner">
+          <div class="segmented-tabs" role="tablist">
+            <button type="button" class="seg-tab-btn active" id="tabBtnAll" onclick="switchMainView('all', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              All Plans
+            </button>
+            <button type="button" class="seg-tab-btn" id="tabBtnOne" onclick="switchMainView('one', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              IDEAS ONE Mall &amp; Apts
+            </button>
+            <button type="button" class="seg-tab-btn" id="tabBtnTower" onclick="switchMainView('tower', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line></svg>
+              IDEAS Tower (Tower A &amp; B)
+            </button>
+            <button type="button" class="seg-tab-btn" id="tabBtnCalc" onclick="switchMainView('calc', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line></svg>
+              Calculator
+            </button>
+            <button type="button" class="seg-tab-btn" id="tabBtnCompare" onclick="switchMainView('compare', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              Compare
+            </button>
+          </div>
+
+          <a href="#calculator" class="quick-calc-jump" onclick="scrollToCalculator(event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Jump to Live Calculator
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         SECTION 1: IDEAS ONE PAYMENT SCHEDULE
+         ======================================================================== -->
+    <section class="plan-section" id="payment-one">
+      <div class="container">
+
+        <div class="section-title-wrap">
+          <div>
+            <span class="kicker-badge" style="margin-bottom:8px;">Flagship Development</span>
+            <h2>IDEAS ONE — Payment Plan</h2>
+            <p>
+              Sector B-17, Gate 2, Main G.T Road, Islamabad · CDA Approved. 
+              Modern multi-storey shopping mall, food court, corporate offices, and 135 luxury finished apartments.
+            </p>
+          </div>
+          <div class="rate-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M16 10H8"></path></svg>
+            Apartments @ Rs. 16,500 / Sq.Ft.
+          </div>
+        </div>
+
+        <!-- Milestones Overview Strip -->
+        <div class="milestones-strip">
+          <div class="milestone-card">
+            <b>20%</b>
+            <span>Down Payment</span>
+          </div>
+          <div class="milestone-card">
+            <b>60</b>
+            <span>Monthly Installments</span>
+          </div>
+          <div class="milestone-card">
+            <b>10</b>
+            <span>Half-Yearly Balloons</span>
+          </div>
+          <div class="milestone-card">
+            <b>10%</b>
+            <span>On Possession</span>
+          </div>
+          <div class="milestone-card">
+            <b style="color:var(--emerald);">10% OFF</b>
+            <span>Full Cash Lump Sum</span>
+          </div>
+        </div>
+
+        <!-- Layout Grid: Data Table + Visual Flyer -->
+        <div class="plan-grid-2col">
+
+          <!-- Left Column: Tables & Tabs -->
+          <div>
+            <div class="filter-bar">
+              <div class="sub-tabs-pill">
+                <button type="button" class="sub-tab-btn active" id="btnOneApts" onclick="switchOneCategory('apts', this)">
+                  135 Finished Apartments
+                </button>
+                <button type="button" class="sub-tab-btn" id="btnOneComm" onclick="switchOneCategory('comm', this)">
+                  Commercial &amp; Offices
+                </button>
+              </div>
+
+              <!-- Filter Pills for Apartments -->
+              <div class="category-filters" id="oneAptsFilters">
+                <button type="button" class="filter-pill active" onclick="filterOneApts('all', this)">All Sizes</button>
+                <button type="button" class="filter-pill" onclick="filterOneApts('Studio', this)">Studio</button>
+                <button type="button" class="filter-pill" onclick="filterOneApts('1 Bed', this)">1 Bed</button>
+                <button type="button" class="filter-pill" onclick="filterOneApts('2 Bed', this)">2 Bed</button>
+                <button type="button" class="filter-pill" onclick="filterOneApts('3 Bed', this)">3 Bed</button>
+              </div>
+            </div>
+
+            <!-- Apartments Table -->
+            <div class="table-container" id="oneAptsTableWrap">
+              <div class="table-scroll-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                Swipe horizontally to view full schedule breakdown &rarr;
+              </div>
+              <table class="plan-table" id="oneAptsTable">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Size (Sqft)</th>
+                    <th>Total Price</th>
+                    <th>Down Payment (20%)</th>
+                    <th>60 Monthly</th>
+                    <th>10 Half-Yearly</th>
+                    <th>Possession (10%)</th>
+                    <th>Calculate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-type="Studio">
+                    <td><b>Studio</b></td>
+                    <td>450</td>
+                    <td class="plan-price-col">Rs. 7,425,000</td>
+                    <td>Rs. 1,485,000</td>
+                    <td>Rs. 50,000</td>
+                    <td>Rs. 219,750</td>
+                    <td>Rs. 742,500</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 450, 'Studio Apartment (450 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="1 Bed">
+                    <td><b>1 Bed</b></td>
+                    <td>720</td>
+                    <td class="plan-price-col">Rs. 11,880,000</td>
+                    <td>Rs. 2,376,000</td>
+                    <td>Rs. 100,000</td>
+                    <td>Rs. 231,600</td>
+                    <td>Rs. 1,188,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 720, '1 Bed Apartment (720 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>1,275</td>
+                    <td class="plan-price-col">Rs. 21,037,500</td>
+                    <td>Rs. 4,207,500</td>
+                    <td>Rs. 150,000</td>
+                    <td>Rs. 572,625</td>
+                    <td>Rs. 2,103,750</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1275, '2 Bed Apartment (1275 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>1,400</td>
+                    <td class="plan-price-col">Rs. 23,100,000</td>
+                    <td>Rs. 4,620,000</td>
+                    <td>Rs. 150,000</td>
+                    <td>Rs. 717,000</td>
+                    <td>Rs. 2,310,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1400, '2 Bed Apartment (1400 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>1,450</td>
+                    <td class="plan-price-col">Rs. 23,925,000</td>
+                    <td>Rs. 4,785,000</td>
+                    <td>Rs. 150,000</td>
+                    <td>Rs. 774,750</td>
+                    <td>Rs. 2,392,500</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1450, '2 Bed Apartment (1450 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="3 Bed">
+                    <td><b>3 Bed</b></td>
+                    <td>1,780</td>
+                    <td class="plan-price-col">Rs. 29,370,000</td>
+                    <td>Rs. 5,847,000</td>
+                    <td>Rs. 200,000</td>
+                    <td>Rs. 855,900</td>
+                    <td>Rs. 2,937,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1780, '3 Bed Apartment (1780 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="3 Bed">
+                    <td><b>3 Bed</b></td>
+                    <td>2,000</td>
+                    <td class="plan-price-col">Rs. 33,000,000</td>
+                    <td>Rs. 6,600,000</td>
+                    <td>Rs. 200,000</td>
+                    <td>Rs. 1,110,000</td>
+                    <td>Rs. 3,300,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 2000, '3 Bed Apartment (2000 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Commercial Spaces Table (Hidden by default) -->
+            <div class="table-container" id="oneCommTableWrap" style="display:none;">
+              <div class="table-scroll-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                Swipe horizontally to view full schedule breakdown &rarr;
+              </div>
+              <table class="plan-table">
+                <thead>
+                  <tr>
+                    <th>Floor / Commercial Category</th>
+                    <th>Rate Per Sq.Ft.</th>
+                    <th>Description &amp; Zoning</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Ground Floor Level-I</b></td>
+                    <td class="plan-price-col">Rs. 60,000 / sq.ft</td>
+                    <td>Prime high-footfall mall entrance &amp; retail shops</td>
+                    <td>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Ground%20Floor%20Level-I%20retail%20pricing%20at%20IDEAS%20ONE." target="_blank" class="table-action-btn">
+                        Inquire
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Ground Floor Level-II</b></td>
+                    <td class="plan-price-col">Rs. 70,000 / sq.ft</td>
+                    <td>Flagship anchor retail &amp; premium brand frontages</td>
+                    <td>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Ground%20Floor%20Level-II%20flagship%20retail%20at%20IDEAS%20ONE." target="_blank" class="table-action-btn">
+                        Inquire
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>First Floor</b></td>
+                    <td class="plan-price-col">Rs. 55,000 / sq.ft</td>
+                    <td>Fashion retail, lifestyle apparel &amp; pret boutiques</td>
+                    <td>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20First%20Floor%20shops%20at%20IDEAS%20ONE." target="_blank" class="table-action-btn">
+                        Inquire
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Second Floor</b></td>
+                    <td class="plan-price-col">Rs. 50,000 / sq.ft</td>
+                    <td>Consumer electronics, tech boutiques &amp; services</td>
+                    <td>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Second%20Floor%20spaces%20at%20IDEAS%20ONE." target="_blank" class="table-action-btn">
+                        Inquire
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>3rd Floor Food Court</b></td>
+                    <td class="plan-price-col">Rs. 60,000 / sq.ft</td>
+                    <td>130+ culinary outlets, fast food &amp; fine dining counters</td>
+                    <td>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Food%20Court%20counters%20at%20IDEAS%20ONE." target="_blank" class="table-action-btn">
+                        Inquire
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>4th &amp; 5th Floor Offices</b></td>
+                    <td class="plan-price-col">Rs. 25,000 / sq.ft</td>
+                    <td>Corporate suites, IT workstations &amp; executive offices</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('one_office', 1000, 'Corporate Office Suite (1000 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Perks Box -->
+            <div class="perks-card">
+              <strong>Prime Multi Gardens B-17 Advantage:</strong>
+              Direct access to Main G.T Road at Gate 2. All residential apartments and commercial spaces include 
+              dedicated underground parking, high-speed escalators, panoramic elevators, 24/7 security surveillance, and uninterrupted backup power.
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Flyer Card -->
+          <div class="flyer-preview-card">
+            <div class="flyer-frame" onclick="openLightbox('images/one/ideas_one_payment_plan.png', 'IDEAS ONE — Official CDA-Approved Payment Plan')" title="Click to view full-resolution flyer">
+              <img src="images/one/ideas_one_payment_plan.png" alt="IDEAS ONE Official Payment Plan Flyer" loading="lazy" decoding="async">
+              <span class="expand-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Expand High-Res
+              </span>
+            </div>
+
+            <div class="flyer-actions">
+              <button type="button" class="btn btn-gold" onclick="openLightbox('images/one/ideas_one_payment_plan.png', 'IDEAS ONE Official Payment Plan')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Expand Fullscreen Flyer
+              </button>
+              <a href="images/one/ideas_one_payment_plan.png" download="IDEAS_ONE_Official_Payment_Plan.png" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Official Flyer
+              </a>
+              <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20a%20unit%20in%20IDEAS%20ONE%20Mall." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+                Book on WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: IDEAS TOWER PAYMENT SCHEDULE
+         ======================================================================== -->
+    <section class="plan-section" id="payment-tower" style="background: rgba(7, 21, 69, 0.4); border-top: 1px solid var(--navy-border);">
+      <div class="container">
+
+        <div class="section-title-wrap">
+          <div>
+            <span class="kicker-badge" style="margin-bottom:8px;">Residential High-Rise</span>
+            <h2>IDEAS Tower — Finished Apartments</h2>
+            <p>
+              Plot No. 04, MR-1A, Block B, Gate No. 01, Multi Gardens B-17, Islamabad · <strong>90% Completed</strong>.
+              Deluxe finished apartments with separate high-speed lifts, rooftop amenities, and 3-side open views.
+            </p>
+          </div>
+
+          <!-- Tower Selector Tabs -->
+          <div class="sub-tabs-pill">
+            <button type="button" class="sub-tab-btn active" id="btnTowerA" onclick="switchTowerPlan('a', this)">
+              Tower-A (@ Rs. 20,000 / sq.ft)
+            </button>
+            <button type="button" class="sub-tab-btn" id="btnTowerB" onclick="switchTowerPlan('b', this)">
+              Tower-B (@ Rs. 16,000 / sq.ft)
+            </button>
+          </div>
+        </div>
+
+        <!-- Milestones Overview Strip for Tower -->
+        <div class="milestones-strip">
+          <div class="milestone-card">
+            <b id="towerStatRate">@ 20,000</b>
+            <span>Per Sq.Ft.</span>
+          </div>
+          <div class="milestone-card">
+            <b>25% + 25%</b>
+            <span>Booking + Confirm</span>
+          </div>
+          <div class="milestone-card">
+            <b>5 Balloons</b>
+            <span>Quarterly (10%)</span>
+          </div>
+          <div class="milestone-card">
+            <b id="towerStatInstallments">18 Mo (35%)</b>
+            <span>Monthly Installments</span>
+          </div>
+          <div class="milestone-card">
+            <b>5%</b>
+            <span>On Possession</span>
+          </div>
+        </div>
+
+        <!-- Layout Grid: Data Table + Visual Flyer -->
+        <div class="plan-grid-2col">
+
+          <!-- Left Column: Tables & Filters -->
+          <div>
+            <div class="filter-bar">
+              <span style="font-size:0.88rem; font-weight:700; color:var(--gold-light);" id="towerTableTitle">
+                Tower-A Premium Schedule (18 Months)
+              </span>
+
+              <!-- Filter Pills for Tower -->
+              <div class="category-filters">
+                <button type="button" class="filter-pill active" onclick="filterTowerApts('all', this)">All</button>
+                <button type="button" class="filter-pill" onclick="filterTowerApts('1 Bed', this)">1 Bed</button>
+                <button type="button" class="filter-pill" onclick="filterTowerApts('2 Bed', this)">2 Bed</button>
+                <button type="button" class="filter-pill" onclick="filterTowerApts('3 Bed', this)">3 Bed</button>
+                <button type="button" class="filter-pill" onclick="filterTowerApts('4 Bed', this)">4 Bed</button>
+              </div>
+            </div>
+
+            <!-- Tower A Table -->
+            <div class="table-container" id="towerATableWrap">
+              <div class="table-scroll-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                Swipe horizontally to view full schedule breakdown &rarr;
+              </div>
+              <table class="plan-table" id="towerATable">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Size (Sqft)</th>
+                    <th>Total Price</th>
+                    <th>Booking 25%</th>
+                    <th>Confirm 25%</th>
+                    <th>18 Monthly (35%)</th>
+                    <th>Possession 5%</th>
+                    <th>Calculate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-type="1 Bed">
+                    <td><b>1 Bed</b></td>
+                    <td>C</td>
+                    <td>750</td>
+                    <td class="plan-price-col">Rs. 15,000,000</td>
+                    <td>Rs. 3,750,000</td>
+                    <td>Rs. 3,750,000</td>
+                    <td>Rs. 291,667</td>
+                    <td>Rs. 750,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 750, 'Tower-A 1 Bed Type C (750 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,250</td>
+                    <td class="plan-price-col">Rs. 25,000,000</td>
+                    <td>Rs. 6,250,000</td>
+                    <td>Rs. 6,250,000</td>
+                    <td>Rs. 486,111</td>
+                    <td>Rs. 1,250,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1250, 'Tower-A 2 Bed Type B (1250 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed Luxury</b></td>
+                    <td>B-1</td>
+                    <td>1,600</td>
+                    <td class="plan-price-col">Rs. 32,000,000</td>
+                    <td>Rs. 8,000,000</td>
+                    <td>Rs. 8,000,000</td>
+                    <td>Rs. 622,222</td>
+                    <td>Rs. 1,600,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1600, 'Tower-A 2 Bed Luxury (1600 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="3 Bed">
+                    <td><b>3 Bed</b></td>
+                    <td>A</td>
+                    <td>1,850</td>
+                    <td class="plan-price-col">Rs. 37,000,000</td>
+                    <td>Rs. 9,250,000</td>
+                    <td>Rs. 9,250,000</td>
+                    <td>Rs. 719,444</td>
+                    <td>Rs. 1,850,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1850, 'Tower-A 3 Bed Type A (1850 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="3 Bed">
+                    <td><b>3 Bed</b></td>
+                    <td>A-1</td>
+                    <td>1,950</td>
+                    <td class="plan-price-col">Rs. 39,000,000</td>
+                    <td>Rs. 9,750,000</td>
+                    <td>Rs. 9,750,000</td>
+                    <td>Rs. 758,333</td>
+                    <td>Rs. 1,950,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1950, 'Tower-A 3 Bed Type A-1 (1950 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="4 Bed">
+                    <td><b>4 Bed</b></td>
+                    <td>XL</td>
+                    <td>2,250</td>
+                    <td class="plan-price-col">Rs. 45,000,000</td>
+                    <td>Rs. 11,250,000</td>
+                    <td>Rs. 11,250,000</td>
+                    <td>Rs. 875,000</td>
+                    <td>Rs. 2,250,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 2250, 'Tower-A 4 Bed Type XL (2250 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tower B Table (Hidden by default) -->
+            <div class="table-container" id="towerBTableWrap" style="display:none;">
+              <div class="table-scroll-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                Swipe horizontally to view full schedule breakdown &rarr;
+              </div>
+              <table class="plan-table" id="towerBTable">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Size (Sqft)</th>
+                    <th>Total Price</th>
+                    <th>Booking 25%</th>
+                    <th>Confirm 25%</th>
+                    <th>30 Monthly (35%)</th>
+                    <th>Possession 5%</th>
+                    <th>Calculate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-type="1 Bed">
+                    <td><b>1 Bed</b></td>
+                    <td>C</td>
+                    <td>750</td>
+                    <td class="plan-price-col">Rs. 12,000,000</td>
+                    <td>Rs. 3,000,000</td>
+                    <td>Rs. 3,000,000</td>
+                    <td>Rs. 140,000</td>
+                    <td>Rs. 600,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 750, 'Tower-B 1 Bed Type C (750 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,250</td>
+                    <td class="plan-price-col">Rs. 20,000,000</td>
+                    <td>Rs. 5,000,000</td>
+                    <td>Rs. 5,000,000</td>
+                    <td>Rs. 233,333</td>
+                    <td>Rs. 1,000,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1250, 'Tower-B 2 Bed Type B (1250 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed</b></td>
+                    <td>B</td>
+                    <td>1,325</td>
+                    <td class="plan-price-col">Rs. 21,200,000</td>
+                    <td>Rs. 5,300,000</td>
+                    <td>Rs. 5,300,000</td>
+                    <td>Rs. 247,333</td>
+                    <td>Rs. 1,060,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1325, 'Tower-B 2 Bed Type B (1325 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="2 Bed">
+                    <td><b>2 Bed Luxury</b></td>
+                    <td>B-1</td>
+                    <td>1,600</td>
+                    <td class="plan-price-col">Rs. 25,600,000</td>
+                    <td>Rs. 6,400,000</td>
+                    <td>Rs. 6,400,000</td>
+                    <td>Rs. 298,667</td>
+                    <td>Rs. 1,280,000</td>
+                    <td>
+                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1600, 'Tower-B 2 Bed Luxury (1600 sqft)')">
+                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Perks Box -->
+            <div class="perks-card">
+              <strong>Floor Premium Adjustments &amp; Exclusive Terms:</strong>
+              Avail a <strong>10% special discount</strong> on lump-sum full payment. Confirmation amount submitted within 45 days of booking. 
+              Floor premium adjustments: Ground Floor (-10%), Ground Floor with Lawn (-15%), 1st Floor (-5%), 13th &amp; 14th Floors (+10%), Corner Units (-10%).
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Flyer Card -->
+          <div class="flyer-preview-card">
+            <div class="flyer-frame" id="towerFlyerFrame" onclick="openActiveTowerLightbox()" title="Click to view full-resolution flyer">
+              <img src="images/tower/ideas_tower_payment_plan_a.jpg" alt="IDEAS Tower Payment Plan Flyer" id="towerFlyerImg" loading="lazy" decoding="async">
+              <span class="expand-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Expand High-Res
+              </span>
+            </div>
+
+            <div class="flyer-actions">
+              <button type="button" class="btn btn-gold" onclick="openActiveTowerLightbox()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Expand Fullscreen Flyer
+              </button>
+              <a href="images/tower/ideas_tower_payment_plan_a.jpg" download="IDEAS_Tower_Payment_Plan_Tower_A.jpg" id="towerDownloadLink" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Official Flyer
+              </a>
+              <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20in%20IDEAS%20Tower." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+                Book on WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: INTERACTIVE REAL-TIME PAYMENT CALCULATOR
+         ======================================================================== -->
+    <section class="calc-section" id="calculator">
+      <div class="container">
+
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="kicker-badge">Instant Financial Estimator</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(1.9rem, 3.8vw, 2.7rem); color:#fff; margin-bottom:12px;">
+            Interactive Investment <span>Calculator</span>
+          </h2>
+          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.96rem;">
+            Select a project, choose a unit preset or enter custom square footage. Instantly estimate total cost, 
+            booking amount, monthly installments, and lump-sum cash discounts.
+          </p>
+        </div>
+
+        <div class="calc-card">
+
+          <!-- Left: Interactive Controls -->
+          <div class="calc-form-wrap">
+            <h3>Configure Your Plan</h3>
+            <p>Customize project and payment parameters in real time.</p>
+
+            <!-- Step 1: Project Selection -->
+            <div class="form-group">
+              <label class="form-label">1. Choose Development</label>
+              <select class="calc-select" id="calcProjectSelect" onchange="onCalcProjectChange()">
+                <option value="one_apt" selected>IDEAS ONE — Finished Apartments (@ Rs. 16,500/sqft)</option>
+                <option value="one_office">IDEAS ONE — Corporate Executive Office (@ Rs. 25,000/sqft)</option>
+                <option value="tower_a">IDEAS Tower — Tower A (@ Rs. 20,000/sqft)</option>
+                <option value="tower_b">IDEAS Tower — Tower B (@ Rs. 16,000/sqft)</option>
+              </select>
+            </div>
+
+            <!-- Step 2: Preset Unit Chips -->
+            <div class="form-group">
+              <label class="form-label">2. Popular Preset Units (1-Click Select)</label>
+              <div class="preset-chips-grid" id="calcPresetsContainer">
+                <button type="button" class="calc-chip-btn active" onclick="selectPresetChip(450, this)">
+                  Studio
+                  <small>450 Sq.Ft</small>
+                </button>
+                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(720, this)">
+                  1 Bed
+                  <small>720 Sq.Ft</small>
+                </button>
+                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1275, this)">
+                  2 Bed
+                  <small>1,275 Sq.Ft</small>
+                </button>
+                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1450, this)">
+                  2 Bed Luxury
+                  <small>1,450 Sq.Ft</small>
+                </button>
+                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1780, this)">
+                  3 Bed
+                  <small>1,780 Sq.Ft</small>
+                </button>
+                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(2000, this)">
+                  3 Bed XL
+                  <small>2,000 Sq.Ft</small>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Custom Area Input -->
+            <div class="form-group">
+              <label class="form-label" for="calcAreaInput">3. Or Enter Custom Area (Sq.Ft.)</label>
+              <input type="number" class="calc-input" id="calcAreaInput" value="450" min="200" max="10000" step="10" oninput="onCustomAreaChange()">
+            </div>
+
+            <!-- Step 4: Down Payment Slider -->
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <label class="form-label" style="margin-bottom:0;" for="calcDownPercent">4. Initial Booking / Down Payment (%)</label>
+                <span class="range-val" id="calcDownPercentLabel">20%</span>
+              </div>
+              <div class="range-wrap">
+                <input type="range" class="calc-range" id="calcDownPercent" min="20" max="60" step="5" value="20" oninput="onDownPercentChange()">
+              </div>
+              <small style="color:var(--text-muted); font-size:0.75rem; margin-top:4px; display:block;">
+                Official base requirement is 20% (IDEAS ONE) or 25% (IDEAS Tower). Increasing reduces monthly burden.
+              </small>
+            </div>
+
+          </div>
+
+          <!-- Right: Live Output Dashboard -->
+          <div class="calc-output-box" id="calcOutputBox">
+            <div class="output-header">
+              <div class="output-project-tag" id="outputProjectName">IDEAS ONE — Finished Apartments</div>
+              <div class="output-total-price" id="outputTotalPrice">Rs. 7,425,000</div>
+              <div class="output-total-crore" id="outputCroreLabel">Equivalent to 74.25 Lacs PKR</div>
+            </div>
+
+            <div class="output-breakdown-list">
+              <div class="breakdown-row">
+                <span>Selected Unit Area:</span>
+                <b id="outputArea">450 Sq.Ft.</b>
+              </div>
+              <div class="breakdown-row">
+                <span>Base Rate Per Sq.Ft.:</span>
+                <b id="outputRate">Rs. 16,500</b>
+              </div>
+              <div class="breakdown-row">
+                <span id="outputDownLabel">Down Payment (20%):</span>
+                <b id="outputDown" style="color:var(--gold-light);">Rs. 1,485,000</b>
+              </div>
+              <div class="breakdown-row" id="outputConfirmRow" style="display:none;">
+                <span>Confirmation (25% within 45 days):</span>
+                <b id="outputConfirm">Rs. 0</b>
+              </div>
+              <div class="breakdown-row">
+                <span id="outputMonthlyLabel">Estimated Monthly Installment:</span>
+                <b id="outputMonthly" style="color:var(--emerald);">Rs. 50,000 / mo</b>
+              </div>
+              <div class="breakdown-row" id="outputQuarterlyRow">
+                <span id="outputQuarterlyLabel">10 Half-Yearly Installments:</span>
+                <b id="outputQuarterly">Rs. 219,750 each</b>
+              </div>
+              <div class="breakdown-row">
+                <span id="outputPossessionLabel">On Possession:</span>
+                <b id="outputPossession">Rs. 742,500 (10%)</b>
+              </div>
+            </div>
+
+            <!-- 10% Cash Discount Offer Callout -->
+            <div class="lump-sum-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <div class="lump-sum-text">
+                <strong>10% Lump-Sum Full Payment Option:</strong><br>
+                Pay in full today for <b id="outputLumpPrice">Rs. 6,682,500</b>. 
+                Instant savings of <b id="outputLumpSavings">Rs. 742,500</b>.
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="calc-actions">
+              <a href="#" id="btnWhatsAppInquiry" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+                Inquire This Exact Estimate on WhatsApp
+              </a>
+              <button type="button" class="btn btn-outline" onclick="window.print()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                Print / Save PDF Estimate
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: SIDE-BY-SIDE COMPARISON MATRIX
+         ======================================================================== -->
+    <section class="plan-section" id="compare-section">
+      <div class="container">
+
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="kicker-badge">Quick Decision Matrix</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#fff; margin-bottom:12px;">
+            Compare <span>IDEAS ONE</span> vs <span>IDEAS Tower</span>
+          </h2>
+          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.95rem;">
+            A side-by-side comparison to help you choose the ideal development for your personal lifestyle or commercial investment goals.
+          </p>
+        </div>
+
+        <div class="matrix-card">
+          <div class="table-scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            Swipe horizontally to compare both developments &rarr;
+          </div>
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Feature / Parameter</th>
+                <th style="color:#ffffff;">IDEAS ONE (Mall &amp; Apts)</th>
+                <th style="color:#ffffff;">IDEAS Tower (Tower A &amp; B)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary Character</td>
+                <td>Commercial Mega-Mall &amp; Finished Luxury Apartments</td>
+                <td>Residential High-Rise Luxury Apartments</td>
+              </tr>
+              <tr>
+                <td>Exact Sector Location</td>
+                <td>Sector B-17, Gate 2, Main G.T Road, Islamabad</td>
+                <td>Plot 04, Block B, Gate 1, Multi Gardens B-17, Islamabad</td>
+              </tr>
+              <tr>
+                <td>Apartment Rates</td>
+                <td><b style="color:var(--gold-light);">Rs. 16,500 / sq.ft</b></td>
+                <td><b style="color:var(--gold-light);">Tower A: Rs. 20,000 | Tower B: Rs. 16,000</b></td>
+              </tr>
+              <tr>
+                <td>Commercial Availability</td>
+                <td>Yes: Retail shops, 130+ food court outlets, offices</td>
+                <td>Purely Luxury Residential with exclusive amenities</td>
+              </tr>
+              <tr>
+                <td>Installment Term</td>
+                <td>60 Months (5 Years Long-Term Flexible)</td>
+                <td>18 Months (Tower A) / 30 Months (Tower B)</td>
+              </tr>
+              <tr>
+                <td>Down Payment</td>
+                <td>20% Down Payment</td>
+                <td>25% Booking + 25% Confirmation</td>
+              </tr>
+              <tr>
+                <td>Construction Status</td>
+                <td>Active structural development in full swing</td>
+                <td><strong>90% Completed</strong> (Fast-Track Handover)</td>
+              </tr>
+              <tr>
+                <td>CDA NOC &amp; Approvals</td>
+                <td>Official CDA Approved Development</td>
+                <td>Official CDA Approved Development</td>
+              </tr>
+              <tr>
+                <td>Lump-Sum Cash Discount</td>
+                <td>10% Discount on Full Upfront Payment</td>
+                <td>10% Discount on Full Upfront Payment</td>
+              </tr>
+              <tr>
+                <td>Best Suited For</td>
+                <td>Investors seeking commercial rental yields + long-term apartments</td>
+                <td>Families and investors seeking immediate possession &amp; luxury living</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 5: INVESTOR FAQS ACCORDION
+         ======================================================================== -->
+    <section class="plan-section" id="faqs" style="background: rgba(7, 21, 69, 0.4); border-top:1px solid var(--navy-border);">
+      <div class="container">
+
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="kicker-badge">Clear &amp; Transparent</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#fff; margin-bottom:12px;">
+            Frequently Asked <span>Questions</span>
+          </h2>
+          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.95rem;">
+            Everything you need to know regarding booking procedures, installment milestones, and official ownership guarantees.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              Are IDEAS ONE and IDEAS Tower CDA approved?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, both IDEAS ONE and IDEAS Tower are fully vetted and approved under the regulatory framework of the Capital Development Authority (CDA) and Multi Gardens (MPCHS) Sector B-17 guidelines.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              How does the 10% Cash Lump-Sum Discount work?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Investors who choose to make full 100% payment at the time of booking receive an automatic 10% discount on the total unit price, saving hundreds of thousands or millions of rupees upfront.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              Can Overseas Pakistanis book units and pay online?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, Overseas Pakistanis can complete the entire booking online via official direct bank wire transfers to IDEAS Group company accounts. Official digital booking receipts and payment statements are issued promptly.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              What are the possession timelines for both projects?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              IDEAS Tower is currently over 90% completed with possession handover scheduled on the 18-month to 30-month timeline. IDEAS ONE follows a comprehensive 60-month milestone schedule aligned with construction stages.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              Are there any hidden escalation or transfer charges?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              No hidden charges. Per-square-foot rates are fixed upon booking. Utility, connection, and official government transfer fees are transparently outlined as per standard society and regulatory bylaws.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              Can I customize my installment schedule?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, our sales and financial advisory team at the site office can accommodate customized balloon or quarterly installment structures tailored to your cash flow requirements.
+            </div>
+          </div>
+        </div>
+
+        <!-- Consultation Banner -->
+        <div class="cta-banner">
+          <div>
+            <h3>Need a Custom Corporate or Family Plan?</h3>
+            <p>
+              Speak directly with an IDEAS Group senior investment consultant at our Sector B-17 site office or via phone.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="tel:03305511117" class="btn btn-gold">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              Call 0330-5511117
+            </a>
+            <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20would%20like%20a%20customized%20payment%20plan%20consultation." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+              WhatsApp Consultation
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       SITE FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img src="images/brand/logo.png" alt="IDEAS Group Logo" style="height: 48px;">
+            <div>
+              <div class="footer-brand-title">IDEAS GROUP</div>
+              <span class="footer-brand-sub">Builders & Developers</span>
+            </div>
+          </div>
+          <p>
+            Established in 1995, IDEAS Group Builders & Developers is committed to delivering quality developments that
+            offer lasting value. Developers of IDEAS One and IDEAS Tower in Sector B-17, Islamabad.
+          </p>
+          <div style="margin-top: 18px;">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:10px;">
+              Follow IDEAS Group:
+            </span>
+            <div class="social-badges-wrap">
+              <a href="https://www.facebook.com/profile.php?id=61591907822976" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Facebook">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/ideasgroup.bnd/" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.tiktok.com/@ideas.group" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Essential Pages -->
+        <div class="footer-col">
+          <h5>Essential Pages</h5>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About Us (History & Team)</a></li>
+            <li><a href="index.html#projects">Developments</a></li>
+            <li><a href="payment-plans.html">Payment Plans & Calculator</a></li>
+            <li><a href="ideas-one.html">IDEAS ONE Mall & Brands</a></li>
+            <li><a href="index.html#why-ideas-group">Why IDEAS Group</a></li>
+            <li><a href="index.html#contact">Contact & Site Offices</a></li>
+          </ul>
+        </div>
+
+        <!-- Projects -->
+        <div class="footer-col">
+          <h5>Payment Schedules</h5>
+          <ul>
+            <li><a href="#payment-one">IDEAS ONE Apartments (60 Mo)</a></li>
+            <li><a href="#payment-one">IDEAS ONE Commercial Shops</a></li>
+            <li><a href="#payment-tower">IDEAS Tower-A (18 Months)</a></li>
+            <li><a href="#payment-tower">IDEAS Tower-B (30 Months)</a></li>
+            <li><a href="#calculator">Installment Calculator</a></li>
+            <li><a href="https://www.ideasgroup.pk" target="_blank">Official Website</a></li>
+          </ul>
+        </div>
+
+        <!-- Catch Us Here -->
+        <div class="footer-col">
+          <h5>Catch Us Here</h5>
+          <ul style="gap: 12px;">
+            <li style="color:#94a3b8; font-size:0.88rem; display:flex; align-items:flex-start; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Gate 2, Sector B-17, Islamabad</span>
+            </li>
+            <li style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <a href="mailto:info@ideasgroup.pk">info@ideasgroup.pk</a>
+            </li>
+            <li style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <a href="tel:03305511117">0330-5511117</a>
+            </li>
+            <li style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <a href="https://wa.me/923305511117" target="_blank" style="color:#25d366; font-weight:600;">WhatsApp: 0330 5511117</a>
+            </li>
+            <li style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <a href="https://www.ideasgroup.pk" target="_blank" style="color:var(--gold-primary);">www.ideasgroup.pk</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>2026 © IDEAS Group Builders & Developers. All rights reserved.</div>
+        <div>
+          Official Portal: <a href="https://www.ideasgroup.pk" target="_blank">www.ideasgroup.pk</a> · Crown of B-17, Islamabad
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp & Back to top -->
+  <a href="https://wa.me/923305511117?text=Hello%20Ideas%20Group%2C%20I%20visited%20www.ideasgroup.pk%20and%20am%20interested%20in%20your%20payment%20plans."
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with IDEAS Group on WhatsApp (0330 5511117)">
+    <div class="whatsapp-icon-circle">
+      <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor">
+        <path
+          d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.4A11.6 11.6 0 1 1 16 27.5zm6.4-8.6c-.3-.2-2-.1-2.3-1.1-.3-.1-.6-.2-.8.2s-1 1.2-1.2 1.4-.4.2-.7.1a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.3 0-.5.1-.7s.3-.4.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6 2.4 3.6 5.8 5.1c.8.3 1.4.6 1.9.7 1 .3 1.8.3 2.5.2.8-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.6-.5z" />
+      </svg>
+    </div>
+  </a>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ========================================================================
+       LIGHTBOX MODAL
+       ======================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="if(event.target === this) closeLightbox();" role="dialog" aria-modal="true" aria-label="Fullscreen Payment Plan Flyer">
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <div class="lightbox-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <span id="lightboxTitle">Payment Plan Flyer</span>
+        </div>
+        <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightboxImg" src="" alt="Payment Plan High-Resolution View" class="lightbox-img">
+      </div>
+      <div class="lightbox-footer">
+        <span style="font-size:0.8rem; color:var(--text-muted);">
+          * Official CDA-approved rates by IDEAS Group Builders &amp; Developers.
+        </span>
+        <div style="display:flex; gap:10px;">
+          <a id="lightboxDownloadBtn" href="#" download class="btn btn-outline" style="padding:6px 16px; font-size:0.82rem;">
+            Download Image
+          </a>
+          <a id="lightboxWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="padding:6px 16px; font-size:0.82rem;">
+            Inquire on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INTERACTIVE JAVASCRIPT
+       ======================================================================== -->
+  <script src="js/lenis.min.js"></script>
+  <script>
+    // 1. Scroll & Header
+    const siteHeader = document.getElementById('siteHeader');
+    const backToTop = document.getElementById('backToTop');
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+    // Lenis Smooth Inertial Scroll with High Sensitivity
+    let lenisInstance = null;
+    if (typeof Lenis !== 'undefined') {
+      window.lenis = lenisInstance = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.25,
+        touchMultiplier: 1.8,
+        infinite: false,
+      });
+
+      function raf(time) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      lenisInstance.on('scroll', (e) => {
+        const scrollY = e.scroll;
+        if (scrollY > 50) {
+          siteHeader.classList.add('scrolled');
+          if (backToTop) backToTop.classList.add('visible');
+        } else {
+          siteHeader.classList.remove('scrolled');
+          if (backToTop) backToTop.classList.remove('visible');
+        }
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0 && scrollProgressBar) {
+          scrollProgressBar.style.width = (scrollY / docHeight) * 100 + '%';
+        }
+      });
+    }
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        if (window.lenis) {
+          window.lenis.scrollTo(0, { duration: 1.2 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        siteHeader.classList.add('scrolled');
+        if (backToTop) backToTop.classList.add('visible');
+      } else {
+        siteHeader.classList.remove('scrolled');
+        if (backToTop) backToTop.classList.remove('visible');
+      }
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0 && scrollProgressBar) {
+        scrollProgressBar.style.width = (scrollY / docHeight) * 100 + '%';
+      }
+    }, { passive: true });
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 2. Mobile Drawer
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerClose = document.getElementById('drawerClose');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (burgerBtn) burgerBtn.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    document.querySelectorAll('.drawer-links a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // 3. Segmented Main View Controller
+    function switchMainView(view, btn) {
+      document.querySelectorAll('.seg-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const secOne = document.getElementById('payment-one');
+      const secTower = document.getElementById('payment-tower');
+      const secCalc = document.getElementById('calculator');
+      const secCompare = document.getElementById('compare-section');
+
+      if (view === 'all') {
+        secOne.style.display = 'block';
+        secTower.style.display = 'block';
+        secCalc.style.display = 'block';
+        secCompare.style.display = 'block';
+        window.scrollTo({ top: secOne.offsetTop - 130, behavior: 'smooth' });
+      } else if (view === 'one') {
+        secOne.style.display = 'block';
+        secTower.style.display = 'block';
+        secCalc.style.display = 'block';
+        secCompare.style.display = 'block';
+        window.scrollTo({ top: secOne.offsetTop - 130, behavior: 'smooth' });
+      } else if (view === 'tower') {
+        secOne.style.display = 'block';
+        secTower.style.display = 'block';
+        secCalc.style.display = 'block';
+        secCompare.style.display = 'block';
+        window.scrollTo({ top: secTower.offsetTop - 130, behavior: 'smooth' });
+      } else if (view === 'calc') {
+        secOne.style.display = 'block';
+        secTower.style.display = 'block';
+        secCalc.style.display = 'block';
+        secCompare.style.display = 'block';
+        window.scrollTo({ top: secCalc.offsetTop - 130, behavior: 'smooth' });
+      } else if (view === 'compare') {
+        secOne.style.display = 'block';
+        secTower.style.display = 'block';
+        secCalc.style.display = 'block';
+        secCompare.style.display = 'block';
+        window.scrollTo({ top: secCompare.offsetTop - 130, behavior: 'smooth' });
+      }
+    }
+
+    function scrollToCalculator(e) {
+      if (e) e.preventDefault();
+      const calc = document.getElementById('calculator');
+      if (calc) {
+        window.scrollTo({ top: calc.offsetTop - 130, behavior: 'smooth' });
+      }
+    }
+
+    // 4. IDEAS ONE Category Switcher (Apartments vs Commercial)
+    function switchOneCategory(cat, btn) {
+      const aptsWrap = document.getElementById('oneAptsTableWrap');
+      const commWrap = document.getElementById('oneCommTableWrap');
+      const aptsFilters = document.getElementById('oneAptsFilters');
+      const btnApts = document.getElementById('btnOneApts');
+      const btnComm = document.getElementById('btnOneComm');
+
+      if (cat === 'comm') {
+        aptsWrap.style.display = 'none';
+        commWrap.style.display = 'block';
+        if (aptsFilters) aptsFilters.style.display = 'none';
+        btnComm.classList.add('active');
+        btnApts.classList.remove('active');
+      } else {
+        aptsWrap.style.display = 'block';
+        commWrap.style.display = 'none';
+        if (aptsFilters) aptsFilters.style.display = 'flex';
+        btnApts.classList.add('active');
+        btnComm.classList.remove('active');
+      }
+    }
+
+    // Filter IDEAS ONE Apartments by Unit Type
+    function filterOneApts(type, btn) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      const rows = document.querySelectorAll('#oneAptsTable tbody tr');
+      rows.forEach(row => {
+        const rowType = row.getAttribute('data-type');
+        if (type === 'all' || rowType === type) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. IDEAS Tower Switcher (Tower A vs Tower B)
+    let currentTower = 'a';
+
+    function switchTowerPlan(tower, btn) {
+      currentTower = tower;
+      const btnA = document.getElementById('btnTowerA');
+      const btnB = document.getElementById('btnTowerB');
+      const tableA = document.getElementById('towerATableWrap');
+      const tableB = document.getElementById('towerBTableWrap');
+      const flyerImg = document.getElementById('towerFlyerImg');
+      const downloadLink = document.getElementById('towerDownloadLink');
+      const statRate = document.getElementById('towerStatRate');
+      const statInst = document.getElementById('towerStatInstallments');
+      const tableTitle = document.getElementById('towerTableTitle');
+
+      if (tower === 'a') {
+        btnA.classList.add('active');
+        btnB.classList.remove('active');
+        tableA.style.display = 'block';
+        tableB.style.display = 'none';
+        if (flyerImg) flyerImg.src = 'images/tower/ideas_tower_payment_plan_a.jpg';
+        if (downloadLink) {
+          downloadLink.href = 'images/tower/ideas_tower_payment_plan_a.jpg';
+          downloadLink.download = 'IDEAS_Tower_Payment_Plan_Tower_A.jpg';
+        }
+        if (statRate) statRate.innerText = '@ 20,000';
+        if (statInst) statInst.innerText = '18 Mo (35%)';
+        if (tableTitle) tableTitle.innerText = 'Tower-A Premium Schedule (18 Months)';
+      } else {
+        btnB.classList.add('active');
+        btnA.classList.remove('active');
+        tableA.style.display = 'none';
+        tableB.style.display = 'block';
+        if (flyerImg) flyerImg.src = 'images/tower/ideas_tower_payment_plan_b.jpg';
+        if (downloadLink) {
+          downloadLink.href = 'images/tower/ideas_tower_payment_plan_b.jpg';
+          downloadLink.download = 'IDEAS_Tower_Payment_Plan_Tower_B.jpg';
+        }
+        if (statRate) statRate.innerText = '@ 16,000';
+        if (statInst) statInst.innerText = '30 Mo (35%)';
+        if (tableTitle) tableTitle.innerText = 'Tower-B Economical Schedule (30 Months)';
+      }
+    }
+
+    function openActiveTowerLightbox() {
+      if (currentTower === 'b') {
+        openLightbox('images/tower/ideas_tower_payment_plan_b.jpg', 'IDEAS Tower (Tower-B) Finished Apartments @ Rs. 16,000 / sq.ft');
+      } else {
+        openLightbox('images/tower/ideas_tower_payment_plan_a.jpg', 'IDEAS Tower (Tower-A) Finished Apartments @ Rs. 20,000 / sq.ft');
+      }
+    }
+
+    function filterTowerApts(type, btn) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      const targetTableId = currentTower === 'a' ? '#towerATable' : '#towerBTable';
+      const rows = document.querySelectorAll(targetTableId + ' tbody tr');
+      rows.forEach(row => {
+        const rowType = row.getAttribute('data-type');
+        if (type === 'all' || rowType === type || (type === '2 Bed' && rowType.includes('2 Bed'))) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // 6. REAL-TIME INTERACTIVE PAYMENT CALCULATOR ENGINE
+    const projectConfigs = {
+      one_apt: {
+        name: 'IDEAS ONE — Finished Apartments',
+        rate: 16500,
+        defaultArea: 450,
+        defaultDownPct: 20,
+        minDownPct: 20,
+        planType: 'one',
+        presets: [
+          { name: 'Studio', area: 450 },
+          { name: '1 Bed', area: 720 },
+          { name: '2 Bed', area: 1275 },
+          { name: '2 Bed Lux', area: 1450 },
+          { name: '3 Bed', area: 1780 },
+          { name: '3 Bed XL', area: 2000 }
+        ]
+      },
+      one_office: {
+        name: 'IDEAS ONE — Corporate Executive Office',
+        rate: 25000,
+        defaultArea: 1000,
+        defaultDownPct: 20,
+        minDownPct: 20,
+        planType: 'one',
+        presets: [
+          { name: 'Small Office', area: 500 },
+          { name: 'Standard Office', area: 1000 },
+          { name: 'Executive Suite', area: 1500 },
+          { name: 'Corporate Wing', area: 2500 }
+        ]
+      },
+      tower_a: {
+        name: 'IDEAS Tower — Tower A (@ 20,000/sqft)',
+        rate: 20000,
+        defaultArea: 750,
+        defaultDownPct: 25,
+        minDownPct: 25,
+        planType: 'tower_a',
+        presets: [
+          { name: '1 Bed (Type C)', area: 750 },
+          { name: '2 Bed (Type B)', area: 1250 },
+          { name: '2 Bed Luxury', area: 1600 },
+          { name: '3 Bed (Type A)', area: 1850 },
+          { name: '3 Bed (Type A-1)', area: 1950 },
+          { name: '4 Bed (Type XL)', area: 2250 }
+        ]
+      },
+      tower_b: {
+        name: 'IDEAS Tower — Tower B (@ 16,000/sqft)',
+        rate: 16000,
+        defaultArea: 750,
+        defaultDownPct: 25,
+        minDownPct: 25,
+        planType: 'tower_b',
+        presets: [
+          { name: '1 Bed (Type C)', area: 750 },
+          { name: '2 Bed (Type B)', area: 1250 },
+          { name: '2 Bed Standard', area: 1325 },
+          { name: '2 Bed Luxury', area: 1600 }
+        ]
+      }
+    };
+
+    let currentCalcProjectKey = 'one_apt';
+
+    function formatPKR(val) {
+      return 'Rs. ' + Math.round(val).toLocaleString('en-US');
+    }
+
+    function formatCroreLakh(val) {
+      if (val >= 10000000) {
+        return (val / 10000000).toFixed(2) + ' Crore PKR';
+      } else if (val >= 100000) {
+        return (val / 100000).toFixed(2) + ' Lacs PKR';
+      }
+      return formatPKR(val);
+    }
+
+    function renderCalcPresets(key) {
+      const config = projectConfigs[key];
+      const container = document.getElementById('calcPresetsContainer');
+      if (!container) return;
+
+      container.innerHTML = '';
+      config.presets.forEach((preset, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'calc-chip-btn' + (idx === 0 ? ' active' : '');
+        btn.innerHTML = `${preset.name}<small>${preset.area.toLocaleString()} Sq.Ft</small>`;
+        btn.onclick = () => selectPresetChip(preset.area, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function onCalcProjectChange() {
+      const select = document.getElementById('calcProjectSelect');
+      currentCalcProjectKey = select.value;
+      const config = projectConfigs[currentCalcProjectKey];
+
+      // Update slider min/default
+      const slider = document.getElementById('calcDownPercent');
+      slider.min = config.minDownPct;
+      slider.value = config.defaultDownPct;
+      document.getElementById('calcDownPercentLabel').innerText = config.defaultDownPct + '%';
+
+      // Update area
+      document.getElementById('calcAreaInput').value = config.defaultArea;
+
+      renderCalcPresets(currentCalcProjectKey);
+      runCalculator();
+    }
+
+    function selectPresetChip(area, btn) {
+      document.querySelectorAll('#calcPresetsContainer .calc-chip-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      document.getElementById('calcAreaInput').value = area;
+      runCalculator();
+    }
+
+    function onCustomAreaChange() {
+      document.querySelectorAll('#calcPresetsContainer .calc-chip-btn').forEach(b => b.classList.remove('active'));
+      runCalculator();
+    }
+
+    function onDownPercentChange() {
+      const val = document.getElementById('calcDownPercent').value;
+      document.getElementById('calcDownPercentLabel').innerText = val + '%';
+      runCalculator();
+    }
+
+    function runCalculator() {
+      const config = projectConfigs[currentCalcProjectKey];
+      const area = parseFloat(document.getElementById('calcAreaInput').value) || 0;
+      const downPct = parseFloat(document.getElementById('calcDownPercent').value) || config.minDownPct;
+
+      const totalPrice = area * config.rate;
+      const lumpSumPrice = totalPrice * 0.90;
+      const lumpSumSavings = totalPrice * 0.10;
+
+      // Update Output Elements
+      document.getElementById('outputProjectName').innerText = config.name;
+      document.getElementById('outputTotalPrice').innerText = formatPKR(totalPrice);
+      document.getElementById('outputCroreLabel').innerText = 'Equivalent to ' + formatCroreLakh(totalPrice);
+      document.getElementById('outputArea').innerText = area.toLocaleString() + ' Sq.Ft.';
+      document.getElementById('outputRate').innerText = 'Rs. ' + config.rate.toLocaleString() + ' / sqft';
+
+      document.getElementById('outputLumpPrice').innerText = formatPKR(lumpSumPrice);
+      document.getElementById('outputLumpSavings').innerText = formatPKR(lumpSumSavings);
+
+      const confirmRow = document.getElementById('outputConfirmRow');
+      const quarterlyRow = document.getElementById('outputQuarterlyRow');
+      const downLabel = document.getElementById('outputDownLabel');
+      const monthlyLabel = document.getElementById('outputMonthlyLabel');
+      const possessionLabel = document.getElementById('outputPossessionLabel');
+      const quarterlyLabel = document.getElementById('outputQuarterlyLabel');
+
+      if (config.planType === 'one') {
+        // IDEAS ONE: Down 20%+, 60 Monthly, 10 Half-Yearly, 10% Possession
+        confirmRow.style.display = 'none';
+        quarterlyRow.style.display = 'flex';
+
+        downLabel.innerText = `Down Payment (${downPct}%):`;
+        const downAmount = totalPrice * (downPct / 100);
+        document.getElementById('outputDown').innerText = formatPKR(downAmount);
+
+        const possessionAmount = totalPrice * 0.10;
+        possessionLabel.innerText = 'On Possession (10%):';
+        document.getElementById('outputPossession').innerText = formatPKR(possessionAmount);
+
+        // Remaining balance across 60 monthly + 10 half-yearly
+        const remaining = totalPrice - downAmount - possessionAmount;
+        // Standard formula ratio from official schedule (~50k/mo base, balance in 10 half-yearly)
+        const baseMonthly = Math.round((remaining * 0.40) / 60);
+        const halfYearlyEach = Math.round((remaining * 0.60) / 10);
+
+        monthlyLabel.innerText = '60 Monthly Installments:';
+        document.getElementById('outputMonthly').innerText = formatPKR(baseMonthly) + ' / mo';
+
+        quarterlyLabel.innerText = '10 Half-Yearly Installments:';
+        document.getElementById('outputQuarterly').innerText = formatPKR(halfYearlyEach) + ' each';
+
+      } else {
+        // IDEAS Tower: Booking 25%+, Confirmation 25%, 5 Quarterly (10%), 18/30 Monthly (35%), Possession 5%
+        confirmRow.style.display = 'flex';
+        quarterlyRow.style.display = 'flex';
+
+        downLabel.innerText = `Booking Amount (${downPct}%):`;
+        const bookingAmount = totalPrice * (downPct / 100);
+        document.getElementById('outputDown').innerText = formatPKR(bookingAmount);
+
+        const confirmAmount = totalPrice * 0.25;
+        document.getElementById('outputConfirm').innerText = formatPKR(confirmAmount);
+
+        const quarterlyBalloonEach = Math.round((totalPrice * 0.10) / 5);
+        quarterlyLabel.innerText = '5 Quarterly Balloons (10%):';
+        document.getElementById('outputQuarterly').innerText = formatPKR(quarterlyBalloonEach) + ' each';
+
+        const possessionAmount = totalPrice * 0.05;
+        possessionLabel.innerText = 'On Possession (5%):';
+        document.getElementById('outputPossession').innerText = formatPKR(possessionAmount);
+
+        const monthsCount = config.planType === 'tower_a' ? 18 : 30;
+        const monthlyTotalPool = totalPrice * 0.35;
+        const monthlyEach = Math.round(monthlyTotalPool / monthsCount);
+
+        monthlyLabel.innerText = `${monthsCount} Monthly Installments (35%):`;
+        document.getElementById('outputMonthly').innerText = formatPKR(monthlyEach) + ' / mo';
+      }
+
+      // Update WhatsApp link with prefilled details
+      const waBtn = document.getElementById('btnWhatsAppInquiry');
+      if (waBtn) {
+        const msg = `Hello IDEAS Group, I calculated an official payment estimate:%0A- Development: ${encodeURIComponent(config.name)}%0A- Area: ${area} Sq.Ft.%0A- Total Price: ${formatPKR(totalPrice)} (${formatCroreLakh(totalPrice)})%0A- Down Payment: ${formatPKR(totalPrice * (downPct / 100))}%0A- Full Cash 10% Discount Price: ${formatPKR(lumpSumPrice)}%0APlease share availability and booking details.`;
+        waBtn.href = `https://wa.me/923305511117?text=${msg}`;
+      }
+    }
+
+    // Populate calculator from table click
+    function populateCalculator(projectKey, area, label) {
+      if (projectKey === 'one') projectKey = 'one_apt';
+      const select = document.getElementById('calcProjectSelect');
+      if (select) {
+        select.value = projectKey;
+        currentCalcProjectKey = projectKey;
+        onCalcProjectChange();
+      }
+      const areaInput = document.getElementById('calcAreaInput');
+      if (areaInput) {
+        areaInput.value = area;
+        runCalculator();
+      }
+      const calcSec = document.getElementById('calculator');
+      if (calcSec) {
+        window.scrollTo({ top: calcSec.offsetTop - 120, behavior: 'smooth' });
+      }
+    }
+
+    // 7. Lightbox Controller
+    function openLightbox(src, title) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const titleEl = document.getElementById('lightboxTitle');
+      const downloadBtn = document.getElementById('lightboxDownloadBtn');
+      const waBtn = document.getElementById('lightboxWhatsAppBtn');
+
+      if (modal && img) {
+        img.src = src;
+        if (titleEl) titleEl.innerText = title;
+        if (downloadBtn) {
+          downloadBtn.href = src;
+          downloadBtn.download = src.substring(src.lastIndexOf('/') + 1);
+        }
+        if (waBtn) {
+          waBtn.href = `https://wa.me/923305511117?text=${encodeURIComponent('Hello IDEAS Group, I am interested in: ' + title)}`;
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // 8. FAQ Accordion
+    function toggleFaq(item) {
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // 9. Initial setup on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCalcPresets(currentCalcProjectKey);
+      runCalculator();
+
+      // Check URL Hash for deep linking
+      const hash = window.location.hash;
+      if (hash === '#ideas-one' || hash === '#payment-one') {
+        const el = document.getElementById('payment-one');
+        if (el) setTimeout(() => window.scrollTo({ top: el.offsetTop - 130, behavior: 'smooth' }), 200);
+      } else if (hash === '#ideas-tower' || hash === '#payment-tower') {
+        const el = document.getElementById('payment-tower');
+        if (el) setTimeout(() => window.scrollTo({ top: el.offsetTop - 130, behavior: 'smooth' }), 200);
+      } else if (hash === '#calculator') {
+        const el = document.getElementById('calculator');
+        if (el) setTimeout(() => window.scrollTo({ top: el.offsetTop - 130, behavior: 'smooth' }), 200);
+      }
+    });
+  </script>
+
+</body>
+</html>

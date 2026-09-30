@@ -40,6 +40,23 @@ app.get('/mall', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'ideas-one.html'));
 });
 
+// Route for Payment Plans page
+app.get('/payment-plans', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'payment-plans.html'));
+});
+
+app.get('/payment-plans.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'payment-plans.html'));
+});
+
+app.get('/payment-plan', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'payment-plans.html'));
+});
+
+app.get('/pricing', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'payment-plans.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`IdeasGroup server is running on http://localhost:${PORT}`);
