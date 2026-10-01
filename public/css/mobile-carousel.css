@@ -1,0 +1,1118 @@
+/* ==========================================================================
+   IDEAS Group — Ultra-Responsive Mobile Carousel & Layout Optimization
+   Provides native 1-by-1 card carousel with snap physics on mobile (<= 768px)
+   while preserving full standard desktop grid / spreadsheet layouts (>= 769px).
+   Theme: Altaf Developments Minimal White & Imperial Gold Luxury Aesthetics
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   DESKTOP VIEW (>= 769px) — Standard Spacious Grids & Full Spreadsheet Tables
+   Ensures ZERO carousel controls, zero horizontal scroll artifacts on PC.
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+  .mobile-carousel-controls {
+    display: none !important;
+  }
+
+  .mobile-view-toggle {
+    display: none !important;
+  }
+
+  .plan-cards-carousel {
+    display: none !important;
+  }
+
+  .compare-cards-carousel {
+    display: none !important;
+  }
+
+  .desktop-table-container {
+    display: block !important;
+  }
+
+  .swipe-table-hint {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE VIEW (<= 768px) — Touch-Optimized 1-by-1 Card Carousel System
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Global Page & Container Safeguards */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide desktop table container when card carousel view is active on mobile */
+  .desktop-table-container.mobile-hidden {
+    display: none !important;
+  }
+
+  /* Universal Carousel Tracks */
+  .mobile-carousel,
+  .plan-cards-carousel,
+  .compare-cards-carousel {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 12px 16px 20px 16px !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-carousel::-webkit-scrollbar,
+  .plan-cards-carousel::-webkit-scrollbar,
+  .compare-cards-carousel::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Primary Carousel Slides (Unit cards, Comparison cards, etc.) */
+  .plan-cards-carousel > *,
+  .compare-cards-carousel > *,
+  .mobile-carousel > * {
+    flex: 0 0 88% !important;
+    width: 88% !important;
+    max-width: 440px !important;
+    min-width: 275px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Compact Carousel Slides for Trust Strip & Milestones Strip */
+  .hero-trust-strip.mobile-carousel > *,
+  .milestones-strip.mobile-carousel > * {
+    flex: 0 0 74% !important;
+    width: 74% !important;
+    max-width: 320px !important;
+    min-width: 220px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Carousel Controls Bar (Arrows, Dots, Counter) */
+  .mobile-carousel-controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin: 6px 0 20px 0 !important;
+    user-select: none;
+    width: 100% !important;
+  }
+
+  .carousel-nav-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: rgba(223, 162, 59, 0.14) !important;
+    border: 1px solid rgba(223, 162, 59, 0.45) !important;
+    color: #dfa23b !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .carousel-nav-btn:active {
+    transform: scale(0.92);
+    background: rgba(223, 162, 59, 0.35) !important;
+  }
+
+  .carousel-dots {
+    display: flex !important;
+    gap: 6px !important;
+    align-items: center !important;
+    max-width: 150px !important;
+    overflow-x: auto !important;
+    padding: 2px !important;
+  }
+
+  .carousel-dots::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .carousel-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 4px !important;
+    background: rgba(223, 162, 59, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+  }
+
+  .carousel-dot.active {
+    width: 22px !important;
+    background: #dfa23b !important;
+    box-shadow: 0 0 8px rgba(223, 162, 59, 0.6) !important;
+  }
+
+  .carousel-counter {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #dfa23b !important;
+    letter-spacing: 0.05em !important;
+    min-width: 44px !important;
+    text-align: right !important;
+  }
+
+  /* View Switcher Pill (Card Slides vs Full Table) */
+  .mobile-view-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin: 0 auto 16px auto !important;
+    background: rgba(223, 162, 59, 0.08) !important;
+    border: 1px solid rgba(223, 162, 59, 0.28) !important;
+    border-radius: 30px !important;
+    padding: 4px !important;
+    width: fit-content !important;
+    max-width: 95% !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-view-toggle button {
+    padding: 7px 15px !important;
+    border-radius: 22px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    border: none !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    color: #9aa2b1 !important;
+    transition: all 0.25s ease !important;
+    font-family: inherit !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+  }
+
+  .mobile-view-toggle button.active {
+    background: linear-gradient(135deg, #dfa23b 0%, #c48b28 100%) !important;
+    color: #0b0d14 !important;
+    box-shadow: 0 2px 10px rgba(223, 162, 59, 0.35) !important;
+  }
+
+  /* Swipe Table Hint */
+  .swipe-table-hint {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 0.75rem !important;
+    color: #dfa23b !important;
+    background: rgba(223, 162, 59, 0.1) !important;
+    border: 1px dashed rgba(223, 162, 59, 0.35) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    margin-bottom: 12px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ========================================================================
+     PAYMENT-PLANS.HTML COMPREHENSIVE RESPONSIVE SUITE
+     ======================================================================== */
+
+  /* 1. HERO SECTION */
+  .plans-hero {
+    padding: 85px 0 35px 0 !important;
+    text-align: center !important;
+  }
+
+  .breadcrumbs-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .breadcrumbs {
+    font-size: 0.74rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  .kicker-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .kicker-badge {
+    font-size: 0.72rem !important;
+    padding: 5px 12px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .plans-hero h1 {
+    font-size: clamp(1.75rem, 6.8vw, 2.3rem) !important;
+    line-height: 1.22 !important;
+    margin: 10px auto 14px auto !important;
+    max-width: 95% !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .plans-hero-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    color: #64748b !important;
+    margin: 0 auto 22px auto !important;
+    max-width: 95% !important;
+  }
+
+  /* Hero Trust Strip Cards */
+  .hero-trust-strip.mobile-carousel {
+    padding: 8px 16px 14px 16px !important;
+    gap: 12px !important;
+  }
+
+  .hero-trust-strip.mobile-carousel .trust-chip {
+    padding: 12px 14px !important;
+    font-size: 0.8rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+    justify-content: center !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 14px rgba(223, 162, 59, 0.12) !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(223, 162, 59, 0.35) !important;
+  }
+
+  /* 2. STICKY CONTROLS BAR */
+  .controls-bar-wrap {
+    top: 60px !important;
+    padding: 8px 0 !important;
+    background: rgba(255, 255, 255, 0.97) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(223, 162, 59, 0.22) !important;
+    z-index: 100 !important;
+  }
+
+  .controls-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .segmented-tabs {
+    display: flex !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+    border-radius: 25px !important;
+  }
+
+  .segmented-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .seg-tab-btn {
+    flex-shrink: 0 !important;
+    padding: 7px 14px !important;
+    font-size: 0.76rem !important;
+    white-space: nowrap !important;
+    border-radius: 20px !important;
+  }
+
+  .quick-calc-jump {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 9px 14px !important;
+    font-size: 0.78rem !important;
+    border-radius: 22px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  /* 3. SECTION INTROS & RATE BADGES */
+  .section-title-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 22px !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .section-title-wrap h2 {
+    font-size: clamp(1.55rem, 6vw, 2.1rem) !important;
+    line-height: 1.22 !important;
+    margin: 6px 0 8px 0 !important;
+  }
+
+  .section-title-wrap p {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    color: #64748b !important;
+    margin-bottom: 8px !important;
+  }
+
+  #payment-tower .section-title-wrap p {
+    color: #94a3b8 !important;
+  }
+
+  .rate-badge {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.82rem !important;
+    padding: 9px 14px !important;
+    box-sizing: border-box !important;
+    border-radius: 24px !important;
+    margin-top: 4px !important;
+  }
+
+  /* 4. MILESTONES STRIP CAROUSEL */
+  .milestones-strip.mobile-carousel {
+    padding: 8px 16px 16px 16px !important;
+    gap: 12px !important;
+  }
+
+  .milestones-strip.mobile-carousel .milestone-card {
+    padding: 16px 14px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    border-radius: 14px !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04) !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(223, 162, 59, 0.3) !important;
+  }
+
+  #payment-tower .milestones-strip.mobile-carousel .milestone-card {
+    background: #11141c !important;
+    border-color: rgba(223, 162, 59, 0.3) !important;
+  }
+
+  .milestones-strip.mobile-carousel .milestone-card b {
+    font-size: 1.6rem !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+    line-height: 1.15 !important;
+  }
+
+  .milestones-strip.mobile-carousel .milestone-card span {
+    font-size: 0.76rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    display: block !important;
+  }
+
+  /* 5. FILTER BARS & CATEGORY PILLS */
+  .filter-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+  }
+
+  .sub-tabs-pill {
+    display: flex !important;
+    width: 100% !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+    border-radius: 30px !important;
+  }
+
+  .sub-tab-btn {
+    flex: 1 1 50% !important;
+    text-align: center !important;
+    padding: 8px 8px !important;
+    font-size: 0.76rem !important;
+    white-space: nowrap !important;
+    border-radius: 22px !important;
+  }
+
+  .category-filters {
+    display: flex !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+    padding: 4px 2px !important;
+    box-sizing: border-box !important;
+    justify-content: flex-start !important;
+  }
+
+  .category-filters::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .filter-pill {
+    flex-shrink: 0 !important;
+    padding: 6px 13px !important;
+    font-size: 0.78rem !important;
+    border-radius: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 6. PLAN 2-COLUMN GRID & VISUAL FLYER CARD */
+  .plan-grid-2col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .plan-grid-2col > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .perks-card {
+    padding: 16px 14px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin-top: 16px !important;
+    margin-bottom: 0 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .flyer-preview-card {
+    padding: 16px 14px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .flyer-frame {
+    width: 100% !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background: #11141c !important;
+    display: block !important;
+    border: 1px solid rgba(223, 162, 59, 0.3) !important;
+  }
+
+  .flyer-frame img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .flyer-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 14px !important;
+  }
+
+  .flyer-actions .btn {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    border-radius: 28px !important;
+  }
+
+  /* 7. FINANCIAL SIMULATOR SECTION (#calculator) */
+  .calc-section,
+  .calculator-section {
+    padding: 45px 0 !important;
+  }
+
+  .calc-grid,
+  .calc-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+  }
+
+  .calc-form-wrap {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(223, 162, 59, 0.3) !important;
+    width: 100% !important;
+  }
+
+  .calc-form-wrap h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .calc-form-wrap p {
+    font-size: 0.84rem !important;
+    margin-bottom: 16px !important;
+    color: #64748b !important;
+  }
+
+  .preset-chips-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .calc-chip-btn {
+    padding: 10px 6px !important;
+    font-size: 0.78rem !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+
+  .calc-select,
+  .calc-input {
+    width: 100% !important;
+    padding: 11px 12px !important;
+    font-size: 0.88rem !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Output Dashboard Box */
+  .calc-output-box {
+    position: static !important;
+    top: auto !important;
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .output-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    border-bottom: 1px solid rgba(223, 162, 59, 0.3) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+  }
+
+  .output-project-tag {
+    font-size: 0.74rem !important;
+    padding: 3px 8px !important;
+    border-radius: 10px !important;
+    margin-bottom: 4px !important;
+    white-space: normal !important;
+  }
+
+  .output-total-price {
+    font-size: clamp(1.8rem, 6.5vw, 2.3rem) !important;
+    color: #fad678 !important;
+    margin: 4px 0 2px 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  .output-total-crore {
+    font-size: 0.88rem !important;
+    color: #94a3b8 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .output-breakdown-list {
+    margin-bottom: 14px !important;
+    width: 100% !important;
+  }
+
+  .breakdown-row {
+    padding: 8px 0 !important;
+    font-size: 0.82rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .breakdown-row span {
+    color: #94a3b8 !important;
+    font-size: 0.8rem !important;
+  }
+
+  .breakdown-row b {
+    font-size: 0.86rem !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+
+  .lump-sum-box {
+    padding: 12px !important;
+    border-radius: 10px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 14px !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .calc-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .calc-actions .btn {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    border-radius: 28px !important;
+  }
+
+  /* 8. COMPARISON MATRIX SECTION */
+  #compare-section {
+    padding: 45px 0 !important;
+  }
+
+  #compare-section h2 {
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem) !important;
+    margin-bottom: 8px !important;
+  }
+
+  #compare-section p {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* 9. FAQS & CONSULTATION BANNER */
+  #faqs {
+    padding: 45px 0 !important;
+  }
+
+  #faqs h2 {
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .faq-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .faq-item {
+    border-radius: 14px !important;
+    margin-bottom: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .faq-question {
+    padding: 15px 14px !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+
+  .faq-answer {
+    padding: 0 14px 16px 14px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .cta-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 16px !important;
+    padding: 24px 16px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .cta-banner h3 {
+    font-size: clamp(1.25rem, 5vw, 1.7rem) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .cta-banner p {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .cta-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .cta-actions .btn {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    font-size: 0.82rem !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    border-radius: 28px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: normal !important;
+  }
+
+  /* 10. SITE FOOTER */
+  .site-footer {
+    padding: 40px 0 85px 0 !important;
+  }
+
+  .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    width: 100% !important;
+  }
+
+  .footer-brand,
+  .footer-col {
+    width: 100% !important;
+  }
+
+  .footer-brand p {
+    font-size: 0.86rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .social-badges-wrap {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .social-chip {
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .footer-col h5 {
+    font-size: 0.95rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .footer-col ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .footer-col li a {
+    font-size: 0.85rem !important;
+    display: inline-block !important;
+    padding: 3px 0 !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center !important;
+    padding-top: 20px !important;
+  }
+
+  /* 11. FLOATING ACTION BUTTONS */
+  .floating-whatsapp {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+    z-index: 990 !important;
+  }
+
+  .back-to-top {
+    bottom: 72px !important;
+    right: 18px !important;
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 990 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LUXURY UNIT PLAN CARDS (Altaf Minimal White & Imperial Gold)
+   -------------------------------------------------------------------------- */
+.plan-unit-card {
+  background: linear-gradient(160deg, #181c26 0%, #10131a 100%);
+  border: 1px solid rgba(223, 162, 59, 0.28);
+  border-radius: 16px;
+  padding: 20px 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-unit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #dfa23b 0%, #fad678 50%, #dfa23b 100%);
+}
+
+.plan-unit-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.plan-unit-badge {
+  background: rgba(223, 162, 59, 0.15);
+  border: 1px solid rgba(223, 162, 59, 0.4);
+  color: #fad678;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.plan-unit-area {
+  font-size: 0.78rem;
+  color: #9aa2b1;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.plan-unit-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.plan-unit-price-box {
+  margin: 8px 0 16px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.plan-unit-price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8e96a4;
+  margin-bottom: 2px;
+}
+
+.plan-unit-price-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #fad678;
+  letter-spacing: -0.01em;
+}
+
+/* 4-Item Breakdown Grid inside card */
+.plan-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.plan-breakdown-cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(223, 162, 59, 0.15);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.plan-breakdown-label {
+  font-size: 0.68rem;
+  color: #8e96a4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.plan-breakdown-val {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.plan-breakdown-cell.highlight {
+  background: rgba(223, 162, 59, 0.08);
+  border-color: rgba(223, 162, 59, 0.35);
+}
+
+.plan-breakdown-cell.highlight .plan-breakdown-val {
+  color: #fad678;
+}
+
+.plan-unit-action-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, #dfa23b 0%, #c48b28 100%);
+  color: #0b0d14;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(223, 162, 59, 0.3);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.plan-unit-action-btn:active {
+  transform: scale(0.97);
+}
+
+/* --------------------------------------------------------------------------
+   COMPARISON MATRIX CARDS (IDEAS ONE vs IDEAS Tower)
+   -------------------------------------------------------------------------- */
+.compare-matrix-card {
+  background: linear-gradient(160deg, #181c26 0%, #10131a 100%);
+  border: 1px solid rgba(223, 162, 59, 0.28);
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.compare-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fad678;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+}
+
+.compare-card-col {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.compare-card-col.ideas-one {
+  border-left: 3px solid #dfa23b;
+  background: rgba(223, 162, 59, 0.06);
+}
+
+.compare-card-col.ideas-tower {
+  border-left: 3px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.compare-col-header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.compare-card-col.ideas-one .compare-col-header {
+  color: #dfa23b;
+}
+
+.compare-card-col.ideas-tower .compare-col-header {
+  color: #38bdf8;
+}
+
+.compare-col-val {
+  font-size: 0.84rem;
+  color: #e5e7eb;
+  line-height: 1.4;
+  word-break: break-word;
+}

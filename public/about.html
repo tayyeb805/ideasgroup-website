@@ -1499,6 +1499,9 @@
       transform: translateY(-3px);
     }
 
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS & LUXURY MOBILE OPTIMIZATION — ABOUT US
+       ========================================================================== */
     @media (max-width: 1280px) {
       .nav-left-links { display: none; }
       .burger-btn { display: flex; }
@@ -1509,63 +1512,290 @@
       .nav-brand-title { font-size: 1.05rem; }
       .nav-center-brand { padding: 4px 10px; gap: 8px; }
       .nav-center-brand img { height: 32px; }
-      .history-intro-grid { grid-template-columns: 1fr; gap: 40px; }
-      .pillars-grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .ceo-spotlight-card { grid-template-columns: 1fr; }
+      .history-intro-grid { grid-template-columns: 1fr; gap: 36px; }
+      .pillars-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .ceo-spotlight-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
       .ceo-portrait-box img { height: 360px; }
-      .standards-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .timeline-step { grid-template-columns: 1fr; margin-bottom: 35px; }
-      .timeline-line { left: 20px; }
-      .timeline-node { display: none; }
-      .timeline-spacer { display: none; }
-      .timeline-step:nth-child(even) .timeline-content { order: 1; }
+      .standards-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .about-stats-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      
+      /* Executive Mobile Timeline */
+      .timeline-wrapper {
+        padding: 24px 0 24px 28px;
+        position: relative;
+        margin-left: 8px;
+      }
+      .timeline-line {
+        left: 14px;
+        transform: none;
+        width: 2px;
+      }
+      .timeline-step {
+        display: block;
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 28px;
+      }
+      .timeline-node {
+        display: flex !important;
+        position: absolute;
+        left: -21px;
+        top: 22px;
+        width: 16px;
+        height: 16px;
+        z-index: 4;
+      }
+      .timeline-node-inner {
+        width: 14px;
+        height: 14px;
+        border-width: 3px;
+      }
+      .timeline-spacer {
+        display: none !important;
+      }
+      .timeline-step:nth-child(even) .timeline-content {
+        order: 1;
+      }
+      .timeline-card {
+        padding: 22px 20px;
+      }
     }
 
     @media (max-width: 768px) {
-      .about-hero { padding-top: 105px; padding-bottom: 45px; }
-      .about-hero h1 { font-size: clamp(2rem, 7vw, 2.9rem); }
-      .section-history, .section-philosophy, .section-team, .section-standards { padding: 60px 0; }
-      .pillars-grid-4 { grid-template-columns: 1fr; }
-      .standards-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .about-stats-strip { grid-template-columns: 1fr; }
-      .ceo-credentials-strip { grid-template-columns: 1fr; }
-      .category-filters {
-        max-width: 100%;
+      .about-hero {
+        padding-top: 105px;
+        padding-bottom: 45px;
+      }
+      .about-hero h1 {
+        font-size: clamp(1.95rem, 6.8vw, 2.7rem);
+        line-height: 1.22;
+      }
+      .about-hero p.hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .section-history, .section-philosophy, .section-team, .section-standards {
+        padding: 50px 0;
+      }
+      .history-text h2 {
+        font-size: clamp(1.65rem, 5.5vw, 2.2rem);
+      }
+      .pillars-grid-4 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .standards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .ceo-credentials-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .cred-item {
+        padding: 12px 14px;
+      }
+      .team-filter-bar {
+        display: flex;
+        justify-content: flex-start;
         overflow-x: auto;
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding-bottom: 6px;
+        gap: 8px;
+        padding: 4px 2px 10px 2px;
+        margin-bottom: 28px;
+      }
+      .team-filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .team-tab-btn {
+        white-space: nowrap;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+      }
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .team-card-image-wrap {
+        height: 250px;
+      }
+      .team-card-body {
+        padding: 18px 16px;
+      }
+      .whatsapp-float {
+        bottom: 18px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+      }
+      .back-to-top {
+        bottom: 78px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
       }
     }
 
-    @media (max-width: 540px) {
-      .container { padding: 0 16px; }
-      .team-grid { grid-template-columns: 1fr; gap: 20px; }
-      .ceo-spotlight-card { padding: 24px 18px; }
-      .ceo-portrait-box img { height: 280px; }
-      .cta-card { padding: 36px 18px; }
-      .cta-btn-group { flex-direction: column; width: 100%; }
-      .cta-btn-group .btn { width: 100%; justify-content: center; }
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 18px;
+      }
+      .about-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .stat-pill {
+        padding: 14px 10px;
+      }
+      .stat-pill .num {
+        font-size: 1.55rem;
+      }
+      .stat-pill .lbl {
+        font-size: 0.74rem;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .team-card-image-wrap {
+        height: 280px;
+      }
+      .cta-card {
+        padding: 34px 20px;
+      }
+      .cta-title {
+        font-size: clamp(1.5rem, 5.5vw, 2rem);
+      }
+      .cta-btn-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .cta-btn-group .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .social-badges-wrap {
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 8px;
+      }
+      .social-chip {
+        flex: 1 1 calc(50% - 6px);
+        justify-content: center;
+        min-height: 42px;
+      }
     }
 
     @media (max-width: 480px) {
-      .nav-center-brand { padding: 3px 6px; gap: 6px; }
-      .nav-center-brand img { height: 28px; }
-      .nav-brand-title { font-size: 0.92rem; letter-spacing: 0.08em; }
-      .burger-btn { width: 38px; height: 38px; min-width: 38px; }
+      .container {
+        padding: 0 16px;
+      }
+      .about-hero {
+        padding-top: 96px;
+        padding-bottom: 38px;
+      }
+      .nav-center-brand {
+        padding: 3px 6px;
+        gap: 6px;
+      }
+      .nav-center-brand img {
+        height: 28px;
+      }
+      .nav-brand-title {
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+      }
+      .burger-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+      }
+      .about-hero h1 {
+        font-size: clamp(1.8rem, 7.5vw, 2.3rem);
+      }
+      .hero-badge-gold {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+      }
+      .history-visual-frame img {
+        height: 250px;
+      }
+      .timeline-wrapper {
+        padding-left: 20px;
+        margin-left: 0;
+      }
+      .timeline-line {
+        left: 8px;
+      }
+      .timeline-step {
+        padding-left: 20px;
+        margin-bottom: 22px;
+      }
+      .timeline-node {
+        left: -18px;
+        top: 20px;
+      }
+      .timeline-card {
+        padding: 18px 15px;
+      }
+      .timeline-title {
+        font-size: 1.05rem;
+      }
+      .timeline-desc {
+        font-size: 0.86rem;
+      }
+      .ceo-spotlight-card {
+        padding: 22px 16px;
+      }
+      .ceo-portrait-box img {
+        height: 270px;
+      }
+      .ceo-badge-tag {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+        max-width: calc(100% - 20px);
+      }
+      .ceo-quote-block {
+        padding: 14px 14px;
+        font-size: 0.86rem;
+      }
+      .mobile-drawer {
+        width: 86vw;
+        max-width: 330px;
+      }
     }
 
     @media (max-width: 400px) {
-      .nav-center-brand { padding: 2px 4px; gap: 4px; }
-      .nav-center-brand img { height: 24px; }
-      .nav-brand-title { font-size: 0.84rem; letter-spacing: 0.06em; }
-      .team-card-image-wrap { height: 240px; }
+      .nav-center-brand {
+        padding: 2px 4px;
+        gap: 4px;
+      }
+      .nav-center-brand img {
+        height: 24px;
+      }
+      .nav-brand-title {
+        font-size: 0.84rem;
+        letter-spacing: 0.05em;
+      }
+      .about-stats-strip {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .team-card-image-wrap {
+        height: 240px;
+      }
     }
   </style>
+  <link rel="stylesheet" href="css/mobile-carousel.css">
 </head>
 
 <body>
@@ -1673,7 +1903,7 @@
       </p>
 
       <!-- Trust Metrics Strip -->
-      <div class="about-stats-strip">
+      <div class="about-stats-strip mobile-carousel">
         <div class="stat-pill">
           <span class="num">1995</span>
           <span class="lbl">Established Legacy</span>
@@ -1845,7 +2075,7 @@
         <p>Every blueprint we draft and every foundation we pour is anchored in four uncompromising values that protect our buyers, partners, and investors.</p>
       </div>
 
-      <div class="pillars-grid-4">
+      <div class="pillars-grid-4 mobile-carousel">
         <!-- Pillar 1 -->
         <div class="pillar-card">
           <div class="pillar-icon">
@@ -1959,7 +2189,7 @@
       </div>
 
       <!-- TEAM MEMBERS GRID -->
-      <div class="team-grid" id="teamMembersGrid">
+      <div class="team-grid mobile-carousel" id="teamMembersGrid">
 
         <!-- 1. GENERAL MANAGER -->
         <article class="team-member-card" data-category="executive">
@@ -2166,7 +2396,7 @@
         <p>Why individual homeowners and institutional commercial investors choose IDEAS Group Builders & Developers.</p>
       </div>
 
-      <div class="standards-grid">
+      <div class="standards-grid mobile-carousel">
         <div class="standard-box">
           <div class="std-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 19 4-14h8l4 14"></path><line x1="12" y1="5" x2="12" y2="8"></line><line x1="12" y1="12" x2="12" y2="15"></line><line x1="12" y1="19" x2="12" y2="21"></line></svg>
@@ -2492,6 +2722,7 @@
     }
   </script>
 
+  <script src="js/mobile-carousel.js"></script>
 </body>
 
 </html>

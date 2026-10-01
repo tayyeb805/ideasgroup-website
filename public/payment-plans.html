@@ -430,6 +430,7 @@
       position: fixed;
       top: 0;
       right: -100%;
+      visibility: hidden;
       width: 85%;
       max-width: 360px;
       height: 100vh;
@@ -442,11 +443,11 @@
       flex-direction: column;
       gap: 14px;
       box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
-      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
       overflow-y: auto;
     }
 
-    .mobile-drawer.open { right: 0; }
+    .mobile-drawer.open { right: 0; visibility: visible; }
 
     .drawer-backdrop {
       position: fixed;
@@ -812,9 +813,13 @@
 
     .plan-grid-2col {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
+      grid-template-columns: minmax(0, 1fr) 340px;
       gap: 36px;
       align-items: start;
+    }
+
+    .plan-grid-2col > * {
+      min-width: 0;
     }
 
     /* Filter Bar & Pills */
@@ -1173,11 +1178,12 @@
 
     .output-header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
       margin-bottom: 20px;
       border-bottom: 1px solid rgba(223, 162, 59, 0.3);
       padding-bottom: 14px;
+      gap: 4px;
     }
 
     .output-project-tag {
@@ -1641,6 +1647,9 @@
       transform: translateY(-3px);
     }
 
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS & LUXURY MOBILE OPTIMIZATION — PAYMENT PLANS
+       ========================================================================== */
     @media (max-width: 1280px) {
       .nav-left-links { display: none; }
       .burger-btn { display: flex; }
@@ -1651,73 +1660,330 @@
       .nav-brand-title { font-size: 1.05rem; }
       .nav-center-brand { padding: 4px 10px; gap: 8px; }
       .nav-center-brand img { height: 32px; }
-      .calc-grid { grid-template-columns: 1fr; }
-      .plan-grid-2col { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .calc-grid { grid-template-columns: 1fr; gap: 32px; }
+      .plan-grid-2col { grid-template-columns: 1fr; gap: 28px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     }
 
     @media (max-width: 768px) {
-      .plans-hero { padding-top: 105px; padding-bottom: 45px; }
-      .plans-hero h1 { font-size: clamp(2rem, 7vw, 2.9rem); }
-      .controls-bar-wrap { top: 72px; padding: 10px 0; }
-      .controls-inner { justify-content: flex-start; gap: 10px; }
+      .plans-hero {
+        padding-top: 105px;
+        padding-bottom: 45px;
+      }
+      .plans-hero h1 {
+        font-size: clamp(1.95rem, 6.8vw, 2.75rem);
+        line-height: 1.22;
+      }
+      .plans-hero-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .controls-bar-wrap {
+        top: 64px;
+        padding: 8px 0;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(223, 162, 59, 0.22);
+      }
+      .controls-inner {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+      }
       .segmented-tabs {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 3px;
+        gap: 4px;
+      }
+      .segmented-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .seg-tab-btn {
+        white-space: nowrap;
+        padding: 7px 12px;
+        font-size: 0.74rem;
+        flex: 1 0 auto;
+        justify-content: center;
+      }
+      .quick-calc-jump {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.74rem;
+        padding: 7px 14px;
+      }
+      .calc-section, .calculator-section {
+        padding: 50px 0;
+      }
+      .plan-section, .plans-project-section {
+        padding: 50px 0;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .milestones-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .milestone-card {
+        padding: 14px 12px;
+        text-align: center;
+      }
+      .sub-tabs-pill, .category-filters {
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        padding-bottom: 6px;
+        width: 100%;
+        margin-bottom: 18px;
+      }
+      .sub-tabs-pill::-webkit-scrollbar, .category-filters::-webkit-scrollbar {
+        display: none;
+      }
+      .sub-tab-btn, .filter-pill {
+        white-space: nowrap;
+        padding: 7px 14px;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+      }
+      
+      /* Horizontal Scrollable Table with Sticky Unit Column */
+      .table-container {
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 4px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(223, 162, 59, 0.28);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        position: relative;
+        margin-bottom: 24px;
       }
-      .quick-calc-jump { width: 100%; justify-content: center; font-size: 0.74rem; padding: 8px 16px; }
-      .calc-section, .calculator-section { padding: 50px 0; }
-      .plan-section, .plans-project-section { padding: 55px 0; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .milestones-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .preset-chips-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .table-scroll-hint {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: flex-end;
         gap: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--gold-dark);
+        margin-bottom: 8px;
       }
-      .table-container { border-radius: var(--radius-md); }
-      th, td { padding: 12px 14px; font-size: 0.82rem; }
-      .flyers-grid { grid-template-columns: 1fr; }
+      table {
+        min-width: 660px;
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+      th {
+        padding: 11px 12px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+      }
+      td {
+        padding: 11px 12px;
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+      th:first-child, td:first-child {
+        position: sticky;
+        left: 0;
+        background: #ffffff;
+        z-index: 2;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.06);
+        font-weight: 700;
+      }
+      tr:nth-child(even) td:first-child {
+        background: #faf9f6;
+      }
+      tr:hover td:first-child {
+        background: #fffdf5;
+      }
+      .flyers-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .flyer-frame img {
+        height: clamp(220px, 55vw, 320px);
+      }
+      .flyer-actions {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .flyer-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .whatsapp-float {
+        bottom: 18px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+      }
+      .back-to-top {
+        bottom: 78px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+      }
     }
 
-    @media (max-width: 540px) {
-      .container { padding: 0 16px; }
-      .hero-trust-bar { grid-template-columns: 1fr; }
-      .plans-trust-strip { flex-direction: column; width: 100%; }
-      .trust-chip { width: 100%; justify-content: center; }
-      .sub-tabs-pill, .category-filters {
-        max-width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        flex-wrap: nowrap;
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 18px;
       }
-      .preset-chips-grid { grid-template-columns: 1fr; }
-      .milestones-strip { grid-template-columns: 1fr; }
-      .calc-summary-card { padding: 22px 16px; }
-      .calc-cta-group { flex-direction: column; width: 100%; }
-      .calc-cta-group .btn { width: 100%; justify-content: center; }
+      .hero-trust-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+      }
+      .trust-chip {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.76rem;
+      }
+      .preset-chips-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .calc-chip-btn {
+        padding: 10px 12px;
+        font-size: 0.78rem;
+      }
+      .calc-output-box {
+        padding: 24px 18px;
+      }
+      .output-total-price {
+        font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+      }
+      .calc-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .calc-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .cta-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .social-badges-wrap {
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 8px;
+      }
+      .social-chip {
+        flex: 1 1 calc(50% - 6px);
+        justify-content: center;
+        min-height: 42px;
+      }
+      .lightbox-modal {
+        padding: 8px;
+      }
+      .lightbox-content {
+        width: 96vw;
+        max-width: 96vw;
+        max-height: 92vh;
+      }
+      .lightbox-header {
+        padding: 12px 14px;
+      }
+      .lightbox-footer {
+        padding: 10px 14px;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+      .lightbox-footer .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (max-width: 480px) {
-      .nav-center-brand { padding: 3px 6px; gap: 6px; }
-      .nav-center-brand img { height: 28px; }
-      .nav-brand-title { font-size: 0.92rem; letter-spacing: 0.08em; }
-      .burger-btn { width: 38px; height: 38px; min-width: 38px; }
+      .container {
+        padding: 0 16px;
+      }
+      .plans-hero {
+        padding-top: 96px;
+        padding-bottom: 38px;
+      }
+      .nav-center-brand {
+        padding: 3px 6px;
+        gap: 6px;
+      }
+      .nav-center-brand img {
+        height: 28px;
+      }
+      .nav-brand-title {
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+      }
+      .burger-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+      }
+      .hero-trust-strip {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .preset-chips-grid {
+        grid-template-columns: 1fr;
+      }
+      .milestones-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .calc-form-wrap {
+        padding: 22px 16px;
+      }
+      .calc-output-box {
+        padding: 20px 16px;
+      }
+      .mobile-drawer {
+        width: 86vw;
+        max-width: 330px;
+      }
     }
 
     @media (max-width: 400px) {
-      .nav-center-brand { padding: 2px 4px; gap: 4px; }
-      .nav-center-brand img { height: 24px; }
-      .nav-brand-title { font-size: 0.84rem; letter-spacing: 0.06em; }
-      .seg-tab-btn { padding: 7px 12px; font-size: 0.72rem; }
+      .nav-center-brand {
+        padding: 2px 4px;
+        gap: 4px;
+      }
+      .nav-center-brand img {
+        height: 24px;
+      }
+      .nav-brand-title {
+        font-size: 0.84rem;
+        letter-spacing: 0.05em;
+      }
+      .milestones-strip {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .seg-tab-btn {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+      }
     }
   </style>
+  <link rel="stylesheet" href="css/mobile-carousel.css">
 </head>
 
 <body>
@@ -1834,7 +2100,7 @@
         </p>
 
         <!-- Trust Badges Strip -->
-        <div class="hero-trust-strip">
+        <div class="hero-trust-strip mobile-carousel">
           <div class="trust-chip">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             CDA Approved &amp; Vetted
@@ -1861,7 +2127,7 @@
     <div class="controls-bar-wrap" id="controlsBar">
       <div class="container">
         <div class="controls-inner">
-          <div class="segmented-tabs" role="tablist">
+          <div class="segmented-tabs" role="tablist" style="justify-content:center;">
             <button type="button" class="seg-tab-btn active" id="tabBtnAll" onclick="switchMainView('all', this)">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
               All Plans
@@ -1874,21 +2140,13 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line></svg>
               IDEAS Tower (Tower A &amp; B)
             </button>
-            <button type="button" class="seg-tab-btn" id="tabBtnCalc" onclick="switchMainView('calc', this)">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line></svg>
-              Calculator
-            </button>
             <button type="button" class="seg-tab-btn" id="tabBtnCompare" onclick="switchMainView('compare', this)">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
               Compare
             </button>
           </div>
 
-          <a href="#calculator" class="quick-calc-jump" onclick="scrollToCalculator(event)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            Jump to Live Calculator
-          </a>
-        </div>
+          </div>
       </div>
     </div>
 
@@ -1914,7 +2172,7 @@
         </div>
 
         <!-- Milestones Overview Strip -->
-        <div class="milestones-strip">
+        <div class="milestones-strip mobile-carousel">
           <div class="milestone-card">
             <b>20%</b>
             <span>Down Payment</span>
@@ -1963,7 +2221,270 @@
             </div>
 
             <!-- Apartments Table -->
-            <div class="table-container" id="oneAptsTableWrap">
+            
+            <!-- Mobile View Switcher Pill -->
+            <div class="mobile-view-toggle">
+              <button type="button" class="active" onclick="switchPlanView(this, 'cards', 'oneAptsCards', 'oneAptsTableWrap')">💳 Card Slides</button>
+              <button type="button" onclick="switchPlanView(this, 'table', 'oneAptsCards', 'oneAptsTableWrap')">📊 Full Table</button>
+            </div>
+
+            <!-- Mobile Swipeable Cards Carousel -->
+            <div class="plan-cards-carousel" id="oneAptsCards">
+              
+    <div class="plan-unit-card" data-type="Studio">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Studio</span>
+          <span class="plan-unit-area">450 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">Studio Apartment</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 7,425,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 1,485,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 50,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 219,750</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 742,500</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Studio%20Apartment%20(450%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="1 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">1 Bed</span>
+          <span class="plan-unit-area">720 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">1 Bed Luxury Apartment</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 11,880,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 2,376,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 100,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 231,600</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,188,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%201%20Bed%20Apartment%20(720%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed</span>
+          <span class="plan-unit-area">1,275 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed Prime Apartment</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 21,037,500</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 4,207,500</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 150,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 572,625</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 2,103,750</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1275%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed</span>
+          <span class="plan-unit-area">1,400 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed Corner Suite</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 23,100,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 4,620,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 150,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 717,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 2,310,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1400%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed</span>
+          <span class="plan-unit-area">1,450 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed Deluxe Luxury Suite</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 23,925,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 4,785,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 150,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 774,750</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 2,392,500</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1450%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="3 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">3 Bed</span>
+          <span class="plan-unit-area">1,780 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">3 Bed Executive Suite</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 29,370,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 5,847,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 200,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 855,900</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 2,937,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%203%20Bed%20Apartment%20(1780%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="3 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">3 Bed</span>
+          <span class="plan-unit-area">2,000 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">3 Bed Royal Penthouse</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 33,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">20% Down Payment</div>
+            <div class="plan-breakdown-val">Rs. 6,600,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">60 Monthly (5 Yrs)</div>
+            <div class="plan-breakdown-val">Rs. 200,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10 Half-Yearly</div>
+            <div class="plan-breakdown-val">Rs. 1,110,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">10% On Possession</div>
+            <div class="plan-breakdown-val">Rs. 3,300,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%203%20Bed%20Apartment%20(2000%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+            </div>
+
+            <div class="table-container desktop-table-container mobile-hidden" id="oneAptsTableWrap">
               <div class="table-scroll-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 Swipe horizontally to view full schedule breakdown &rarr;
@@ -1978,7 +2499,7 @@
                     <th>60 Monthly</th>
                     <th>10 Half-Yearly</th>
                     <th>Possession (10%)</th>
-                    <th>Calculate</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1991,9 +2512,9 @@
                     <td>Rs. 219,750</td>
                     <td>Rs. 742,500</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 450, 'Studio Apartment (450 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Studio%20Apartment%20(450%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="1 Bed">
@@ -2005,9 +2526,9 @@
                     <td>Rs. 231,600</td>
                     <td>Rs. 1,188,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 720, '1 Bed Apartment (720 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%201%20Bed%20Apartment%20(720%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2019,9 +2540,9 @@
                     <td>Rs. 572,625</td>
                     <td>Rs. 2,103,750</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1275, '2 Bed Apartment (1275 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1275%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2033,9 +2554,9 @@
                     <td>Rs. 717,000</td>
                     <td>Rs. 2,310,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1400, '2 Bed Apartment (1400 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1400%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2047,9 +2568,9 @@
                     <td>Rs. 774,750</td>
                     <td>Rs. 2,392,500</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1450, '2 Bed Apartment (1450 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%202%20Bed%20Apartment%20(1450%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="3 Bed">
@@ -2061,9 +2582,9 @@
                     <td>Rs. 855,900</td>
                     <td>Rs. 2,937,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 1780, '3 Bed Apartment (1780 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%203%20Bed%20Apartment%20(1780%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="3 Bed">
@@ -2075,9 +2596,9 @@
                     <td>Rs. 1,110,000</td>
                     <td>Rs. 3,300,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one', 2000, '3 Bed Apartment (2000 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%203%20Bed%20Apartment%20(2000%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -2085,7 +2606,129 @@
             </div>
 
             <!-- Commercial Spaces Table (Hidden by default) -->
-            <div class="table-container" id="oneCommTableWrap" style="display:none;">
+            
+            <!-- Mobile View Switcher Pill -->
+            <div class="mobile-view-toggle">
+              <button type="button" class="active" onclick="switchPlanView(this, 'cards', 'oneCommCards', 'oneCommTableWrap')">💳 Card Slides</button>
+              <button type="button" onclick="switchPlanView(this, 'table', 'oneCommCards', 'oneCommTableWrap')">📊 Full Table</button>
+            </div>
+
+            <!-- Mobile Swipeable Cards Carousel -->
+            <div class="plan-cards-carousel" id="oneCommCards">
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">Ground Floor Level-I</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 60,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          Prime high-footfall mall entrance & retail shops with maximum street-facing visibility.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Ground%20Floor%20Level-I%20retail%20pricing%20at%20IDEAS%20ONE." target="_blank" class="plan-unit-action-btn"><span>Inquire on WhatsApp</span></a>
+    </div>
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">Ground Floor Level-II</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 70,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          Flagship anchor retail & premium brand frontages facing the central atrium concourse.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Ground%20Floor%20Level-II%20flagship%20retail%20at%20IDEAS%20ONE." target="_blank" class="plan-unit-action-btn"><span>Inquire on WhatsApp</span></a>
+    </div>
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">First Floor</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 55,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          Fashion retail, lifestyle apparel, pret boutiques & high-end jewelry storefronts.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20First%20Floor%20shops%20at%20IDEAS%20ONE." target="_blank" class="plan-unit-action-btn"><span>Inquire on WhatsApp</span></a>
+    </div>
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">Second Floor</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 50,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          Consumer electronics, gadget boutiques, digital accessories and specialty retail.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Second%20Floor%20spaces%20at%20IDEAS%20ONE." target="_blank" class="plan-unit-action-btn"><span>Inquire on WhatsApp</span></a>
+    </div>
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">3rd Floor Food Court</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 60,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          130+ culinary outlets, fast food counters & fine dining with communal panoramic seating.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20Food%20Court%20counters%20at%20IDEAS%20ONE." target="_blank" class="plan-unit-action-btn"><span>Inquire on WhatsApp</span></a>
+    </div>
+              
+    <div class="plan-unit-card">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">Commercial</span>
+          <span class="plan-unit-area">Prime Retail</span>
+        </div>
+        <div class="plan-unit-title">4th & 5th Floor Offices</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Verified Rate</div>
+          <div class="plan-unit-price-val" style="font-size:1.35rem;">Rs. 25,000 / sq.ft</div>
+        </div>
+        <p style="font-size:0.82rem; color:#a1a8b8; line-height:1.45; margin-bottom:16px;">
+          Corporate executive suites, IT workstations, co-working studios & conference rooms.
+        </p>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Corporate%20Office%20Suite%20(1000%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+            </div>
+
+            <div class="table-container desktop-table-container mobile-hidden" id="oneCommTableWrap" style="display:none;">
               <div class="table-scroll-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 Swipe horizontally to view full schedule breakdown &rarr;
@@ -2155,9 +2798,9 @@
                     <td class="plan-price-col">Rs. 25,000 / sq.ft</td>
                     <td>Corporate suites, IT workstations &amp; executive offices</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('one_office', 1000, 'Corporate Office Suite (1000 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Corporate%20Office%20Suite%20(1000%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -2206,15 +2849,15 @@
     <!-- ========================================================================
          SECTION 2: IDEAS TOWER PAYMENT SCHEDULE
          ======================================================================== -->
-    <section class="plan-section" id="payment-tower" style="background: rgba(7, 21, 69, 0.4); border-top: 1px solid var(--navy-border);">
+    <section class="plan-section" id="payment-tower" style="background: #0b0f19; color: #ffffff; border-top: 1px solid rgba(223, 162, 59, 0.25);">
       <div class="container">
 
         <div class="section-title-wrap">
           <div>
             <span class="kicker-badge" style="margin-bottom:8px;">Residential High-Rise</span>
-            <h2>IDEAS Tower — Finished Apartments</h2>
-            <p>
-              Plot No. 04, MR-1A, Block B, Gate No. 01, Multi Gardens B-17, Islamabad · <strong>90% Completed</strong>.
+            <h2 style="color: #ffffff;">IDEAS Tower — Finished Apartments</h2>
+            <p style="color: #94a3b8;">
+              Plot No. 04, MR-1A, Block B, Gate No. 01, Multi Gardens B-17, Islamabad · <strong style="color: #fad678;">90% Completed</strong>.
               Deluxe finished apartments with separate high-speed lifts, rooftop amenities, and 3-side open views.
             </p>
           </div>
@@ -2231,7 +2874,7 @@
         </div>
 
         <!-- Milestones Overview Strip for Tower -->
-        <div class="milestones-strip">
+        <div class="milestones-strip mobile-carousel">
           <div class="milestone-card">
             <b id="towerStatRate">@ 20,000</b>
             <span>Per Sq.Ft.</span>
@@ -2275,7 +2918,234 @@
             </div>
 
             <!-- Tower A Table -->
-            <div class="table-container" id="towerATableWrap">
+            
+            <!-- Mobile View Switcher Pill -->
+            <div class="mobile-view-toggle">
+              <button type="button" class="active" onclick="switchPlanView(this, 'cards', 'towerACards', 'towerATableWrap')">💳 Card Slides</button>
+              <button type="button" onclick="switchPlanView(this, 'table', 'towerACards', 'towerATableWrap')">📊 Full Table</button>
+            </div>
+
+            <!-- Mobile Swipeable Cards Carousel -->
+            <div class="plan-cards-carousel" id="towerACards">
+              
+    <div class="plan-unit-card" data-type="1 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">1 Bed · Type C</span>
+          <span class="plan-unit-area">750 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">1 Bed (Type C)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 15,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 3,750,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 3,750,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 291,667</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 750,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%201%20Bed%20Type%20C%20(750%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed · Type B</span>
+          <span class="plan-unit-area">1,250 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed (Type B)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 25,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 6,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 6,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 486,111</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,250,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%202%20Bed%20Type%20B%20(1250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed · Type B-1</span>
+          <span class="plan-unit-area">1,600 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed (Type B-1)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 32,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 8,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 8,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 622,222</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,600,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%202%20Bed%20Luxury%20(1600%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="3 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">3 Bed · Type A</span>
+          <span class="plan-unit-area">1,850 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">3 Bed (Type A)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 37,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 9,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 9,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 719,444</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,850,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%203%20Bed%20Type%20A%20(1850%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="3 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">3 Bed · Type A-1</span>
+          <span class="plan-unit-area">1,950 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">3 Bed (Type A-1)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 39,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 9,750,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 9,750,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 758,333</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,950,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%203%20Bed%20Type%20A-1%20(1950%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="4 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">4 Bed · Type XL</span>
+          <span class="plan-unit-area">2,250 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">4 Bed (Type XL)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 45,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 11,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 11,250,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 875,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 2,250,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%204%20Bed%20Type%20XL%20(2250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+            </div>
+
+            <div class="table-container desktop-table-container mobile-hidden" id="towerATableWrap">
               <div class="table-scroll-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 Swipe horizontally to view full schedule breakdown &rarr;
@@ -2291,7 +3161,7 @@
                     <th>Confirm 25%</th>
                     <th>18 Monthly (35%)</th>
                     <th>Possession 5%</th>
-                    <th>Calculate</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2305,9 +3175,9 @@
                     <td>Rs. 291,667</td>
                     <td>Rs. 750,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 750, 'Tower-A 1 Bed Type C (750 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%201%20Bed%20Type%20C%20(750%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2320,9 +3190,9 @@
                     <td>Rs. 486,111</td>
                     <td>Rs. 1,250,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1250, 'Tower-A 2 Bed Type B (1250 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%202%20Bed%20Type%20B%20(1250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2335,9 +3205,9 @@
                     <td>Rs. 622,222</td>
                     <td>Rs. 1,600,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1600, 'Tower-A 2 Bed Luxury (1600 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%202%20Bed%20Luxury%20(1600%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="3 Bed">
@@ -2350,9 +3220,9 @@
                     <td>Rs. 719,444</td>
                     <td>Rs. 1,850,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1850, 'Tower-A 3 Bed Type A (1850 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%203%20Bed%20Type%20A%20(1850%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="3 Bed">
@@ -2365,9 +3235,9 @@
                     <td>Rs. 758,333</td>
                     <td>Rs. 1,950,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 1950, 'Tower-A 3 Bed Type A-1 (1950 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%203%20Bed%20Type%20A-1%20(1950%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="4 Bed">
@@ -2380,9 +3250,9 @@
                     <td>Rs. 875,000</td>
                     <td>Rs. 2,250,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_a', 2250, 'Tower-A 4 Bed Type XL (2250 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-A%204%20Bed%20Type%20XL%20(2250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -2390,7 +3260,162 @@
             </div>
 
             <!-- Tower B Table (Hidden by default) -->
-            <div class="table-container" id="towerBTableWrap" style="display:none;">
+            
+            <!-- Mobile View Switcher Pill -->
+            <div class="mobile-view-toggle">
+              <button type="button" class="active" onclick="switchPlanView(this, 'cards', 'towerBCards', 'towerBTableWrap')">💳 Card Slides</button>
+              <button type="button" onclick="switchPlanView(this, 'table', 'towerBCards', 'towerBTableWrap')">📊 Full Table</button>
+            </div>
+
+            <!-- Mobile Swipeable Cards Carousel -->
+            <div class="plan-cards-carousel" id="towerBCards" style="display:none;">
+              
+    <div class="plan-unit-card" data-type="1 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">1 Bed · Type C</span>
+          <span class="plan-unit-area">750 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">1 Bed (Type C)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 12,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 3,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 3,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 140,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 600,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%201%20Bed%20Type%20C%20(750%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed · Type B</span>
+          <span class="plan-unit-area">1,250 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed (Type B)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 20,000,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 5,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 5,000,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 233,333</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,000,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Type%20B%20(1250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed · Type B</span>
+          <span class="plan-unit-area">1,325 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed (Type B)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 21,200,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 5,300,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 5,300,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 247,333</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,060,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Type%20B%20(1325%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+              
+    <div class="plan-unit-card" data-type="2 Bed">
+      <div>
+        <div class="plan-unit-badge-row">
+          <span class="plan-unit-badge">2 Bed · Type B-1</span>
+          <span class="plan-unit-area">1,600 Sq.Ft.</span>
+        </div>
+        <div class="plan-unit-title">2 Bed (Type B-1)</div>
+        <div class="plan-unit-price-box">
+          <div class="plan-unit-price-label">Total Outlay</div>
+          <div class="plan-unit-price-val">Rs. 25,600,000</div>
+        </div>
+        <div class="plan-breakdown-grid">
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">25% Booking</div>
+            <div class="plan-breakdown-val">Rs. 6,400,000</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">25% Confirmation</div>
+            <div class="plan-breakdown-val">Rs. 6,400,000</div>
+          </div>
+          <div class="plan-breakdown-cell highlight">
+            <div class="plan-breakdown-label">Monthly (35%)</div>
+            <div class="plan-breakdown-val">Rs. 298,667</div>
+          </div>
+          <div class="plan-breakdown-cell">
+            <div class="plan-breakdown-label">5% Possession</div>
+            <div class="plan-breakdown-val">Rs. 1,280,000</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Luxury%20(1600%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="plan-unit-action-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+        <span>Inquire This Unit</span>
+      </a>
+    </div>
+            </div>
+
+            <div class="table-container desktop-table-container mobile-hidden" id="towerBTableWrap" style="display:none;">
               <div class="table-scroll-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 Swipe horizontally to view full schedule breakdown &rarr;
@@ -2406,7 +3431,7 @@
                     <th>Confirm 25%</th>
                     <th>30 Monthly (35%)</th>
                     <th>Possession 5%</th>
-                    <th>Calculate</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2420,9 +3445,9 @@
                     <td>Rs. 140,000</td>
                     <td>Rs. 600,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 750, 'Tower-B 1 Bed Type C (750 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%201%20Bed%20Type%20C%20(750%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2435,9 +3460,9 @@
                     <td>Rs. 233,333</td>
                     <td>Rs. 1,000,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1250, 'Tower-B 2 Bed Type B (1250 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Type%20B%20(1250%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2450,9 +3475,9 @@
                     <td>Rs. 247,333</td>
                     <td>Rs. 1,060,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1325, 'Tower-B 2 Bed Type B (1325 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Type%20B%20(1325%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                   <tr data-type="2 Bed">
@@ -2465,9 +3490,9 @@
                     <td>Rs. 298,667</td>
                     <td>Rs. 1,280,000</td>
                     <td>
-                      <button type="button" class="table-action-btn" onclick="populateCalculator('tower_b', 1600, 'Tower-B 2 Bed Luxury (1600 sqft)')">
-                        <span>Calculate</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
+                      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20inquiring%20about%20booking%20the%20Tower-B%202%20Bed%20Luxury%20(1600%20sqft).%20Please%20share%20availability%20and%20current%20installment%20schedule." target="_blank" rel="noopener noreferrer" class="table-action-btn">
+        <span>Inquire</span>
+      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -2516,175 +3541,154 @@
     <!-- ========================================================================
          SECTION 3: INTERACTIVE REAL-TIME PAYMENT CALCULATOR
          ======================================================================== -->
-    <section class="calc-section" id="calculator">
-      <div class="container">
-
-        <div style="text-align:center; margin-bottom:40px;">
-          <span class="kicker-badge">Instant Financial Estimator</span>
-          <h2 style="font-family:var(--font-display); font-size:clamp(1.9rem, 3.8vw, 2.7rem); color:#fff; margin-bottom:12px;">
-            Interactive Investment <span>Calculator</span>
-          </h2>
-          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.96rem;">
-            Select a project, choose a unit preset or enter custom square footage. Instantly estimate total cost, 
-            booking amount, monthly installments, and lump-sum cash discounts.
-          </p>
-        </div>
-
-        <div class="calc-card">
-
-          <!-- Left: Interactive Controls -->
-          <div class="calc-form-wrap">
-            <h3>Configure Your Plan</h3>
-            <p>Customize project and payment parameters in real time.</p>
-
-            <!-- Step 1: Project Selection -->
-            <div class="form-group">
-              <label class="form-label">1. Choose Development</label>
-              <select class="calc-select" id="calcProjectSelect" onchange="onCalcProjectChange()">
-                <option value="one_apt" selected>IDEAS ONE — Finished Apartments (@ Rs. 16,500/sqft)</option>
-                <option value="one_office">IDEAS ONE — Corporate Executive Office (@ Rs. 25,000/sqft)</option>
-                <option value="tower_a">IDEAS Tower — Tower A (@ Rs. 20,000/sqft)</option>
-                <option value="tower_b">IDEAS Tower — Tower B (@ Rs. 16,000/sqft)</option>
-              </select>
-            </div>
-
-            <!-- Step 2: Preset Unit Chips -->
-            <div class="form-group">
-              <label class="form-label">2. Popular Preset Units (1-Click Select)</label>
-              <div class="preset-chips-grid" id="calcPresetsContainer">
-                <button type="button" class="calc-chip-btn active" onclick="selectPresetChip(450, this)">
-                  Studio
-                  <small>450 Sq.Ft</small>
-                </button>
-                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(720, this)">
-                  1 Bed
-                  <small>720 Sq.Ft</small>
-                </button>
-                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1275, this)">
-                  2 Bed
-                  <small>1,275 Sq.Ft</small>
-                </button>
-                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1450, this)">
-                  2 Bed Luxury
-                  <small>1,450 Sq.Ft</small>
-                </button>
-                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(1780, this)">
-                  3 Bed
-                  <small>1,780 Sq.Ft</small>
-                </button>
-                <button type="button" class="calc-chip-btn" onclick="selectPresetChip(2000, this)">
-                  3 Bed XL
-                  <small>2,000 Sq.Ft</small>
-                </button>
-              </div>
-            </div>
-
-            <!-- Step 3: Custom Area Input -->
-            <div class="form-group">
-              <label class="form-label" for="calcAreaInput">3. Or Enter Custom Area (Sq.Ft.)</label>
-              <input type="number" class="calc-input" id="calcAreaInput" value="450" min="200" max="10000" step="10" oninput="onCustomAreaChange()">
-            </div>
-
-            <!-- Step 4: Down Payment Slider -->
-            <div class="form-group">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <label class="form-label" style="margin-bottom:0;" for="calcDownPercent">4. Initial Booking / Down Payment (%)</label>
-                <span class="range-val" id="calcDownPercentLabel">20%</span>
-              </div>
-              <div class="range-wrap">
-                <input type="range" class="calc-range" id="calcDownPercent" min="20" max="60" step="5" value="20" oninput="onDownPercentChange()">
-              </div>
-              <small style="color:var(--text-muted); font-size:0.75rem; margin-top:4px; display:block;">
-                Official base requirement is 20% (IDEAS ONE) or 25% (IDEAS Tower). Increasing reduces monthly burden.
-              </small>
-            </div>
-
-          </div>
-
-          <!-- Right: Live Output Dashboard -->
-          <div class="calc-output-box" id="calcOutputBox">
-            <div class="output-header">
-              <div class="output-project-tag" id="outputProjectName">IDEAS ONE — Finished Apartments</div>
-              <div class="output-total-price" id="outputTotalPrice">Rs. 7,425,000</div>
-              <div class="output-total-crore" id="outputCroreLabel">Equivalent to 74.25 Lacs PKR</div>
-            </div>
-
-            <div class="output-breakdown-list">
-              <div class="breakdown-row">
-                <span>Selected Unit Area:</span>
-                <b id="outputArea">450 Sq.Ft.</b>
-              </div>
-              <div class="breakdown-row">
-                <span>Base Rate Per Sq.Ft.:</span>
-                <b id="outputRate">Rs. 16,500</b>
-              </div>
-              <div class="breakdown-row">
-                <span id="outputDownLabel">Down Payment (20%):</span>
-                <b id="outputDown" style="color:var(--gold-light);">Rs. 1,485,000</b>
-              </div>
-              <div class="breakdown-row" id="outputConfirmRow" style="display:none;">
-                <span>Confirmation (25% within 45 days):</span>
-                <b id="outputConfirm">Rs. 0</b>
-              </div>
-              <div class="breakdown-row">
-                <span id="outputMonthlyLabel">Estimated Monthly Installment:</span>
-                <b id="outputMonthly" style="color:var(--emerald);">Rs. 50,000 / mo</b>
-              </div>
-              <div class="breakdown-row" id="outputQuarterlyRow">
-                <span id="outputQuarterlyLabel">10 Half-Yearly Installments:</span>
-                <b id="outputQuarterly">Rs. 219,750 each</b>
-              </div>
-              <div class="breakdown-row">
-                <span id="outputPossessionLabel">On Possession:</span>
-                <b id="outputPossession">Rs. 742,500 (10%)</b>
-              </div>
-            </div>
-
-            <!-- 10% Cash Discount Offer Callout -->
-            <div class="lump-sum-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-              <div class="lump-sum-text">
-                <strong>10% Lump-Sum Full Payment Option:</strong><br>
-                Pay in full today for <b id="outputLumpPrice">Rs. 6,682,500</b>. 
-                Instant savings of <b id="outputLumpSavings">Rs. 742,500</b>.
-              </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="calc-actions">
-              <a href="#" id="btnWhatsAppInquiry" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
-                Inquire This Exact Estimate on WhatsApp
-              </a>
-              <button type="button" class="btn btn-outline" onclick="window.print()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                Print / Save PDF Estimate
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+    <!-- Calculator Section Removed as requested -->
 
     <!-- ========================================================================
          SECTION 4: SIDE-BY-SIDE COMPARISON MATRIX
          ======================================================================== -->
-    <section class="plan-section" id="compare-section">
+    <section class="plan-section" id="compare-section" style="background: #0b0f19; color: #ffffff; border-top: 1px solid rgba(223, 162, 59, 0.25);">
       <div class="container">
 
         <div style="text-align:center; margin-bottom:40px;">
           <span class="kicker-badge">Quick Decision Matrix</span>
-          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#fff; margin-bottom:12px;">
-            Compare <span>IDEAS ONE</span> vs <span>IDEAS Tower</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#ffffff; margin-bottom:12px;">
+            Compare <span style="color:#fad678;">IDEAS ONE</span> vs <span style="color:#38bdf8;">IDEAS Tower</span>
           </h2>
-          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.95rem;">
+          <p style="color:#94a3b8; max-width:680px; margin:0 auto; font-size:0.95rem;">
             A side-by-side comparison to help you choose the ideal development for your personal lifestyle or commercial investment goals.
           </p>
         </div>
 
-        <div class="matrix-card">
+        
+        <!-- Mobile View Switcher Pill -->
+        <div class="mobile-view-toggle">
+          <button type="button" class="active" onclick="switchPlanView(this, 'cards', 'compareCardsCarousel', 'compareMatrixWrap')">💳 Card Slides</button>
+          <button type="button" onclick="switchPlanView(this, 'table', 'compareCardsCarousel', 'compareMatrixWrap')">📊 Matrix Table</button>
+        </div>
+
+        <div class="compare-cards-carousel" id="compareCardsCarousel">
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Primary Character</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Commercial Mega-Mall &amp; 135 Finished Luxury Apartments</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">Residential High-Rise Luxury Finished Apartments</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Exact Sector Location</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Sector B-17, Gate 2, Main G.T Road, Islamabad</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">Plot 04, Block B, Gate 1, Multi Gardens B-17, Islamabad</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Apartment Rates</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val" style="color:#fad678; font-weight:700;">Rs. 16,500 / sq.ft</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val" style="color:#38bdf8; font-weight:700;">Tower A: Rs. 20,000 | Tower B: Rs. 16,000</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Commercial Availability</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Yes: Retail shops, 130+ food court outlets, corporate offices</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">Purely Luxury Residential with exclusive amenities &amp; quiet living</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Installment Term</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">60 Months (5 Years Long-Term Flexible)</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">18 Months (Tower A) / 30 Months (Tower B)</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Down Payment</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">20% Down Payment</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">25% Booking + 25% Confirmation</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Construction Status</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Active structural development in full swing</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val" style="color:#059669; font-weight:700;">90% Completed (Fast-Track Handover)</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">CDA NOC &amp; Approvals</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Official CDA Approved Development</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">Official CDA Approved Development</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Lump-Sum Discount</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">10% Discount on Full Upfront Payment</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">10% Discount on Full Upfront Payment</div>
+            </div>
+          </div>
+
+          <div class="compare-matrix-card">
+            <div class="compare-card-title">Best Suited For</div>
+            <div class="compare-card-col ideas-one">
+              <div class="compare-col-header">IDEAS ONE</div>
+              <div class="compare-col-val">Investors seeking commercial rental yields + long-term apartments</div>
+            </div>
+            <div class="compare-card-col ideas-tower">
+              <div class="compare-col-header">IDEAS Tower</div>
+              <div class="compare-col-val">Families and investors seeking immediate possession &amp; luxury living</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="matrix-card desktop-table-container mobile-hidden" id="compareMatrixWrap">
           <div class="table-scroll-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             Swipe horizontally to compare both developments &rarr;
@@ -2758,15 +3762,15 @@
     <!-- ========================================================================
          SECTION 5: INVESTOR FAQS ACCORDION
          ======================================================================== -->
-    <section class="plan-section" id="faqs" style="background: rgba(7, 21, 69, 0.4); border-top:1px solid var(--navy-border);">
+    <section class="plan-section" id="faqs" style="background: #080b12; color: #ffffff; border-top:1px solid rgba(223, 162, 59, 0.25);">
       <div class="container">
 
         <div style="text-align:center; margin-bottom:40px;">
           <span class="kicker-badge">Clear &amp; Transparent</span>
-          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#fff; margin-bottom:12px;">
-            Frequently Asked <span>Questions</span>
+          <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.5rem); color:#ffffff; margin-bottom:12px;">
+            Frequently Asked <span style="color:#fad678;">Questions</span>
           </h2>
-          <p style="color:var(--text-slate); max-width:680px; margin:0 auto; font-size:0.95rem;">
+          <p style="color:#94a3b8; max-width:680px; margin:0 auto; font-size:0.95rem;">
             Everything you need to know regarding booking procedures, installment milestones, and official ownership guarantees.
           </p>
         </div>
@@ -2905,7 +3909,7 @@
             <li><a href="index.html#home">Home</a></li>
             <li><a href="about.html">About Us (History & Team)</a></li>
             <li><a href="index.html#projects">Developments</a></li>
-            <li><a href="payment-plans.html">Payment Plans & Calculator</a></li>
+            <li><a href="payment-plans.html">Payment Plans & Schedules</a></li>
             <li><a href="ideas-one.html">IDEAS ONE Mall & Brands</a></li>
             <li><a href="index.html#why-ideas-group">Why IDEAS Group</a></li>
             <li><a href="index.html#contact">Contact & Site Offices</a></li>
@@ -2920,7 +3924,7 @@
             <li><a href="#payment-one">IDEAS ONE Commercial Shops</a></li>
             <li><a href="#payment-tower">IDEAS Tower-A (18 Months)</a></li>
             <li><a href="#payment-tower">IDEAS Tower-B (30 Months)</a></li>
-            <li><a href="#calculator">Installment Calculator</a></li>
+            
             <li><a href="https://www.ideasgroup.pk" target="_blank">Official Website</a></li>
           </ul>
         </div>
@@ -3273,245 +4277,9 @@
       });
     }
 
-    // 6. REAL-TIME INTERACTIVE PAYMENT CALCULATOR ENGINE
-    const projectConfigs = {
-      one_apt: {
-        name: 'IDEAS ONE — Finished Apartments',
-        rate: 16500,
-        defaultArea: 450,
-        defaultDownPct: 20,
-        minDownPct: 20,
-        planType: 'one',
-        presets: [
-          { name: 'Studio', area: 450 },
-          { name: '1 Bed', area: 720 },
-          { name: '2 Bed', area: 1275 },
-          { name: '2 Bed Lux', area: 1450 },
-          { name: '3 Bed', area: 1780 },
-          { name: '3 Bed XL', area: 2000 }
-        ]
-      },
-      one_office: {
-        name: 'IDEAS ONE — Corporate Executive Office',
-        rate: 25000,
-        defaultArea: 1000,
-        defaultDownPct: 20,
-        minDownPct: 20,
-        planType: 'one',
-        presets: [
-          { name: 'Small Office', area: 500 },
-          { name: 'Standard Office', area: 1000 },
-          { name: 'Executive Suite', area: 1500 },
-          { name: 'Corporate Wing', area: 2500 }
-        ]
-      },
-      tower_a: {
-        name: 'IDEAS Tower — Tower A (@ 20,000/sqft)',
-        rate: 20000,
-        defaultArea: 750,
-        defaultDownPct: 25,
-        minDownPct: 25,
-        planType: 'tower_a',
-        presets: [
-          { name: '1 Bed (Type C)', area: 750 },
-          { name: '2 Bed (Type B)', area: 1250 },
-          { name: '2 Bed Luxury', area: 1600 },
-          { name: '3 Bed (Type A)', area: 1850 },
-          { name: '3 Bed (Type A-1)', area: 1950 },
-          { name: '4 Bed (Type XL)', area: 2250 }
-        ]
-      },
-      tower_b: {
-        name: 'IDEAS Tower — Tower B (@ 16,000/sqft)',
-        rate: 16000,
-        defaultArea: 750,
-        defaultDownPct: 25,
-        minDownPct: 25,
-        planType: 'tower_b',
-        presets: [
-          { name: '1 Bed (Type C)', area: 750 },
-          { name: '2 Bed (Type B)', area: 1250 },
-          { name: '2 Bed Standard', area: 1325 },
-          { name: '2 Bed Luxury', area: 1600 }
-        ]
-      }
-    };
+    // (Calculator functions removed as requested)
 
-    let currentCalcProjectKey = 'one_apt';
-
-    function formatPKR(val) {
-      return 'Rs. ' + Math.round(val).toLocaleString('en-US');
-    }
-
-    function formatCroreLakh(val) {
-      if (val >= 10000000) {
-        return (val / 10000000).toFixed(2) + ' Crore PKR';
-      } else if (val >= 100000) {
-        return (val / 100000).toFixed(2) + ' Lacs PKR';
-      }
-      return formatPKR(val);
-    }
-
-    function renderCalcPresets(key) {
-      const config = projectConfigs[key];
-      const container = document.getElementById('calcPresetsContainer');
-      if (!container) return;
-
-      container.innerHTML = '';
-      config.presets.forEach((preset, idx) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'calc-chip-btn' + (idx === 0 ? ' active' : '');
-        btn.innerHTML = `${preset.name}<small>${preset.area.toLocaleString()} Sq.Ft</small>`;
-        btn.onclick = () => selectPresetChip(preset.area, btn);
-        container.appendChild(btn);
-      });
-    }
-
-    function onCalcProjectChange() {
-      const select = document.getElementById('calcProjectSelect');
-      currentCalcProjectKey = select.value;
-      const config = projectConfigs[currentCalcProjectKey];
-
-      // Update slider min/default
-      const slider = document.getElementById('calcDownPercent');
-      slider.min = config.minDownPct;
-      slider.value = config.defaultDownPct;
-      document.getElementById('calcDownPercentLabel').innerText = config.defaultDownPct + '%';
-
-      // Update area
-      document.getElementById('calcAreaInput').value = config.defaultArea;
-
-      renderCalcPresets(currentCalcProjectKey);
-      runCalculator();
-    }
-
-    function selectPresetChip(area, btn) {
-      document.querySelectorAll('#calcPresetsContainer .calc-chip-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      document.getElementById('calcAreaInput').value = area;
-      runCalculator();
-    }
-
-    function onCustomAreaChange() {
-      document.querySelectorAll('#calcPresetsContainer .calc-chip-btn').forEach(b => b.classList.remove('active'));
-      runCalculator();
-    }
-
-    function onDownPercentChange() {
-      const val = document.getElementById('calcDownPercent').value;
-      document.getElementById('calcDownPercentLabel').innerText = val + '%';
-      runCalculator();
-    }
-
-    function runCalculator() {
-      const config = projectConfigs[currentCalcProjectKey];
-      const area = parseFloat(document.getElementById('calcAreaInput').value) || 0;
-      const downPct = parseFloat(document.getElementById('calcDownPercent').value) || config.minDownPct;
-
-      const totalPrice = area * config.rate;
-      const lumpSumPrice = totalPrice * 0.90;
-      const lumpSumSavings = totalPrice * 0.10;
-
-      // Update Output Elements
-      document.getElementById('outputProjectName').innerText = config.name;
-      document.getElementById('outputTotalPrice').innerText = formatPKR(totalPrice);
-      document.getElementById('outputCroreLabel').innerText = 'Equivalent to ' + formatCroreLakh(totalPrice);
-      document.getElementById('outputArea').innerText = area.toLocaleString() + ' Sq.Ft.';
-      document.getElementById('outputRate').innerText = 'Rs. ' + config.rate.toLocaleString() + ' / sqft';
-
-      document.getElementById('outputLumpPrice').innerText = formatPKR(lumpSumPrice);
-      document.getElementById('outputLumpSavings').innerText = formatPKR(lumpSumSavings);
-
-      const confirmRow = document.getElementById('outputConfirmRow');
-      const quarterlyRow = document.getElementById('outputQuarterlyRow');
-      const downLabel = document.getElementById('outputDownLabel');
-      const monthlyLabel = document.getElementById('outputMonthlyLabel');
-      const possessionLabel = document.getElementById('outputPossessionLabel');
-      const quarterlyLabel = document.getElementById('outputQuarterlyLabel');
-
-      if (config.planType === 'one') {
-        // IDEAS ONE: Down 20%+, 60 Monthly, 10 Half-Yearly, 10% Possession
-        confirmRow.style.display = 'none';
-        quarterlyRow.style.display = 'flex';
-
-        downLabel.innerText = `Down Payment (${downPct}%):`;
-        const downAmount = totalPrice * (downPct / 100);
-        document.getElementById('outputDown').innerText = formatPKR(downAmount);
-
-        const possessionAmount = totalPrice * 0.10;
-        possessionLabel.innerText = 'On Possession (10%):';
-        document.getElementById('outputPossession').innerText = formatPKR(possessionAmount);
-
-        // Remaining balance across 60 monthly + 10 half-yearly
-        const remaining = totalPrice - downAmount - possessionAmount;
-        // Standard formula ratio from official schedule (~50k/mo base, balance in 10 half-yearly)
-        const baseMonthly = Math.round((remaining * 0.40) / 60);
-        const halfYearlyEach = Math.round((remaining * 0.60) / 10);
-
-        monthlyLabel.innerText = '60 Monthly Installments:';
-        document.getElementById('outputMonthly').innerText = formatPKR(baseMonthly) + ' / mo';
-
-        quarterlyLabel.innerText = '10 Half-Yearly Installments:';
-        document.getElementById('outputQuarterly').innerText = formatPKR(halfYearlyEach) + ' each';
-
-      } else {
-        // IDEAS Tower: Booking 25%+, Confirmation 25%, 5 Quarterly (10%), 18/30 Monthly (35%), Possession 5%
-        confirmRow.style.display = 'flex';
-        quarterlyRow.style.display = 'flex';
-
-        downLabel.innerText = `Booking Amount (${downPct}%):`;
-        const bookingAmount = totalPrice * (downPct / 100);
-        document.getElementById('outputDown').innerText = formatPKR(bookingAmount);
-
-        const confirmAmount = totalPrice * 0.25;
-        document.getElementById('outputConfirm').innerText = formatPKR(confirmAmount);
-
-        const quarterlyBalloonEach = Math.round((totalPrice * 0.10) / 5);
-        quarterlyLabel.innerText = '5 Quarterly Balloons (10%):';
-        document.getElementById('outputQuarterly').innerText = formatPKR(quarterlyBalloonEach) + ' each';
-
-        const possessionAmount = totalPrice * 0.05;
-        possessionLabel.innerText = 'On Possession (5%):';
-        document.getElementById('outputPossession').innerText = formatPKR(possessionAmount);
-
-        const monthsCount = config.planType === 'tower_a' ? 18 : 30;
-        const monthlyTotalPool = totalPrice * 0.35;
-        const monthlyEach = Math.round(monthlyTotalPool / monthsCount);
-
-        monthlyLabel.innerText = `${monthsCount} Monthly Installments (35%):`;
-        document.getElementById('outputMonthly').innerText = formatPKR(monthlyEach) + ' / mo';
-      }
-
-      // Update WhatsApp link with prefilled details
-      const waBtn = document.getElementById('btnWhatsAppInquiry');
-      if (waBtn) {
-        const msg = `Hello IDEAS Group, I calculated an official payment estimate:%0A- Development: ${encodeURIComponent(config.name)}%0A- Area: ${area} Sq.Ft.%0A- Total Price: ${formatPKR(totalPrice)} (${formatCroreLakh(totalPrice)})%0A- Down Payment: ${formatPKR(totalPrice * (downPct / 100))}%0A- Full Cash 10% Discount Price: ${formatPKR(lumpSumPrice)}%0APlease share availability and booking details.`;
-        waBtn.href = `https://wa.me/923305511117?text=${msg}`;
-      }
-    }
-
-    // Populate calculator from table click
-    function populateCalculator(projectKey, area, label) {
-      if (projectKey === 'one') projectKey = 'one_apt';
-      const select = document.getElementById('calcProjectSelect');
-      if (select) {
-        select.value = projectKey;
-        currentCalcProjectKey = projectKey;
-        onCalcProjectChange();
-      }
-      const areaInput = document.getElementById('calcAreaInput');
-      if (areaInput) {
-        areaInput.value = area;
-        runCalculator();
-      }
-      const calcSec = document.getElementById('calculator');
-      if (calcSec) {
-        window.scrollTo({ top: calcSec.offsetTop - 120, behavior: 'smooth' });
-      }
-    }
-
-    // 7. Lightbox Controller
+    // 6. Lightbox Controller
     function openLightbox(src, title) {
       const modal = document.getElementById('lightboxModal');
       const img = document.getElementById('lightboxImg');
@@ -3555,11 +4323,8 @@
       }
     }
 
-    // 9. Initial setup on load
+    // 8. Initial setup on load
     document.addEventListener('DOMContentLoaded', () => {
-      renderCalcPresets(currentCalcProjectKey);
-      runCalculator();
-
       // Check URL Hash for deep linking
       const hash = window.location.hash;
       if (hash === '#ideas-one' || hash === '#payment-one') {
@@ -3568,12 +4333,10 @@
       } else if (hash === '#ideas-tower' || hash === '#payment-tower') {
         const el = document.getElementById('payment-tower');
         if (el) setTimeout(() => window.scrollTo({ top: el.offsetTop - 130, behavior: 'smooth' }), 200);
-      } else if (hash === '#calculator') {
-        const el = document.getElementById('calculator');
-        if (el) setTimeout(() => window.scrollTo({ top: el.offsetTop - 130, behavior: 'smooth' }), 200);
       }
     });
   </script>
 
+  <script src="js/mobile-carousel.js"></script>
 </body>
 </html>
