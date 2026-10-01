@@ -396,10 +396,6 @@
     margin-bottom: 8px !important;
   }
 
-  #payment-tower .section-title-wrap p {
-    color: #94a3b8 !important;
-  }
-
   .rate-badge {
     width: 100% !important;
     justify-content: center !important;
@@ -424,11 +420,6 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04) !important;
     background: #ffffff !important;
     border: 1px solid rgba(223, 162, 59, 0.3) !important;
-  }
-
-  #payment-tower .milestones-strip.mobile-carousel .milestone-card {
-    background: #11141c !important;
-    border-color: rgba(223, 162, 59, 0.3) !important;
   }
 
   .milestones-strip.mobile-carousel .milestone-card b {
