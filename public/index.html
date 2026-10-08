@@ -65,8 +65,8 @@
       --font-display: 'Cinzel', serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
 
-      /* Altaf Developments Stretched Fit Width: Expansive & Screen-filling */
-      --container-width: 1640px;
+      /* Altaf Developments Stretched Fit Width: Expansive & Screen-filling Edge-to-Edge */
+      --container-width: min(100%, 2560px);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 22px;
@@ -136,7 +136,7 @@
       width: 100%;
       max-width: var(--container-width);
       margin: 0 auto;
-      padding: 0 clamp(20px, 3.8vw, 60px);
+      padding: 0 clamp(24px, 4vw, 84px);
     }
 
     /* ==========================================================================
@@ -166,8 +166,8 @@
 
     .section-header {
       text-align: center;
-      max-width: 820px;
-      margin: 0 auto 52px auto;
+      max-width: 1080px;
+      margin: 0 auto clamp(40px, 4.5vw, 60px) auto;
     }
 
     .section-header h2 {
@@ -258,13 +258,21 @@
 
     /* Top Transparent State (Over Hero Video) */
     .site-header:not(.scrolled) .nav-left-links a {
-      color: #ffffff !important;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+      color: rgba(255, 255, 255, 0.88) !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
     }
     .site-header:not(.scrolled) .nav-left-links a:hover {
-      color: var(--gold-light) !important;
-      background: rgba(255, 255, 255, 0.14) !important;
-      border-color: rgba(223, 162, 59, 0.55) !important;
+      color: #ffffff !important;
+      background: transparent !important;
+      border-color: transparent !important;
+    }
+    .site-header:not(.scrolled) .nav-left-links a.active {
+      color: #ffffff !important;
+      background: transparent !important;
+      border-color: transparent !important;
+    }
+    .site-header:not(.scrolled) .nav-left-links a::after {
+      background: var(--gold-light);
     }
     .site-header:not(.scrolled) .nav-brand-title {
       color: #ffffff;
@@ -285,13 +293,22 @@
 
     /* Scrolled State: Faded in to Frosted White Glass */
     .site-header.scrolled .nav-left-links a {
-      color: #1a1c24 !important;
+      color: #2b303c !important;
       text-shadow: none !important;
     }
     .site-header.scrolled .nav-left-links a:hover {
       color: var(--gold-dark) !important;
-      background: rgba(223, 162, 59, 0.08) !important;
-      border-color: rgba(223, 162, 59, 0.3) !important;
+      background: transparent !important;
+      border-color: transparent !important;
+    }
+    .site-header.scrolled .nav-left-links a.active {
+      color: #111216 !important;
+      background: transparent !important;
+      border-color: transparent !important;
+      font-weight: 600;
+    }
+    .site-header.scrolled .nav-left-links a::after {
+      background: var(--gold-primary);
     }
     .site-header.scrolled .nav-brand-title {
       color: #111216 !important;
@@ -309,20 +326,18 @@
 
     .site-header .container,
     .header-container {
-      max-width: var(--container-width) !important;
+      max-width: 100% !important;
       width: 100%;
-      padding: 0 clamp(16px, 2.5vw, 42px);
+      padding: 0 clamp(20px, 3.5vw, 64px);
     }
 
     .nav-wrap {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
-      gap: clamp(12px, 1.8vw, 32px);
       height: 82px;
       transition: var(--transition-smooth);
       width: 100%;
-      flex-wrap: nowrap;
     }
 
     .site-header.scrolled .nav-wrap {
@@ -330,13 +345,14 @@
     }
 
     .nav-left-links {
+      grid-column: 1;
+      justify-self: start;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: clamp(14px, 1.8vw, 28px);
       list-style: none;
       margin: 0;
       padding: 0;
-      flex-shrink: 1;
       white-space: nowrap;
     }
 
@@ -348,56 +364,75 @@
 
     .nav-left-links a {
       font-family: var(--font-brand);
-      font-size: 0.80rem;
-      font-weight: 600;
+      font-size: 0.81rem;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #1a1c24;
       position: relative;
-      padding: 8px 15px;
-      border-radius: 20px;
+      padding: 6px 0;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
       white-space: nowrap;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid transparent;
+      transition: color 0.25s ease, opacity 0.25s ease;
       display: inline-block;
-    }
-
-    .nav-left-links a:hover {
-      color: var(--gold-dark) !important;
-      background: rgba(223, 162, 59, 0.08) !important;
-      border-color: rgba(223, 162, 59, 0.35) !important;
-      transform: translateY(-1px) !important;
-    }
-
-    .nav-left-links a.active {
-      color: #0e1015 !important;
-      background: rgba(223, 162, 59, 0.14) !important;
-      border-color: var(--gold-primary) !important;
-      font-weight: 700;
+      text-decoration: none;
     }
 
     .nav-left-links a::after {
-      display: none !important;
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold-primary);
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+
+    .nav-left-links a:hover::after,
+    .nav-left-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-left-links a:hover {
+      background: transparent !important;
+      border: none !important;
+      transform: none !important;
+    }
+
+    .nav-left-links a.active {
+      background: transparent !important;
+      border: none !important;
+      font-weight: 600;
     }
 
     .nav-center-brand {
-      display: flex;
+      grid-column: 2;
+      justify-self: center;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
       text-decoration: none;
       flex-shrink: 0;
       white-space: nowrap;
-      padding: 6px 14px;
-      border-radius: 24px;
-      transition: var(--transition-smooth);
-      border: 1px solid transparent;
+      padding: 0;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      transition: opacity 0.25s ease;
     }
 
     .nav-center-brand:hover {
-      background: rgba(223, 162, 59, 0.06);
-      border-color: rgba(223, 162, 59, 0.25);
-      transform: translateY(-1px);
+      background: transparent !important;
+      border: none !important;
+      opacity: 0.85;
+      transform: none !important;
     }
 
     .nav-center-brand img {
@@ -427,10 +462,12 @@
     }
 
     .nav-right-action {
+      grid-column: 3;
+      justify-self: end;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 14px;
+      gap: 16px;
       flex-shrink: 0;
       white-space: nowrap;
     }
@@ -721,18 +758,10 @@
 
     /* Post-Hero Intro Wrapper (Immediately After Video, No Extra Section) */
     .hero-intro-wrapper {
-      padding-top: 60px;
-      padding-bottom: 45px;
+      padding-top: clamp(48px, 5vw, 72px);
+      padding-bottom: clamp(36px, 3.8vw, 54px);
       text-align: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hero-intro-wrapper {
-      padding-top: 65px;
-      padding-bottom: 45px;
-      text-align: center;
-      max-width: 1100px;
+      max-width: 1440px;
       margin: 0 auto;
       width: 100%;
     }
@@ -775,7 +804,7 @@
       color: var(--text-muted);
       line-height: 1.75;
       margin-bottom: 34px;
-      max-width: 820px;
+      max-width: 960px;
     }
 
     .hero-intro-actions {
@@ -791,7 +820,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px;
+      gap: clamp(24px, 3vw, 54px);
       flex-wrap: wrap;
       padding-top: 24px;
       border-top: 1px solid var(--border-subtle);
@@ -799,7 +828,10 @@
     }
 
     .showcase-gallery-container {
-      margin-top: 50px;
+      margin-top: clamp(36px, 4vw, 56px);
+      width: 100%;
+      max-width: 100% !important;
+      padding: 0 clamp(20px, 3.5vw, 72px);
     }
 
     .hero-content {
@@ -968,17 +1000,17 @@
 
     .container-fluid {
       width: 100%;
-      max-width: var(--container-width);
+      max-width: 100% !important;
       margin: 0 auto;
-      padding: 0 clamp(16px, 3.2vw, 54px);
+      padding: 0 clamp(20px, 3.5vw, 72px);
     }
 
     .expanding-gallery-wrap {
       display: flex;
-      gap: 12px;
-      height: 70vh;
+      gap: clamp(10px, 1.2vw, 18px);
+      height: clamp(540px, 68vh, 760px);
       min-height: 520px;
-      max-height: 720px;
+      max-height: 800px;
       width: 100%;
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -1155,8 +1187,8 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: clamp(40px, 5vw, 80px);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+      gap: clamp(40px, 5.5vw, 96px);
       align-items: center;
     }
 
@@ -1171,7 +1203,7 @@
 
     .about-visual-img {
       width: 100%;
-      height: 540px;
+      height: clamp(520px, 44vw, 680px);
       object-fit: cover;
       transition: transform 0.8s ease;
     }
@@ -1300,7 +1332,7 @@
       position: relative;
       overflow: hidden;
       background: #f4f2ea;
-      min-height: 520px;
+      min-height: clamp(540px, 48vw, 700px);
       width: 100%;
     }
 
@@ -1337,7 +1369,7 @@
     }
 
     .project-featured-info {
-      padding: 48px 46px;
+      padding: clamp(38px, 3.6vw, 64px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1686,12 +1718,12 @@
     }
 
     .plan-callout-card {
-      max-width: 900px;
+      max-width: 1400px;
       margin: 0 auto;
       background: #faf9f6;
       border: 1px solid var(--gold-primary);
       border-radius: var(--radius-lg);
-      padding: 52px 42px;
+      padding: clamp(48px, 4vw, 72px) clamp(28px, 4vw, 64px);
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.05), 0 0 30px rgba(223, 162, 59, 0.12);
     }
 
@@ -2099,7 +2131,7 @@
     }
 
     .faq-container {
-      max-width: 880px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -2603,6 +2635,11 @@
 
     /* Responsive Queries */
     @media (max-width: 1280px) {
+      .nav-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       .nav-left-links { display: none; }
       .burger-btn { display: flex; }
     }
@@ -2822,11 +2859,6 @@
       </video>
       <div class="hero-overlay"></div>
     </div>
-
-    <div class="hero-scroll-cue" id="heroScrollCue" title="Click to explore IDEAS Group developments">
-      <div class="mouse-wheel"></div>
-      <span>Scroll to Explore</span>
-    </div>
   </section>
 
   <!-- ========================================================================
@@ -2977,37 +3009,22 @@
 
         <div class="about-content reveal-item reveal-right">
           <span class="kicker">About IDEAS Group</span>
-          <h2>Quality developments that offer lasting value.</h2>
+          <h2>Building Legacies That Stand The Test Of Time.</h2>
           <p class="lead-text">
-            Established in 1995, IDEAS Group Builders & Developers is committed to delivering quality developments that
-            offer lasting value. Following the success of IDEAS Towers—now 90% complete with the ground floor being
-            handed over—the company proudly presents IDEAS One, a landmark mixed-use development in B-17, Islamabad.
+            Since 1995, IDEAS Group Builders &amp; Developers has been synonymous with trust, quality, and architectural
+            excellence. With a legacy of over three decades, we don't just construct buildings—we create landmark
+            destinations that deliver enduring value.
           </p>
           <p>
-            As a premier construction and real estate development group, we design and execute high-rise icons
-            engineered
-            with absolute structural integrity, contemporary architecture, and strategic location connectivity.
+            After the remarkable success of IDEAS Towers—with Tower A 90% complete and Tower B in full-swing
+            development—we proudly present our next iconic chapter: <strong>IDEAS One</strong>, a premier mixed-use
+            development in the heart of B-17, Islamabad.
+          </p>
+          <p>
+            As a leading construction and real estate development group, we specialize in high-rise icons that combine
+            absolute structural integrity, contemporary architecture, and prime location connectivity.
           </p>
 
-          <!-- Authentic Metrics from ideasgroup.pk -->
-          <div class="metrics-row reveal-item delay-1">
-            <div class="metric-item">
-              <div class="metric-number" data-target="1995" data-suffix="">1995</div>
-              <div class="metric-label">Established</div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-number" data-target="236" data-suffix="+">236+</div>
-              <div class="metric-label">Commercial Shops</div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-number" data-target="130" data-suffix="+">130+</div>
-              <div class="metric-label">Food Court</div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-number" data-target="20" data-suffix="+">20+</div>
-              <div class="metric-label">Amenities</div>
-            </div>
-          </div>
 
           <div style="margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap;">
             <a href="about.html" class="btn btn-gold">
@@ -4567,17 +4584,7 @@ ${message ? message : 'General Consultation / Site Visit Request'}
       });
     }
 
-    // Scroll Cue Smooth Scroll
-    const heroScrollCue = document.getElementById('heroScrollCue');
-    if (heroScrollCue) {
-      heroScrollCue.addEventListener('click', () => {
-        if (lenisInstance) {
-          lenisInstance.scrollTo('#showcase', { offset: -70, duration: 1.2 });
-        } else {
-          document.querySelector('#showcase')?.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
+
 
     // 4. Hero Golden Particle Embers Canvas
     const canvas = document.getElementById('heroParticles');
@@ -4713,7 +4720,8 @@ ${message ? message : 'General Consultation / Site Visit Request'}
             ? (easeProgress * target).toFixed(1)
             : Math.floor(easeProgress * target);
 
-          if (target >= 1000) {
+          const isYear = counter.getAttribute('data-format') === 'year' || target === 1995;
+          if (target >= 1000 && !isYear) {
             counter.innerText = currentVal.toLocaleString() + suffix;
           } else {
             counter.innerText = currentVal + suffix;
@@ -4722,7 +4730,7 @@ ${message ? message : 'General Consultation / Site Visit Request'}
           if (progress < 1) {
             requestAnimationFrame(updateCount);
           } else {
-            counter.innerText = (target >= 1000 ? target.toLocaleString() : target) + suffix;
+            counter.innerText = (target >= 1000 && !isYear ? target.toLocaleString() : target) + suffix;
           }
         }
         requestAnimationFrame(updateCount);
