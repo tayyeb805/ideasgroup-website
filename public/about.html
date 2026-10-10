@@ -212,15 +212,28 @@
     }
 
     .btn-gold {
-      background: var(--gold-gradient);
-      color: #0e1015;
-      border-color: var(--gold-primary);
-      box-shadow: 0 4px 16px rgba(223, 162, 59, 0.35);
+      background: #ffffff !important;
+      color: #111216 !important;
+      border: 1.5px solid rgba(223, 162, 59, 0.55) !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(223, 162, 59, 0.12) !important;
+      transition: var(--transition-smooth);
     }
     .btn-gold:hover {
+      background: #faf9f6 !important;
+      border-color: var(--gold-primary) !important;
+      color: var(--gold-dark) !important;
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(223, 162, 59, 0.55);
-      filter: brightness(1.06);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(223, 162, 59, 0.22) !important;
+      filter: none !important;
+    }
+    .btn-gold svg,
+    .btn-gold span:last-child {
+      color: var(--gold-dark);
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+    .btn-gold:hover svg,
+    .btn-gold:hover span:last-child {
+      color: var(--gold-primary);
     }
 
     .btn-outline {
@@ -241,14 +254,14 @@
       font-family: var(--font-brand);
       padding: 9px 24px;
       border-radius: 40px;
-      background: var(--gold-gradient);
-      border: 1px solid var(--gold-primary);
-      color: #0e1015;
+      background: #ffffff;
+      border: 1.5px solid rgba(223, 162, 59, 0.55);
+      color: #111216;
       font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      box-shadow: 0 4px 14px rgba(223, 162, 59, 0.28);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(223, 162, 59, 0.12);
       transition: var(--transition-smooth);
       display: inline-flex;
       align-items: center;
@@ -258,9 +271,12 @@
       flex-shrink: 0 !important;
     }
     .btn-get-in-touch:hover {
+      background: #faf9f6;
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(223, 162, 59, 0.5);
-      filter: brightness(1.06);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(223, 162, 59, 0.22);
+      filter: none;
     }
 
     /* ==========================================================================

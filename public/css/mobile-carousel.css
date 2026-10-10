@@ -1029,17 +1029,24 @@
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  background: linear-gradient(135deg, #dfa23b 0%, #c48b28 100%);
-  color: #0b0d14;
-  border: none;
+  background: #ffffff;
+  color: #111216;
+  border: 1.5px solid rgba(223, 162, 59, 0.55);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(223, 162, 59, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(223, 162, 59, 0.12);
   transition: all 0.25s ease;
   text-decoration: none;
+}
+
+.plan-unit-action-btn:hover {
+  background: #faf9f6;
+  border-color: var(--gold-primary, #dfa23b);
+  color: var(--gold-dark, #b87f22);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(223, 162, 59, 0.2);
 }
 
 .plan-unit-action-btn:active {
