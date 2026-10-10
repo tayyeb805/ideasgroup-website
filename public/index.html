@@ -16,11 +16,11 @@
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="images/brand/favicon.png">
 
-  <!-- Google Fonts: Outfit (Brand Logo Geometry), Cinzel & Plus Jakarta Sans -->
+  <!-- Google Fonts: Outfit, Cinzel, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
     rel="stylesheet">
 
   <style>
@@ -64,6 +64,7 @@
       --font-heading: 'Outfit', sans-serif;
       --font-display: 'Cinzel', serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
 
       /* Altaf Developments Stretched Fit Width: Expansive & Screen-filling Edge-to-Edge */
       --container-width: min(100%, 2560px);
@@ -725,6 +726,7 @@
       padding-bottom: 38px;
       background: #000000;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .hero-media-backdrop {
@@ -754,6 +756,281 @@
       );
       z-index: 2;
       pointer-events: none;
+    }
+
+    /* Hero Click Hint Pill */
+    .hero-click-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hero-hint-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(10, 12, 18, 0.62);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(223, 162, 59, 0.45);
+      padding: 9px 22px;
+      border-radius: 30px;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .hero-hint-pill svg {
+      color: var(--gold-primary);
+    }
+
+    .hero-section:hover .hero-hint-pill {
+      background: rgba(15, 18, 26, 0.88);
+      border-color: var(--gold-primary);
+      box-shadow: 0 10px 30px rgba(223, 162, 59, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Contact Popup Modal */
+    .hero-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(8, 10, 16, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.32s ease, visibility 0.32s ease;
+    }
+
+    .hero-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-modal-dialog {
+      background: #ffffff;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      border: 1px solid rgba(223, 162, 59, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      padding: 34px 30px 28px;
+      position: relative;
+      transform: translateY(24px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .hero-modal-backdrop.active .hero-modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .hero-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #f7f6f2;
+      color: #333333;
+      font-size: 1.5rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .hero-modal-close:hover {
+      background: #0e1015;
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+
+    .hero-modal-header {
+      margin-bottom: 22px;
+      padding-right: 28px;
+      text-align: left;
+    }
+
+    .hero-modal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #128c7e;
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero-modal-badge .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #25d366;
+      box-shadow: 0 0 8px #25d366;
+    }
+
+    .hero-modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-darkest);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .hero-modal-subtitle {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .hero-modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .form-field-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-darkest);
+      letter-spacing: 0.02em;
+    }
+
+    .input-with-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-with-icon .field-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--gold-primary);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .modal-form-input {
+      width: 100%;
+      padding: 11px 14px 11px 40px;
+      font-size: 0.92rem;
+      font-family: var(--font-body);
+      color: var(--text-darkest);
+      background: #faf9f6;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .modal-form-input:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(223, 162, 59, 0.16);
+    }
+
+    .modal-form-select {
+      cursor: pointer;
+      appearance: auto;
+    }
+
+    .modal-form-textarea {
+      padding: 12px 14px;
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .hero-modal-submit-btn {
+      margin-top: 6px;
+      width: 100%;
+      padding: 14px 20px;
+      background: #25d366;
+      color: #ffffff;
+      font-family: var(--font-brand);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .hero-modal-submit-btn:hover {
+      background: #1eb857;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .modal-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .modal-trust-footer svg {
+      color: var(--gold-primary);
+    }
+
+    @media (max-width: 600px) {
+      .hero-modal-dialog {
+        padding: 24px 18px 22px;
+        border-radius: 16px;
+        max-height: 94vh;
+      }
+      .hero-modal-title {
+        font-size: 1.25rem;
+      }
+      .hero-hint-pill {
+        font-size: 0.72rem;
+        padding: 7px 16px;
+      }
     }
 
     /* Post-Hero Intro Wrapper (Immediately After Video, No Extra Section) */
@@ -1023,15 +1300,15 @@
       overflow: hidden;
       border-radius: var(--radius-md);
       cursor: pointer;
-      transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
-      border: 1px solid rgba(223, 162, 59, 0.22);
+      transition: flex 0.65s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .expanding-panel:hover,
     .expanding-panel.active {
-      flex: 2.25;
-      border-color: var(--gold-primary);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 0 25px rgba(223, 162, 59, 0.22);
+      flex: 2.2;
+      border-color: rgba(223, 162, 59, 0.6);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
     }
 
     .expanding-panel .panel-img {
@@ -1045,7 +1322,7 @@
 
     .expanding-panel:hover .panel-img,
     .expanding-panel.active .panel-img {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
     .expanding-panel .panel-overlay {
@@ -1053,11 +1330,12 @@
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(10, 12, 18, 0.08) 0%,
-        rgba(10, 12, 18, 0.28) 45%,
-        rgba(10, 12, 18, 0.88) 100%
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0.22) 75%,
+        rgba(0, 0, 0, 0.7) 100%
       );
       transition: background 0.4s ease;
+      pointer-events: none;
     }
 
     .expanding-panel .panel-content {
@@ -1065,92 +1343,37 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 30px 24px;
+      padding: 24px 16px;
       z-index: 2;
       display: flex;
       flex-direction: column;
-      color: #ffffff;
-    }
-
-    .expanding-panel .panel-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      background: rgba(10, 12, 18, 0.72);
-      border: 1px solid rgba(223, 162, 59, 0.45);
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      backdrop-filter: blur(8px);
-      white-space: nowrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: none;
     }
 
     .expanding-panel .panel-title {
-      font-family: var(--font-heading);
-      font-size: clamp(1.2rem, 1.75vw, 1.65rem);
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
       color: #ffffff;
       line-height: 1.25;
-      margin-bottom: 10px;
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
     }
 
-    .expanding-panel .panel-desc {
-      font-size: 0.88rem;
-      color: #d1d5db;
-      line-height: 1.55;
-      max-width: 440px;
-      margin-bottom: 16px;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transform: translateY(10px);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .expanding-panel:hover .panel-desc,
-    .expanding-panel.active .panel-desc {
-      opacity: 1;
-      max-height: 90px;
-      transform: translateY(0);
-    }
-
-    .expanding-panel .panel-btn {
-      display: inline-flex;
-      align-self: flex-start;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #0c0e14;
-      background: var(--gold-gradient);
-      padding: 9px 18px;
-      border-radius: 30px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.4s ease 0.1s;
-      box-shadow: 0 4px 15px rgba(223, 162, 59, 0.4);
-      white-space: nowrap;
-    }
-
-    .expanding-panel:hover .panel-btn,
-    .expanding-panel.active .panel-btn {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .expanding-panel .panel-btn:hover {
-      filter: brightness(1.08);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(223, 162, 59, 0.6);
+    .expanding-panel:hover .panel-title,
+    .expanding-panel.active .panel-title {
+      color: #ffffff;
+      letter-spacing: 0.06em;
     }
 
     @media (max-width: 992px) {
@@ -1161,14 +1384,8 @@
         gap: 14px;
       }
       .expanding-panel {
-        min-height: 240px;
+        min-height: 220px;
         flex: none;
-      }
-      .expanding-panel .panel-desc,
-      .expanding-panel .panel-btn {
-        opacity: 1;
-        max-height: none;
-        transform: none;
       }
       .expanding-panel .panel-title {
         white-space: normal;
@@ -2667,32 +2884,21 @@
         gap: 16px;
       }
       .expanding-panel {
-        min-height: 220px;
-        height: 220px;
+        min-height: 200px;
+        height: 200px;
         flex: none;
         width: 100%;
       }
       .expanding-panel.active,
       .expanding-panel:hover {
         flex: none;
-        height: 360px;
+        height: 200px;
       }
       .panel-content {
-        padding: 22px 20px;
+        padding: 20px 18px;
       }
       .panel-title {
-        font-size: 1.25rem;
-      }
-      .panel-desc {
-        font-size: 0.86rem;
-        -webkit-line-clamp: 2;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .panel-btn {
-        padding: 8px 18px;
-        font-size: 0.74rem;
+        font-size: 1.2rem;
       }
     }
 
@@ -2783,9 +2989,7 @@
 
         <!-- Left: Minimal Luxury Links -->
         <ul class="nav-left-links">
-          <li><a href="#home" class="active">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="#projects">Developments</a></li>
           <li><a href="payment-plans.html">Payment Plans</a></li>
           <li><a href="ideas-one.html">IDEAS ONE Mall</a></li>
         </ul>
@@ -2826,9 +3030,7 @@
       <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
     </div>
     <ul class="drawer-links">
-      <li><a href="#home" class="drawer-nav-item active">Home</a></li>
       <li><a href="about.html" class="drawer-nav-item">About Us</a></li>
-      <li><a href="#projects" class="drawer-nav-item">Developments</a></li>
       <li><a href="payment-plans.html" class="drawer-nav-item">Payment Plans</a></li>
       <li><a href="ideas-one.html" class="drawer-nav-item">IDEAS ONE Mall &amp; Brands</a></li>
       <li><a href="#why-ideas-group" class="drawer-nav-item">Why IDEAS Group</a></li>
@@ -2852,14 +3054,89 @@
   <!-- ========================================================================
        HERO SECTION (MINIMAL CINEMATIC OVERLAY AT 50%)
        ======================================================================== -->
-  <section class="hero-section" id="home">
+  <section class="hero-section" id="home" role="button" aria-label="Click anywhere to inquire on WhatsApp" tabindex="0">
     <div class="hero-media-backdrop">
       <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/one/ideas_one_render.jpg">
         <source src="final_video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
+    <div class="hero-click-hint">
+      <div class="hero-hint-pill">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span>Click Anywhere to Inquire</span>
+      </div>
+    </div>
   </section>
+
+  <!-- Hero Contact Popup Modal (WhatsApp Direct Inquiry) -->
+  <div class="hero-modal-backdrop" id="heroContactModal" aria-hidden="true" data-lenis-prevent>
+    <div class="hero-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" data-lenis-prevent>
+      <button class="hero-modal-close" id="heroModalClose" aria-label="Close inquiry form">&times;</button>
+      
+      <div class="hero-modal-header">
+        <div class="hero-modal-badge">
+          <span class="badge-dot"></span>
+          <span>Direct WhatsApp Inquiry</span>
+        </div>
+        <h3 id="modalTitle" class="hero-modal-title">Get in Touch with IDEAS Group</h3>
+        <p class="hero-modal-subtitle">
+          Submit your query below to connect instantly with our senior investment desk on WhatsApp.
+        </p>
+      </div>
+
+      <form class="hero-modal-form" id="heroContactForm">
+        
+        <div class="form-group-wrap">
+          <label for="heroFormName" class="form-field-label">Full Name *</label>
+          <div class="input-with-icon">
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <input type="text" id="heroFormName" class="modal-form-input" placeholder="e.g. Syed Tariq" required autocomplete="name">
+          </div>
+        </div>
+
+        <div class="form-group-wrap">
+          <label for="heroFormPhone" class="form-field-label">Phone / WhatsApp Number *</label>
+          <div class="input-with-icon">
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <input type="tel" id="heroFormPhone" class="modal-form-input" placeholder="e.g. 0300 1234567" required autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group-wrap">
+          <label for="heroFormProject" class="form-field-label">Interested Project *</label>
+          <div class="input-with-icon">
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+            <select id="heroFormProject" class="modal-form-input modal-form-select" required>
+              <option value="IDEAS ONE — Commercial Retail Shops" selected>IDEAS ONE — Commercial Retail Shops</option>
+              <option value="IDEAS ONE — Luxury Apartments">IDEAS ONE — Luxury Apartments (1, 2 &amp; 3 Bed)</option>
+              <option value="IDEAS ONE — Corporate Executive Offices">IDEAS ONE — Corporate Executive Offices</option>
+              <option value="IDEAS ONE — Food Court Outlets">IDEAS ONE — Food Court Outlets</option>
+              <option value="IDEAS Tower — High-Rise Residences">IDEAS Tower — High-Rise Residences</option>
+              <option value="General Consultation &amp; Investment">General Consultation &amp; Investment</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-wrap">
+          <label for="heroFormMessage" class="form-field-label">Message / Query (Optional)</label>
+          <textarea id="heroFormMessage" class="modal-form-input modal-form-textarea" rows="3" placeholder="Tell us what you are looking for (floor, budget, unit type)..."></textarea>
+        </div>
+
+        <button type="submit" class="hero-modal-submit-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.767-5.766-5.767zm7.675 5.766c-.002 4.238-3.451 7.687-7.691 7.687-1.348 0-2.607-.352-3.699-.966l-4.106 1.077 1.096-4.008c-.689-1.127-1.054-2.433-1.054-3.79 0-4.238 3.451-7.687 7.691-7.687 4.239 0 7.688 3.449 7.763 7.687z"/></svg>
+          <span>Send Inquiry via WhatsApp</span>
+          <span style="margin-left: 2px;">&rarr;</span>
+        </button>
+
+        <div class="modal-trust-footer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Direct connection to Official Sales Desk (0330-5511117)</span>
+        </div>
+
+      </form>
+    </div>
+  </div>
 
   <!-- ========================================================================
        ABOUT US SECTION (QUALITY DEVELOPMENTS THAT OFFER LASTING VALUE)
@@ -2928,63 +3205,48 @@
       </div>
 
       <div class="expanding-gallery-wrap">
-        <!-- Panel 1: IDEAS ONE -->
+        <!-- Panel 1: Commercial -->
         <div class="expanding-panel active" tabindex="0">
-          <img src="images/one/ideas_one_featured.jpg" alt="IDEAS ONE Mixed-Use Development" class="panel-img" loading="lazy">
+          <img src="images/one/ideas_one_featured.jpg" alt="Commercial" class="panel-img" loading="lazy">
           <div class="panel-overlay"></div>
           <div class="panel-content">
-            <span class="panel-badge">IDEAS ONE</span>
-            <h3 class="panel-title">Mall, 135 Apartments &amp; Corporate Offices</h3>
-            <p class="panel-desc">A landmark mixed-use address at Gate 2, Main G.T Road. 236+ commercial shops, 130+ culinary outlets, and 135 luxury apartments.</p>
-            <a href="#ideas-one" class="panel-btn">Explore Landmark &rarr;</a>
+            <h3 class="panel-title">Commercial</h3>
           </div>
         </div>
 
-        <!-- Panel 2: The Mall at IDEAS ONE -->
+        <!-- Panel 2: Retail -->
         <div class="expanding-panel" tabindex="0">
-          <img src="images/one/mall_interior.png" alt="The Mall at IDEAS ONE" class="panel-img" loading="lazy">
+          <img src="images/one/mall_interior.png" alt="Retail" class="panel-img" loading="lazy">
           <div class="panel-overlay"></div>
           <div class="panel-content">
-            <span class="panel-badge">RETAIL &amp; FOOD COURT</span>
-            <h3 class="panel-title">The Mall at IDEAS ONE</h3>
-            <p class="panel-desc">Double-height grand atrium, modern escalators, international fashion brands, and Islamabad's premier destination mall.</p>
-            <a href="ideas-one.html" class="panel-btn">Discover Mall &rarr;</a>
+            <h3 class="panel-title">Retail</h3>
           </div>
         </div>
 
-        <!-- Panel 3: IDEAS Tower -->
+        <!-- Panel 3: Residential -->
         <div class="expanding-panel" tabindex="0">
-          <img src="images/tower/ideas_tower_night.jpg" alt="IDEAS Tower Luxury Residential" class="panel-img" loading="lazy">
+          <img src="images/tower/ideas_tower_night.jpg" alt="Residential" class="panel-img" loading="lazy">
           <div class="panel-overlay"></div>
           <div class="panel-content">
-            <span class="panel-badge">IDEAS TOWER</span>
-            <h3 class="panel-title">Luxury Residential High-Rise</h3>
-            <p class="panel-desc">90% complete with ground floor handover underway. Prestigious high-rise living with scenic Margalla Hills &amp; dual lake views.</p>
-            <a href="#ideas-tower" class="panel-btn">View Tower Details &rarr;</a>
+            <h3 class="panel-title">Residential</h3>
           </div>
         </div>
 
-        <!-- Panel 4: Crown of B-17 Location -->
+        <!-- Panel 4: Location -->
         <div class="expanding-panel" tabindex="0">
-          <img src="images/one/crown_of_b17.png" alt="Crown of Sector B-17 Islamabad" class="panel-img" loading="lazy">
+          <img src="images/one/crown_of_b17.png" alt="Location" class="panel-img" loading="lazy">
           <div class="panel-overlay"></div>
           <div class="panel-content">
-            <span class="panel-badge">PRIME LOCATION</span>
-            <h3 class="panel-title">Crown of B-17, Islamabad</h3>
-            <p class="panel-desc">Direct front access to Main G.T Road at Gate 2. Just 1 minute from Margalla Avenue, 5 minutes from M-1 Motorway &amp; CPEC route.</p>
-            <a href="#why-b17" class="panel-btn">Explore Connectivity &rarr;</a>
+            <h3 class="panel-title">Location</h3>
           </div>
         </div>
 
-        <!-- Panel 5: Construction & Engineering -->
+        <!-- Panel 5: Construction -->
         <div class="expanding-panel" tabindex="0">
-          <img src="images/one/site1.jpg" alt="IDEAS Group Active Site Engineering" class="panel-img" loading="lazy">
+          <img src="images/one/site1.jpg" alt="Construction" class="panel-img" loading="lazy">
           <div class="panel-overlay"></div>
           <div class="panel-content">
-            <span class="panel-badge">ON-SITE PROGRESS</span>
-            <h3 class="panel-title">Active Construction &amp; Delivery</h3>
-            <p class="panel-desc">Established in 1995. Proven track record of 30+ years delivering structural excellence, verified titles, and CDA compliance.</p>
-            <a href="#construction" class="panel-btn">Track Progress &rarr;</a>
+            <h3 class="panel-title">Construction</h3>
           </div>
         </div>
       </div>
@@ -3328,15 +3590,12 @@
         </h2>
         <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px; max-width: 760px; margin-left: auto; margin-right: auto;">
           Explore verified per-sq.ft. pricing, flexible 18 to 60-month installment schedules, and official downloadable flyers for 
-          <strong style="color: var(--text-darkest);">IDEAS ONE</strong> and <strong style="color: var(--text-darkest);">IDEAS Tower</strong> in Sector B-17, Islamabad. Use our interactive real-time calculator to estimate down payments, monthly installments, and 10% lump-sum cash discount savings.
+          <strong style="color: var(--text-darkest);">IDEAS ONE</strong> and <strong style="color: var(--text-darkest);">IDEAS Tower</strong> in Sector B-17, Islamabad, with 10% lump-sum cash discount savings.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="payment-plans.html" class="btn btn-gold" style="font-size: 0.94rem; padding: 14px 34px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path></svg>
-            Explore Payment Plans &amp; Calculator &rarr;
-          </a>
-          <a href="payment-plans.html#calculator" class="btn btn-outline" style="font-size: 0.92rem; padding: 14px 28px;">
-            Calculate Custom Installment
+            Explore Payment Plans &rarr;
           </a>
         </div>
       </div>
@@ -4512,14 +4771,13 @@ ${message ? message : 'General Consultation / Site Visit Request'}
     const expandingPanels = document.querySelectorAll('.expanding-panel');
     if (expandingPanels.length > 0) {
       expandingPanels.forEach(panel => {
-        panel.addEventListener('mouseenter', () => {
+        const activate = () => {
           expandingPanels.forEach(p => p.classList.remove('active'));
           panel.classList.add('active');
-        });
-        panel.addEventListener('focus', () => {
-          expandingPanels.forEach(p => p.classList.remove('active'));
-          panel.classList.add('active');
-        });
+        };
+        panel.addEventListener('mouseenter', activate);
+        panel.addEventListener('focus', activate);
+        panel.addEventListener('click', activate);
       });
     }
 
@@ -4754,6 +5012,115 @@ ${message ? message : 'General Consultation / Site Visit Request'}
     } else {
       animateCounters();
     }
+
+    // ==========================================================================
+    // 7. HERO SECTION POPUP CONTACT FORM (WHATSAPP INQUIRY)
+    // ==========================================================================
+    (function initHeroContactModal() {
+      const heroSection = document.getElementById('home');
+      const heroModal = document.getElementById('heroContactModal');
+      const heroModalClose = document.getElementById('heroModalClose');
+      const heroForm = document.getElementById('heroContactForm');
+      const heroNameInput = document.getElementById('heroFormName');
+      const heroPhoneInput = document.getElementById('heroFormPhone');
+      const heroProjectInput = document.getElementById('heroFormProject');
+      const heroMsgInput = document.getElementById('heroFormMessage');
+
+      if (!heroSection || !heroModal || !heroForm) return;
+
+      function openModal() {
+        heroModal.classList.add('active');
+        heroModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (window.lenis && typeof window.lenis.stop === 'function') {
+          window.lenis.stop();
+        }
+        setTimeout(() => {
+          if (heroNameInput) heroNameInput.focus();
+        }, 120);
+      }
+
+      function closeModal() {
+        heroModal.classList.remove('active');
+        heroModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (window.lenis && typeof window.lenis.start === 'function') {
+          window.lenis.start();
+        }
+      }
+
+      // Hero click trigger — open modal anywhere in hero
+      heroSection.addEventListener('click', (e) => {
+        openModal();
+      });
+
+      // Keyboard support for accessible hero focus
+      heroSection.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal();
+        }
+      });
+
+      // Close button
+      if (heroModalClose) {
+        heroModalClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeModal();
+        });
+      }
+
+      // Backdrop click closes modal
+      heroModal.addEventListener('click', (e) => {
+        if (e.target === heroModal) {
+          closeModal();
+        }
+      });
+
+      // Escape key closes modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && heroModal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Submit inquiry via WhatsApp
+      heroForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = (heroNameInput ? heroNameInput.value : '').trim();
+        const phone = (heroPhoneInput ? heroPhoneInput.value : '').trim();
+        const project = heroProjectInput ? heroProjectInput.value : 'IDEAS ONE';
+        const notes = (heroMsgInput ? heroMsgInput.value : '').trim();
+
+        if (!name || !phone) return;
+
+        // Structured, elegant WhatsApp message template
+        const formattedMsg =
+`🏢 *PROJECT INQUIRY — IDEAS GROUP*
+━━━━━━━━━━━━━━━━━━━━━━━━
+👤 *Client Name:* ${name}
+📞 *Contact Number:* ${phone}
+🏗️ *Interested In:* ${project}
+💬 *Query / Requirements:*
+${notes ? notes : 'Interested in project details, floor plans, and current payment schedules.'}
+━━━━━━━━━━━━━━━━━━━━━━━━
+🌐 *Source:* Ideas Group Website (Hero Section)
+📍 Sector B-17, Islamabad`;
+
+        const whatsappNumber = '923305511117';
+        const targetUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(formattedMsg)}`;
+
+        // Open WhatsApp in new tab
+        const win = window.open(targetUrl, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = targetUrl;
+        }
+
+        heroForm.reset();
+        closeModal();
+      });
+    })();
 
   </script>
 
