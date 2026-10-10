@@ -36,7 +36,7 @@
       --bg-card: #ffffff;
       --bg-card-subtle: #f9f8f4;
       --bg-surface-elevated: #ffffff;
-      
+
       /* High-Contrast Luxury Architectural Typography */
       --text-darkest: #111216;
       --text-main: #232630;
@@ -84,15 +84,19 @@
     }
 
     /* Lenis Smooth Inertial Scroll System */
-    html.lenis, html.lenis body {
+    html.lenis,
+    html.lenis body {
       height: auto;
     }
+
     .lenis.lenis-smooth {
       scroll-behavior: auto !important;
     }
+
     .lenis.lenis-smooth [data-lenis-prevent] {
       overscroll-behavior: contain;
     }
+
     .lenis.lenis-stopped {
       overflow: hidden;
     }
@@ -325,30 +329,37 @@
       color: rgba(255, 255, 255, 0.88) !important;
       text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
     }
+
     .site-header:not(.scrolled) .nav-left-links a:hover {
       color: #ffffff !important;
       background: transparent !important;
       border-color: transparent !important;
     }
+
     .site-header:not(.scrolled) .nav-left-links a.active {
       color: #ffffff !important;
       background: transparent !important;
       border-color: transparent !important;
     }
+
     .site-header:not(.scrolled) .nav-left-links a::after {
       background: var(--gold-light);
     }
+
     .site-header:not(.scrolled) .nav-brand-title {
       color: #ffffff;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
     }
+
     .site-header:not(.scrolled) .nav-brand-title .brand-pipe {
       color: var(--gold-light);
     }
+
     .site-header:not(.scrolled) .burger-btn {
       background: rgba(255, 255, 255, 0.15);
       border-color: rgba(255, 255, 255, 0.4);
     }
+
     .site-header:not(.scrolled) .burger-btn span,
     .site-header:not(.scrolled) .burger-btn span::before,
     .site-header:not(.scrolled) .burger-btn span::after {
@@ -360,28 +371,34 @@
       color: #2b303c !important;
       text-shadow: none !important;
     }
+
     .site-header.scrolled .nav-left-links a:hover {
       color: var(--gold-dark) !important;
       background: transparent !important;
       border-color: transparent !important;
     }
+
     .site-header.scrolled .nav-left-links a.active {
       color: #111216 !important;
       background: transparent !important;
       border-color: transparent !important;
       font-weight: 600;
     }
+
     .site-header.scrolled .nav-left-links a::after {
       background: var(--gold-primary);
     }
+
     .site-header.scrolled .nav-brand-title {
       color: #111216 !important;
       text-shadow: none !important;
     }
+
     .site-header.scrolled .burger-btn {
       background: rgba(0, 0, 0, 0.04);
       border-color: rgba(223, 162, 59, 0.35);
     }
+
     .site-header.scrolled .burger-btn span,
     .site-header.scrolled .burger-btn span::before,
     .site-header.scrolled .burger-btn span::after {
@@ -813,13 +830,11 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.05) 30%,
-        rgba(0, 0, 0, 0.15) 70%,
-        rgba(0, 0, 0, 0.6) 100%
-      );
+      background: linear-gradient(180deg,
+          rgba(0, 0, 0, 0.45) 0%,
+          rgba(0, 0, 0, 0.05) 30%,
+          rgba(0, 0, 0, 0.15) 70%,
+          rgba(0, 0, 0, 0.6) 100%);
       z-index: 2;
       pointer-events: none;
     }
@@ -1050,9 +1065,11 @@
         border-radius: 16px;
         max-height: 94vh;
       }
+
       .hero-modal-title {
         font-size: 1.25rem;
       }
+
       .hero-hint-pill {
         font-size: 0.72rem;
         padding: 7px 16px;
@@ -1307,10 +1324,23 @@
     }
 
     @keyframes wheelRoll {
-      0% { opacity: 0; transform: translate(-50%, 0); }
-      40% { opacity: 1; }
-      80% { opacity: 0; transform: translate(-50%, 12px); }
-      100% { opacity: 0; }
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+      }
+
+      40% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 0;
+        transform: translate(-50%, 12px);
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
 
     /* ==========================================================================
@@ -1377,12 +1407,10 @@
     .expanding-panel .panel-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 45%,
-        rgba(0, 0, 0, 0.22) 75%,
-        rgba(0, 0, 0, 0.7) 100%
-      );
+      background: linear-gradient(180deg,
+          rgba(0, 0, 0, 0) 45%,
+          rgba(0, 0, 0, 0.22) 75%,
+          rgba(0, 0, 0, 0.7) 100%);
       transition: background 0.4s ease;
       pointer-events: none;
     }
@@ -1432,10 +1460,12 @@
         max-height: none;
         gap: 14px;
       }
+
       .expanding-panel {
         min-height: 220px;
         flex: none;
       }
+
       .expanding-panel .panel-title {
         white-space: normal;
       }
@@ -2764,9 +2794,17 @@
     }
 
     @keyframes waPulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
     }
 
     /* Scroll Progress Bar at Top */
@@ -2838,9 +2876,17 @@
       will-change: opacity, transform;
     }
 
-    .reveal-item.reveal-left { transform: translateX(-35px); }
-    .reveal-item.reveal-right { transform: translateX(35px); }
-    .reveal-item.reveal-scale { transform: scale(0.94); }
+    .reveal-item.reveal-left {
+      transform: translateX(-35px);
+    }
+
+    .reveal-item.reveal-right {
+      transform: translateX(35px);
+    }
+
+    .reveal-item.reveal-scale {
+      transform: scale(0.94);
+    }
 
     .reveal-item.is-revealed,
     :target,
@@ -2850,11 +2896,25 @@
       transform: translate(0, 0) scale(1) !important;
     }
 
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-    .delay-5 { transition-delay: 0.5s; }
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    .delay-5 {
+      transition-delay: 0.5s;
+    }
 
     /* Live Beacon */
     .live-beacon {
@@ -2894,9 +2954,20 @@
     }
 
     @keyframes pulseRing {
-      0% { transform: scale(0.9); opacity: 1; }
-      70% { transform: scale(2.2); opacity: 0; }
-      100% { transform: scale(2.4); opacity: 0; }
+      0% {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+
+      70% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
     }
 
     /* Responsive Queries */
@@ -2906,22 +2977,64 @@
         justify-content: space-between;
         align-items: center;
       }
-      .nav-left-links { display: none; }
-      .burger-btn { display: flex; }
+
+      .nav-left-links {
+        display: none;
+      }
+
+      .burger-btn {
+        display: flex;
+      }
     }
 
     @media (max-width: 992px) {
-      .btn-get-in-touch { display: none !important; }
-      .nav-brand-title { font-size: 1.05rem; }
-      .nav-center-brand { padding: 4px 10px; gap: 8px; }
-      .nav-center-brand img { height: 32px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .project-featured-grid { grid-template-columns: minmax(0, 1fr); }
-      .why-pillars-grid, .b17-stats-grid, .milestone-grid { grid-template-columns: repeat(2, 1fr); }
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-      .connectivity-grid { grid-template-columns: repeat(3, 1fr); }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; }
+      .btn-get-in-touch {
+        display: none !important;
+      }
+
+      .nav-brand-title {
+        font-size: 1.05rem;
+      }
+
+      .nav-center-brand {
+        padding: 4px 10px;
+        gap: 8px;
+      }
+
+      .nav-center-brand img {
+        height: 32px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .project-featured-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .why-pillars-grid,
+      .b17-stats-grid,
+      .milestone-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .connectivity-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 860px) {
@@ -2932,53 +3045,119 @@
         max-height: none;
         gap: 16px;
       }
+
       .expanding-panel {
         min-height: 200px;
         height: 200px;
         flex: none;
         width: 100%;
       }
+
       .expanding-panel.active,
       .expanding-panel:hover {
         flex: none;
         height: 200px;
       }
+
       .panel-content {
         padding: 20px 18px;
       }
+
       .panel-title {
         font-size: 1.2rem;
       }
     }
 
     @media (max-width: 768px) {
-      .hero-section { min-height: auto; padding-top: 95px; padding-bottom: 50px; }
-      .hero-title { font-size: clamp(2rem, 7.5vw, 3rem); }
-      .hero-intro-wrapper { padding-top: 45px; padding-bottom: 30px; }
-      .hero-intro-title { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+      .hero-section {
+        min-height: auto;
+        padding-top: 95px;
+        padding-bottom: 50px;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 7.5vw, 3rem);
+      }
+
+      .hero-intro-wrapper {
+        padding-top: 45px;
+        padding-bottom: 30px;
+      }
+
+      .hero-intro-title {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+      }
+
       .hero-intro-trust-bar {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px 16px;
         text-align: left;
       }
-      .hero-trust-bar { grid-template-columns: repeat(2, 1fr); }
-      .section-about, .section-projects, .section-why-one, .section-why-b17, .section-progress, .section-faqs, .section-contact { padding: 60px 0; }
-      .section-expanding-showcase { padding: 60px 0 50px; }
-      .why-pillars-grid, .b17-stats-grid, .milestone-grid, .site-gallery-grid, .amenities-grid, .connectivity-grid, .form-grid-2, .footer-grid { grid-template-columns: 1fr; }
-      .obs-badges-grid { grid-template-columns: repeat(3, 1fr); }
-      .metrics-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .project-featured-info { padding: 32px 22px; }
+
+      .hero-trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-about,
+      .section-projects,
+      .section-why-one,
+      .section-why-b17,
+      .section-progress,
+      .section-faqs,
+      .section-contact {
+        padding: 60px 0;
+      }
+
+      .section-expanding-showcase {
+        padding: 60px 0 50px;
+      }
+
+      .why-pillars-grid,
+      .b17-stats-grid,
+      .milestone-grid,
+      .site-gallery-grid,
+      .amenities-grid,
+      .connectivity-grid,
+      .form-grid-2,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .obs-badges-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .project-featured-info {
+        padding: 32px 22px;
+      }
     }
 
     @media (max-width: 640px) {
-      .apt-sizes-chips-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .floor-tab-buttons { gap: 6px; }
-      .floor-tab-btn { padding: 8px 14px; font-size: 0.76rem; }
+      .apt-sizes-chips-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .floor-tab-buttons {
+        gap: 6px;
+      }
+
+      .floor-tab-btn {
+        padding: 8px 14px;
+        font-size: 0.76rem;
+      }
+
       .project-action-btns {
         flex-direction: column;
         width: 100%;
       }
+
       .project-action-btns .btn {
         width: 100%;
         justify-content: center;
@@ -2986,40 +3165,99 @@
     }
 
     @media (max-width: 540px) {
-      .container { padding: 0 16px; }
+      .container {
+        padding: 0 16px;
+      }
+
       .hero-intro-actions {
         flex-direction: column;
         width: 100%;
         gap: 12px;
       }
+
       .hero-intro-actions .btn {
         width: 100%;
         justify-content: center;
       }
-      .hero-intro-trust-bar { grid-template-columns: 1fr; gap: 10px; }
-      .hero-trust-bar { grid-template-columns: 1fr; }
-      .project-featured-info { padding: 24px 16px; }
-      .obs-badges-grid { grid-template-columns: repeat(2, 1fr); }
-      .social-badges-wrap { flex-wrap: wrap; width: 100%; }
-      .social-badge { flex: 1 1 calc(50% - 6px); justify-content: center; }
-      .metrics-row { grid-template-columns: repeat(2, 1fr); }
+
+      .hero-intro-trust-bar {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .hero-trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .project-featured-info {
+        padding: 24px 16px;
+      }
+
+      .obs-badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .social-badges-wrap {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .social-badge {
+        flex: 1 1 calc(50% - 6px);
+        justify-content: center;
+      }
+
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 480px) {
-      .nav-center-brand { padding: 3px 6px; gap: 6px; }
-      .nav-center-brand img { height: 28px; }
-      .nav-brand-title { font-size: 0.92rem; letter-spacing: 0.08em; }
-      .burger-btn { width: 38px; height: 38px; min-width: 38px; }
+      .nav-center-brand {
+        padding: 3px 6px;
+        gap: 6px;
+      }
+
+      .nav-center-brand img {
+        height: 28px;
+      }
+
+      .nav-brand-title {
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+      }
+
+      .burger-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+      }
     }
 
     @media (max-width: 400px) {
-      .nav-center-brand { padding: 2px 4px; gap: 4px; }
-      .nav-center-brand img { height: 24px; }
-      .nav-brand-title { font-size: 0.84rem; letter-spacing: 0.06em; }
-      .metrics-row { grid-template-columns: 1fr; }
-      .apt-sizes-chips-row { grid-template-columns: 1fr; }
+      .nav-center-brand {
+        padding: 2px 4px;
+        gap: 4px;
+      }
+
+      .nav-center-brand img {
+        height: 24px;
+      }
+
+      .nav-brand-title {
+        font-size: 0.84rem;
+        letter-spacing: 0.06em;
+      }
+
+      .metrics-row {
+        grid-template-columns: 1fr;
+      }
+
+      .apt-sizes-chips-row {
+        grid-template-columns: 1fr;
+      }
     }
-</style>
+  </style>
   <script src="js/lenis.min.js"></script>
   <link rel="stylesheet" href="css/mobile-carousel.css">
 </head>
@@ -3090,11 +3328,21 @@
     </ul>
     <div class="drawer-actions">
       <a href="tel:03305511117" class="btn btn-gold" style="width: 100%;">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
         Call 0330-5511117
       </a>
-      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20interested%20in%20your%20projects." target="_blank" rel="noopener noreferrer" class="btn btn-outline drawer-nav-item" style="width: 100%; border-color: rgba(37,211,102,0.6); color: #25d366;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+      <a href="https://wa.me/923305511117?text=Hello%20IDEAS%20Group%2C%20I%20am%20interested%20in%20your%20projects."
+        target="_blank" rel="noopener noreferrer" class="btn btn-outline drawer-nav-item"
+        style="width: 100%; border-color: rgba(37,211,102,0.6); color: #25d366;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;">
+          <path
+            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z" />
+        </svg>
         WhatsApp Inquiry
       </a>
     </div>
@@ -3105,7 +3353,8 @@
        ======================================================================== -->
   <section class="hero-section" id="home" role="button" aria-label="Click anywhere to inquire on WhatsApp" tabindex="0">
     <div class="hero-media-backdrop">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/one/ideas_one_render.jpg">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+        poster="images/one/ideas_one_render.jpg">
         <source src="final_video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -3116,7 +3365,7 @@
   <div class="hero-modal-backdrop" id="heroContactModal" aria-hidden="true" data-lenis-prevent>
     <div class="hero-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" data-lenis-prevent>
       <button class="hero-modal-close" id="heroModalClose" aria-label="Close inquiry form">&times;</button>
-      
+
       <div class="hero-modal-header">
         <div class="hero-modal-badge">
           <span class="badge-dot"></span>
@@ -3129,27 +3378,42 @@
       </div>
 
       <form class="hero-modal-form" id="heroContactForm">
-        
+
         <div class="form-group-wrap">
           <label for="heroFormName" class="form-field-label">Full Name *</label>
           <div class="input-with-icon">
-            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <input type="text" id="heroFormName" class="modal-form-input" placeholder="e.g. Syed Tariq" required autocomplete="name">
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input type="text" id="heroFormName" class="modal-form-input" placeholder="e.g. Syed Tariq" required
+              autocomplete="name">
           </div>
         </div>
 
         <div class="form-group-wrap">
           <label for="heroFormPhone" class="form-field-label">Phone / WhatsApp Number *</label>
           <div class="input-with-icon">
-            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <input type="tel" id="heroFormPhone" class="modal-form-input" placeholder="e.g. 0300 1234567" required autocomplete="tel">
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <input type="tel" id="heroFormPhone" class="modal-form-input" placeholder="e.g. 0300 1234567" required
+              autocomplete="tel">
           </div>
         </div>
 
         <div class="form-group-wrap">
           <label for="heroFormProject" class="form-field-label">Interested Project *</label>
           <div class="input-with-icon">
-            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+            <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16">
+              </path>
+            </svg>
             <select id="heroFormProject" class="modal-form-input modal-form-select" required>
               <option value="IDEAS ONE — Commercial Retail Shops" selected>IDEAS ONE — Commercial Retail Shops</option>
               <option value="IDEAS ONE — Luxury Apartments">IDEAS ONE — Luxury Apartments (1, 2 &amp; 3 Bed)</option>
@@ -3163,17 +3427,24 @@
 
         <div class="form-group-wrap">
           <label for="heroFormMessage" class="form-field-label">Message / Query (Optional)</label>
-          <textarea id="heroFormMessage" class="modal-form-input modal-form-textarea" rows="3" placeholder="Tell us what you are looking for (floor, budget, unit type)..."></textarea>
+          <textarea id="heroFormMessage" class="modal-form-input modal-form-textarea" rows="3"
+            placeholder="Tell us what you are looking for (floor, budget, unit type)..."></textarea>
         </div>
 
         <button type="submit" class="hero-modal-submit-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.767-5.766-5.767zm7.675 5.766c-.002 4.238-3.451 7.687-7.691 7.687-1.348 0-2.607-.352-3.699-.966l-4.106 1.077 1.096-4.008c-.689-1.127-1.054-2.433-1.054-3.79 0-4.238 3.451-7.687 7.691-7.687 4.239 0 7.688 3.449 7.763 7.687z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.761.947 2.796.947 3.179 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.767-5.766-5.767zm7.675 5.766c-.002 4.238-3.451 7.687-7.691 7.687-1.348 0-2.607-.352-3.699-.966l-4.106 1.077 1.096-4.008c-.689-1.127-1.054-2.433-1.054-3.79 0-4.238 3.451-7.687 7.691-7.687 4.239 0 7.688 3.449 7.763 7.687z" />
+          </svg>
           <span>Send Inquiry via WhatsApp</span>
           <span style="margin-left: 2px;">&rarr;</span>
         </button>
 
         <div class="modal-trust-footer">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
           <span>Direct connection to Official Sales Desk (0330-5511117)</span>
         </div>
 
@@ -3184,7 +3455,7 @@
   <!-- ========================================================================
        ABOUT US SECTION (QUALITY DEVELOPMENTS THAT OFFER LASTING VALUE)
        ======================================================================== -->
-  
+
   <!-- ========================================================================
        ALTAF DEVELOPMENTS STYLE: INTERACTIVE EXPANDING PANELS SHOWCASE
        ======================================================================== -->
@@ -3202,10 +3473,12 @@
 
         <div class="hero-intro-desc">
           <p class="hero-lead-line">
-            Over 30 years of high-rise residential and commercial landmarks. We don't just build buildings, we build trust.
+            Over 30 years of high-rise residential and commercial landmarks. We don't just build buildings, we build
+            trust.
           </p>
           <p class="hero-mid-line">
-            From luxury apartments in the heart of Islamabad to CDA-Approved commercial landmarks on GT Road, we are the team behind 8,000+ happy families.
+            From luxury apartments in the heart of Islamabad to CDA-Approved commercial landmarks on GT Road, we are the
+            team behind 8,000+ happy families.
           </p>
           <p class="hero-punch-line">
             No files. No false promises. Only delivered projects and on-ground reality.
@@ -3215,10 +3488,18 @@
         <div class="hero-intro-actions">
           <a href="#projects" class="btn btn-minimal-white">
             <span>View Our Projects</span>
-            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
-          <a href="https://wa.me/923305511117?text=Hello%20Ideas%20Group%2C%20I%20am%20interested%20in%20your%20projects." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+          <a href="https://wa.me/923305511117?text=Hello%20Ideas%20Group%2C%20I%20am%20interested%20in%20your%20projects."
+            target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z" />
+            </svg>
             <span>Chat on WhatsApp</span>
           </a>
         </div>
@@ -3250,7 +3531,8 @@
         <span class="kicker">Signature Portfolio · Islamabad Skyline</span>
         <h2>Architectural Icons Crafted For Lasting Value</h2>
         <p>
-          Hover over each landmark to experience IDEAS Group's master developments at the Crown of Sector B-17, Islamabad.
+          Hover over each landmark to experience IDEAS Group's master developments at the Crown of Sector B-17,
+          Islamabad.
         </p>
       </div>
 
@@ -3300,7 +3582,8 @@
       <div class="about-grid">
 
         <div class="about-visual-card reveal-item reveal-left">
-          <img src="images/brand/ideas_group_builders.jpg" alt="IDEAS Group Builders & Developers — Master High-Rise Construction & Engineering"
+          <img src="images/brand/ideas_group_builders.jpg"
+            alt="IDEAS Group Builders & Developers — Master High-Rise Construction & Engineering"
             class="about-visual-img" loading="lazy" decoding="async">
           <div class="about-visual-badge">
             <strong data-target="1995" data-suffix="">1995</strong>
@@ -3362,7 +3645,8 @@
           <div class="project-featured-media">
             <img src="images/one/ideas_one_featured.jpg" alt="IDEAS One Landmark Mixed-Use Development — Crown of B-17"
               class="project-featured-img" loading="lazy" decoding="async">
-            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring"></span><span class="live-beacon-dot"></span></span>CDA Approved · Mixed-Use</span>
+            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring"></span><span
+                  class="live-beacon-dot"></span></span>CDA Approved · Mixed-Use</span>
           </div>
 
           <div class="project-featured-info">
@@ -3370,14 +3654,15 @@
             <h3>IDEAS ONE</h3>
             <p>
               A landmark mixed-use development at Crown of B-17 — mall, apartments, and offices with direct access to
-              Main G.T Road. Bringing 236+ commercial shops, a 130+ food court, corporate offices, and 135 luxury apartments from
+              Main G.T Road. Bringing 236+ commercial shops, a 130+ food court, corporate offices, and 135 luxury
+              apartments from
               studio (450 sq.ft) to 3-bedroom (2,000 sq.ft) into one prestigious address.
             </p>
 
             <div class="project-specs-list">
               <div class="spec-box">
                 <b>Location</b>
-                <span>Gate 2, B-17 Main G.T Road</span>
+                <span>Main G.T Road, B-17, Islamabad</span>
               </div>
               <div class="spec-box">
                 <b>Commercial Units</b>
@@ -3423,30 +3708,45 @@
 
             <!-- Floor Plan Selector for IDEAS ONE -->
             <div class="floor-tabs-wrap">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
-                <p style="font-size:0.8rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; margin:0; letter-spacing:0.08em;">
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                <p
+                  style="font-size:0.8rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; margin:0; letter-spacing:0.08em;">
                   Explore Apartment Layouts &amp; Sizes:
                 </p>
-                <span id="ideasOneSizeBadge" style="font-size:0.75rem; font-weight:700; color:var(--gold-light); background:rgba(223,162,59,0.14); border:1px solid rgba(223,162,59,0.35); border-radius:14px; padding:3px 12px;">
+                <span id="ideasOneSizeBadge"
+                  style="font-size:0.75rem; font-weight:700; color:var(--gold-light); background:rgba(223,162,59,0.14); border:1px solid rgba(223,162,59,0.35); border-radius:14px; padding:3px 12px;">
                   Gross Area: 450 &amp; 720 Sq.ft
                 </span>
               </div>
               <div class="floor-tab-buttons">
-                <button class="floor-tab-btn active" onclick="switchFloorPlan('images/one/ideas_one_studio_1bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 450 &amp; 720 Sq.ft')">
+                <button class="floor-tab-btn active"
+                  onclick="switchFloorPlan('images/one/ideas_one_studio_1bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 450 &amp; 720 Sq.ft')">
                   Studio &amp; 1-Bed
                 </button>
-                <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_2bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 1,400 &amp; 1,450 Sq.ft')">
+                <button class="floor-tab-btn"
+                  onclick="switchFloorPlan('images/one/ideas_one_2bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 1,400 &amp; 1,450 Sq.ft')">
                   2-Bed Luxury
                 </button>
-                <button class="floor-tab-btn" onclick="switchFloorPlan('images/one/ideas_one_3bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 2,000 Sq.ft')">
+                <button class="floor-tab-btn"
+                  onclick="switchFloorPlan('images/one/ideas_one_3bed.png', this, 'floorPlanDisplayOne', 'Gross Area: 2,000 Sq.ft')">
                   3-Bed Executive
                 </button>
               </div>
 
-              <a id="floorPlanDisplayOneZoom" href="images/one/ideas_one_studio_1bed.png" target="_blank" rel="noopener noreferrer" class="floor-plan-preview-box light-bg" title="Click to view full layout diagram">
-                <img id="floorPlanDisplayOne" src="images/one/ideas_one_studio_1bed.png" alt="IDEAS ONE Studio &amp; 1-Bed Apartment Layouts" class="floor-plan-img" loading="lazy" decoding="async">
+              <a id="floorPlanDisplayOneZoom" href="images/one/ideas_one_studio_1bed.png" target="_blank"
+                rel="noopener noreferrer" class="floor-plan-preview-box light-bg"
+                title="Click to view full layout diagram">
+                <img id="floorPlanDisplayOne" src="images/one/ideas_one_studio_1bed.png"
+                  alt="IDEAS ONE Studio &amp; 1-Bed Apartment Layouts" class="floor-plan-img" loading="lazy"
+                  decoding="async">
                 <span class="zoom-indicator">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
                   Click to Expand High-Res
                 </span>
               </a>
@@ -3456,7 +3756,8 @@
             <div class="operating-brands-spotlight">
               <div class="obs-header">
                 <span class="obs-title">
-                  <span class="live-beacon"><span class="live-beacon-ring"></span><span class="live-beacon-dot"></span></span>
+                  <span class="live-beacon"><span class="live-beacon-ring"></span><span
+                      class="live-beacon-dot"></span></span>
                   Brands Already Operating In Mall:
                 </span>
                 <a href="ideas-one.html#brands" class="obs-view-all">View Mall Brands Showcase &rarr;</a>
@@ -3487,11 +3788,20 @@
 
             <div class="project-action-btns">
               <a href="payment-plans.html#payment-one" class="btn btn-gold btn-plan-jump">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;">
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
                 View Payment Plan
               </a>
               <a href="ideas-one.html" class="btn btn-outline btn-mall-showcase">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
                 Explore IDEAS ONE Mall &amp; Operating Brands &rarr;
               </a>
               <a href="#contact" class="btn btn-outline">Inquire About IDEAS One</a>
@@ -3501,20 +3811,36 @@
             <!-- IDEAS ONE Official Social Channels -->
             <div class="project-socials-box">
               <span class="project-socials-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
                 Connect With IDEAS ONE:
               </span>
               <div class="social-badges-wrap">
-                <a href="https://www.facebook.com/crownofb17/" target="_blank" rel="noopener noreferrer" class="social-badge badge-fb" title="IDEAS ONE Facebook">
-                  <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <a href="https://www.facebook.com/crownofb17/" target="_blank" rel="noopener noreferrer"
+                  class="social-badge badge-fb" title="IDEAS ONE Facebook">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
                   <span>Facebook</span>
                 </a>
-                <a href="https://www.instagram.com/crownofb17/" target="_blank" rel="noopener noreferrer" class="social-badge badge-ig" title="IDEAS ONE Instagram">
-                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://www.instagram.com/crownofb17/" target="_blank" rel="noopener noreferrer"
+                  class="social-badge badge-ig" title="IDEAS ONE Instagram">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
                   <span>Instagram</span>
                 </a>
-                <a href="https://www.tiktok.com/@crownofb17" target="_blank" rel="noopener noreferrer" class="social-badge badge-tt" title="IDEAS ONE TikTok">
-                  <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                <a href="https://www.tiktok.com/@crownofb17" target="_blank" rel="noopener noreferrer"
+                  class="social-badge badge-tt" title="IDEAS ONE TikTok">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z" />
+                  </svg>
                   <span>TikTok</span>
                 </a>
               </div>
@@ -3529,7 +3855,8 @@
           <div class="project-featured-media">
             <img src="images/tower/ideas_tower_night.jpg" alt="IDEAS Tower Elevation at Night"
               class="project-featured-img" loading="lazy" decoding="async">
-            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring gold"></span><span class="live-beacon-dot gold"></span></span>Residential High-Rise · 90% Complete</span>
+            <span class="project-badge-tag"><span class="live-beacon"><span class="live-beacon-ring gold"></span><span
+                  class="live-beacon-dot gold"></span></span>Residential High-Rise · 90% Complete</span>
           </div>
 
           <div class="project-featured-info">
@@ -3578,11 +3905,17 @@
                   onclick="switchFloorPlan('images/tower/ideas_tower_elevation.jpg', this)">Elevation</button>
               </div>
 
-              <a id="floorPlanDisplayZoom" href="images/tower/typea.jpg" target="_blank" rel="noopener noreferrer" class="floor-plan-preview-box" title="Click to view full layout diagram">
+              <a id="floorPlanDisplayZoom" href="images/tower/typea.jpg" target="_blank" rel="noopener noreferrer"
+                class="floor-plan-preview-box" title="Click to view full layout diagram">
                 <img id="floorPlanDisplay" src="images/tower/typea.jpg" alt="IDEAS Tower Floor Plan"
                   class="floor-plan-img" loading="lazy" decoding="async">
                 <span class="zoom-indicator">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
                   Click to Expand
                 </span>
               </a>
@@ -3590,7 +3923,11 @@
 
             <div class="project-action-btns">
               <a href="payment-plans.html#payment-tower" class="btn btn-gold btn-plan-jump">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" style="margin-right: 7px;">
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
                 View Payment Plan
               </a>
               <a href="#contact" class="btn btn-outline">Inquire About IDEAS Tower</a>
@@ -3599,16 +3936,28 @@
             <!-- IDEAS Tower Official Social Channels -->
             <div class="project-socials-box">
               <span class="project-socials-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
                 Connect With IDEAS Tower:
               </span>
               <div class="social-badges-wrap">
-                <a href="https://www.instagram.com/ideastowerislamabad/reels/" target="_blank" rel="noopener noreferrer" class="social-badge badge-ig" title="IDEAS Tower Instagram Reels">
-                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://www.instagram.com/ideastowerislamabad/reels/" target="_blank" rel="noopener noreferrer"
+                  class="social-badge badge-ig" title="IDEAS Tower Instagram Reels">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
                   <span>Instagram Reels</span>
                 </a>
-                <a href="https://www.tiktok.com/@ideastowerb17" target="_blank" rel="noopener noreferrer" class="social-badge badge-tt" title="IDEAS Tower TikTok">
-                  <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+                <a href="https://www.tiktok.com/@ideastowerb17" target="_blank" rel="noopener noreferrer"
+                  class="social-badge badge-tt" title="IDEAS Tower TikTok">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z" />
+                  </svg>
                   <span>TikTok</span>
                 </a>
               </div>
@@ -3626,16 +3975,28 @@
     <div class="container">
       <div class="plan-callout-card reveal-item">
         <span class="kicker" style="margin-bottom: 10px;">CDA-Approved Investment Schedules</span>
-        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.4vw, 2.85rem); color: var(--text-darkest); margin-bottom: 16px; line-height: 1.25; font-weight: 700;">
-          Transparent &amp; Flexible <span style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Payment Plans</span>
+        <h2
+          style="font-family: var(--font-heading); font-size: clamp(2rem, 3.4vw, 2.85rem); color: var(--text-darkest); margin-bottom: 16px; line-height: 1.25; font-weight: 700;">
+          Transparent &amp; Flexible <span
+            style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Payment
+            Plans</span>
         </h2>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px; max-width: 760px; margin-left: auto; margin-right: auto;">
-          Explore verified per-sq.ft. pricing, flexible 18 to 60-month installment schedules, and official downloadable flyers for 
-          <strong style="color: var(--text-darkest);">IDEAS ONE</strong> and <strong style="color: var(--text-darkest);">IDEAS Tower</strong> in Sector B-17, Islamabad, with 10% lump-sum cash discount savings.
+        <p
+          style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px; max-width: 760px; margin-left: auto; margin-right: auto;">
+          Explore verified per-sq.ft. pricing, flexible 18 to 60-month installment schedules, and official downloadable
+          flyers for
+          <strong style="color: var(--text-darkest);">IDEAS ONE</strong> and <strong
+            style="color: var(--text-darkest);">IDEAS Tower</strong> in Sector B-17, Islamabad, with 10% lump-sum cash
+          discount savings.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="payment-plans.html" class="btn btn-gold" style="font-size: 0.94rem; padding: 14px 34px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="16" y1="14" x2="16" y2="18"></line>
+              <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path>
+            </svg>
             Explore Payment Plans &rarr;
           </a>
         </div>
@@ -3661,16 +4022,28 @@
       <div class="why-pillars-grid mobile-carousel">
         <div class="pillar-card reveal-item delay-1">
           <div class="pillar-img-frame">
-            <img src="images/pillars/pillar_engineering.jpg" alt="High-Rise Engineering Excellence — Modern High-Rise Structural Construction" class="pillar-img" loading="lazy" decoding="async">
+            <img src="images/pillars/pillar_engineering.jpg"
+              alt="High-Rise Engineering Excellence — Modern High-Rise Structural Construction" class="pillar-img"
+              loading="lazy" decoding="async">
             <div class="pillar-img-overlay"></div>
             <span class="pillar-icon-badge" title="Engineering Excellence">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                <path d="M10 6h4"></path>
+                <path d="M10 10h4"></path>
+                <path d="M10 14h4"></path>
+                <path d="M10 18h4"></path>
+              </svg>
             </span>
           </div>
           <div class="pillar-card-content">
             <h3>High-Rise Engineering Excellence</h3>
             <p>
-              Specialists in modern high-rise RCC structures, intelligent building systems, and sustainable architectural
+              Specialists in modern high-rise RCC structures, intelligent building systems, and sustainable
+              architectural
               design that delivers enduring structural integrity.
             </p>
           </div>
@@ -3678,10 +4051,19 @@
 
         <div class="pillar-card reveal-item delay-2">
           <div class="pillar-img-frame">
-            <img src="images/pillars/pillar_approvals.jpg" alt="Fiduciary Trust & CDA Approvals — Verified CDA Approved Master Real Estate" class="pillar-img" loading="lazy" decoding="async">
+            <img src="images/pillars/pillar_approvals.jpg"
+              alt="Fiduciary Trust & CDA Approvals — Verified CDA Approved Master Real Estate" class="pillar-img"
+              loading="lazy" decoding="async">
             <div class="pillar-img-overlay"></div>
             <span class="pillar-icon-badge" title="Fiduciary Trust & Approvals">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                <path d="M7 21h10"></path>
+                <path d="M12 3v18"></path>
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+              </svg>
             </span>
           </div>
           <div class="pillar-card-content">
@@ -3695,16 +4077,24 @@
 
         <div class="pillar-card reveal-item delay-3">
           <div class="pillar-img-frame">
-            <img src="images/pillars/pillar_growth.jpg" alt="Strategic Locations & 21% YoY Growth — Main G.T Road Sector B-17 Islamabad" class="pillar-img" loading="lazy" decoding="async">
+            <img src="images/pillars/pillar_growth.jpg"
+              alt="Strategic Locations & 21% YoY Growth — Main G.T Road Sector B-17 Islamabad" class="pillar-img"
+              loading="lazy" decoding="async">
             <div class="pillar-img-overlay"></div>
             <span class="pillar-icon-badge" title="Strategic Location & High ROI">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
             </span>
           </div>
           <div class="pillar-card-content">
             <h3>Strategic Locations & 21% YoY Growth</h3>
             <p>
-              Master developments strategically situated on Main G.T Road at Gate 2, B-17 Islamabad, capturing high rental
+              Master developments strategically situated on Main G.T Road at Gate 2, B-17 Islamabad, capturing high
+              rental
               demand and up to 21% annual property growth.
             </p>
           </div>
@@ -3721,121 +4111,235 @@
         <div class="amenities-grid">
           <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
             </span>
             <span>24/7 Security with CCTV</span>
           </div>
           <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="9" y1="6" x2="9.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="9" y1="14" x2="9.01" y2="14"></line><line x1="15" y1="14" x2="15.01" y2="14"></line><path d="M10 22v-4h4v4"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="9" y1="6" x2="9.01" y2="6"></line>
+                <line x1="15" y1="6" x2="15.01" y2="6"></line>
+                <line x1="9" y1="10" x2="9.01" y2="10"></line>
+                <line x1="15" y1="10" x2="15.01" y2="10"></line>
+                <line x1="9" y1="14" x2="9.01" y2="14"></line>
+                <line x1="15" y1="14" x2="15.01" y2="14"></line>
+                <path d="M10 22v-4h4v4"></path>
+              </svg>
             </span>
             <span>Smart Building Management</span>
           </div>
           <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><polyline points="7 10 9 7 11 10"></polyline><polyline points="13 14 15 17 17 14"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <polyline points="7 10 9 7 11 10"></polyline>
+                <polyline points="13 14 15 17 17 14"></polyline>
+              </svg>
             </span>
             <span>High-Speed Elevators</span>
           </div>
           <div class="amenity-chip reveal-item delay-1">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                <path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path>
+              </svg>
             </span>
             <span>Dedicated & Guest Parking</span>
           </div>
           <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
             </span>
             <span>Rooftop 360° Restaurant</span>
           </div>
           <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path><path d="M2 16c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path><circle cx="16" cy="5" r="2"></circle><path d="m11 11 3-3 4 2"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M2 20c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path>
+                <path d="M2 16c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path>
+                <circle cx="16" cy="5" r="2"></circle>
+                <path d="m11 11 3-3 4 2"></path>
+              </svg>
             </span>
             <span>Indoor Swimming Pool</span>
           </div>
           <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a3 3 0 0 0-4.24 0l-1.42 1.42a3 3 0 0 1-4.24 0L6 17.34a3 3 0 0 1 0-4.24l1.42-1.42a3 3 0 0 0 0-4.24L6.34 6.34"></path><path d="m3 3 3.34 3.34"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m6.5 6.5 11 11"></path>
+                <path
+                  d="m21 21-1-1a3 3 0 0 0-4.24 0l-1.42 1.42a3 3 0 0 1-4.24 0L6 17.34a3 3 0 0 1 0-4.24l1.42-1.42a3 3 0 0 0 0-4.24L6.34 6.34">
+                </path>
+                <path d="m3 3 3.34 3.34"></path>
+              </svg>
             </span>
             <span>Health Club & Spa</span>
           </div>
           <div class="amenity-chip reveal-item delay-2">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 6-6 4 4 8-8"></path><path d="M22 6h-6"></path><path d="M22 6v6"></path><path d="M2 20c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m2 16 6-6 4 4 8-8"></path>
+                <path d="M22 6h-6"></path>
+                <path d="M22 6v6"></path>
+                <path d="M2 20c2.5 0 2.5 1.5 5 1.5s2.5-1.5 5-1.5 2.5 1.5 5 1.5 2.5-1.5 5-1.5"></path>
+              </svg>
             </span>
             <span>Scenic Dual Lake Views</span>
           </div>
           <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
             </span>
             <span>Uninterrupted Power Backup</span>
           </div>
           <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"></rect><path d="M6 16h4l4-8h4"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="18" rx="2"></rect>
+                <path d="M6 16h4l4-8h4"></path>
+              </svg>
             </span>
             <span>Modern Escalators & Mall</span>
           </div>
           <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4v-3"></path><path d="M12 3v8"></path><path d="M7 6v5"></path><path d="M17 6v5"></path><line x1="3" y1="21" x2="21" y2="21"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 11v3a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4v-3"></path>
+                <path d="M12 3v8"></path>
+                <path d="M7 6v5"></path>
+                <path d="M17 6v5"></path>
+                <line x1="3" y1="21" x2="21" y2="21"></line>
+              </svg>
             </span>
             <span>130+ Food Court Outlets</span>
           </div>
           <div class="amenity-chip reveal-item delay-3">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
+              </svg>
             </span>
             <span>24/7 On-Site Maintenance</span>
           </div>
           <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><line x1="15" y1="13" x2="15.01" y2="13"></line><line x1="18" y1="11" x2="18.01" y2="11"></line><rect x="2" y="6" width="20" height="12" rx="6"></rect></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="6" y1="12" x2="10" y2="12"></line>
+                <line x1="8" y1="10" x2="8" y2="14"></line>
+                <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+              </svg>
             </span>
             <span>Indoor Games & Recreation</span>
           </div>
           <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
             </span>
             <span>Kids Play Area & Day Care</span>
           </div>
           <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
             </span>
             <span>Departmental Store</span>
           </div>
           <div class="amenity-chip reveal-item delay-4">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z">
+                </path>
+              </svg>
             </span>
             <span>Fire Fighting & Waste Systems</span>
           </div>
           <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+              </svg>
             </span>
             <span>Smart Card Access Control</span>
           </div>
           <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"></path><path d="M14 9V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4"></path><path d="m18 11 3-3-3-3"></path><path d="M21 8h-4"></path><polygon points="9 8 7 13 11 13 9 18 13 11 9 11 9 8"></polygon></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"></path>
+                <path d="M14 9V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4"></path>
+                <path d="m18 11 3-3-3-3"></path>
+                <path d="M21 8h-4"></path>
+                <polygon points="9 8 7 13 11 13 9 18 13 11 9 11 9 8"></polygon>
+              </svg>
             </span>
             <span>EV Charging Stations</span>
           </div>
           <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
             </span>
             <span>Executive Community Center</span>
           </div>
           <div class="amenity-chip reveal-item delay-5">
             <span class="chip-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
             </span>
             <span>High-Speed Fiber Connectivity</span>
           </div>
@@ -3892,35 +4396,64 @@
         <div class="connectivity-grid mobile-carousel">
           <div class="connect-card reveal-item delay-1">
             <div class="connect-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 19 4-14h8l4 14"></path><line x1="12" y1="5" x2="12" y2="8"></line><line x1="12" y1="12" x2="12" y2="15"></line><line x1="12" y1="19" x2="12" y2="21"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m4 19 4-14h8l4 14"></path>
+                <line x1="12" y1="5" x2="12" y2="8"></line>
+                <line x1="12" y1="12" x2="12" y2="15"></line>
+                <line x1="12" y1="19" x2="12" y2="21"></line>
+              </svg>
             </div>
             <b>Margalla Avenue</b>
             <span>1 Min Drive</span>
           </div>
           <div class="connect-card reveal-item delay-2">
             <div class="connect-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2">
+                </path>
+                <circle cx="7" cy="17" r="2"></circle>
+                <path d="M9 17h6"></path>
+                <circle cx="17" cy="17" r="2"></circle>
+              </svg>
             </div>
             <b>Motorway M-1</b>
             <span>5 Min Drive</span>
           </div>
           <div class="connect-card reveal-item delay-3">
             <div class="connect-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
             </div>
             <b>CPEC Route</b>
             <span>5 Min Drive</span>
           </div>
           <div class="connect-card reveal-item delay-4">
             <div class="connect-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z">
+                </path>
+              </svg>
             </div>
             <b>Islamabad Airport</b>
             <span>15 Mins Drive</span>
           </div>
           <div class="connect-card reveal-item delay-5">
             <div class="connect-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path><path d="m4.14 15 .86-1.5 2 2 3-3 2 2"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+                <path d="m4.14 15 .86-1.5 2 2 3-3 2 2"></path>
+              </svg>
             </div>
             <b>Hazara Motorway</b>
             <span>15 Min Drive</span>
@@ -3985,7 +4518,8 @@
           <div class="site-photo-caption">IDEAS One — Basement Execution Milestone</div>
         </div>
         <div class="site-photo-card reveal-item delay-3">
-          <img src="images/one/site3.jpg" alt="IDEAS One Engineering Work at Gate 2 B-17" loading="lazy" decoding="async">
+          <img src="images/one/site3.jpg" alt="IDEAS One Engineering Work at Gate 2 B-17" loading="lazy"
+            decoding="async">
           <div class="site-photo-caption">IDEAS One — Gate 2, Sector B-17 Active Site</div>
         </div>
       </div>
@@ -4133,7 +4667,11 @@
           <div class="contact-details-list">
             <div class="contact-detail-row">
               <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
               </div>
               <div class="contact-detail-text">
                 <b>Head Office / Project Site</b>
@@ -4143,7 +4681,12 @@
 
             <div class="contact-detail-row">
               <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
               </div>
               <div class="contact-detail-text">
                 <b>Phone / Direct Line</b>
@@ -4153,7 +4696,11 @@
 
             <div class="contact-detail-row">
               <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
               </div>
               <div class="contact-detail-text">
                 <b>Official Email</b>
@@ -4163,7 +4710,13 @@
 
             <div class="contact-detail-row">
               <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
               </div>
               <div class="contact-detail-text">
                 <b>Official Web Portal</b>
@@ -4174,7 +4727,11 @@
 
             <div class="contact-detail-row">
               <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
               </div>
               <div class="contact-detail-text">
                 <b>Working Hours</b>
@@ -4245,7 +4802,12 @@
 
             <button type="submit" class="btn btn-gold" style="width: 100%; border-radius: 8px;">
               <span>Submit & Send via WhatsApp</span>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
             </button>
 
             <div class="form-success-msg" id="formSuccessMsg"></div>
@@ -4277,20 +4839,33 @@
             offer lasting value. Developers of IDEAS One and IDEAS Tower in Sector B-17, Islamabad.
           </p>
           <div style="margin-top: 18px;">
-            <span style="font-size:0.75rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:10px;">
+            <span
+              style="font-size:0.75rem; font-weight:700; color:var(--gold-primary); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:10px;">
               Follow IDEAS Group:
             </span>
             <div class="social-badges-wrap">
-              <a href="https://www.facebook.com/profile.php?id=61591907822976" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Facebook">
-                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <a href="https://www.facebook.com/profile.php?id=61591907822976" target="_blank" rel="noopener noreferrer"
+                class="social-chip" title="IDEAS Group on Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
                 <span>Facebook</span>
               </a>
-              <a href="https://www.instagram.com/ideasgroup.bnd/" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <a href="https://www.instagram.com/ideasgroup.bnd/" target="_blank" rel="noopener noreferrer"
+                class="social-chip" title="IDEAS Group on Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
                 <span>Instagram</span>
               </a>
-              <a href="https://www.tiktok.com/@ideas.group" target="_blank" rel="noopener noreferrer" class="social-chip" title="IDEAS Group on TikTok">
-                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z"/></svg>
+              <a href="https://www.tiktok.com/@ideas.group" target="_blank" rel="noopener noreferrer"
+                class="social-chip" title="IDEAS Group on TikTok">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.74 1.45-.1 2.66-.99 3.05-2.39.2-.67.24-1.38.24-2.08V.02h.02z" />
+                </svg>
                 <span>TikTok</span>
               </a>
             </div>
@@ -4327,24 +4902,50 @@
           <h5>Catch Us Here</h5>
           <ul style="gap: 12px;">
             <li style="color:#94a3b8; font-size:0.88rem; display:flex; align-items:flex-start; gap:8px;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               <span>Gate 2, Sector B-17, Islamabad</span>
             </li>
             <li style="display:flex; align-items:center; gap:8px;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
               <a href="mailto:info@ideasgroup.pk">info@ideasgroup.pk</a>
             </li>
             <li style="display:flex; align-items:center; gap:8px;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
               <a href="tel:03305511117">0330-5511117</a>
             </li>
             <li style="display:flex; align-items:center; gap:8px;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-              <a href="https://wa.me/923305511117" target="_blank" style="color:#25d366; font-weight:600;">WhatsApp: 0330 5511117</a>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#25d366" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+              <a href="https://wa.me/923305511117" target="_blank" style="color:#25d366; font-weight:600;">WhatsApp:
+                0330 5511117</a>
             </li>
             <li style="display:flex; align-items:center; gap:8px;">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              <a href="https://www.ideasgroup.pk" target="_blank" style="color:var(--gold-primary);">www.ideasgroup.pk</a>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--gold-primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              <a href="https://www.ideasgroup.pk" target="_blank"
+                style="color:var(--gold-primary);">www.ideasgroup.pk</a>
             </li>
           </ul>
         </div>
@@ -4377,7 +4978,9 @@
 
   <!-- Floating Back to Top Button with Dynamic Progress -->
   <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
-    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    <svg viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
   </button>
 
   <!-- ========================================================================
@@ -4691,7 +5294,7 @@
 
       // Format clean, professional WhatsApp message
       const whatsappText =
-`🏢 *NEW PROJECT INQUIRY — IDEAS GROUP*
+        `🏢 *NEW PROJECT INQUIRY — IDEAS GROUP*
 ━━━━━━━━━━━━━━━━━━━━━━━━
 👤 *Client Name:* ${name}
 📞 *Phone / Mobile:* ${phone}
@@ -4792,7 +5395,7 @@ ${message ? message : 'General Consultation / Site Visit Request'}
             // Retry on user interaction
             const resumeOnInteraction = () => {
               heroVideo.muted = true;
-              heroVideo.play().catch(() => {});
+              heroVideo.play().catch(() => { });
             };
             ['click', 'touchstart', 'scroll'].forEach(evt => {
               window.addEventListener(evt, resumeOnInteraction, { once: true, passive: true });
@@ -4807,7 +5410,7 @@ ${message ? message : 'General Consultation / Site Visit Request'}
       window.addEventListener('load', playHeroVideo);
     }
 
-    
+
     // Altaf-style Interactive Expanding Gallery Panels
     const expandingPanels = document.querySelectorAll('.expanding-panel');
     if (expandingPanels.length > 0) {
@@ -5138,7 +5741,7 @@ ${message ? message : 'General Consultation / Site Visit Request'}
 
         // Structured, elegant WhatsApp message template
         const formattedMsg =
-`🏢 *PROJECT INQUIRY — IDEAS GROUP*
+          `🏢 *PROJECT INQUIRY — IDEAS GROUP*
 ━━━━━━━━━━━━━━━━━━━━━━━━
 👤 *Client Name:* ${name}
 📞 *Contact Number:* ${phone}
