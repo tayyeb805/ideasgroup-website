@@ -569,9 +569,9 @@
        ========================================================================== */
     .about-hero {
       position: relative;
-      padding-top: 145px;
+      padding-top: 85px;
       padding-bottom: 75px;
-      background: linear-gradient(180deg, #ffffff 0%, #faf9f6 100%);
+      background: #ffffff;
       border-bottom: 1px solid var(--border-subtle);
       overflow: hidden;
       text-align: center;
@@ -934,8 +934,9 @@
        SECTION 3: EXECUTIVE LEADERSHIP & KEY EMPLOYEES
        ========================================================================== */
     .section-team {
-      padding: 105px 0;
-      background: #ffffff;
+      padding-top: clamp(125px, 9.5vw, 150px);
+      padding-bottom: 95px;
+      background: linear-gradient(180deg, #ffffff 0%, #faf9f6 100%);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
     }
@@ -1600,7 +1601,7 @@
 
     @media (max-width: 768px) {
       .about-hero {
-        padding-top: 105px;
+        padding-top: 55px;
         padding-bottom: 45px;
       }
       .about-hero h1 {
@@ -1611,8 +1612,12 @@
         font-size: 0.95rem;
         line-height: 1.6;
       }
-      .section-history, .section-philosophy, .section-team, .section-standards {
+      .section-history, .section-philosophy, .section-standards {
         padding: 50px 0;
+      }
+      .section-team {
+        padding-top: 110px !important;
+        padding-bottom: 50px !important;
       }
       .history-text h2 {
         font-size: clamp(1.65rem, 5.5vw, 2.2rem);
@@ -1736,8 +1741,12 @@
         padding: 0 16px;
       }
       .about-hero {
-        padding-top: 96px;
+        padding-top: 45px;
         padding-bottom: 38px;
+      }
+      .section-team {
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
       }
       .nav-center-brand {
         padding: 3px 6px;
@@ -1911,119 +1920,22 @@
   </aside>
 
   <!-- ========================================================================
-       HERO BANNER
-       ======================================================================== -->
-  <section class="about-hero">
-    <div class="container about-hero-content">
-      <div class="breadcrumb">
-        <a href="index.html#home">Home</a>
-        <span>/</span>
-        <span style="color: var(--gold-light);">About Us</span>
-      </div>
-
-      <div class="hero-badge-gold">
-        <span>✦</span> Established 1995 · Three Decades of Engineering Distinction <span>✦</span>
-      </div>
-
-      <h1>
-        Crafting Skylines, <span>Building Enduring Trust</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Founded in 1995, IDEAS Group Builders & Developers has pioneered institutional-grade construction, 
-        CDA-compliant architecture, and landmark commercial & residential developments at the Crown of Sector B-17, Islamabad.
-      </p>
-
-      <!-- Trust Metrics Strip -->
-      <div class="about-stats-strip mobile-carousel">
-        <div class="stat-pill">
-          <span class="num">1995</span>
-          <span class="lbl">Established Legacy</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num">30+</span>
-          <span class="lbl">Years Experience</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num">236+</span>
-          <span class="lbl">Commercial Shops</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num">8,000+</span>
-          <span class="lbl">Resident Families</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       SECTION 1: MISSION, VISION & PHILOSOPHY
-       ======================================================================== -->
-  <section class="section-philosophy" id="philosophy">
-    <div class="container">
-      <div class="section-header">
-        <span class="kicker">Guiding Principles</span>
-        <h2>The Core Pillars That Drive IDEAS Group</h2>
-        <p>Every blueprint we draft and every foundation we pour is anchored in four uncompromising values that protect our buyers, partners, and investors.</p>
-      </div>
-
-      <div class="pillars-grid-4 mobile-carousel">
-        <!-- Pillar 1 -->
-        <div class="pillar-card">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
-          </div>
-          <h3>Structural Integrity</h3>
-          <p>
-            Engineered with high-grade seismic-resistant rebar, ASTM-standard certified concrete batches, and heavy piling foundations designed to endure for generations.
-          </p>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="pillar-card">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-          </div>
-          <h3>100% CDA Compliance</h3>
-          <p>
-            Complete legal transparency and statutory compliance. All building bylaws, NOC approvals, and floor allocations adhere strictly to CDA and MPCHS regulations.
-          </p>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="pillar-card">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg>
-          </div>
-          <h3>Capital Appreciation</h3>
-          <p>
-            Strategic positioning on Main G.T Road, B-17 Gate 2 guarantees maximum footfall, double-digit annual property appreciation, and sustained rental yields.
-          </p>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="pillar-card">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="4" y1="18" x2="20" y2="18"></line><line x1="3" y1="6" x2="21" y2="6"></line><path d="M4 6 12 2l8 4"></path><line x1="6" y1="6" x2="6" y2="18"></line><line x1="10" y1="6" x2="10" y2="18"></line><line x1="14" y1="6" x2="14" y2="18"></line><line x1="18" y1="6" x2="18" y2="18"></line></svg>
-          </div>
-          <h3>Architectural Distinction</h3>
-          <p>
-            Harmonious blend of contemporary glass-and-steel facades, natural sunlight, ventilated atriums, and human-centric living spaces created by award-winning architects.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       SECTION 2: EXECUTIVE LEADERSHIP & KEY EMPLOYEES
+       SECTION 1: EXECUTIVE LEADERSHIP & KEY EMPLOYEES
        ======================================================================== -->
   <section class="section-team" id="team">
     <div class="container">
 
       <div class="section-header">
-        <span class="kicker">Leadership & Engineering Excellence</span>
+        <div class="breadcrumb-wrap" style="margin-bottom: 16px;">
+          <div class="breadcrumb" style="margin-bottom: 0;">
+            <a href="index.html#home">Home</a>
+            <span>/</span>
+            <span style="color: var(--gold-dark); font-weight: 600;">About Us</span>
+          </div>
+        </div>
+        <div class="kicker-wrap" style="margin-bottom: 12px;">
+          <span class="kicker" style="margin-bottom: 0;">Leadership & Engineering Excellence</span>
+        </div>
         <h2>Meet the Minds Behind IDEAS Group</h2>
         <p>Our multidisciplinary team unites seasoned corporate visionaries, chartered structural engineers, lead architects, and project directors dedicated to building Islamabad's skyline.</p>
       </div>
@@ -2314,6 +2226,106 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: ABOUT OVERVIEW & STATS
+       ======================================================================== -->
+  <section class="about-hero">
+    <div class="container about-hero-content">
+      <div class="hero-badge-gold">
+        <span>✦</span> Established 1995 · Three Decades of Engineering Distinction <span>✦</span>
+      </div>
+
+      <h1>
+        Crafting Skylines, <span>Building Enduring Trust</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Founded in 1995, IDEAS Group Builders & Developers has pioneered institutional-grade construction, 
+        CDA-compliant architecture, and landmark commercial & residential developments at the Crown of Sector B-17, Islamabad.
+      </p>
+
+      <!-- Trust Metrics Strip -->
+      <div class="about-stats-strip mobile-carousel">
+        <div class="stat-pill">
+          <span class="num">1995</span>
+          <span class="lbl">Established Legacy</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">30+</span>
+          <span class="lbl">Years Experience</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">236+</span>
+          <span class="lbl">Commercial Shops</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">8,000+</span>
+          <span class="lbl">Resident Families</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 3: MISSION, VISION & PHILOSOPHY
+       ======================================================================== -->
+  <section class="section-philosophy" id="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <span class="kicker">Guiding Principles</span>
+        <h2>The Core Pillars That Drive IDEAS Group</h2>
+        <p>Every blueprint we draft and every foundation we pour is anchored in four uncompromising values that protect our buyers, partners, and investors.</p>
+      </div>
+
+      <div class="pillars-grid-4 mobile-carousel">
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+          </div>
+          <h3>Structural Integrity</h3>
+          <p>
+            Engineered with high-grade seismic-resistant rebar, ASTM-standard certified concrete batches, and heavy piling foundations designed to endure for generations.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <h3>100% CDA Compliance</h3>
+          <p>
+            Complete legal transparency and statutory compliance. All building bylaws, NOC approvals, and floor allocations adhere strictly to CDA and MPCHS regulations.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg>
+          </div>
+          <h3>Capital Appreciation</h3>
+          <p>
+            Strategic positioning on Main G.T Road, B-17 Gate 2 guarantees maximum footfall, double-digit annual property appreciation, and sustained rental yields.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="4" y1="18" x2="20" y2="18"></line><line x1="3" y1="6" x2="21" y2="6"></line><path d="M4 6 12 2l8 4"></path><line x1="6" y1="6" x2="6" y2="18"></line><line x1="10" y1="6" x2="10" y2="18"></line><line x1="14" y1="6" x2="14" y2="18"></line><line x1="18" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+          <h3>Architectural Distinction</h3>
+          <p>
+            Harmonious blend of contemporary glass-and-steel facades, natural sunlight, ventilated atriums, and human-centric living spaces created by award-winning architects.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
