@@ -239,6 +239,20 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     }
 
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff !important;
+      border: 1px solid #25d366;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.5);
+      filter: brightness(1.06);
+      color: #ffffff !important;
+    }
+
     /* ==========================================================================
        HEADER & NAVIGATION (ALTAF DEVELOPMENTS MINIMAL FROSTED NAVBAR)
        ========================================================================== */
@@ -1054,34 +1068,57 @@
 
     .hero-intro-title {
       font-family: var(--font-brand);
-      font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
       font-weight: 800;
-      letter-spacing: 0.08em;
-      line-height: 1.15;
-      margin-bottom: 18px;
+      letter-spacing: -0.015em;
+      line-height: 1.18;
+      margin-bottom: 22px;
       color: var(--text-darkest);
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-intro-title span {
-      display: block;
-      font-size: 0.44em;
-      font-family: var(--font-brand);
-      font-weight: 700;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
+      display: inline;
+      font-size: 1em;
+      font-family: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-top: 10px;
+      margin-top: 0;
     }
 
     .hero-intro-desc {
-      font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+      max-width: 920px;
+      margin: 0 auto 34px auto;
+    }
+
+    .hero-lead-line {
+      font-size: clamp(1.06rem, 1.25vw, 1.22rem);
+      font-weight: 600;
+      color: var(--text-darkest);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .hero-mid-line {
+      font-size: clamp(0.96rem, 1.1vw, 1.06rem);
       font-weight: 400;
       color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 34px;
-      max-width: 960px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .hero-punch-line {
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      font-weight: 700;
+      color: var(--gold-dark);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
     }
 
     .hero-intro-actions {
@@ -3150,26 +3187,33 @@
     <div class="container hero-intro-wrapper">
       <div class="hero-intro-content">
         <div class="hero-badge">
-          <span>✦</span> Established 1995 · Builders &amp; Developers <span>✦</span>
+          <span>✦</span> Builders &amp; Developers in Islamabad Since 1995 <span>✦</span>
         </div>
 
         <h1 class="hero-intro-title">
-          IDEAS GROUP
-          <span>Builders &amp; Developers</span>
+          High-Rise Landmarks <span>You Can Trust To Last.</span>
         </h1>
 
-        <p class="hero-intro-desc">
-          Shaping Islamabad's skyline with landmark high-rise developments since 1995. Committed to delivering quality
-          developments that offer lasting value, engineering excellence, and premier residential &amp; commercial landmarks.
-        </p>
+        <div class="hero-intro-desc">
+          <p class="hero-lead-line">
+            Over 30 years of high-rise residential and commercial landmarks. We don't just build buildings, we build trust.
+          </p>
+          <p class="hero-mid-line">
+            From luxury apartments in the heart of Islamabad to CDA-Approved commercial landmarks on GT Road, we are the team behind 8,000+ happy families.
+          </p>
+          <p class="hero-punch-line">
+            No files. No false promises. Only delivered projects and on-ground reality.
+          </p>
+        </div>
 
         <div class="hero-intro-actions">
           <a href="#projects" class="btn btn-gold">
-            <span>Explore Developments</span>
+            <span>View Our Projects</span>
             <span>→</span>
           </a>
-          <a href="#contact" class="btn btn-outline">
-            <span>Get in Touch</span>
+          <a href="https://wa.me/923305511117?text=Hello%20Ideas%20Group%2C%20I%20am%20interested%20in%20your%20projects." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.055-1.114-.08a10.94 10.94 0 0 1-2.073-1.041c-1.396-1.002-2.3-2.534-2.366-2.624-.066-.09-.545-.724-.545-1.38 0-.655.344-.979.467-1.109.123-.131.268-.164.358-.164.09 0 .179.002.257.006.082.004.193-.031.302.23.115.276.393.957.427 1.027.034.07.057.151.01.242-.047.091-.07.148-.14.23-.07.082-.148.183-.211.246-.07.07-.143.146-.062.285.082.139.363.598.779.969.536.478.988.626 1.128.696.14.07.222.058.305-.038.082-.096.353-.41.447-.551.094-.141.189-.118.318-.07.13.047.824.388.966.459.141.07.236.106.27.165.034.059.034.343-.11.748z"/></svg>
+            <span>Chat on WhatsApp</span>
           </a>
         </div>
 
