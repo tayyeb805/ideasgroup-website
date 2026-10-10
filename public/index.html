@@ -772,46 +772,6 @@
       pointer-events: none;
     }
 
-    /* Hero Click Hint Pill */
-    .hero-click-hint {
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-      pointer-events: none;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .hero-hint-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: rgba(10, 12, 18, 0.62);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(223, 162, 59, 0.45);
-      padding: 9px 22px;
-      border-radius: 30px;
-      color: #ffffff;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      transition: all 0.3s ease;
-    }
-
-    .hero-hint-pill svg {
-      color: var(--gold-primary);
-    }
-
-    .hero-section:hover .hero-hint-pill {
-      background: rgba(15, 18, 26, 0.88);
-      border-color: var(--gold-primary);
-      box-shadow: 0 10px 30px rgba(223, 162, 59, 0.35);
-      transform: translateY(-2px);
-    }
 
     /* Hero Contact Popup Modal */
     .hero-modal-backdrop {
@@ -3097,12 +3057,6 @@
         <source src="final_video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-click-hint">
-      <div class="hero-hint-pill">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        <span>Click Anywhere to Inquire</span>
-      </div>
     </div>
   </section>
 
